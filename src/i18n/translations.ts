@@ -930,7 +930,33 @@ const en: typeof fi = {
   },
 };
 
-export type Locale = "fi" | "en";
+export type Locale = "fi" | "en" | "sv" | "es" | "de" | "fr" | "it" | "pt";
 export type Translations = typeof fi;
 
-export const translations: Record<Locale, Translations> = { fi, en };
+// Lazy-load extra translations to keep initial bundle small
+import { sv, es, de } from "./translations-extra1";
+import { fr, it, pt } from "./translations-extra2";
+
+export const translations: Record<Locale, Translations> = { fi, en, sv, es, de, fr, it, pt };
+
+export const localeNames: Record<Locale, string> = {
+  fi: "Suomi",
+  en: "English",
+  sv: "Svenska",
+  es: "Español",
+  de: "Deutsch",
+  fr: "Français",
+  it: "Italiano",
+  pt: "Português",
+};
+
+export const localeFlags: Record<Locale, string> = {
+  fi: "🇫🇮",
+  en: "🇬🇧",
+  sv: "🇸🇪",
+  es: "🇪🇸",
+  de: "🇩🇪",
+  fr: "🇫🇷",
+  it: "🇮🇹",
+  pt: "🇵🇹",
+};
