@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hammaslääkäriasema Dent Å — Hammaslääkäri Turku</title>
+<meta name="description" content="Hammaslääkäriasema Dent Å — Moderni hammashoito Turussa. Kokenut tiimi, uusin teknologia ja kattavat hammashoitopalvelut koko perheelle.">
+<meta property="og:title" content="Hammaslääkäriasema Dent Å — Hammaslääkäri Turku">
+<meta property="og:description" content="Moderni hammashoito Turussa. Kokenut tiimi, uusin teknologia ja kattavat hammashoitopalvelut.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="hammaslääkäri, turku, hammashoito, dent å, hammasklinikka, hampaiden valkaisu, implantti, oikomishoito, juurihoito">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🦷</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Hammaslääkäriasema Dent Å",
+  "description": "Moderni hammashoito Turussa. Kokenut tiimi ja uusin teknologia.",
+  "telephone": "+358201123000",
+  "email": "info@denta.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Turku",
+    "addressCountry": "FI"
+  },
+  "priceRange": "€€"
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#00d1ff;
+  --primary-dark:#00a8cc;
+  --primary-glow:rgba(0,209,255,.15);
+  --primary-glow-strong:rgba(0,209,255,.25);
+  --bg:#0a0a0f;
+  --bg-card:#12121a;
+  --bg-card-hover:#1a1a26;
+  --bg-surface:#0e0e16;
+  --white:#ffffff;
+  --text:#c8ccd4;
+  --text-light:#8a8f9a;
+  --heading:#f0f2f5;
+  --border:rgba(255,255,255,.06);
+  --border-hover:rgba(0,209,255,.2);
+  --radius:16px;
+  --shadow:0 4px 24px rgba(0,0,0,.3);
+  --shadow-lg:0 12px 48px rgba(0,0,0,.5);
+  --font-heading:'DM Sans', sans-serif;
+  --font-body:'Inter', sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:color .3s}
+a:hover{color:#fff}
+h1,h2,h3,h4{font-family:var(--font-heading);color:var(--heading);letter-spacing:-.02em}
+img{max-width:100%;display:block}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary-dark);border-radius:10px}
+::selection{background:var(--primary);color:var(--bg)}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(0,209,255,.1)}50%{box-shadow:0 0 40px rgba(0,209,255,.25)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+.reveal-delay-5{transition-delay:.5s}
+.reveal-delay-6{transition-delay:.6s}
+.reveal-delay-7{transition-delay:.7s}
+
+/* ===== PREVIEW BANNER ===== */
+.preview-banner{
+  background:linear-gradient(135deg,#00d1ff 0%,#0091b3 100%);
+  color:var(--bg);padding:13px 20px;text-align:center;font-size:.85rem;
+  font-weight:600;position:relative;z-index:1001;letter-spacing:.02em;
+}
+.preview-banner a{color:var(--bg);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.preview-banner a:hover{color:#fff}
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:999;
+  background:rgba(10,10,15,.85);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  transition:all .3s ease;
+}
+.nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.4);border-bottom-color:var(--border-hover)}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;height:72px;
+}
+.nav-logo{
+  font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--heading);
+  display:flex;align-items:center;gap:12px;
+}
+.nav-logo-icon{
+  width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{
+  color:var(--text-light);font-size:.88rem;font-weight:500;
+  transition:color .3s;position:relative;
+}
+.nav-links a:hover{color:var(--primary)}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+  background:var(--primary);transition:width .3s;border-radius:2px;
+}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--primary);color:var(--bg);padding:10px 24px;border-radius:50px;
+  font-weight:700;font-size:.88rem;transition:all .3s;border:none;cursor:pointer;
+  font-family:var(--font-body);
+}
+.nav-cta:hover{background:#fff;color:var(--bg);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,209,255,.3)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle span{width:24px;height:2px;background:var(--heading);border-radius:2px;transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:92vh;display:flex;align-items:center;
+  background:radial-gradient(ellipse at 30% 20%,rgba(0,209,255,.06) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 80%,rgba(0,209,255,.04) 0%,transparent 50%),
+             var(--bg);
+  overflow:hidden;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.hero-orb{
+  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+}
+.hero-orb-1{width:500px;height:500px;background:rgba(0,209,255,.07);top:-150px;right:-100px;animation:float 10s ease-in-out infinite}
+.hero-orb-2{width:350px;height:350px;background:rgba(0,209,255,.05);bottom:-100px;left:-80px;animation:float 12s ease-in-out infinite 3s}
+.hero-inner{
+  max-width:1200px;margin:0 auto;padding:120px 24px 100px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:2;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--primary-glow);color:var(--primary);
+  padding:8px 20px;border-radius:50px;font-size:.82rem;font-weight:600;
+  margin-bottom:24px;animation:fadeUp .8s ease both;
+  border:1px solid rgba(0,209,255,.15);
+}
+.hero h1{
+  font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.08;color:var(--heading);
+  margin-bottom:20px;animation:fadeUp .8s ease .15s both;
+}
+.hero h1 .accent{
+  background:linear-gradient(135deg,var(--primary),#00e5ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:1.1rem;color:var(--text);line-height:1.8;margin-bottom:36px;
+  max-width:500px;animation:fadeUp .8s ease .3s both;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .8s ease .45s both}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--bg);
+  padding:16px 36px;border-radius:50px;font-weight:700;font-size:1rem;
+  transition:all .3s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-body);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,209,255,.35);color:var(--bg)}
+.btn-outline{
+  background:transparent;color:var(--heading);padding:16px 36px;border-radius:50px;
+  font-weight:600;font-size:1rem;transition:all .3s;
+  border:1.5px solid rgba(255,255,255,.15);cursor:pointer;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-body);
+}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+
+/* Hero Visual */
+.hero-visual{
+  display:flex;align-items:center;justify-content:center;
+  animation:fadeUp 1s ease .4s both;position:relative;
+}
+.hero-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:24px;padding:48px;text-align:center;
+  position:relative;overflow:hidden;width:100%;max-width:420px;
+}
+.hero-card::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--primary),transparent);
+}
+.hero-tooth{font-size:5rem;margin-bottom:20px;display:block;animation:float 6s ease-in-out infinite}
+.hero-card h3{font-size:1.4rem;margin-bottom:8px}
+.hero-card p{color:var(--text-light);font-size:.92rem}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;
+  padding-top:28px;border-top:1px solid var(--border);
+}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:var(--font-heading);font-size:1.6rem;font-weight:700;color:var(--primary)}
+.hero-stat .label{font-size:.75rem;color:var(--text-light);margin-top:2px}
+
+/* ===== SECTION SHARED ===== */
+.section{padding:100px 24px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--primary-glow);color:var(--primary);
+  padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:16px;border:1px solid rgba(0,209,255,.1);
+}
+.section-title{
+  font-size:clamp(2rem,4vw,2.8rem);line-height:1.15;margin-bottom:16px;
+}
+.section-title .accent{
+  background:linear-gradient(135deg,var(--primary),#00e5ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.section-desc{color:var(--text-light);font-size:1.05rem;max-width:600px;line-height:1.8;margin-bottom:48px}
+
+/* ===== SERVICES ===== */
+.services-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.service-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:32px 24px;transition:all .4s ease;position:relative;overflow:hidden;
+  cursor:default;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--primary),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.service-card:hover{
+  border-color:var(--border-hover);background:var(--bg-card-hover);
+  transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,209,255,.08);
+}
+.service-card:hover::before{opacity:1}
+.service-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--primary-glow);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:20px;
+  transition:all .4s;
+}
+.service-card:hover .service-icon{
+  background:var(--primary-glow-strong);transform:scale(1.05);
+}
+.service-card h3{font-size:1.05rem;margin-bottom:8px;font-weight:600}
+.service-card p{font-size:.88rem;color:var(--text-light);line-height:1.6}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-visual{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:24px;
+  padding:48px;text-align:center;position:relative;overflow:hidden;
+}
+.about-visual::after{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--primary),transparent);
+}
+.about-emoji{font-size:4rem;margin-bottom:16px;display:block}
+.about-features{display:flex;flex-direction:column;gap:20px;margin-top:32px}
+.about-feature{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;border-radius:14px;
+  background:var(--bg-card);border:1px solid var(--border);
+  transition:all .3s;
+}
+.about-feature:hover{border-color:var(--border-hover);background:var(--bg-card-hover)}
+.about-feature-icon{
+  width:44px;height:44px;min-width:44px;border-radius:12px;
+  background:var(--primary-glow);display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+}
+.about-feature h4{font-size:.95rem;margin-bottom:4px;font-weight:600}
+.about-feature p{font-size:.85rem;color:var(--text-light);line-height:1.6}
+
+/* ===== WHY US ===== */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 28px;text-align:center;transition:all .4s;position:relative;overflow:hidden;
+}
+.why-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--primary),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.why-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,209,255,.08)}
+.why-card:hover::before{opacity:1}
+.why-icon{
+  width:64px;height:64px;border-radius:18px;
+  background:var(--primary-glow);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;margin:0 auto 20px;
+}
+.why-card h3{font-size:1.1rem;margin-bottom:8px;font-weight:600}
+.why-card p{font-size:.88rem;color:var(--text-light);line-height:1.6}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--bg-surface)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-methods{display:flex;flex-direction:column;gap:16px}
+.contact-method{
+  display:flex;align-items:center;gap:16px;padding:24px;
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  transition:all .3s;text-decoration:none;color:var(--text);
+}
+.contact-method:hover{border-color:var(--border-hover);background:var(--bg-card-hover);transform:translateX(4px);color:var(--text)}
+.contact-method-icon{
+  width:52px;height:52px;min-width:52px;border-radius:14px;
+  background:var(--primary-glow);display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+}
+.contact-method h4{font-size:.95rem;color:var(--heading);margin-bottom:2px;font-weight:600}
+.contact-method p{font-size:.88rem;color:var(--text-light)}
+.contact-form-wrap{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+  padding:40px;
+}
+.contact-form-wrap h3{font-size:1.3rem;margin-bottom:8px}
+.contact-form-wrap>p{font-size:.9rem;color:var(--text-light);margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text-light);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:14px 18px;border-radius:12px;border:1px solid var(--border);
+  background:var(--bg-surface);color:var(--heading);font-family:var(--font-body);
+  font-size:.92rem;transition:all .3s;outline:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,209,255,.1);
+}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group select{cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a8f9a' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;
+}
+.form-group select option{background:var(--bg-card);color:var(--heading)}
+.btn-submit{
+  width:100%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:var(--bg);padding:16px;border:none;border-radius:12px;font-size:1rem;
+  font-weight:700;cursor:pointer;transition:all .3s;font-family:var(--font-body);
+}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,209,255,.3)}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:var(--bg-surface);border-top:1px solid var(--border);
+  padding:60px 24px 30px;
+}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:40px;border-bottom:1px solid var(--border);margin-bottom:30px;
+}
+.footer-brand{display:flex;flex-direction:column;gap:12px}
+.footer-brand .nav-logo{margin-bottom:4px}
+.footer-brand p{font-size:.88rem;color:var(--text-light);max-width:280px;line-height:1.7}
+.footer-col h4{font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin-bottom:16px;font-weight:600}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{color:var(--text);font-size:.88rem;transition:color .3s}
+.footer-col a:hover{color:var(--primary)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:.82rem;color:var(--text-light)}
+.footer-bottom a{color:var(--primary);font-weight:600}
+.footer-powered{font-size:.8rem;color:var(--text-light)}
+.footer-powered a{color:var(--primary);font-weight:600}
+
+/* ===== CTA FLOAT ===== */
+.cta-float{
+  position:fixed;bottom:28px;right:28px;z-index:998;
+  display:flex;flex-direction:column;gap:12px;align-items:flex-end;
+}
+.cta-float a{
+  width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.4);
+  text-decoration:none;
+}
+.cta-whatsapp{background:#25D366;color:#fff}
+.cta-whatsapp:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.4)}
+.cta-phone{background:var(--primary);color:var(--bg)}
+.cta-phone:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,209,255,.4)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{
+    display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(10,10,15,.98);flex-direction:column;
+    align-items:center;justify-content:center;gap:32px;
+    backdrop-filter:blur(20px);
+  }
+  .nav-links.open{display:flex;z-index:1000}
+  .nav-links a{font-size:1.2rem;color:var(--heading)}
+  .nav-cta.desktop-only{display:none}
+  .nav-toggle{display:flex}
+  .nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .nav-toggle.active span:nth-child(2){opacity:0}
+  .nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  .hero-inner{grid-template-columns:1fr;text-align:center;padding-top:80px}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-btns{justify-content:center}
+  .hero-visual{order:-1}
+  .hero-card{max-width:340px;margin:0 auto}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .section{padding:70px 20px}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Preview Banner -->
+<div class="preview-banner">
+  Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä:
+  <a href="mailto:yassinfennir@gmail.com">yassinfennir@gmail.com</a> |
+  <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">🦷</div>
+      Dent Å
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#miksi-me">Miksi me</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+    <a href="#yhteystiedot" class="nav-cta desktop-only">Varaa aika</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Avaa valikko">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">✦ Moderni hammasklinikka Turussa</div>
+      <h1>Terveempi hymy <br>alkaa <span class="accent">Dent Å:sta</span></h1>
+      <p class="hero-sub">Hammaslääkäriasema Dent Å tarjoaa kattavat ja laadukkaat hammashoitopalvelut nykyaikaisessa ympäristössä Turun sydämessä.</p>
+      <div class="hero-btns">
+        <a href="#yhteystiedot" class="btn-primary">Varaa aika ↗</a>
+        <a href="#palvelut" class="btn-outline">Katso palvelut</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <span class="hero-tooth">🦷</span>
+        <h3>Dent Å — Turku</h3>
+        <p>Luotettavaa hammashoitoa jo vuosien kokemuksella</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">8+</div>
+            <div class="label">Palvelua</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">5★</div>
+            <div class="label">Arvosana</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">Turku</div>
+            <div class="label">Sijainti</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="palvelut">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">✦ Palvelut</div>
+      <h2 class="section-title">Kattavat <span class="accent">hammashoitopalvelut</span></h2>
+      <p class="section-desc">Tarjoamme laajan valikoiman hammashoitopalveluja modernein menetelmin. Jokaisen potilaan hoito räätälöidään yksilöllisesti.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🔍</div>
+        <h3>Hammastarkastus</h3>
+        <p>Säännöllinen tarkastus on terveen suun perusta. Perusteellinen tutkimus ja hoitosuunnitelma.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">✨</div>
+        <h3>Hampaiden valkaisu</h3>
+        <p>Ammattimainen valkaisu turvallisesti ja tehokkaasti. Kirkkaampi hymy yhdellä käynnillä.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🛡️</div>
+        <h3>Paikkahoito</h3>
+        <p>Modernit paikkamateriaalit ja kestävät ratkaisut. Kivuton hoito rentouttavassa ympäristössä.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">🔧</div>
+        <h3>Juurihoito</h3>
+        <p>Juurihoidolla pelastetaan vaurioitunut hammas. Huolellinen ja tarkka hoitoprosessi.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-5">
+        <div class="service-icon">⚙️</div>
+        <h3>Implantit</h3>
+        <p>Hammasimplantit ovat paras ratkaisu puuttuvien hampaiden korvaamiseen pysyvästi.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-6">
+        <div class="service-icon">😁</div>
+        <h3>Oikomishoito</h3>
+        <p>Suoristetut hampaat ja kaunis purenta. Modernit näkymättömät oikomisratkaisut.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-7">
+        <div class="service-icon">🦷</div>
+        <h3>Protetiikka</h3>
+        <p>Kruunut, sillat ja proteesit. Luonnollisen näköiset ja kestävät hammasproteettiset ratkaisut.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-7">
+        <div class="service-icon">🪥</div>
+        <h3>Suuhygienia</h3>
+        <p>Ammattimainen suun puhdistus ja ennaltaehkäisevä hoito. Hammaskiven poisto ja ohjaus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="meista" style="background:var(--bg-surface)">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <span class="about-emoji">🏥</span>
+        <h3 style="font-size:1.4rem;margin-bottom:8px">Dent Å — Turku</h3>
+        <p style="color:var(--text-light);font-size:.92rem;max-width:300px;margin:0 auto">Moderni hammasklinikka Turun keskustassa. Panostamme potilasturvallisuuteen ja hoitokokemukseen.</p>
+        <div class="hero-stats" style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border)">
+          <div class="hero-stat">
+            <div class="num">🎯</div>
+            <div class="label">Tarkkuutta</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">💎</div>
+            <div class="label">Laatua</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">🤝</div>
+            <div class="label">Luottamusta</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="reveal">
+          <div class="section-label">✦ Meistä</div>
+          <h2 class="section-title">Luotettava <span class="accent">hammasklinikka</span> Turussa</h2>
+          <p class="section-desc">Hammaslääkäriasema Dent Å yhdistää vuosien kokemuksen ja uusimman teknologian. Tavoitteenamme on tehdä hammaslääkärikäynnistä miellyttävä kokemus jokaiselle potilaalle.</p>
+        </div>
+        <div class="about-features">
+          <div class="about-feature reveal reveal-delay-1">
+            <div class="about-feature-icon">📍</div>
+            <div>
+              <h4>Turun keskustassa</h4>
+              <p>Helposti saavutettavissa Turun sydämessä. Hyvät liikenneyhteydet ja pysäköintimahdollisuudet.</p>
+            </div>
+          </div>
+          <div class="about-feature reveal reveal-delay-2">
+            <div class="about-feature-icon">🔬</div>
+            <div>
+              <h4>Uusin teknologia</h4>
+              <p>Käytössämme on alan uusin teknologia ja laitteisto tarkan ja tehokkaan hoidon takaamiseksi.</p>
+            </div>
+          </div>
+          <div class="about-feature reveal reveal-delay-3">
+            <div class="about-feature-icon">👨‍⚕️</div>
+            <div>
+              <h4>Kokenut tiimi</h4>
+              <p>Ammattitaitoiset hammaslääkärit ja suuhygienistit huolehtivat suunterveydestäsi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section class="section" id="miksi-me">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <div class="section-label">✦ Miksi Dent Å</div>
+      <h2 class="section-title">Miksi valita <span class="accent">meidät</span></h2>
+      <p class="section-desc" style="margin-left:auto;margin-right:auto">Potilaiden hyvinvointi on meille tärkeintä. Siksi panostamme jokaiseen yksityiskohtaan.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">⏱️</div>
+        <h3>Joustavat ajat</h3>
+        <p>Tarjoamme joustavia ajanvarausmahdollisuuksia sopimaan kiireiseen arkeen. Ajanvaraus helposti puhelimitse.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">😊</div>
+        <h3>Kivuton hoito</h3>
+        <p>Moderni puudutustekniikka ja rauhallinen ympäristö tekevät hoidosta mahdollisimman miellyttävän.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">💰</div>
+        <h3>Selkeä hinnoittelu</h3>
+        <p>Läpinäkyvä hinnoittelu ilman yllätyksiä. Kerromme hoidon kustannukset etukäteen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="yhteystiedot">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <div class="section-label">✦ Yhteystiedot</div>
+      <h2 class="section-title">Ota <span class="accent">yhteyttä</span></h2>
+      <p class="section-desc" style="margin-left:auto;margin-right:auto">Varaa aika tai kysy lisätietoja. Olemme täällä sinua varten.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-methods">
+        <a href="tel:+358201123000" class="contact-method reveal reveal-delay-1">
+          <div class="contact-method-icon">📞</div>
+          <div>
+            <h4>Soita meille</h4>
+            <p>+358 20 112 3000</p>
+          </div>
+        </a>
+        <a href="mailto:info@denta.fi" class="contact-method reveal reveal-delay-2">
+          <div class="contact-method-icon">✉️</div>
+          <div>
+            <h4>Sähköposti</h4>
+            <p>info@denta.fi</p>
+          </div>
+        </a>
+        <a href="https://wa.me/358201123000" target="_blank" class="contact-method reveal reveal-delay-3">
+          <div class="contact-method-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>Lähetä viesti WhatsAppissa</p>
+          </div>
+        </a>
+        <div class="contact-method reveal reveal-delay-4">
+          <div class="contact-method-icon">📍</div>
+          <div>
+            <h4>Sijainti</h4>
+            <p>Turku, Suomi</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <h3>Varaa aika</h3>
+        <p>Täytä lomake ja otamme sinuun yhteyttä mahdollisimman pian.</p>
+        <form onsubmit="event.preventDefault();alert('Kiitos yhteydenotostasi! Otamme sinuun yhteyttä pian.')">
+          <div class="form-group">
+            <label>Nimi</label>
+            <input type="text" placeholder="Koko nimesi" required>
+          </div>
+          <div class="form-group">
+            <label>Puhelinnumero</label>
+            <input type="tel" placeholder="+358 40 123 4567" required>
+          </div>
+          <div class="form-group">
+            <label>Sähköposti</label>
+            <input type="email" placeholder="nimi@esimerkki.fi">
+          </div>
+          <div class="form-group">
+            <label>Palvelu</label>
+            <select>
+              <option value="">Valitse palvelu</option>
+              <option>Hammastarkastus</option>
+              <option>Hampaiden valkaisu</option>
+              <option>Paikkahoito</option>
+              <option>Juurihoito</option>
+              <option>Implantit</option>
+              <option>Oikomishoito</option>
+              <option>Protetiikka</option>
+              <option>Suuhygienia</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Viesti</label>
+            <textarea placeholder="Kerro lisätietoja tai toiveita..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Lähetä viesti →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="nav-logo-icon">🦷</div>
+          Dent Å
+        </div>
+        <p>Moderni hammaslääkäriasema Turun keskustassa. Kattavat hammashoitopalvelut koko perheelle.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Palvelut</h4>
+        <ul>
+          <li><a href="#palvelut">Hammastarkastus</a></li>
+          <li><a href="#palvelut">Valkaisu</a></li>
+          <li><a href="#palvelut">Paikkahoito</a></li>
+          <li><a href="#palvelut">Juurihoito</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Lisää palveluja</h4>
+        <ul>
+          <li><a href="#palvelut">Implantit</a></li>
+          <li><a href="#palvelut">Oikomishoito</a></li>
+          <li><a href="#palvelut">Protetiikka</a></li>
+          <li><a href="#palvelut">Suuhygienia</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Yhteystiedot</h4>
+        <ul>
+          <li><a href="tel:+358201123000">+358 20 112 3000</a></li>
+          <li><a href="mailto:info@denta.fi">info@denta.fi</a></li>
+          <li><a href="https://wa.me/358201123000" target="_blank">WhatsApp</a></li>
+          <li><a href="#">Turku, Suomi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Hammaslääkäriasema Dent Å — Kaikki oikeudet pidätetään.</p>
+      <p class="footer-powered">Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — elfennir.com</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating CTAs -->
+<div class="cta-float">
+  <a href="https://wa.me/358201123000" target="_blank" class="cta-whatsapp" aria-label="WhatsApp" title="WhatsApp">💬</a>
+  <a href="tel:+358201123000" class="cta-phone" aria-label="Soita" title="Soita meille">📞</a>
+</div>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+
+// IntersectionObserver animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

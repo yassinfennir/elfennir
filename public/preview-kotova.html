@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotova Oy — Siivouspalvelu Helsinki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{
+            --bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;--bg4:#22222e;
+            --green:#14f195;--green-dark:#0fc07a;--green-glow:rgba(20,241,149,.12);
+            --green-glow2:rgba(20,241,149,.06);
+            --white:#f0f0f5;--gray:#8a8a9a;--gray2:#5a5a6e;
+            --radius:16px;--radius-sm:10px;
+        }
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:'Inter',system-ui,sans-serif;color:var(--white);background:var(--bg);overflow-x:hidden;line-height:1.6}
+
+        /* BANNER */
+        .preview-banner{
+            background:linear-gradient(135deg,#14f195 0%,#0fc07a 100%);
+            color:#0a0a0f;text-align:center;padding:12px 20px;font-size:.84rem;font-weight:600;
+            position:relative;z-index:1000;letter-spacing:-.01em;
+        }
+        .preview-banner a{color:#0a0a0f;text-decoration:underline;font-weight:700}
+        .preview-banner a:hover{opacity:.8}
+
+        /* NAV */
+        .nav{
+            position:sticky;top:0;z-index:999;
+            background:rgba(10,10,15,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+            border-bottom:1px solid rgba(255,255,255,.04);transition:box-shadow .3s;
+        }
+        .nav.scrolled{box-shadow:0 4px 40px rgba(20,241,149,.06)}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px}
+        .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white)}
+        .logo-icon{
+            width:42px;height:42px;background:linear-gradient(135deg,var(--green),var(--green-dark));
+            border-radius:12px;display:flex;align-items:center;justify-content:center;
+            font-size:18px;color:#0a0a0f;font-weight:800;
+        }
+        .logo-text{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:-.02em}
+        .logo-text span{color:var(--green)}
+        .nav-links{display:flex;gap:30px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--gray);font-size:.88rem;font-weight:500;transition:color .3s;position:relative}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green);transition:width .3s;border-radius:2px}
+        .nav-links a:hover{color:var(--white)}
+        .nav-links a:hover::after{width:100%}
+        .nav-cta{
+            background:var(--green);color:#0a0a0f;
+            padding:10px 26px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.88rem;
+            transition:all .3s;border:none;cursor:pointer;
+        }
+        .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(20,241,149,.3)}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+        .hamburger span{display:block;width:24px;height:2.5px;background:var(--white);border-radius:4px;transition:all .3s}
+
+        /* HERO */
+        .hero{
+            min-height:92vh;display:flex;align-items:center;
+            background:radial-gradient(ellipse at 30% 20%,rgba(20,241,149,.06) 0%,transparent 50%),
+                        radial-gradient(ellipse at 70% 80%,rgba(20,241,149,.04) 0%,transparent 50%),
+                        var(--bg);
+            position:relative;overflow:hidden;
+        }
+        .hero::before{
+            content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;
+            background:radial-gradient(circle,rgba(20,241,149,.07) 0%,transparent 70%);
+            border-radius:50%;animation:float 8s ease-in-out infinite;
+        }
+        .hero::after{
+            content:'';position:absolute;bottom:-150px;left:-120px;width:500px;height:500px;
+            background:radial-gradient(circle,rgba(20,241,149,.05) 0%,transparent 70%);
+            border-radius:50%;animation:float 10s ease-in-out infinite reverse;
+        }
+        @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+        .hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%}
+        .hero-badge{
+            display:inline-flex;align-items:center;gap:8px;
+            background:var(--green-glow);border:1px solid rgba(20,241,149,.15);
+            border-radius:50px;padding:8px 18px;font-size:.82rem;font-weight:600;color:var(--green);margin-bottom:20px;
+        }
+        .hero-badge::before{content:'';width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+        .hero h1{
+            font-family:'DM Sans',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);
+            font-weight:700;line-height:1.12;letter-spacing:-.03em;margin-bottom:22px;
+        }
+        .hero h1 .highlight{
+            background:linear-gradient(135deg,var(--green),#5eead4);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        }
+        .hero p{font-size:1.1rem;color:var(--gray);line-height:1.75;margin-bottom:34px;max-width:500px}
+        .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+        .btn-primary{
+            background:var(--green);color:#0a0a0f;
+            padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.95rem;
+            transition:all .3s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
+        }
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(20,241,149,.3)}
+        .btn-secondary{
+            background:transparent;color:var(--white);
+            padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.95rem;
+            transition:all .3s;display:inline-flex;align-items:center;gap:8px;
+            border:1px solid rgba(255,255,255,.12);
+        }
+        .btn-secondary:hover{border-color:var(--green);color:var(--green)}
+
+        /* HERO VISUAL */
+        .hero-visual{display:flex;justify-content:center;align-items:center;position:relative}
+        .hero-card{
+            background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:24px;
+            padding:40px;position:relative;overflow:hidden;width:100%;max-width:420px;
+        }
+        .hero-card::before{
+            content:'';position:absolute;top:0;left:0;right:0;height:3px;
+            background:linear-gradient(90deg,var(--green),#5eead4,var(--green));
+        }
+        .hero-card-icon{
+            width:64px;height:64px;background:var(--green-glow);border-radius:16px;
+            display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px;
+        }
+        .hero-card h3{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px}
+        .hero-card p{color:var(--gray);font-size:.92rem;line-height:1.6;margin-bottom:20px}
+        .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .hero-stat{background:var(--bg3);border-radius:12px;padding:16px;text-align:center}
+        .hero-stat .num{font-family:'DM Sans',sans-serif;font-size:1.5rem;font-weight:700;color:var(--green)}
+        .hero-stat .label{font-size:.75rem;color:var(--gray);margin-top:2px}
+
+        /* SECTIONS */
+        section{padding:100px 24px}
+        .section-inner{max-width:1200px;margin:0 auto}
+        .section-label{
+            display:inline-flex;align-items:center;gap:8px;
+            background:var(--green-glow);border:1px solid rgba(20,241,149,.1);
+            border-radius:50px;padding:6px 16px;font-size:.78rem;font-weight:600;
+            color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;
+        }
+        .section-title{
+            font-family:'DM Sans',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);
+            font-weight:700;letter-spacing:-.02em;margin-bottom:16px;line-height:1.2;
+        }
+        .section-subtitle{color:var(--gray);font-size:1.05rem;max-width:600px;line-height:1.7;margin-bottom:50px}
+
+        /* SERVICES */
+        .services-section{background:var(--bg)}
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+        .service-card{
+            background:var(--bg2);border:1px solid rgba(255,255,255,.04);
+            border-radius:var(--radius);padding:32px;transition:all .4s;position:relative;overflow:hidden;
+        }
+        .service-card::before{
+            content:'';position:absolute;top:0;left:0;right:0;height:2px;
+            background:linear-gradient(90deg,transparent,var(--green),transparent);
+            opacity:0;transition:opacity .4s;
+        }
+        .service-card:hover{border-color:rgba(20,241,149,.12);transform:translateY(-4px)}
+        .service-card:hover::before{opacity:1}
+        .service-icon{
+            width:52px;height:52px;background:var(--green-glow);border-radius:14px;
+            display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;
+        }
+        .service-card h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px}
+        .service-card p{color:var(--gray);font-size:.9rem;line-height:1.65}
+
+        /* ABOUT */
+        .about-section{background:var(--bg2)}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+        .about-features{display:flex;flex-direction:column;gap:20px;margin-top:30px}
+        .about-feature{display:flex;gap:16px;align-items:flex-start}
+        .about-feature-icon{
+            width:44px;height:44px;min-width:44px;background:var(--green-glow);border-radius:12px;
+            display:flex;align-items:center;justify-content:center;font-size:20px;
+        }
+        .about-feature h4{font-family:'DM Sans',sans-serif;font-size:.98rem;font-weight:700;margin-bottom:4px}
+        .about-feature p{color:var(--gray);font-size:.88rem;line-height:1.6}
+        .about-visual{
+            background:var(--bg3);border:1px solid rgba(255,255,255,.04);
+            border-radius:24px;padding:40px;position:relative;overflow:hidden;
+        }
+        .about-visual::before{
+            content:'';position:absolute;top:0;right:0;width:200px;height:200px;
+            background:radial-gradient(circle,rgba(20,241,149,.08) 0%,transparent 70%);border-radius:50%;
+        }
+        .about-quote{
+            font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:600;line-height:1.5;
+            margin-bottom:24px;position:relative;padding-left:20px;
+            border-left:3px solid var(--green);
+        }
+        .about-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+        .about-list li{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--gray)}
+        .about-list li::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;min-width:6px}
+
+        /* WHY US */
+        .why-section{background:var(--bg)}
+        .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+        .why-card{
+            background:var(--bg2);border:1px solid rgba(255,255,255,.04);
+            border-radius:var(--radius);padding:32px;text-align:center;transition:all .4s;
+        }
+        .why-card:hover{border-color:rgba(20,241,149,.12);transform:translateY(-4px)}
+        .why-icon{
+            width:60px;height:60px;background:var(--green-glow);border-radius:16px;
+            display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px;
+        }
+        .why-card h3{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:8px}
+        .why-card p{color:var(--gray);font-size:.88rem;line-height:1.6}
+
+        /* CTA */
+        .cta-section{
+            background:radial-gradient(ellipse at center,rgba(20,241,149,.08) 0%,var(--bg) 70%);
+        }
+        .cta-box{
+            text-align:center;max-width:700px;margin:0 auto;
+            background:var(--bg2);border:1px solid rgba(255,255,255,.06);
+            border-radius:24px;padding:60px 40px;position:relative;overflow:hidden;
+        }
+        .cta-box::before{
+            content:'';position:absolute;top:0;left:0;right:0;height:3px;
+            background:linear-gradient(90deg,transparent,var(--green),transparent);
+        }
+        .cta-box h2{font-family:'DM Sans',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;margin-bottom:14px;letter-spacing:-.02em}
+        .cta-box p{color:var(--gray);font-size:1.05rem;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
+        .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+        /* CONTACT */
+        .contact-section{background:var(--bg2)}
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+        .contact-card{
+            background:var(--bg3);border:1px solid rgba(255,255,255,.04);
+            border-radius:var(--radius);padding:28px;display:flex;align-items:center;gap:18px;
+            transition:all .4s;text-decoration:none;color:var(--white);
+        }
+        .contact-card:hover{border-color:rgba(20,241,149,.15);transform:translateY(-3px)}
+        .contact-icon{
+            width:52px;height:52px;min-width:52px;background:var(--green-glow);border-radius:14px;
+            display:flex;align-items:center;justify-content:center;font-size:22px;
+        }
+        .contact-card h4{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:2px}
+        .contact-card p{color:var(--gray);font-size:.88rem}
+
+        /* FOOTER */
+        .footer{
+            background:var(--bg);border-top:1px solid rgba(255,255,255,.04);
+            padding:40px 24px;text-align:center;
+        }
+        .footer p{color:var(--gray2);font-size:.84rem}
+        .footer a{color:var(--green);text-decoration:none;font-weight:600}
+        .footer a:hover{text-decoration:underline}
+
+        /* ANIMATIONS */
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+        .fade-in{animation:fadeInUp .8s ease both}
+        .fade-in-d1{animation-delay:.1s}
+        .fade-in-d2{animation-delay:.2s}
+        .fade-in-d3{animation-delay:.3s}
+
+        /* MOBILE NAV */
+        .mobile-menu{
+            display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+            background:rgba(10,10,15,.97);backdrop-filter:blur(20px);z-index:1001;
+            flex-direction:column;align-items:center;justify-content:center;gap:28px;
+        }
+        .mobile-menu.active{display:flex}
+        .mobile-menu a{color:var(--white);text-decoration:none;font-size:1.2rem;font-weight:600;transition:color .3s}
+        .mobile-menu a:hover{color:var(--green)}
+        .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer}
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            .nav-links,.nav-cta{display:none}
+            .hamburger{display:flex}
+            .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center;padding:60px 24px}
+            .hero p{max-width:100%;margin-left:auto;margin-right:auto}
+            .hero-btns{justify-content:center}
+            .hero-visual{order:-1}
+            .hero-card{max-width:340px;margin:0 auto;padding:28px}
+            .about-grid{grid-template-columns:1fr;gap:40px}
+            .contact-grid{grid-template-columns:1fr}
+            .services-grid{grid-template-columns:1fr}
+            section{padding:70px 20px}
+            .cta-box{padding:40px 24px}
+        }
+    </style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="preview-banner">
+    Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä: <a href="mailto:yassinfennir@gmail.com">yassinfennir@gmail.com</a> | <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">K</div>
+            <div class="logo-text">Kotova<span>.</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#palvelut">Palvelut</a></li>
+            <li><a href="#meista">Meistä</a></li>
+            <li><a href="#miksi">Miksi me</a></li>
+            <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+        </ul>
+        <a href="#yhteystiedot" class="nav-cta">Pyydä tarjous</a>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('active')" aria-label="Valikko">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="this.parentElement.classList.remove('active')">&times;</button>
+    <a href="#palvelut" onclick="this.parentElement.classList.remove('active')">Palvelut</a>
+    <a href="#meista" onclick="this.parentElement.classList.remove('active')">Meistä</a>
+    <a href="#miksi" onclick="this.parentElement.classList.remove('active')">Miksi me</a>
+    <a href="#yhteystiedot" onclick="this.parentElement.classList.remove('active')">Yhteystiedot</a>
+    <a href="#yhteystiedot" class="btn-primary" onclick="this.parentElement.classList.remove('active')">Pyydä tarjous</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div>
+            <div class="hero-badge fade-in">Luotettava siivouspalvelu Helsingissä</div>
+            <h1 class="fade-in fade-in-d1">Puhtaus on <span class="highlight">hyvinvointia</span></h1>
+            <p class="fade-in fade-in-d2">Kotova Oy tarjoaa ammattitaitoisia siivouspalveluja koteihin, toimistoihin ja yrityksille Helsingissä. Laadukas jälki, luotettava palvelu.</p>
+            <div class="hero-btns fade-in fade-in-d3">
+                <a href="#yhteystiedot" class="btn-primary">Pyydä tarjous &rarr;</a>
+                <a href="#palvelut" class="btn-secondary">Tutustu palveluihin</a>
+            </div>
+        </div>
+        <div class="hero-visual fade-in fade-in-d2">
+            <div class="hero-card">
+                <div class="hero-card-icon">&#x2728;</div>
+                <h3>Ammattimainen siivous</h3>
+                <p>Räätälöidyt siivousratkaisut jokaiseen tarpeeseen. Luotettavasti ja tehokkaasti.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="num">10+</div>
+                        <div class="label">Vuotta kokemusta</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">500+</div>
+                        <div class="label">Tyytyväistä asiakasta</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">100%</div>
+                        <div class="label">Tyytyväisyystakuu</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">24h</div>
+                        <div class="label">Nopea vastaus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="palvelut">
+    <div class="section-inner">
+        <div class="section-label reveal">&#x1F9F9; Palvelut</div>
+        <h2 class="section-title reveal">Kattavat siivouspalvelut</h2>
+        <p class="section-subtitle reveal">Tarjoamme monipuolisia siivouspalveluja niin yksityisille kuin yrityksillekin. Jokainen siivous räätälöidään tarpeittenne mukaan.</p>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">&#x1F3E0;</div>
+                <h3>Kotisiivous</h3>
+                <p>Säännöllinen tai kertaluonteinen kodin siivous. Pidämme kotisi puhtaana ja viihtyisänä, jotta voit keskittyä olennaiseen.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">&#x1F3E2;</div>
+                <h3>Toimistosiivous</h3>
+                <p>Ammattimainen toimistotilojen siivous, joka pitää työympäristön siistinä ja viihtyisänä. Edistä työhyvinvointia puhtaalla työpaikalla.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">&#x1F4E6;</div>
+                <h3>Muuttosiivous</h3>
+                <p>Perusteellinen muuttosiivous vanhan tai uuden asunnon puhdistamiseen. Takaamme loppusiivouksen, joka täyttää vaatimukset.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">&#x1FA9F;</div>
+                <h3>Ikkunanpesu</h3>
+                <p>Kirkkaat ja puhtaat ikkunat ammattitaitoisella ikkunanpesulla. Käytämme tehokkaita ja ympäristöystävällisiä puhdistusaineita.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">&#x2728;</div>
+                <h3>Peruspuhdistus</h3>
+                <p>Syvällinen peruspuhdistus, joka poistaa pinttyneen lian ja palauttaa pintojen alkuperäisen puhtauden. Täydellinen kevätsiivoukseen.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">&#x1F3D7;&#xFE0F;</div>
+                <h3>Rakennussiivous</h3>
+                <p>Remontin tai rakennusprojektin jälkeinen perusteellinen siivous. Poistamme rakennuspölyn ja jätteen ammattitaidolla.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">&#x1F504;</div>
+                <h3>Säännöllinen siivous</h3>
+                <p>Jatkuva siivouspalvelu sovitun aikataulun mukaan. Viikoittain, kahden viikon välein tai kuukausittain — sinä päätät.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="meista">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div>
+                <div class="section-label reveal">&#x1F91D; Meistä</div>
+                <h2 class="section-title reveal">Luotettava siivouspalvelu Helsingissä</h2>
+                <p class="section-subtitle reveal" style="margin-bottom:10px">Kotova Oy on helsinkiläinen siivousyritys, joka on omistautunut tarjoamaan laadukkaita ja luotettavia siivouspalveluja. Ammattitaitoinen tiimimme huolehtii siitä, että jokainen asiakas saa parhaan mahdollisen lopputuloksen.</p>
+                <div class="about-features">
+                    <div class="about-feature reveal">
+                        <div class="about-feature-icon">&#x2705;</div>
+                        <div>
+                            <h4>Ammattitaitoinen henkilökunta</h4>
+                            <p>Koulutetut ja kokeneet siivoojat, jotka välittävät työnsä laadusta.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature reveal">
+                        <div class="about-feature-icon">&#x1F331;</div>
+                        <div>
+                            <h4>Ympäristöystävälliset aineet</h4>
+                            <p>Käytämme ekologisia puhdistusaineita, jotka ovat turvallisia perheellesi ja ympäristölle.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature reveal">
+                        <div class="about-feature-icon">&#x1F4AC;</div>
+                        <div>
+                            <h4>Joustava palvelu</h4>
+                            <p>Räätälöimme palvelun juuri sinun tarpeisiisi ja aikatauluusi sopivaksi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual reveal">
+                <div class="about-quote">"Puhdas tila on tuottava tila. Me autamme sinua keskittymään siihen, mikä on tärkeää."</div>
+                <ul class="about-list">
+                    <li>Toiminta-alue: Helsinki ja pääkaupunkiseutu</li>
+                    <li>Joustavat aikataulut ja nopea palvelu</li>
+                    <li>Kilpailukykyinen ja läpinäkyvä hinnoittelu</li>
+                    <li>Tyytyväisyystakuu jokaiseen siivoukseen</li>
+                    <li>Vakuutettu ja luotettava yritys</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="miksi">
+    <div class="section-inner">
+        <div style="text-align:center">
+            <div class="section-label reveal">&#x1F4AA; Miksi valita meidät</div>
+            <h2 class="section-title reveal" style="max-width:600px;margin-left:auto;margin-right:auto">Siksi asiakkaamme luottavat meihin</h2>
+            <p class="section-subtitle reveal" style="margin-left:auto;margin-right:auto">Meitä erottaa laatu, luotettavuus ja aito välittäminen asiakkaistamme.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-icon">&#x23F0;</div>
+                <h3>Täsmällisyys</h3>
+                <p>Saavumme aina sovittuun aikaan. Arvostamme aikaasi ja pidämme lupauksemme.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">&#x1F48E;</div>
+                <h3>Laadun takuu</h3>
+                <p>Jos et ole tyytyväinen, korjaamme tilanteen veloituksetta. 100% tyytyväisyystakuu.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">&#x1F512;</div>
+                <h3>Luotettavuus</h3>
+                <p>Vakuutettu ja tarkistettu henkilökunta. Voit luottaa meihin kotiisi ja toimitiloihisi.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">&#x1F4B0;</div>
+                <h3>Selkeä hinnoittelu</h3>
+                <p>Ei piilokustannuksia. Saat aina selkeän tarjouksen ennen työn aloitusta.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="section-inner">
+        <div class="cta-box reveal">
+            <h2>Haluatko puhtaamman kodin tai toimiston?</h2>
+            <p>Ota yhteyttä ja kerro tarpeistasi. Tarjoamme ilmaisen ja sitoumuksettoman tarjouksen sinulle.</p>
+            <div class="cta-btns">
+                <a href="https://wa.me/358207305750" target="_blank" class="btn-primary">WhatsApp &#x1F4AC;</a>
+                <a href="mailto:info@kotova.fi" class="btn-secondary">Lähetä sähköposti</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="yhteystiedot">
+    <div class="section-inner">
+        <div style="text-align:center">
+            <div class="section-label reveal">&#x1F4CD; Yhteystiedot</div>
+            <h2 class="section-title reveal">Ota yhteyttä</h2>
+            <p class="section-subtitle reveal" style="margin-left:auto;margin-right:auto">Pyydä ilmainen tarjous tai kysy lisätietoja palveluistamme. Vastaamme nopeasti!</p>
+        </div>
+        <div class="contact-grid">
+            <a href="mailto:info@kotova.fi" class="contact-card reveal">
+                <div class="contact-icon">&#x2709;&#xFE0F;</div>
+                <div>
+                    <h4>Sähköposti</h4>
+                    <p>info@kotova.fi</p>
+                </div>
+            </a>
+            <a href="tel:+358207305750" class="contact-card reveal">
+                <div class="contact-icon">&#x1F4DE;</div>
+                <div>
+                    <h4>Puhelin</h4>
+                    <p>+358 20 730 5750</p>
+                </div>
+            </a>
+            <a href="https://wa.me/358207305750" target="_blank" class="contact-card reveal">
+                <div class="contact-icon">&#x1F4AC;</div>
+                <div>
+                    <h4>WhatsApp</h4>
+                    <p>Lähetä viesti WhatsAppissa</p>
+                </div>
+            </a>
+            <div class="contact-card reveal">
+                <div class="contact-icon">&#x1F4CD;</div>
+                <div>
+                    <h4>Sijainti</h4>
+                    <p>Helsinki, Suomi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&#169; 2026 Kotova Oy. Kaikki oikeudet pidätetään.</p>
+    <p style="margin-top:8px">Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — elfennir.com</p>
+</footer>
+
+<script>
+// Sticky nav shadow
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// IntersectionObserver reveal animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

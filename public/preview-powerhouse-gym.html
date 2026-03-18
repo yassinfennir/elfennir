@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powerhouse Gym Tampere — Voimaa ja tuloksia</title>
+<meta name="description" content="Powerhouse Gym Tampere — Tampereen tehokkain kuntosali voimannostajille, kehonrakentajille ja kaikille, jotka haluavat tuloksia. Painonnosto, personal training ja paljon muuta.">
+<meta property="og:title" content="Powerhouse Gym Tampere — Voimaa ja tuloksia">
+<meta property="og:description" content="Tampereen tehokkain kuntosali. Painonnosto, voimanosto, kehonrakennus ja personal training.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="kuntosali, tampere, powerhouse gym, voimanosto, painonnosto, kehonrakennus, personal training, fitness">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23FFD700'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "name": "Powerhouse Gym Tampere",
+  "description": "Tampereen tehokkain kuntosali voimannostajille ja kehonrakentajille.",
+  "telephone": "+358505824614",
+  "email": "mikko.mellberg@powerhousegym.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tampere",
+    "addressCountry": "FI"
+  }
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#FFD700;
+  --gold-dark:#C5A200;
+  --gold-light:#FFE44D;
+  --bg:#0a0a0f;
+  --surface:#101018;
+  --surface-2:#16161f;
+  --surface-3:#1c1c28;
+  --text:#f0f0f5;
+  --muted:#8888a0;
+  --border:rgba(255,215,0,.1);
+  --heading:'Bebas Neue', sans-serif;
+  --body:'Inter', sans-serif;
+  --glow:0 0 40px rgba(255,215,0,.2);
+  --glow-strong:0 0 60px rgba(255,215,0,.35);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none;transition:color .3s}
+a:hover{color:var(--gold-light)}
+h1,h2,h3,h4{font-family:var(--heading);letter-spacing:.04em;text-transform:uppercase}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:10px}
+::selection{background:var(--gold);color:#000}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes barWidth{from{width:0}to{width:100%}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-left.active{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-right.active{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.9);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-scale.active{opacity:1;transform:scale(1)}
+
+/* TOP BANNER */
+.top-banner{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:#000;
+  text-align:center;
+  padding:10px 20px;
+  font-size:.85rem;
+  font-weight:600;
+  position:relative;
+  z-index:1000;
+  letter-spacing:.01em;
+}
+.top-banner a{color:#000;text-decoration:underline;font-weight:700}
+.top-banner a:hover{color:#1a1a1a}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:999;
+  padding:16px 0;
+  transition:all .4s;
+  background:transparent;
+}
+.navbar.scrolled{
+  background:rgba(10,10,15,.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:10px 0;
+  box-shadow:0 4px 30px rgba(0,0,0,.5);
+}
+.nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo{
+  font-family:var(--heading);
+  font-size:1.6rem;
+  color:var(--gold);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.nav-logo svg{width:32px;height:32px}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{
+  color:var(--muted);
+  font-weight:500;
+  font-size:.9rem;
+  transition:color .3s;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.nav-links a:hover{color:var(--gold)}
+
+.nav-cta{
+  background:var(--gold);
+  color:#000;
+  padding:10px 24px;
+  border-radius:6px;
+  font-weight:700;
+  font-size:.85rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  transition:all .3s;
+  border:2px solid var(--gold);
+}
+.nav-cta:hover{background:transparent;color:var(--gold)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+.hamburger span{width:28px;height:2px;background:var(--gold);transition:all .3s;border-radius:2px}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  padding:120px 24px 80px;
+  text-align:center;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(255,215,0,.08) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(255,215,0,.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(255,215,0,.06) 0%, transparent 60%);
+  z-index:0;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity:.5;
+  z-index:0;
+}
+
+.hero-content{position:relative;z-index:1;max-width:900px}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,215,0,.1);
+  border:1px solid rgba(255,215,0,.25);
+  padding:8px 20px;
+  border-radius:50px;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:28px;
+  animation:fadeIn 1s ease;
+}
+.hero-badge::before{
+  content:'';
+  width:8px;height:8px;
+  background:var(--gold);
+  border-radius:50%;
+  animation:pulse 2s infinite;
+}
+.hero h1{
+  font-size:clamp(3.5rem,10vw,8rem);
+  line-height:.9;
+  color:var(--text);
+  margin-bottom:16px;
+  animation:fadeUp 1s ease;
+  letter-spacing:.06em;
+}
+.hero h1 span{
+  display:block;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-tagline{
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  color:var(--muted);
+  margin-bottom:40px;
+  animation:fadeUp 1s .2s ease both;
+  max-width:600px;
+  margin-left:auto;margin-right:auto;
+  font-weight:300;
+  line-height:1.6;
+}
+.hero-buttons{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+  animation:fadeUp 1s .4s ease both;
+}
+.btn-primary{
+  background:var(--gold);
+  color:#000;
+  padding:16px 36px;
+  border-radius:6px;
+  font-weight:700;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  transition:all .3s;
+  border:2px solid var(--gold);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-primary:hover{
+  background:transparent;
+  color:var(--gold);
+  box-shadow:var(--glow);
+  transform:translateY(-2px);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--gold);
+  padding:16px 36px;
+  border-radius:6px;
+  font-weight:700;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  transition:all .3s;
+  border:2px solid rgba(255,215,0,.4);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-outline:hover{
+  border-color:var(--gold);
+  background:rgba(255,215,0,.08);
+  transform:translateY(-2px);
+}
+
+/* STATS BAR */
+.stats-bar{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:40px 24px;
+}
+.stats-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+  text-align:center;
+}
+.stat-item h3{
+  font-size:clamp(2rem,4vw,3.2rem);
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1;
+  margin-bottom:6px;
+}
+.stat-item p{
+  color:var(--muted);
+  font-size:.85rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:500;
+}
+
+/* SECTIONS */
+.section{padding:100px 24px}
+.section-header{text-align:center;margin-bottom:64px}
+.section-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  margin-bottom:16px;
+}
+.section-label::before,.section-label::after{
+  content:'';width:30px;height:1px;background:var(--gold);opacity:.5;
+}
+.section-header h2{
+  font-size:clamp(2.2rem,5vw,3.8rem);
+  color:var(--text);
+  line-height:1;
+  margin-bottom:16px;
+}
+.section-header p{
+  color:var(--muted);
+  max-width:600px;
+  margin:0 auto;
+  font-size:1.05rem;
+  line-height:1.7;
+}
+
+/* SERVICES */
+.services-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.service-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:40px 32px;
+  transition:all .4s cubic-bezier(.16,1,.3,1);
+  position:relative;
+  overflow:hidden;
+}
+.service-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s;
+}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover{
+  border-color:rgba(255,215,0,.25);
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(0,0,0,.4),var(--glow);
+}
+.service-icon{
+  width:56px;height:56px;
+  background:rgba(255,215,0,.1);
+  border:1px solid rgba(255,215,0,.2);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  color:var(--gold);
+  transition:all .3s;
+}
+.service-card:hover .service-icon{
+  background:var(--gold);
+  color:#000;
+  box-shadow:var(--glow);
+}
+.service-icon i{width:26px;height:26px}
+.service-card h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+  color:var(--text);
+  letter-spacing:.04em;
+}
+.service-card p{
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.7;
+}
+
+/* ABOUT */
+.about-section{background:var(--surface)}
+.about-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+}
+.about-visual{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  background:linear-gradient(135deg,var(--surface-2),var(--surface-3));
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border);
+}
+.about-visual-content{text-align:center;padding:40px}
+.about-visual-icon{
+  font-size:5rem;
+  margin-bottom:16px;
+  display:block;
+  animation:float 3s ease-in-out infinite;
+}
+.about-visual-text{
+  font-family:var(--heading);
+  font-size:2rem;
+  color:var(--gold);
+  letter-spacing:.08em;
+}
+.about-text h2{
+  font-size:clamp(2rem,4vw,3rem);
+  margin-bottom:20px;
+  line-height:1.05;
+}
+.about-text h2 span{color:var(--gold)}
+.about-text>p{
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.8;
+  margin-bottom:32px;
+}
+.about-features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.about-feature{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 18px;
+  background:rgba(255,215,0,.04);
+  border:1px solid rgba(255,215,0,.1);
+  border-radius:10px;
+  transition:all .3s;
+}
+.about-feature:hover{
+  border-color:rgba(255,215,0,.3);
+  background:rgba(255,215,0,.08);
+}
+.about-feature-icon{
+  width:36px;height:36px;min-width:36px;
+  background:rgba(255,215,0,.12);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);
+}
+.about-feature-icon i{width:18px;height:18px}
+.about-feature span{
+  font-size:.88rem;
+  font-weight:600;
+  color:var(--text);
+}
+
+/* CTA */
+.cta-section{
+  background:linear-gradient(135deg,rgba(255,215,0,.06),rgba(255,215,0,.02));
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  text-align:center;
+  padding:100px 24px;
+}
+.cta-inner{max-width:700px;margin:0 auto}
+.cta-inner h2{
+  font-size:clamp(2.5rem,5vw,4rem);
+  margin-bottom:20px;
+  line-height:1;
+}
+.cta-inner h2 span{color:var(--gold)}
+.cta-inner p{
+  color:var(--muted);
+  font-size:1.1rem;
+  margin-bottom:36px;
+  line-height:1.7;
+}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* CONTACT */
+.contact-grid{
+  max-width:1000px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.contact-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:36px 28px;
+  text-align:center;
+  transition:all .4s;
+}
+.contact-card:hover{
+  border-color:rgba(255,215,0,.25);
+  transform:translateY(-4px);
+  box-shadow:0 16px 50px rgba(0,0,0,.3),var(--glow);
+}
+.contact-icon{
+  width:56px;height:56px;
+  background:rgba(255,215,0,.1);
+  border:1px solid rgba(255,215,0,.2);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;
+  color:var(--gold);
+  transition:all .3s;
+}
+.contact-card:hover .contact-icon{
+  background:var(--gold);
+  color:#000;
+  box-shadow:var(--glow);
+}
+.contact-icon i{width:24px;height:24px}
+.contact-card h3{
+  font-size:1.1rem;
+  margin-bottom:8px;
+  color:var(--text);
+}
+.contact-card p{
+  color:var(--muted);
+  font-size:.92rem;
+  margin-bottom:14px;
+  line-height:1.6;
+}
+.contact-card a{
+  font-weight:600;
+  font-size:.9rem;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* FOOTER */
+.footer{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:48px 24px 28px;
+}
+.footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  text-align:center;
+}
+.footer-brand{
+  font-family:var(--heading);
+  font-size:1.8rem;
+  color:var(--gold);
+  letter-spacing:.06em;
+  margin-bottom:12px;
+}
+.footer-links{
+  display:flex;
+  gap:28px;
+  justify-content:center;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+.footer-links a{
+  color:var(--muted);
+  font-size:.88rem;
+  font-weight:500;
+  transition:color .3s;
+}
+.footer-links a:hover{color:var(--gold)}
+.footer-divider{
+  width:80px;height:1px;
+  background:var(--border);
+  margin:20px auto;
+}
+.footer-bottom{
+  color:var(--muted);
+  font-size:.8rem;
+}
+.footer-bottom a{color:var(--gold);font-weight:600}
+.footer-bottom a:hover{color:var(--gold-light)}
+
+/* WHATSAPP FLOAT */
+.wa-float{
+  position:fixed;
+  bottom:28px;right:28px;
+  width:60px;height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  z-index:998;
+  transition:all .3s;
+  animation:float 3s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.6)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .about-visual{max-width:500px;margin:0 auto}
+}
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:rgba(10,10,15,.98);
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:24px;
+    z-index:1000;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:1.2rem}
+  .hamburger{display:flex}
+  .nav-cta-wrap{display:none}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+  .services-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+  .hero{padding:100px 20px 60px}
+  .section{padding:70px 20px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:3rem}
+  .hero-buttons{flex-direction:column;align-items:center}
+  .btn-primary,.btn-outline{width:100%;justify-content:center}
+  .cta-buttons{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  Tämä on esikatselu — Haluatko tällaisen sivuston?
+  <a href="https://elfennir.com" target="_blank">Ota yhteyttä: yassinfennir@gmail.com | elfennir.com</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="13" width="28" height="6" rx="3" fill="#FFD700"/>
+        <rect x="5" y="8" width="4" height="16" rx="2" fill="#FFD700"/>
+        <rect x="23" y="8" width="4" height="16" rx="2" fill="#FFD700"/>
+        <rect x="1" y="10" width="6" height="2" rx="1" fill="#FFD700" opacity=".7"/>
+        <rect x="25" y="10" width="6" height="2" rx="1" fill="#FFD700" opacity=".7"/>
+        <rect x="1" y="20" width="6" height="2" rx="1" fill="#FFD700" opacity=".7"/>
+        <rect x="25" y="20" width="6" height="2" rx="1" fill="#FFD700" opacity=".7"/>
+      </svg>
+      Powerhouse Gym
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#palvelut" onclick="closeMenu()">Palvelut</a></li>
+      <li><a href="#meista" onclick="closeMenu()">Meistä</a></li>
+      <li><a href="#yhteystiedot" onclick="closeMenu()">Yhteystiedot</a></li>
+    </ul>
+    <div class="nav-cta-wrap">
+      <a href="#yhteystiedot" class="nav-cta">Aloita nyt</a>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Tampere, Suomi</div>
+    <h1>POWERHOUSE<span>GYM TAMPERE</span></h1>
+    <p class="hero-tagline">Nosta raskaammin. Tule vahvemmaksi. Riko rajasi. Tampereen tehokkain kuntosali vakavasti treenaajille.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/358505824614" target="_blank" class="btn-primary">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.547 4.093 1.504 5.82L0 24l6.335-1.463C8.063 23.468 9.985 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.82 0-3.543-.468-5.043-1.29l-.36-.214-3.76.869.903-3.633-.235-.374A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp
+      </a>
+      <a href="#palvelut" class="btn-outline">Katso palvelut &#8595;</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <h3>1000+</h3>
+      <p>Treenikaveria</p>
+    </div>
+    <div class="stat-item reveal">
+      <h3>24/7</h3>
+      <p>Auki aina</p>
+    </div>
+    <div class="stat-item reveal">
+      <h3>500+</h3>
+      <p>Laitetta & painoa</p>
+    </div>
+    <div class="stat-item reveal">
+      <h3>10+</h3>
+      <p>Vuoden kokemus</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="palvelut">
+  <div class="section-header reveal">
+    <div class="section-label">Palvelumme</div>
+    <h2>Kaikki mitä tarvitset<br>tulosten saavuttamiseen</h2>
+    <p>Monipuoliset palvelut jokaiselle tasolla — aloittelijasta kilpaurheilijaksi.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon"><i data-lucide="dumbbell"></i></div>
+      <h3>Kuntosali</h3>
+      <p>Huippuvarusteet, vapaat painot ja modernit laitteet. Täydellinen treenikeskus jokaiselle lihasryhmälle.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon"><i data-lucide="trophy"></i></div>
+      <h3>Painonnosto</h3>
+      <p>Olympianosto-alustat, kilpailutangot ja bumper-levyt. Harjoittele kuten ammattilaiset.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon"><i data-lucide="flame"></i></div>
+      <h3>Voimanosto</h3>
+      <p>Penkkipunnerrus, kyykky ja maastaveto — power rackit, kilpailupenkkit ja vahvat alustat.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon"><i data-lucide="user-check"></i></div>
+      <h3>Personal Training</h3>
+      <p>Henkilökohtainen valmennus kokeneiden personal trainerien kanssa. Räätälöidyt ohjelmat sinulle.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon"><i data-lucide="target"></i></div>
+      <h3>Kehonrakennus</h3>
+      <p>Kilpailuun valmistautuminen, poseeraus ja ravintovalmennus. Muovaa kehosi huippukuntoon.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon"><i data-lucide="zap"></i></div>
+      <h3>Toiminnallinen harjoittelu</h3>
+      <p>Monipuolinen toiminnallinen treeni — liikkuvuus, voima ja kestävyys yhdistettynä.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section" id="meista">
+  <div class="about-inner">
+    <div class="about-visual reveal-left">
+      <div class="about-visual-content">
+        <span class="about-visual-icon">&#127947;&#65039;</span>
+        <div class="about-visual-text">EST. Tampere</div>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="section-label">Meistä</div>
+      <h2>Tampereen <span>voimatalo</span> vakaville nostajille</h2>
+      <p>Powerhouse Gym Tampere on rakennettu niille, jotka ottavat treenin tosissaan. Meillä ei ole kompromisseja — vain raskaat painot, huippulaitteet ja yhteisö, joka työntää sinua eteenpäin joka päivä.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="shield-check"></i></div>
+          <span>Huippulaitteet</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="clock"></i></div>
+          <span>Auki 24/7</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="users"></i></div>
+          <span>Vahva yhteisö</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="award"></i></div>
+          <span>Kokeneet valmentajat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal-scale">
+    <div class="section-label">Aloita tänään</div>
+    <h2>Oletko valmis <span>muutokseen?</span></h2>
+    <p>Ensimmäinen askel on aina vaikein. Me autamme sinua loppumatkan. Ota yhteyttä ja aloita matkasi kohti vahvempaa sinua.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/358505824614" target="_blank" class="btn-primary">Ota yhteyttä WhatsAppilla</a>
+      <a href="tel:+358505824614" class="btn-outline">Soita meille</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="yhteystiedot">
+  <div class="section-header reveal">
+    <div class="section-label">Yhteystiedot</div>
+    <h2>Ota yhteyttä</h2>
+    <p>Tavoitat meidät helposti — vastaamme nopeasti kaikkiin kysymyksiin.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i data-lucide="mail"></i></div>
+      <h3>Sähköposti</h3>
+      <p>Kirjoita meille milloin tahansa</p>
+      <a href="mailto:mikko.mellberg@powerhousegym.fi">mikko.mellberg@powerhousegym.fi</a>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i data-lucide="phone"></i></div>
+      <h3>Puhelin</h3>
+      <p>Soita arkisin 8-18</p>
+      <a href="tel:+358505824614">+358 50 582 4614</a>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i data-lucide="message-circle"></i></div>
+      <h3>WhatsApp</h3>
+      <p>Nopein tapa tavoittaa meidät</p>
+      <a href="https://wa.me/358505824614" target="_blank">Lähetä viesti &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Powerhouse Gym Tampere</div>
+    <div class="footer-links">
+      <a href="#palvelut">Palvelut</a>
+      <a href="#meista">Meistä</a>
+      <a href="#yhteystiedot">Yhteystiedot</a>
+      <a href="https://wa.me/358505824614" target="_blank">WhatsApp</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      &copy; 2026 Powerhouse Gym Tampere. Kaikki oikeudet pidätetään.<br>
+      Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — elfennir.com
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/358505824614" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.11.547 4.093 1.504 5.82L0 24l6.335-1.463C8.063 23.468 9.985 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.82 0-3.543-.468-5.043-1.29l-.36-.214-3.76.869.903-3.633-.235-.374A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+const banner = document.querySelector('.top-banner');
+let bannerH = banner.offsetHeight;
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > bannerH + 40);
+});
+
+// Adjust navbar top based on banner
+function adjustNav() {
+  bannerH = banner.offsetHeight;
+  navbar.style.top = bannerH + 'px';
+}
+adjustNav();
+window.addEventListener('resize', adjustNav);
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+// IntersectionObserver animations
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('active'), i * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+
+// Smooth scroll offset for fixed nav
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = navbar.offsetHeight + bannerH + 10;
+      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

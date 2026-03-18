@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Diploma - Digital Marketing & Growth Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tangerine:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4 landscape;margin:0}
+html,body{height:100%}
+body{display:flex;justify-content:center;align-items:center;min-height:100vh;background:#4a3a28;font-family:'Crimson Pro',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+.diploma{
+  width:1122px;height:794px;position:relative;overflow:hidden;
+  background:#fffcf6;
+  box-shadow:0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* Aged paper texture via multiple gradients */
+.diploma::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 10% 10%,rgba(160,112,64,0.06) 0%,transparent 50%),
+    radial-gradient(ellipse at 90% 90%,rgba(160,112,64,0.05) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,252,246,0.8) 0%,transparent 100%),
+    linear-gradient(180deg,rgba(192,144,96,0.08) 0%,transparent 20%,transparent 80%,rgba(192,144,96,0.08) 100%);
+}
+
+/* Subtle diagonal watermark lines */
+.diploma::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.012;
+  background:repeating-linear-gradient(45deg,transparent,transparent 80px,#5a3818 80px,#5a3818 80.5px),
+  repeating-linear-gradient(-45deg,transparent,transparent 80px,#5a3818 80px,#5a3818 80.5px)}
+
+/* Watermark text */
+.wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-20deg);z-index:0;pointer-events:none;
+  font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:700;color:rgba(90,56,24,0.022);
+  letter-spacing:30px;text-transform:uppercase;white-space:nowrap;user-select:none}
+
+/* Outer ornate border — guilloché style */
+.bdr-1{position:absolute;inset:12px;border:3px solid #5a3818;z-index:1}
+.bdr-2{position:absolute;inset:18px;border:0.5px solid #a07040;z-index:1}
+.bdr-3{position:absolute;inset:22px;border:1.5px solid #7a5028;z-index:1}
+.bdr-4{position:absolute;inset:28px;border:0.5px solid #c09060;z-index:1}
+
+/* Top bronze bar */
+.top-bar{position:absolute;top:0;left:0;right:0;height:10px;z-index:2;
+  background:linear-gradient(90deg,#3a2010,#5a3818 10%,#a07040 30%,#c09060 50%,#a07040 70%,#5a3818 90%,#3a2010)}
+.bottom-bar{position:absolute;bottom:0;left:0;right:0;height:10px;z-index:2;
+  background:linear-gradient(90deg,#3a2010,#5a3818 10%,#a07040 30%,#c09060 50%,#a07040 70%,#5a3818 90%,#3a2010)}
+
+/* Content */
+.content{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;
+  height:100%;padding:44px 70px 38px;text-align:center}
+
+/* Crest / coat of arms */
+.crest{margin-bottom:6px}
+.crest svg{width:58px;height:62px}
+
+.inst{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;
+  letter-spacing:7px;text-transform:uppercase;color:#3a2010;margin-bottom:2px}
+.inst-loc{font-family:'Crimson Pro',serif;font-weight:400;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;color:#a07040;margin-bottom:2px}
+.est{font-family:'Crimson Pro',serif;font-weight:300;font-style:italic;font-size:9px;
+  color:#c09060;margin-bottom:14px;letter-spacing:2px}
+
+/* Ornamental rule */
+.rule{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px}
+.rule .l{width:120px;height:0.5px;background:linear-gradient(90deg,transparent,#a07040,transparent)}
+.rule .d{width:5px;height:5px;border:0.5px solid #a07040;transform:rotate(45deg)}
+.rule .sm{width:3px;height:3px;background:#a07040;border-radius:50%}
+
+/* Main title block */
+.pre-title{font-family:'Crimson Pro',serif;font-weight:300;font-size:11px;letter-spacing:7px;
+  text-transform:uppercase;color:#7a5028;margin-bottom:6px}
+.title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:44px;color:#3a2010;
+  letter-spacing:2px;margin-bottom:2px;line-height:1}
+.field{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;color:#5a3818;
+  letter-spacing:5px;text-transform:uppercase;margin-bottom:14px}
+
+/* Conferral */
+.conf{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-size:11px;
+  color:#7a5028;margin-bottom:4px;letter-spacing:1px}
+.name{font-family:'Tangerine',cursive;font-size:58px;font-weight:700;color:#3a2010;
+  line-height:1.1;margin-bottom:0}
+.name-rule{width:300px;height:0.5px;background:linear-gradient(90deg,transparent,#5a3818,transparent);
+  margin:2px auto 12px}
+
+/* Description */
+.desc{font-family:'Libre Baskerville',serif;font-size:11.5px;color:#3a2010;line-height:2;
+  max-width:600px;margin-bottom:10px;font-weight:400;text-align:justify;text-align-last:center}
+
+/* Skills in subtle traditional style */
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 8px;margin-bottom:14px}
+.sk{font-family:'Crimson Pro',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:#5a3818;font-weight:500;padding:2px 10px;border:0.5px solid #c09060}
+
+/* Signatures */
+.sigs{display:flex;justify-content:space-between;align-items:flex-end;width:100%;max-width:820px;margin-top:auto}
+.sig{text-align:center;width:200px}
+.sig-hand{font-family:'Tangerine',cursive;font-size:30px;font-weight:700;color:#3a2010;margin-bottom:0}
+.sig-rule{width:175px;height:0.5px;background:#3a2010;margin:1px auto 3px}
+.sig-n{font-family:'Crimson Pro',serif;font-size:10px;font-weight:600;color:#3a2010;letter-spacing:0.5px}
+.sig-t{font-family:'Crimson Pro',serif;font-size:7.5px;color:#5a3818;letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.sig-r{font-family:'Crimson Pro',serif;font-size:6.5px;color:#a07040;letter-spacing:0.5px;margin-top:1px}
+
+/* Official seal — looks embossed/stamped */
+.seal-wrap{position:relative}
+.seal{width:95px;height:95px;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 38% 35%,#c09060,#a07040 30%,#7a5028 60%,#5a3818 90%);
+  box-shadow:0 1px 4px rgba(58,32,16,0.35),inset 0 2px 6px rgba(192,144,96,0.25),inset 0 -1px 3px rgba(58,32,16,0.2);
+  display:flex;align-items:center;justify-content:center}
+.seal-mid{width:82px;height:82px;border-radius:50%;
+  background:radial-gradient(circle at 40% 38%,#f5ece0,#e8d8c0 40%,#d0c0a0 80%);
+  border:1px solid #a07040;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 1px 2px rgba(58,32,16,0.1)}
+.seal-in{width:68px;height:68px;border-radius:50%;
+  border:1.5px solid #7a5028;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 40% 35%,#faf5e8,#ede0c8)}
+.seal-txt{font-family:'Cormorant Garamond',serif;font-size:5px;letter-spacing:2.5px;
+  text-transform:uppercase;color:#5a3818;font-weight:700}
+.seal-star{font-size:16px;color:#7a5028;margin:1px 0}
+.seal-yr{font-family:'Crimson Pro',serif;font-size:9px;color:#5a3818;font-weight:600}
+.seal-sub{font-family:'Crimson Pro',serif;font-size:4.5px;color:#a07040;letter-spacing:2px;text-transform:uppercase}
+
+/* Document footer */
+.doc-footer{position:absolute;bottom:32px;left:36px;right:36px;z-index:5;
+  display:flex;justify-content:space-between;align-items:flex-end}
+.doc-col{display:flex;flex-direction:column;gap:1px}
+.doc-meta{font-family:'Crimson Pro',serif;font-size:7px;color:#c09060;letter-spacing:0.5px}
+
+/* Verification strip */
+.vstrip{position:absolute;bottom:55px;left:36px;right:36px;height:12px;z-index:4;
+  border-top:0.5px solid rgba(160,112,64,0.15);border-bottom:0.5px solid rgba(160,112,64,0.15);
+  display:flex;align-items:center;justify-content:center;gap:40px}
+.vstrip span{font-family:'Crimson Pro',serif;font-size:4.5px;letter-spacing:3px;text-transform:uppercase;color:rgba(160,112,64,0.25)}
+
+/* Barcode-like pattern */
+.barcode{display:flex;gap:1px;align-items:center;height:18px}
+.barcode .b{width:1px;background:#3a2010;opacity:0.3}
+.barcode .b.w{width:1.5px}
+.barcode .b.n{width:0.5px}
+
+/* Document number overlay bottom-right */
+.docnum{position:absolute;bottom:14px;right:16px;z-index:6;
+  font-family:'Crimson Pro',serif;font-size:5.5px;color:#c09060;letter-spacing:1px;
+  transform:rotate(0deg)}
+
+@media print{
+  body{background:#fff}
+  .diploma{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="diploma">
+  <div class="wm">EDMI</div>
+  <div class="top-bar"></div>
+  <div class="bottom-bar"></div>
+  <div class="bdr-1"></div>
+  <div class="bdr-2"></div>
+  <div class="bdr-3"></div>
+  <div class="bdr-4"></div>
+
+  <div class="content">
+    <!-- Institutional Crest -->
+    <div class="crest">
+      <svg viewBox="0 0 58 62" fill="none">
+        <path d="M29 2 L54 15 L54 35 C54 50 42 58 29 62 C16 58 4 50 4 35 L4 15 Z" stroke="#5a3818" stroke-width="1.2" fill="none"/>
+        <path d="M29 8 L48 18 L48 34 C48 46 39 53 29 56 C19 53 10 46 10 34 L10 18 Z" stroke="#a07040" stroke-width="0.6" fill="none"/>
+        <!-- Chart/analytics icon: upward trending line with dots -->
+        <polyline points="16,38 22,33 29,36 36,26 42,22" stroke="#5a3818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="16" cy="38" r="1.5" fill="#a07040"/>
+        <circle cx="22" cy="33" r="1.5" fill="#a07040"/>
+        <circle cx="29" cy="36" r="1.5" fill="#a07040"/>
+        <circle cx="36" cy="26" r="1.5" fill="#a07040"/>
+        <circle cx="42" cy="22" r="1.5" fill="#a07040"/>
+        <circle cx="29" cy="14" r="2" fill="#a07040"/>
+        <path d="M25 14 L29 10 L33 14" stroke="#a07040" stroke-width="0.5" fill="none"/>
+        <line x1="29" y1="44" x2="29" y2="48" stroke="#a07040" stroke-width="0.4"/>
+        <line x1="25" y1="46" x2="33" y2="46" stroke="#a07040" stroke-width="0.4"/>
+      </svg>
+    </div>
+
+    <div class="inst">European Digital Marketing Institute</div>
+    <div class="inst-loc">Brussels, Belgium &mdash; European Union</div>
+    <div class="est">Accredited Professional Institution &middot; Established 2010</div>
+
+    <div class="rule">
+      <div class="l"></div><div class="sm"></div><div class="d"></div><div class="sm"></div><div class="l"></div>
+    </div>
+
+    <div class="pre-title">The Executive Board hereby awards this</div>
+    <div class="title">Professional Diploma</div>
+    <div class="field">Digital Marketing & Growth Strategy</div>
+
+    <div class="conf">This is to certify that the following individual has fulfilled all requirements</div>
+    <div class="name">Yassin El Fennir</div>
+    <div class="name-rule"></div>
+
+    <div class="desc">
+      Having demonstrated exceptional proficiency in search engine optimization and search
+      engine marketing, content strategy, social media marketing, email marketing automation,
+      analytics and data-driven decision making, conversion rate optimization, and data-driven
+      growth strategy. This diploma is awarded with all the rights, privileges, and
+      responsibilities pertaining thereto.
+    </div>
+
+    <div class="skills">
+      <span class="sk">SEO & SEM</span>
+      <span class="sk">Content Strategy</span>
+      <span class="sk">Email Marketing</span>
+      <span class="sk">Analytics & Data</span>
+      <span class="sk">Social Media</span>
+      <span class="sk">Conversion Optimization</span>
+    </div>
+
+    <!-- Signatures -->
+    <div class="sigs">
+      <div class="sig">
+        <div class="sig-hand">Dr. M. Dubois</div>
+        <div class="sig-rule"></div>
+        <div class="sig-n">Dr. Marc Dubois, Ph.D.</div>
+        <div class="sig-t">Director of Digital Marketing</div>
+        <div class="sig-r">Google Marketing Fellow</div>
+      </div>
+
+      <div class="seal-wrap">
+        <div class="seal">
+          <div class="seal-mid">
+            <div class="seal-in">
+              <div class="seal-txt">Authenticated</div>
+              <div class="seal-star">&#9733;</div>
+              <div class="seal-yr">2024</div>
+              <div class="seal-sub">Official Seal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sig">
+        <div class="sig-hand">Prof. L. Niemi</div>
+        <div class="sig-rule"></div>
+        <div class="sig-n">Prof. Laura Niemi, M.Sc.</div>
+        <div class="sig-t">Head of Growth Strategy</div>
+        <div class="sig-r">Certified Analytics Expert</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verification strip -->
+  <div class="vstrip">
+    <span>Security Document</span>
+    <span>Authenticated</span>
+    <span>EDMI Official</span>
+    <span>Reg. EU-2024-11578</span>
+    <span>Tamper-Evident</span>
+  </div>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <div class="doc-col">
+      <div class="doc-meta">Date of Issue: December 20, 2024</div>
+      <div class="doc-meta">Place of Issue: Brussels, Belgium</div>
+      <div class="doc-meta">Document No: EDMI-DM-2024-11578</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="barcode">
+        <div class="b" style="height:16px"></div><div class="b n" style="height:14px"></div><div class="b w" style="height:16px"></div>
+        <div class="b n" style="height:12px"></div><div class="b" style="height:16px"></div><div class="b w" style="height:14px"></div>
+        <div class="b" style="height:16px"></div><div class="b n" style="height:10px"></div><div class="b w" style="height:16px"></div>
+        <div class="b" style="height:14px"></div><div class="b n" style="height:16px"></div><div class="b" style="height:12px"></div>
+        <div class="b w" style="height:16px"></div><div class="b n" style="height:14px"></div><div class="b" style="height:16px"></div>
+        <div class="b" style="height:10px"></div><div class="b w" style="height:16px"></div><div class="b n" style="height:14px"></div>
+        <div class="b" style="height:16px"></div><div class="b" style="height:12px"></div><div class="b w" style="height:16px"></div>
+        <div class="b n" style="height:14px"></div><div class="b" style="height:16px"></div><div class="b" style="height:10px"></div>
+      </div>
+      <div style="font-family:'Crimson Pro',serif;font-size:5px;color:#a07040;letter-spacing:1px">EU-2024-DM-11578</div>
+    </div>
+    <div class="doc-col" style="text-align:right">
+      <div class="doc-meta">Credential ID: DM-EU-11578-2024</div>
+      <div class="doc-meta">Accreditation: EU-PROF-1b78-2024</div>
+      <div class="doc-meta">Validity: Permanent &middot; Worldwide</div>
+    </div>
+  </div>
+
+  <div class="docnum">EDMI/DM/2024/11578/BE</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kauneussalonki Oulu | Kauneushoitola</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --frost:#F0F4F8;--ice:#0EA5E9;--ice-light:#38BDF8;--ice-dark:#0284C7;
+  --charcoal:#1E293B;--pink:#EC4899;--pink-light:#F472B6;--pink-dark:#DB2777;
+  --white:#ffffff;--text:#334155;--gray:#94A3B8;
+  --shadow:0 8px 32px rgba(14,165,233,.10);
+  --shadow-pink:0 8px 32px rgba(236,72,153,.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--frost);overflow-x:hidden;line-height:1.7}
+
+/* BANNER */
+.banner{background:var(--charcoal);color:#fff;text-align:center;padding:10px 16px;font-size:.82rem;letter-spacing:.3px;position:relative;z-index:1000}
+.banner a{color:var(--ice-light);text-decoration:underline;font-weight:600}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:999;background:rgba(240,244,248,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(14,165,233,.08);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(14,165,233,.08)}
+.nav-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.logo{font-size:1.4rem;font-weight:700;color:var(--charcoal);letter-spacing:1px}
+.logo span{color:var(--pink)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--charcoal);font-size:.88rem;font-weight:500;letter-spacing:.4px;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--pink),var(--ice));transition:width .3s}
+.nav-links a:hover{color:var(--pink)}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--charcoal);border-radius:2px;transition:.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(160deg,var(--frost) 0%,#e0ecf8 25%,#fce7f3 50%,#e0f2fe 75%,var(--frost) 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-15%;width:650px;height:650px;background:radial-gradient(circle,rgba(236,72,153,.07) 0%,transparent 70%);border-radius:50%;animation:floatBubble 12s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(14,165,233,.06) 0%,transparent 70%);border-radius:50%;animation:floatBubble 15s ease-in-out infinite reverse}
+.hero-glow{position:absolute;top:50%;left:50%;width:800px;height:800px;background:radial-gradient(circle,rgba(14,165,233,.04) 0%,transparent 60%);border-radius:50%;transform:translate(-50%,-50%);animation:pulse 8s ease-in-out infinite}
+@keyframes floatBubble{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-40px) scale(1.05)}}
+@keyframes pulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
+.hero-content{position:relative;z-index:2;padding:40px 24px;max-width:780px}
+.hero-badge{display:inline-block;background:rgba(236,72,153,.1);color:var(--pink);padding:8px 24px;border-radius:40px;font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;margin-bottom:28px;animation:fadeUp .8s ease forwards;opacity:0}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);color:var(--charcoal);font-weight:300;line-height:1.15;margin-bottom:20px;animation:fadeUp .8s ease .15s forwards;opacity:0}
+.hero h1 strong{font-weight:700;background:linear-gradient(135deg,var(--pink),var(--ice));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.hero p{font-size:1.1rem;color:var(--gray);max-width:520px;margin:0 auto 36px;animation:fadeUp .8s ease .3s forwards;opacity:0}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s ease .45s forwards;opacity:0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:50px;font-size:.92rem;font-weight:600;text-decoration:none;transition:all .35s;cursor:pointer;border:none;letter-spacing:.4px}
+.btn-primary{background:linear-gradient(135deg,var(--pink),var(--pink-dark));color:#fff;box-shadow:0 6px 24px rgba(236,72,153,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(236,72,153,.4)}
+.btn-ice{background:linear-gradient(135deg,var(--ice),var(--ice-dark));color:#fff;box-shadow:0 6px 24px rgba(14,165,233,.3)}
+.btn-ice:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(14,165,233,.4)}
+.btn-outline{background:transparent;color:var(--charcoal);border:2px solid var(--pink)}
+.btn-outline:hover{background:var(--pink);color:#fff;transform:translateY(-2px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+section{padding:100px 24px}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title span{display:inline-block;background:rgba(236,72,153,.08);color:var(--pink);padding:6px 20px;border-radius:30px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.section-title h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--charcoal);font-weight:300;line-height:1.3}
+.section-title h2 strong{font-weight:700}
+.section-title p{color:var(--gray);margin-top:12px;max-width:540px;margin-left:auto;margin-right:auto;font-size:.95rem}
+
+/* SERVICES */
+.services{background:var(--white)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1100px;margin:auto}
+.service-card{background:var(--frost);border-radius:20px;padding:36px 28px;text-align:center;transition:all .4s;border:1px solid transparent;position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(14,165,233,.12)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--ice));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:64px;height:64px;background:rgba(236,72,153,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.6rem;transition:background .3s}
+.service-card:hover .service-icon{background:rgba(14,165,233,.12)}
+.service-card h3{font-size:1.05rem;color:var(--charcoal);margin-bottom:8px;font-weight:600}
+.service-card p{font-size:.85rem;color:var(--gray);line-height:1.6}
+
+/* PRICING */
+.pricing{background:var(--frost)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;max-width:1100px;margin:auto}
+.price-card{background:var(--white);border-radius:20px;padding:40px 32px;border:1px solid rgba(14,165,233,.08);transition:all .4s;position:relative;overflow:hidden}
+.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.price-card.featured{border:2px solid var(--pink);box-shadow:var(--shadow-pink)}
+.price-card.featured::before{content:'Suosittu';position:absolute;top:16px;right:-30px;background:linear-gradient(135deg,var(--pink),var(--pink-dark));color:#fff;padding:4px 40px;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transform:rotate(45deg)}
+.price-card h3{font-size:1.2rem;color:var(--charcoal);font-weight:700;margin-bottom:6px}
+.price-card .price-sub{font-size:.82rem;color:var(--gray);margin-bottom:24px}
+.price-list{list-style:none;margin-bottom:28px}
+.price-list li{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(14,165,233,.06);font-size:.9rem}
+.price-list li:last-child{border:none}
+.price-list .treatment{color:var(--charcoal);font-weight:500}
+.price-list .price{color:var(--pink);font-weight:700;white-space:nowrap}
+
+/* ABOUT */
+.about{background:linear-gradient(135deg,#fce7f3 0%,#e0f2fe 50%,var(--frost) 100%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:auto;align-items:center}
+.about-visual{position:relative}
+.about-img-placeholder{width:100%;aspect-ratio:4/5;border-radius:24px;background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(14,165,233,.12));display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden}
+.about-img-placeholder::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.3));border-radius:24px}
+.about-float{position:absolute;background:var(--white);border-radius:16px;padding:16px 22px;box-shadow:var(--shadow);animation:float 6s ease-in-out infinite}
+.about-float.f1{bottom:20px;left:-20px}
+.about-float.f2{top:20px;right:-20px;animation-delay:3s}
+.about-float .num{font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,var(--pink),var(--ice));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.about-float .label{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.about-text h3{font-size:1.8rem;color:var(--charcoal);font-weight:300;margin-bottom:20px;line-height:1.3}
+.about-text h3 strong{font-weight:700}
+.about-text p{color:var(--gray);margin-bottom:16px;font-size:.95rem}
+.about-features{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.about-feat{display:flex;align-items:center;gap:8px;background:var(--white);padding:10px 18px;border-radius:40px;font-size:.82rem;font-weight:500;color:var(--charcoal);box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.about-feat i{color:var(--pink)}
+
+/* REVIEWS */
+.reviews{background:var(--white)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1100px;margin:auto}
+.review-card{background:var(--frost);border-radius:20px;padding:32px 28px;transition:all .4s;border:1px solid transparent}
+.review-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(236,72,153,.1)}
+.stars{color:#FBBF24;font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.review-card blockquote{font-size:.92rem;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:20px}
+.reviewer{display:flex;align-items:center;gap:12px}
+.reviewer-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff}
+.reviewer-info .name{font-weight:600;font-size:.88rem;color:var(--charcoal)}
+.reviewer-info .date{font-size:.75rem;color:var(--gray)}
+
+/* CONTACT */
+.contact{background:var(--frost)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:auto;align-items:start}
+.contact-info h3{font-size:1.6rem;color:var(--charcoal);font-weight:700;margin-bottom:20px}
+.contact-info p{color:var(--gray);margin-bottom:24px;font-size:.95rem}
+.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.contact-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-icon.pink{background:rgba(236,72,153,.1);color:var(--pink)}
+.contact-icon.ice{background:rgba(14,165,233,.1);color:var(--ice)}
+.contact-item .label{font-size:.78rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.contact-item .value{font-size:.95rem;color:var(--charcoal);font-weight:500}
+.contact-item .value a{color:var(--charcoal);text-decoration:none;transition:color .3s}
+.contact-item .value a:hover{color:var(--pink)}
+.contact-map{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);height:100%;min-height:360px}
+.contact-map iframe{width:100%;height:100%;border:0;min-height:360px}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--charcoal) 0%,#0f172a 100%);text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(236,72,153,.1) 0%,transparent 70%);border-radius:50%}
+.cta::after{content:'';position:absolute;bottom:-40%;left:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(14,165,233,.08) 0%,transparent 70%);border-radius:50%}
+.cta-content{position:relative;z-index:2;max-width:650px;margin:auto}
+.cta h2{font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;font-weight:300;margin-bottom:16px;line-height:1.3}
+.cta h2 strong{font-weight:700;background:linear-gradient(135deg,var(--pink-light),var(--ice-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta p{color:rgba(255,255,255,.6);margin-bottom:36px;font-size:1rem}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:998;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.35);transition:all .35s;text-decoration:none;animation:bounceIn 1s ease .5s both}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,.45)}
+.whatsapp-float svg{width:30px;height:30px;fill:#fff}
+@keyframes bounceIn{0%{opacity:0;transform:scale(.3)}50%{transform:scale(1.05)}70%{transform:scale(.9)}100%{opacity:1;transform:scale(1)}}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:rgba(255,255,255,.5);text-align:center;padding:40px 24px}
+footer .footer-brand{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:1px}
+footer .footer-brand span{color:var(--pink)}
+footer p{font-size:.82rem}
+footer a{color:var(--ice-light);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:75%;max-width:320px;height:100vh;background:var(--frost);flex-direction:column;padding:80px 32px 32px;gap:0;box-shadow:-8px 0 32px rgba(0,0,0,.1);transition:right .35s}
+  .nav-links.open{right:0}
+  .nav-links a{padding:16px 0;border-bottom:1px solid rgba(14,165,233,.06);font-size:1rem}
+  .nav-links a::after{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-visual{order:-1}
+  .contact-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  section{padding:70px 20px}
+  .hero{min-height:90vh}
+}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.23,1,.32,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  This is a FREE preview website designed by <a href="https://elfennir.com" target="_blank">elfennir.com</a> &mdash; Contact us to make it yours!
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo">Kauneussalonki<span>Oulu</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#palvelut" onclick="closeMenu()">Palvelut</a></li>
+      <li><a href="#hinnasto" onclick="closeMenu()">Hinnasto</a></li>
+      <li><a href="#meista" onclick="closeMenu()">Meista</a></li>
+      <li><a href="#arvostelut" onclick="closeMenu()">Arvostelut</a></li>
+      <li><a href="#yhteystiedot" onclick="closeMenu()">Yhteystiedot</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Kauneushoitola &bull; Oulu</div>
+    <h1>Nordic Beauty,<strong>Personal Touch</strong></h1>
+    <p>Koe pohjoismainen kauneudenhoito parhaimmillaan. Ammattitaitoinen tiimimme luo sinulle luonnollista ja kestävää kauneutta.</p>
+    <div class="hero-btns">
+      <a href="#yhteystiedot" class="btn btn-primary">&#128197; Varaa Aika</a>
+      <a href="#palvelut" class="btn btn-outline">Tutustu Palveluihin</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="palvelut">
+  <div class="section-title reveal">
+    <span>Palvelut</span>
+    <h2>Kaikki <strong>kauneuspalvelut</strong> yhdesta paikasta</h2>
+    <p>Tarjoamme monipuolisia kauneushoitoja, jotka on suunniteltu sinun tarpeisiisi.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">&#10024;</div>
+      <h3>Kasvohoitot</h3>
+      <p>Syvahoitavat ja hemmottelevat kasvohoitomme uudistavat ihosi ja palauttavat sen luonnollisen hehkun.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#128140;</div>
+      <h3>Kestopigmentointi</h3>
+      <p>Ammattimainen kestopigmentointi huulille, eyelinerille ja kulmille &mdash; kestava kauneus joka paiva.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#9999;&#65039;</div>
+      <h3>Microblading</h3>
+      <p>Luonnolliset ja taydellisesti muotoillut kulmat microblading-tekniikalla. Karva kerrallaan taydellisyyttä.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#128065;&#65039;</div>
+      <h3>Ripsipidennykset</h3>
+      <p>Upeat volyymi- ja klassikkoripsipidennykset, jotka korostavat katsettasi luonnollisesti.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#127800;</div>
+      <h3>Kulmapalvelut</h3>
+      <p>Kulmien muotoilu, varjays ja laminointi &mdash; taydellinen kehys silmillesi.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#128133;</div>
+      <h3>Kynsipalvelut</h3>
+      <p>Geelilakkaukset, rakennekynnnet ja kynsihoitolat &mdash; kauniit ja hyvinvoivat kynnet.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#129526;</div>
+      <h3>Vartalohoidot</h3>
+      <p>Rentouttavat ja kiinteyttavat vartalohoidot, sokerointi ja ihonhoito koko vartalolle.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">&#127912;</div>
+      <h3>Meikkipalvelut</h3>
+      <p>Juhla- ja hameikkeja joka tilanteeseen. Ammattimainen meikki korostaa luonnollista kauneuttasi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="hinnasto">
+  <div class="section-title reveal">
+    <span>Hinnasto</span>
+    <h2>Laadukkaita hoitoja <strong>kilpailukykyisin hinnoin</strong></h2>
+    <p>Selkeat hinnat ilman piilokustannuksia. Investoi itseesi.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <h3>Kasvohoitot</h3>
+      <div class="price-sub">Ihon syvahoito ja uudistuminen</div>
+      <ul class="price-list">
+        <li><span class="treatment">Peruskasvhoito 60 min</span><span class="price">65 &euro;</span></li>
+        <li><span class="treatment">Syvakosteuttava hoito 75 min</span><span class="price">85 &euro;</span></li>
+        <li><span class="treatment">Anti-Age Luksushoito 90 min</span><span class="price">110 &euro;</span></li>
+        <li><span class="treatment">Mikroneulahoito</span><span class="price">120 &euro;</span></li>
+      </ul>
+      <a href="#yhteystiedot" class="btn btn-primary" style="width:100%;justify-content:center">Varaa Aika</a>
+    </div>
+    <div class="price-card featured reveal">
+      <h3>Kestopigmentointi & Microblading</h3>
+      <div class="price-sub">Pitkakestoista kauneutta</div>
+      <ul class="price-list">
+        <li><span class="treatment">Microblading kulmat</span><span class="price">250 &euro;</span></li>
+        <li><span class="treatment">Kestopigmentointi kulmat</span><span class="price">280 &euro;</span></li>
+        <li><span class="treatment">Kestopigmentointi eyeliner</span><span class="price">220 &euro;</span></li>
+        <li><span class="treatment">Kestopigmentointi huulet</span><span class="price">300 &euro;</span></li>
+        <li><span class="treatment">Tayttohoito (6-8 vk)</span><span class="price">80 &euro;</span></li>
+      </ul>
+      <a href="#yhteystiedot" class="btn btn-primary" style="width:100%;justify-content:center">Varaa Aika</a>
+    </div>
+    <div class="price-card reveal">
+      <h3>Ripsipidennykset & Kulmat</h3>
+      <div class="price-sub">Kaunis katse ja kulmat</div>
+      <ul class="price-list">
+        <li><span class="treatment">Klassikkoripset</span><span class="price">75 &euro;</span></li>
+        <li><span class="treatment">Volyymi / Russian Volume</span><span class="price">95 &euro;</span></li>
+        <li><span class="treatment">Ripsien taytto (2-3 vk)</span><span class="price">50 &euro;</span></li>
+        <li><span class="treatment">Kulmien muotoilu & varjays</span><span class="price">30 &euro;</span></li>
+        <li><span class="treatment">Kulmalaminointi</span><span class="price">45 &euro;</span></li>
+      </ul>
+      <a href="#yhteystiedot" class="btn btn-primary" style="width:100%;justify-content:center">Varaa Aika</a>
+    </div>
+    <div class="price-card reveal">
+      <h3>Kynsipalvelut</h3>
+      <div class="price-sub">Kauniit ja hyvinvoivat kynnet</div>
+      <ul class="price-list">
+        <li><span class="treatment">Geelilakkaus</span><span class="price">40 &euro;</span></li>
+        <li><span class="treatment">Rakennekynnet</span><span class="price">65 &euro;</span></li>
+        <li><span class="treatment">Kynsihoitola (manicure)</span><span class="price">35 &euro;</span></li>
+        <li><span class="treatment">Jalkhoitola (pedicure)</span><span class="price">50 &euro;</span></li>
+      </ul>
+      <a href="#yhteystiedot" class="btn btn-primary" style="width:100%;justify-content:center">Varaa Aika</a>
+    </div>
+    <div class="price-card reveal">
+      <h3>Vartalohoidot</h3>
+      <div class="price-sub">Rentoutuminen ja hyvinvointi</div>
+      <ul class="price-list">
+        <li><span class="treatment">Sokerointi jalat</span><span class="price">45 &euro;</span></li>
+        <li><span class="treatment">Sokerointi bikiniraja</span><span class="price">35 &euro;</span></li>
+        <li><span class="treatment">Vartalonkuorinta & hoito</span><span class="price">85 &euro;</span></li>
+        <li><span class="treatment">Selluliittihoito</span><span class="price">75 &euro;</span></li>
+      </ul>
+      <a href="#yhteystiedot" class="btn btn-primary" style="width:100%;justify-content:center">Varaa Aika</a>
+    </div>
+    <div class="price-card reveal">
+      <h3>Meikkipalvelut</h3>
+      <div class="price-sub">Ammattimainen meikki</div>
+      <ul class="price-list">
+        <li><span class="treatment">Juhla- / iltameikki</span><span class="price">65 &euro;</span></li>
+        <li><span class="treatment">Hameikki</span><span class="price">85 &euro;</span></li>
+        <li><span class="treatment">Meikkiopastus 60 min</span><span class="price">70 &euro;</span></li>
+        <li><span class="treatment">Koemuotoilu hameikki</span><span class="price">55 &euro;</span></li>
+      </ul>
+      <a href="#yhteystiedot" class="btn btn-primary" style="width:100%;justify-content:center">Varaa Aika</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="meista">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-img-placeholder">&#128142;</div>
+      <div class="about-float f1">
+        <div class="num">10+</div>
+        <div class="label">Vuotta kokemusta</div>
+      </div>
+      <div class="about-float f2">
+        <div class="num">2000+</div>
+        <div class="label">Tyytyvaista asiakasta</div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <h3>Moderni <strong>kauneussalonki</strong> Oulun sydamessa</h3>
+      <p>Kauneussalonki Oulu on ammattitaitoinen kauneushoitola, joka tarjoaa laadukkaita kauneuspalveluja viihtyisassa ja modernissa ymparistossa. Kokenut tiimimme pitaa huolen, etta jokainen asiakas saa juuri haenelleen raataloitya hoitoa.</p>
+      <p>Kaytamme vain laadukkaita tuotteita ja uusimpia tekniikoita, jotta voit nauttia kauniista tuloksista pitkaaan. Tervetuloa kokemaan pohjoismainen kauneudenhoito parhaimmillaan.</p>
+      <div class="about-features">
+        <div class="about-feat"><i>&#10003;</i> Kokenut tiimi</div>
+        <div class="about-feat"><i>&#10003;</i> Laadukkaat tuotteet</div>
+        <div class="about-feat"><i>&#10003;</i> Modernit tilat</div>
+        <div class="about-feat"><i>&#10003;</i> Henkilokohtainen palvelu</div>
+        <div class="about-feat"><i>&#10003;</i> Keskusta Oulu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="arvostelut">
+  <div class="section-title reveal">
+    <span>Arvostelut</span>
+    <h2>Asiakkaamme <strong>rakastavat meitä</strong></h2>
+    <p>Lue mita tyytyväiset asiakkaamme sanovat palveluistamme.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Ihana salonki ja ammattitaitoinen henkilokunta! Kasvohoito oli rentouttava ja ihoni näytti heti paremmalta. Palaan ehdottomasti uudelleen."</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,var(--pink),var(--pink-dark))">ST</div>
+        <div class="reviewer-info">
+          <div class="name">Sanna Tuominen</div>
+          <div class="date">Google-arvostelu</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Paras microblading-kokemus ikinä! Kulmat näyttävät niin luonnollisilta, etten meinaa uskoa. Suosittelen lämpimästi kaikille."</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,var(--ice),var(--ice-dark))">MK</div>
+        <div class="reviewer-info">
+          <div class="name">Maria Korhonen</div>
+          <div class="date">Google-arvostelu</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Ripsipidennykset ovat upeat! Todella luonnollisen näköiset ja kestävät. Salonki on kaunis ja tunnelma rauhallinen."</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9)">EL</div>
+        <div class="reviewer-info">
+          <div class="name">Emilia Laine</div>
+          <div class="date">Google-arvostelu</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Kestopigmentointi huulille onnistui täydellisesti! Väri on juuri sellainen kuin toivoin. Todella ammattitaitoista työtä."</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#F59E0B,#D97706)">AV</div>
+        <div class="reviewer-info">
+          <div class="name">Anna Virtanen</div>
+          <div class="date">Google-arvostelu</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Häämeikki oli aivan upea! Meikki kesti koko pitkän päivän ja sain paljon kehuja. Kiitos ihanalle tiimille!"</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#10B981,#059669)">JH</div>
+        <div class="reviewer-info">
+          <div class="name">Johanna Heikkinen</div>
+          <div class="date">Google-arvostelu</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Geelilakkaus on aina yhtä kaunis ja kestävä. Salongin tunnelma on ihana ja henkilökunta ystävällistä. Suosittelen!"</blockquote>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,var(--pink-light),var(--ice))">LN</div>
+        <div class="reviewer-info">
+          <div class="name">Laura Nieminen</div>
+          <div class="date">Google-arvostelu</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-content reveal">
+    <h2>Varaa aikasi <strong>tänään</strong></h2>
+    <p>Ota ensimmäinen askel kohti kauniimpaa sinua. Kokenut tiimimme odottaa sinua Oulussa.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/358445757057?text=Hei!%20Haluaisin%20varata%20ajan." class="btn btn-primary" target="_blank">&#128172; WhatsApp</a>
+      <a href="tel:+358445757057" class="btn btn-ice">&#128222; Soita Meille</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="yhteystiedot">
+  <div class="section-title reveal">
+    <span>Yhteystiedot</span>
+    <h2>Ota <strong>yhteyttä</strong></h2>
+    <p>Tutustu meihin tai varaa aikasi helposti.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Kauneussalonki Oulu</h3>
+      <p>Tervetuloa käymään salongissamme Oulun keskustassa tai ota yhteyttä niin kerromme lisää palveluistamme.</p>
+      <div class="contact-item">
+        <div class="contact-icon pink">&#128205;</div>
+        <div>
+          <div class="label">Osoite</div>
+          <div class="value">Oulu, Suomi</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon ice">&#128222;</div>
+        <div>
+          <div class="label">Puhelin</div>
+          <div class="value"><a href="tel:+358445757057">+358 44 575 7057</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon pink">&#128231;</div>
+        <div>
+          <div class="label">Sähköposti</div>
+          <div class="value"><a href="mailto:info@kauneussalonkioulu.fi">info@kauneussalonkioulu.fi</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon ice">&#128172;</div>
+        <div>
+          <div class="label">WhatsApp</div>
+          <div class="value"><a href="https://wa.me/358445757057?text=Hei!%20Haluaisin%20varata%20ajan." target="_blank">Lähetä viesti</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon pink">&#128336;</div>
+        <div>
+          <div class="label">Aukioloajat</div>
+          <div class="value">Ma-Pe 9:00 - 19:00 | La 10:00 - 16:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14387.274853823838!2d25.4614!3d65.0121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4681cd6886e42cbd%3A0x40b82c3688b2e80!2sOulu%2C%20Finland!5e0!3m2!1sen!2sfi!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Kauneussalonki<span>Oulu</span></div>
+  <p>&copy; 2026 Kauneussalonki Oulu. Kaikki oikeudet pidätetään.</p>
+  <p style="margin-top:8px">Esikatselu: <a href="https://elfennir.com" target="_blank">elfennir.com</a></p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/358445757057?text=Hei!%20Haluaisin%20varata%20ajan." target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.004 0C7.164 0 .004 7.16.004 16c0 2.82.736 5.58 2.132 8.012L.004 32l8.2-2.1A15.93 15.93 0 0016.004 32C24.844 32 32 24.84 32 16S24.844 0 16.004 0zm0 29.2a13.16 13.16 0 01-6.92-1.96l-.5-.3-4.86 1.24 1.3-4.72-.32-.52A13.13 13.13 0 012.804 16c0-7.28 5.92-13.2 13.2-13.2 7.28 0 13.2 5.92 13.2 13.2 0 7.28-5.92 13.2-13.2 13.2zm7.24-9.88c-.4-.2-2.36-1.16-2.72-1.3-.36-.14-.64-.2-.9.2-.26.4-1.02 1.3-1.26 1.56-.22.26-.46.3-.86.1-.4-.2-1.68-.62-3.2-1.98-1.18-1.06-1.98-2.36-2.22-2.76-.22-.4-.02-.62.18-.82.18-.18.4-.46.6-.7.2-.22.26-.4.4-.66.14-.26.06-.5-.02-.7-.1-.2-.9-2.18-1.24-2.98-.32-.78-.66-.68-.9-.68-.24-.02-.5-.02-.78-.02-.26 0-.7.1-1.08.5-.36.4-1.4 1.38-1.4 3.36 0 1.98 1.44 3.9 1.64 4.16.2.26 2.84 4.34 6.88 6.08.96.42 1.72.66 2.3.86.96.3 1.84.26 2.54.16.78-.12 2.36-.96 2.7-1.9.32-.94.32-1.74.22-1.9-.08-.18-.34-.28-.74-.48z"/></svg>
+</a>
+
+<script>
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+function closeMenu(){
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+}
+
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>30);
+});
+
+// Scroll reveal
+const revealEls=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

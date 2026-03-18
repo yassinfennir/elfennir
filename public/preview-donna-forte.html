@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuntokeskus Donna Forte — Naisten kuntosali Helsingissä</title>
+<meta name="description" content="Kuntokeskus Donna Forte — Naisten kuntosali Helsingissä. Ryhmäliikunta, personal training, jooga, pilates, spinning ja toiminnallinen harjoittelu.">
+<meta property="og:title" content="Kuntokeskus Donna Forte — Naisten kuntosali">
+<meta property="og:description" content="Helsingissä sijaitseva naisten kuntokeskus. Ryhmäliikunta, personal training, jooga, pilates ja paljon muuta.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="naisten kuntosali, helsinki, donna forte, ryhmäliikunta, personal training, jooga, pilates, spinning, kuntokeskus, naiset">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23f971ff'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "name": "Kuntokeskus Donna Forte",
+  "description": "Naisten kuntokeskus Helsingissä. Ryhmäliikunta, personal training, jooga, pilates ja paljon muuta.",
+  "url": "https://donnaforte.fi",
+  "telephone": "+358468740930",
+  "email": "info@donnaforte.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Helsinki",
+    "addressCountry": "FI"
+  },
+  "priceRange": "€€"
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#f971ff;
+  --primary-dark:#d946ef;
+  --primary-light:#fbb4ff;
+  --accent:#ff6b9d;
+  --bg:#0a0a0f;
+  --surface:#101018;
+  --surface-2:#16161f;
+  --surface-3:#1c1c28;
+  --text:#ffffff;
+  --muted:#9a8fa6;
+  --border:rgba(249,113,255,.08);
+  --radius:16px;
+  --glass:rgba(10,10,15,.88);
+  --heading:'Poppins', sans-serif;
+  --body:'Inter', sans-serif;
+  --glow:0 0 40px rgba(249,113,255,.25);
+  --glow-strong:0 0 60px rgba(249,113,255,.4);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:color .3s}
+a:hover{color:var(--primary-light)}
+h1,h2,h3,h4{font-family:var(--heading);letter-spacing:-.02em}
+img{max-width:100%;display:block}
+
+[data-lucide]{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:10px}
+::selection{background:var(--primary);color:#fff}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(249,113,255,.2)}50%{box-shadow:0 0 40px rgba(249,113,255,.5)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes breathe{0%,100%{opacity:.4}50%{opacity:.8}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.85);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+/* ===== PREVIEW BANNER ===== */
+.preview-banner{
+  background:linear-gradient(135deg,var(--primary),var(--accent),var(--primary-dark));
+  background-size:200% 200%;
+  animation:gradientMove 4s ease infinite;
+  color:#fff;text-align:center;padding:12px 20px;
+  font-size:.85rem;font-weight:600;position:relative;z-index:9999;
+  letter-spacing:.02em;
+}
+.preview-banner a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+.preview-banner a:hover{color:rgba(255,255,255,.8)}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;z-index:9998;
+  padding:16px 0;transition:all .4s ease;
+}
+.navbar.scrolled{
+  background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);padding:12px 0;
+}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--heading);font-size:1.4rem;font-weight:800;color:var(--text);display:flex;align-items:center;gap:10px}
+.nav-logo-icon{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:900;color:#fff;
+}
+.nav-logo span{color:var(--primary)}
+.nav-links{display:flex;gap:32px;align-items:center;list-style:none}
+.nav-links a{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);border-radius:2px;transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff!important;padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85rem;
+  transition:all .3s;box-shadow:0 4px 20px rgba(249,113,255,.3);
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:var(--glow-strong)}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.mobile-toggle span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100vh;
+  background:var(--bg);z-index:9997;flex-direction:column;align-items:center;
+  justify-content:center;gap:28px;
+}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:var(--text);font-size:1.3rem;font-weight:600;font-family:var(--heading)}
+.mobile-close{position:absolute;top:24px;right:24px;font-size:2rem;color:var(--text);cursor:pointer;background:none;border:none}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  position:relative;overflow:hidden;padding:120px 24px 80px;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%,rgba(249,113,255,.12),transparent),
+    radial-gradient(ellipse 50% 40% at 20% 80%,rgba(255,107,157,.08),transparent),
+    radial-gradient(ellipse 50% 40% at 80% 80%,rgba(217,70,239,.08),transparent);
+}
+.hero-orb{
+  position:absolute;border-radius:50%;filter:blur(80px);animation:breathe 6s ease-in-out infinite;
+}
+.hero-orb-1{width:500px;height:500px;background:rgba(249,113,255,.1);top:-10%;left:-10%;animation-delay:0s}
+.hero-orb-2{width:400px;height:400px;background:rgba(255,107,157,.08);bottom:-10%;right:-10%;animation-delay:2s}
+.hero-orb-3{width:300px;height:300px;background:rgba(217,70,239,.06);top:50%;left:60%;animation-delay:4s}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(249,113,255,.1);border:1px solid rgba(249,113,255,.2);
+  padding:8px 20px;border-radius:50px;font-size:.8rem;font-weight:600;
+  color:var(--primary-light);margin-bottom:28px;letter-spacing:.05em;text-transform:uppercase;
+  animation:fadeInUp .8s ease;
+}
+.hero-badge i{width:16px;height:16px}
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;line-height:1.05;
+  margin-bottom:8px;animation:fadeInUp 1s ease .2s both;
+}
+.hero h1 .highlight{
+  background:linear-gradient(135deg,var(--primary),var(--accent),var(--primary-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-subtitle{
+  font-family:var(--heading);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;
+  color:var(--muted);margin-bottom:32px;animation:fadeInUp 1s ease .4s both;
+  letter-spacing:.03em;
+}
+.hero p{
+  font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto 40px;
+  animation:fadeInUp 1s ease .5s both;line-height:1.8;
+}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeInUp 1s ease .6s both}
+.btn{
+  padding:16px 36px;border-radius:50px;font-weight:700;font-size:.95rem;
+  display:inline-flex;align-items:center;gap:10px;transition:all .4s;
+  font-family:var(--heading);letter-spacing:.02em;cursor:pointer;border:none;
+}
+.btn i{width:20px;height:20px;transition:transform .3s}
+.btn:hover i{transform:translateX(3px)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;
+  box-shadow:0 8px 30px rgba(249,113,255,.3);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:var(--glow-strong);color:#fff}
+.btn-outline{
+  background:transparent;color:var(--text);
+  border:2px solid rgba(249,113,255,.3);
+}
+.btn-outline:hover{border-color:var(--primary);background:rgba(249,113,255,.05);color:var(--text);transform:translateY(-3px)}
+.hero-stats{
+  display:flex;gap:48px;justify-content:center;margin-top:56px;
+  animation:fadeInUp 1s ease .8s both;
+}
+.hero-stat{text-align:center}
+.hero-stat-number{font-family:var(--heading);font-size:2.2rem;font-weight:800;color:var(--primary)}
+.hero-stat-label{font-size:.8rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+
+/* ===== SECTION COMMON ===== */
+.section{padding:100px 24px}
+.section-header{text-align:center;max-width:650px;margin:0 auto 60px}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--primary);font-size:.8rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;margin-bottom:16px;
+}
+.section-label i{width:16px;height:16px}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:16px;line-height:1.15}
+.section-title .highlight{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.section-desc{color:var(--muted);font-size:1.05rem;line-height:1.8}
+
+/* ===== SERVICES ===== */
+.services{background:var(--bg);position:relative;overflow:hidden}
+.services::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(249,113,255,.06),transparent 70%);
+  pointer-events:none;
+}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;max-width:1200px;margin:0 auto;position:relative;z-index:1;
+}
+.service-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 30px;transition:all .4s;position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover{
+  transform:translateY(-6px);border-color:rgba(249,113,255,.15);
+  box-shadow:0 20px 50px rgba(0,0,0,.3),0 0 30px rgba(249,113,255,.08);
+}
+.service-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(249,113,255,.12),rgba(255,107,157,.08));
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  color:var(--primary);transition:all .4s;
+}
+.service-card:hover .service-icon{
+  background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;
+  box-shadow:0 8px 20px rgba(249,113,255,.3);
+}
+.service-icon i{width:26px;height:26px}
+.service-card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.service-card p{color:var(--muted);font-size:.92rem;line-height:1.7}
+
+/* ===== ABOUT ===== */
+.about{background:var(--surface);position:relative;overflow:hidden}
+.about::before{
+  content:'';position:absolute;right:-200px;top:50%;transform:translateY(-50%);
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(249,113,255,.06),transparent 70%);
+  pointer-events:none;
+}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  max-width:1200px;margin:0 auto;position:relative;z-index:1;
+}
+.about-visual{position:relative}
+.about-image{
+  width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;
+  background:linear-gradient(135deg,var(--surface-2),var(--surface-3));
+  border:1px solid var(--border);position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-image-inner{
+  font-size:8rem;opacity:.15;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.about-float-card{
+  position:absolute;bottom:-20px;right:-20px;
+  background:var(--surface-2);border:1px solid var(--border);border-radius:16px;
+  padding:20px 28px;display:flex;align-items:center;gap:16px;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+.about-float-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.about-float-icon i{width:22px;height:22px}
+.about-float-text{font-size:.85rem}
+.about-float-number{font-family:var(--heading);font-size:1.4rem;font-weight:800;color:var(--primary)}
+.about-content .section-label{text-align:left;display:flex}
+.about-content .section-title{text-align:left}
+.about-text{color:var(--muted);font-size:1rem;line-height:1.9;margin-bottom:28px}
+.about-features{display:flex;flex-direction:column;gap:16px;margin-bottom:32px}
+.about-feature{display:flex;align-items:center;gap:14px}
+.about-feature-icon{
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:rgba(249,113,255,.1);display:flex;align-items:center;justify-content:center;
+  color:var(--primary);
+}
+.about-feature-icon i{width:18px;height:18px}
+.about-feature span{font-size:.95rem;font-weight:500}
+
+/* ===== CTA ===== */
+.cta-section{
+  background:var(--bg);padding:100px 24px;position:relative;overflow:hidden;
+}
+.cta-box{
+  max-width:900px;margin:0 auto;text-align:center;padding:80px 60px;
+  background:linear-gradient(135deg,rgba(249,113,255,.08),rgba(255,107,157,.05));
+  border:1px solid rgba(249,113,255,.15);border-radius:32px;position:relative;overflow:hidden;
+}
+.cta-box::before{
+  content:'';position:absolute;inset:-2px;border-radius:34px;
+  background:linear-gradient(135deg,var(--primary),var(--accent),transparent,transparent);
+  opacity:.15;z-index:0;
+}
+.cta-box>*{position:relative;z-index:1}
+.cta-box h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.cta-box h2 .highlight{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-box p{color:var(--muted);font-size:1.05rem;max-width:500px;margin:0 auto 36px;line-height:1.8}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--surface);position:relative;overflow:hidden}
+.contact::before{
+  content:'';position:absolute;left:-200px;bottom:-200px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(249,113,255,.05),transparent 70%);
+  pointer-events:none;
+}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;
+  max-width:1000px;margin:0 auto;position:relative;z-index:1;
+}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-icon{
+  width:52px;height:52px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(249,113,255,.12),rgba(255,107,157,.06));
+  display:flex;align-items:center;justify-content:center;color:var(--primary);
+  transition:all .4s;
+}
+.contact-item:hover .contact-icon{
+  background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;
+  box-shadow:0 8px 20px rgba(249,113,255,.3);
+}
+.contact-icon i{width:22px;height:22px}
+.contact-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.contact-value{font-size:1rem;font-weight:600}
+.contact-value a{color:var(--text);transition:color .3s}
+.contact-value a:hover{color:var(--primary)}
+
+.contact-map{
+  border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);
+  min-height:320px;position:relative;
+  background:var(--surface-2);display:flex;align-items:center;justify-content:center;
+}
+.contact-map-placeholder{
+  text-align:center;color:var(--muted);
+}
+.contact-map-placeholder i{width:48px;height:48px;margin-bottom:12px;color:var(--primary);opacity:.5}
+.contact-map-placeholder p{font-size:.9rem}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:var(--bg);border-top:1px solid var(--border);padding:48px 24px 32px;
+}
+.footer-content{
+  max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:24px;
+}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-brand-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:900;color:#fff;
+}
+.footer-brand-name{font-family:var(--heading);font-weight:700;font-size:1.1rem}
+.footer-brand-name span{color:var(--primary)}
+.footer-links{display:flex;gap:28px}
+.footer-links a{color:var(--muted);font-size:.85rem;transition:color .3s}
+.footer-links a:hover{color:var(--primary)}
+.footer-bottom{
+  max-width:1200px;margin:20px auto 0;padding-top:20px;
+  border-top:1px solid var(--border);text-align:center;
+}
+.footer-bottom p{color:var(--muted);font-size:.8rem}
+.footer-bottom a{color:var(--primary);font-weight:600}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mobile-toggle{display:flex}
+  .hero h1{font-size:2.4rem}
+  .hero-stats{flex-direction:column;gap:24px;align-items:center}
+  .services-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-float-card{position:relative;bottom:auto;right:auto;margin-top:16px}
+  .contact-grid{grid-template-columns:1fr}
+  .cta-box{padding:48px 28px}
+  .footer-content{flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+  .section{padding:70px 20px}
+  .btn{padding:14px 28px;font-size:.9rem}
+}
+</style>
+</head>
+<body>
+
+<!-- PREVIEW BANNER -->
+<div class="preview-banner">
+  Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä:
+  <a href="mailto:yassinfennir@gmail.com">yassinfennir@gmail.com</a> |
+  <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">DF</div>
+      Donna <span>Forte</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+      <li><a href="https://wa.me/358468740930" target="_blank" class="nav-cta">
+        <i data-lucide="message-circle"></i> WhatsApp
+      </a></li>
+    </ul>
+    <div class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.add('active')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="this.parentElement.classList.remove('active')">&times;</button>
+  <a href="#palvelut" onclick="this.parentElement.classList.remove('active')">Palvelut</a>
+  <a href="#meista" onclick="this.parentElement.classList.remove('active')">Meistä</a>
+  <a href="#yhteystiedot" onclick="this.parentElement.classList.remove('active')">Yhteystiedot</a>
+  <a href="https://wa.me/358468740930" target="_blank" class="btn btn-primary" style="margin-top:16px">
+    <i data-lucide="message-circle"></i> WhatsApp
+  </a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i data-lucide="crown"></i> Naisten oma kuntokeskus Helsingissä
+    </div>
+    <h1>Kuntokeskus<br><span class="highlight">Donna Forte</span></h1>
+    <div class="hero-subtitle">naisille</div>
+    <p>Löydä sisäinen voimasi. Donna Forte on naisten oma kuntokeskus, jossa jokaisella on tilaa kasvaa, vahvistua ja loistaa — omassa tahdissa.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/358468740930" target="_blank" class="btn btn-primary">
+        <i data-lucide="message-circle"></i> Ota yhteyttä
+      </a>
+      <a href="#palvelut" class="btn btn-outline">
+        <i data-lucide="arrow-down"></i> Palvelumme
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number">7+</div>
+        <div class="hero-stat-label">Lajia</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">100%</div>
+        <div class="hero-stat-label">Naisille</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">Helsinki</div>
+        <div class="hero-stat-label">Sijainti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="palvelut">
+  <div class="section-header reveal">
+    <div class="section-label"><i data-lucide="sparkles"></i> Palvelumme</div>
+    <h2 class="section-title">Kaikki mitä tarvitset <span class="highlight">vahvempaan sinuun</span></h2>
+    <p class="section-desc">Monipuolinen valikoima ryhmäliikuntatunteja ja yksilöllisiä palveluita — suunniteltu naisille, naisten ehdoilla.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal" style="transition-delay:.1s">
+      <div class="service-icon"><i data-lucide="users"></i></div>
+      <h3>Ryhmäliikunta</h3>
+      <p>Energiset ja motivoivat ryhmäliikuntatunnit, joissa liikut yhdessä muiden naisten kanssa. Innostavaa ja yhteisöllistä!</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:.2s">
+      <div class="service-icon"><i data-lucide="target"></i></div>
+      <h3>Personal Training</h3>
+      <p>Henkilökohtainen valmennus, joka räätälöidään juuri sinun tavoitteisiisi. Yksilöllinen polku tuloksiin.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:.3s">
+      <div class="service-icon"><i data-lucide="dumbbell"></i></div>
+      <h3>Kuntosali</h3>
+      <p>Moderni ja viihtyisä kuntosali vain naisille. Treenaa rauhassa ilman paineita — kaikki tasot tervetulleita.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:.4s">
+      <div class="service-icon"><i data-lucide="flower-2"></i></div>
+      <h3>Jooga</h3>
+      <p>Rauhoittavat joogatunnit kehon ja mielen tasapainoon. Hengitä syvään, venyttele ja löydä sisäinen rauhasi.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:.5s">
+      <div class="service-icon"><i data-lucide="heart-pulse"></i></div>
+      <h3>Pilates</h3>
+      <p>Vahvista keskivartaloasi ja paranna ryhtiäsi pilates-tunneilla. Tehokasta harjoittelua keholle ja mielelle.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:.6s">
+      <div class="service-icon"><i data-lucide="bike"></i></div>
+      <h3>Spinning</h3>
+      <p>Korkean tehon pyöräilytunnit, jotka polttavat kaloreita ja nostavat kunnon uudelle tasolle. Energiaa täynnä!</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:.7s">
+      <div class="service-icon"><i data-lucide="zap"></i></div>
+      <h3>Toiminnallinen harjoittelu</h3>
+      <p>Monipuolisia toiminnallisia harjoitteita, jotka kehittävät voimaa, liikkuvuutta ja kestävyyttä arjen tueksi.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="meista">
+  <div class="about-grid">
+    <div class="about-visual reveal-left">
+      <div class="about-image">
+        <div class="about-image-inner">DF</div>
+      </div>
+      <div class="about-float-card">
+        <div class="about-float-icon"><i data-lucide="award"></i></div>
+        <div class="about-float-text">
+          <div class="about-float-number">100%</div>
+          <div style="color:var(--muted);font-size:.8rem">Naisille suunniteltu</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal-right">
+      <div class="section-label"><i data-lucide="heart"></i> Meistä</div>
+      <h2 class="section-title">Naisten oma <span class="highlight">voimapaikka</span></h2>
+      <p class="about-text">
+        Kuntokeskus Donna Forte on perustettu yhdellä ajatuksella: luoda Helsinkiin paikka, jossa jokainen nainen voi tuntea olonsa tervetulleeksi, turvalliseksi ja vahvaksi. Olemme enemmän kuin kuntosali — olemme yhteisö.
+      </p>
+      <p class="about-text">
+        Uskomme, että liikunta on parhaimmillaan silloin, kun se tuntuu omalta. Siksi tarjoamme monipuolisen valikoiman lajeja ja ammattitaitoista ohjausta, joka tukee sinua juuri siinä kohdassa, missä olet.
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="shield-check"></i></div>
+          <span>Turvallinen ja kannustava ilmapiiri</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="users"></i></div>
+          <span>Vahva naisten yhteisö</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="star"></i></div>
+          <span>Ammattitaitoiset ohjaajat</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="map-pin"></i></div>
+          <span>Keskeinen sijainti Helsingissä</span>
+        </div>
+      </div>
+      <a href="https://wa.me/358468740930" target="_blank" class="btn btn-primary">
+        <i data-lucide="message-circle"></i> Kysy lisää
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-box reveal-scale">
+    <h2>Valmis <span class="highlight">aloittamaan?</span></h2>
+    <p>Tule mukaan Donna Forten yhteisöön ja löydä itsellesi sopiva tapa liikkua. Ota yhteyttä jo tänään!</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/358468740930" target="_blank" class="btn btn-primary">
+        <i data-lucide="message-circle"></i> WhatsApp
+      </a>
+      <a href="tel:+358468740930" class="btn btn-outline">
+        <i data-lucide="phone"></i> Soita meille
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="yhteystiedot">
+  <div class="section-header reveal">
+    <div class="section-label"><i data-lucide="map-pin"></i> Yhteystiedot</div>
+    <h2 class="section-title">Ota <span class="highlight">yhteyttä</span></h2>
+    <p class="section-desc">Haluatko lisätietoja palveluistamme tai varata ajan? Olemme täällä sinua varten.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal-left">
+
+      <div class="contact-item">
+        <div class="contact-icon"><i data-lucide="mail"></i></div>
+        <div>
+          <div class="contact-label">Sähköposti</div>
+          <div class="contact-value"><a href="mailto:info@donnaforte.fi">info@donnaforte.fi</a></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon"><i data-lucide="phone"></i></div>
+        <div>
+          <div class="contact-label">Puhelin</div>
+          <div class="contact-value"><a href="tel:+358468740930">+358 46 874 0930</a></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon"><i data-lucide="message-circle"></i></div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value"><a href="https://wa.me/358468740930" target="_blank">Lähetä viesti WhatsAppissa</a></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+        <div>
+          <div class="contact-label">Sijainti</div>
+          <div class="contact-value">Helsinki, Suomi</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="contact-map reveal-right">
+      <div class="contact-map-placeholder">
+        <i data-lucide="map"></i>
+        <p>Helsinki, Suomi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-brand-icon">DF</div>
+      <div class="footer-brand-name">Donna <span>Forte</span></div>
+    </div>
+    <div class="footer-links">
+      <a href="#palvelut">Palvelut</a>
+      <a href="#meista">Meistä</a>
+      <a href="#yhteystiedot">Yhteystiedot</a>
+      <a href="https://wa.me/358468740930" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Kuntokeskus Donna Forte. Kaikki oikeudet pidätetään.</p>
+    <p style="margin-top:8px">Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — elfennir.com</p>
+  </div>
+</footer>
+
+<script>
+// Lucide icons
+lucide.createIcons();
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+const banner = document.querySelector('.preview-banner');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Navbar position after banner
+function setNavPosition() {
+  const bannerH = banner.offsetHeight;
+  navbar.style.top = bannerH + 'px';
+}
+setNavPosition();
+window.addEventListener('resize', setNavPosition);
+
+// IntersectionObserver animations
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+  observer.observe(el);
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 200;
+    if (window.scrollY >= top) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

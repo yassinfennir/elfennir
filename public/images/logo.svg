@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="leftArm" x1="0" y1="0" x2="0.6" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0A1A4A"/>
+      <stop offset="35%" stop-color="#0D47A1"/>
+      <stop offset="100%" stop-color="#1976D2"/>
+    </linearGradient>
+    <linearGradient id="rightArm" x1="0.3" y1="0" x2="0.8" y2="0.7" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="50%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+    <linearGradient id="overlap" x1="0.3" y1="0" x2="0.7" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0A1744"/>
+      <stop offset="100%" stop-color="#0D3B8C"/>
+    </linearGradient>
+    <linearGradient id="stem" x1="0.3" y1="0" x2="0.7" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#0D47A1"/>
+    </linearGradient>
+  </defs>
+  <!-- Left diagonal arm -->
+  <polygon points="120,88 192,88 290,258 218,258" fill="url(#leftArm)"/>
+  <!-- Right triangular arm -->
+  <polygon points="290,88 400,88 268,315 228,230" fill="url(#rightArm)"/>
+  <!-- Overlap zone (darker) -->
+  <polygon points="228,230 290,258 268,258 218,258 228,230" fill="url(#overlap)" opacity="0.7"/>
+  <!-- Bottom stem -->
+  <polygon points="218,258 290,258 262,420 246,420" fill="url(#stem)"/>
+</svg>

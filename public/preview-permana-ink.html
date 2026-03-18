@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permana Ink — Tatuointistudio Helsinki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg-light: #111118;
+            --bg-card: #16161f;
+            --accent: #9945ff;
+            --accent-light: #b370ff;
+            --accent-dark: #7a2ee0;
+            --text: #f0f0f5;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
+            --border: #222233;
+            --gradient: linear-gradient(135deg, #9945ff 0%, #6b1fd4 50%, #4a0fa0 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Preview Banner */
+        .preview-banner {
+            background: var(--gradient);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            letter-spacing: 0.02em;
+        }
+
+        .preview-banner a {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 38px;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            padding: 16px 0;
+            transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 30px rgba(153, 69, 255, 0.08);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(153, 69, 255, 0.35);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .menu-toggle span {
+            width: 26px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 24px 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 50% 30%, rgba(153, 69, 255, 0.08) 0%, transparent 60%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, var(--bg), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(153, 69, 255, 0.12);
+            border: 1px solid rgba(153, 69, 255, 0.25);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(4rem, 12vw, 9rem);
+            line-height: 0.9;
+            letter-spacing: 6px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #ccc 40%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            letter-spacing: 0.03em;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(153, 69, 255, 0.4);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, background 0.3s;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(153, 69, 255, 0.06);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            max-width: 560px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        /* Services */
+        .services {
+            background: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 36px 28px;
+            transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(153, 69, 255, 0.3);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(153, 69, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 280px);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #1a1025, #2d1548, #1a1025);
+        }
+
+        .gallery-item:nth-child(2) {
+            background: linear-gradient(135deg, #0f1520, #152035, #0f1520);
+        }
+
+        .gallery-item:nth-child(3) {
+            background: linear-gradient(135deg, #1a0f25, #25153a, #1a0f25);
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #151020, #201535, #151020);
+        }
+
+        .gallery-item:nth-child(5) {
+            background: linear-gradient(135deg, #1f1030, #2a1540, #1f1030);
+        }
+
+        .gallery-item:nth-child(6) {
+            background: linear-gradient(135deg, #10151f, #182030, #10151f);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 15, 0.8), transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--accent-light);
+        }
+
+        .gallery-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            opacity: 0.15;
+        }
+
+        /* About */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, #1a1025, #2d1548, #1a0f25);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(153, 69, 255, 0.12), transparent 60%);
+        }
+
+        .about-image .placeholder-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.15;
+        }
+
+        .about-content .section-desc {
+            margin-bottom: 32px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.8rem;
+            color: var(--accent-light);
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(153, 69, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .contact-item a, .contact-item p {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-light);
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .contact-form h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group select option {
+            background: var(--bg);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 12px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 48px 24px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            color: var(--text);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-powered {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-align: center;
+            width: 100%;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-powered a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-powered a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up-delay-1 { transition-delay: 0.1s; }
+        .fade-up-delay-2 { transition-delay: 0.2s; }
+        .fade-up-delay-3 { transition-delay: 0.3s; }
+        .fade-up-delay-4 { transition-delay: 0.4s; }
+        .fade-up-delay-5 { transition-delay: 0.5s; }
+        .fade-up-delay-6 { transition-delay: 0.6s; }
+
+        /* Divider */
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 220px);
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+            }
+
+            .gallery-item:nth-child(4) {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .preview-banner {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 10, 15, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                z-index: 998;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                z-index: 999;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .section {
+                padding: 70px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) {
+                grid-column: span 1;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+
+            .contact-form {
+                padding: 28px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preview Banner -->
+    <div class="preview-banner">
+        Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä:
+        <a href="mailto:yassinfennir@gmail.com">yassinfennir@gmail.com</a> |
+        <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                PERMANA INK <span class="dot"></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#palvelut" onclick="closeMenu()">Palvelut</a></li>
+                <li><a href="#galleria" onclick="closeMenu()">Galleria</a></li>
+                <li><a href="#meista" onclick="closeMenu()">Meistä</a></li>
+                <li><a href="#yhteystiedot" onclick="closeMenu()" class="nav-cta">Varaa aika</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Valikko">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge fade-up">Tatuointistudio Helsinki</div>
+            <h1 class="fade-up fade-up-delay-1">PERMANA<br>INK</h1>
+            <p class="fade-up fade-up-delay-2">
+                Pysyvää taidetta iholle. Luomme ainutlaatuisia tatuointeja, jotka kertovat sinun tarinasi — ammattitaidolla ja intohimolla Helsingissä.
+            </p>
+            <div class="hero-buttons fade-up fade-up-delay-3">
+                <a href="#yhteystiedot" class="btn-primary">Varaa konsultaatio</a>
+                <a href="#galleria" class="btn-outline">Katso töitämme</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services" id="palvelut">
+        <div class="section-container">
+            <div class="fade-up">
+                <p class="section-label">Palvelut</p>
+                <h2 class="section-title">MITÄ ME TEEMME</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">
+                    Jokainen tatuointi on uniikki taideteos. Tarjoamme laajan valikoiman tatuointityylejä ja -palveluita korkeimmalla ammattitaidolla.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up fade-up-delay-1">
+                    <div class="service-icon">&#9998;</div>
+                    <h3>CUSTOM DESIGN</h3>
+                    <p>Täysin yksilölliset tatuointisuunnitelmat visiosi pohjalta. Luomme juuri sinulle sopivan uniikin taideteoksen.</p>
+                </div>
+                <div class="service-card fade-up fade-up-delay-2">
+                    <div class="service-icon">&#9733;</div>
+                    <h3>REALISTISET TATUOINNIT</h3>
+                    <p>Valokuvamaista tarkkuutta ja hämmästyttävää yksityiskohtaisuutta — muotokuvia, eläimiä ja luontoa.</p>
+                </div>
+                <div class="service-card fade-up fade-up-delay-3">
+                    <div class="service-icon">&#9672;</div>
+                    <h3>GEOMETRISET TATUOINNIT</h3>
+                    <p>Tarkat linjat, symmetria ja matemaattinen kauneus. Moderneja geometrisia kuvioita ja mandaloita.</p>
+                </div>
+                <div class="service-card fade-up fade-up-delay-4">
+                    <div class="service-icon">&#9702;</div>
+                    <h3>MINIMALISTISET TATUOINNIT</h3>
+                    <p>Hienostunutta yksinkertaisuutta. Pienet, elegantti tatuoinnit, jotka tekevät suuren vaikutuksen.</p>
+                </div>
+                <div class="service-card fade-up fade-up-delay-5">
+                    <div class="service-icon">&#9608;</div>
+                    <h3>BLACKWORK</h3>
+                    <p>Rohkeaa mustaa taidetta — tribal, dotwork, ornamentaalinen ja perinteinen blackwork.</p>
+                </div>
+                <div class="service-card fade-up fade-up-delay-6">
+                    <div class="service-icon">&#8634;</div>
+                    <h3>COVER-UP</h3>
+                    <p>Vanhan tatuoinnin peittäminen uudella taideteoksella. Annamme uuden elämän vanhalle tatuoinnillesi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="galleria">
+        <div class="section-container">
+            <div class="fade-up">
+                <p class="section-label">Galleria</p>
+                <h2 class="section-title">VIIMEISIMMÄT TYÖT</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">
+                    Tutustu viimeisimpiin tatuointeihimme. Jokainen työ on tehty täydellä omistautumisella ja ammattitaidolla.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-up fade-up-delay-1">
+                    <div class="gallery-placeholder">&#128420;</div>
+                    <div class="gallery-overlay"><span>Realistinen muotokuva</span></div>
+                </div>
+                <div class="gallery-item fade-up fade-up-delay-2">
+                    <div class="gallery-placeholder">&#9733;</div>
+                    <div class="gallery-overlay"><span>Geometrinen mandala</span></div>
+                </div>
+                <div class="gallery-item fade-up fade-up-delay-3">
+                    <div class="gallery-placeholder">&#9998;</div>
+                    <div class="gallery-overlay"><span>Minimalistinen</span></div>
+                </div>
+                <div class="gallery-item fade-up fade-up-delay-4">
+                    <div class="gallery-placeholder">&#9670;</div>
+                    <div class="gallery-overlay"><span>Blackwork sleeve</span></div>
+                </div>
+                <div class="gallery-item fade-up fade-up-delay-5">
+                    <div class="gallery-placeholder">&#10047;</div>
+                    <div class="gallery-overlay"><span>Custom design</span></div>
+                </div>
+                <div class="gallery-item fade-up fade-up-delay-6">
+                    <div class="gallery-placeholder">&#8634;</div>
+                    <div class="gallery-overlay"><span>Cover-up työ</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="meista">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-image fade-up">
+                    <div class="placeholder-icon">&#128420;</div>
+                </div>
+                <div class="about-content">
+                    <div class="fade-up">
+                        <p class="section-label">Meistä</p>
+                        <h2 class="section-title">PREMIUM<br>TATUOINTITAIDETTA<br>HELSINGISSÄ</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <p class="section-desc fade-up fade-up-delay-1">
+                        Permana Ink on helsinkiläinen tatuointistudio, joka yhdistää taiteellisen vision ja teknisen osaamisen. Jokainen tatuointi on meille henkilökohtainen projekti — emme tee massatuotantoa, vaan ainutlaatuista taidetta.
+                    </p>
+                    <p class="section-desc fade-up fade-up-delay-2">
+                        Studiomme on suunniteltu rennoksi ja inspiroivaksi tilaksi, jossa voit tuntea olosi kotoisaksi. Käytämme vain korkealaatuisimpia värejä ja välineitä turvallisuutesi takaamiseksi.
+                    </p>
+                    <div class="about-stats fade-up fade-up-delay-3">
+                        <div class="stat">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Vuotta kokemusta</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3000+</div>
+                            <div class="stat-label">Tatuointia</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5/5</div>
+                            <div class="stat-label">Arvosana</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="yhteystiedot">
+        <div class="section-container">
+            <div class="fade-up">
+                <p class="section-label">Yhteystiedot</p>
+                <h2 class="section-title">OTA YHTEYTTÄ</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">
+                    Varaa ilmainen konsultaatio tai kysy lisätietoja. Vastaamme mahdollisimman pian!
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-up fade-up-delay-1">
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9993;</div>
+                        <div>
+                            <h4>Sähköposti</h4>
+                            <a href="mailto:info@permanaink.com">info@permanaink.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9742;</div>
+                        <div>
+                            <h4>Puhelin</h4>
+                            <a href="tel:+358405947123">+358 40 594 7123</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">&#128205;</div>
+                        <div>
+                            <h4>Sijainti</h4>
+                            <p>Helsinki, Suomi</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">&#128337;</div>
+                        <div>
+                            <h4>Aukioloajat</h4>
+                            <p>Ma-Pe: 10:00 — 19:00<br>La: 11:00 — 17:00<br>Su: Suljettu</p>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/358405947123" target="_blank" class="whatsapp-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Kirjoita WhatsAppissa
+                    </a>
+                </div>
+
+                <div class="contact-form fade-up fade-up-delay-2">
+                    <h3>VARAA KONSULTAATIO</h3>
+                    <form onsubmit="event.preventDefault(); alert('Kiitos yhteydenotostasi! Otamme sinuun yhteyttä pian.');">
+                        <div class="form-group">
+                            <label for="name">Nimi</label>
+                            <input type="text" id="name" placeholder="Nimesi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Sähköposti</label>
+                            <input type="email" id="email" placeholder="sahkoposti@esimerkki.fi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Puhelin</label>
+                            <input type="tel" id="phone" placeholder="+358 40 123 4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Palvelu</label>
+                            <select id="service">
+                                <option value="">Valitse palvelu</option>
+                                <option value="custom">Custom Design</option>
+                                <option value="realistinen">Realistinen tatuointi</option>
+                                <option value="geometrinen">Geometrinen tatuointi</option>
+                                <option value="minimalistinen">Minimalistinen tatuointi</option>
+                                <option value="blackwork">Blackwork</option>
+                                <option value="coverup">Cover-up</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Viesti</label>
+                            <textarea id="message" placeholder="Kerro tatuointi-ideastasi..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Lähetä viesti</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">PERMANA INK</div>
+            <ul class="footer-links">
+                <li><a href="#palvelut">Palvelut</a></li>
+                <li><a href="#galleria">Galleria</a></li>
+                <li><a href="#meista">Meistä</a></li>
+                <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+            </ul>
+            <div class="footer-powered">
+                Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — elfennir.com
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // IntersectionObserver for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>

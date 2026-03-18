@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Töölö Gym — Kuntosali Helsinki</title>
+<meta name="description" content="Töölö Gym — Premium kuntosali Helsingin Töölössä. Kuntosali, personal training, ryhmäliikunta, painonnosto ja toiminnallinen harjoittelu.">
+<meta property="og:title" content="Töölö Gym — Kuntosali Helsinki">
+<meta property="og:description" content="Premium kuntosali Helsingin Töölössä. Voimaa, kuntoa ja yhteisöä.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23e53e10'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "name": "Töölö Gym",
+  "description": "Premium kuntosali Helsingin Töölössä.",
+  "telephone": "+3589490320",
+  "email": "info@toologym.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Helsinki",
+    "addressCountry": "FI"
+  }
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#e53e10;
+  --primary-light:#ff6b3d;
+  --accent:#ff8c42;
+  --bg:#0a0a0f;
+  --surface:#111118;
+  --surface-2:#16161f;
+  --surface-3:#1c1c28;
+  --text:#ffffff;
+  --text-dim:#b0b0c0;
+  --muted:#6a6a80;
+  --border:rgba(255,255,255,.06);
+  --radius:14px;
+  --heading:'Bebas Neue', sans-serif;
+  --body:'Inter', sans-serif;
+  --gradient:linear-gradient(135deg, #e53e10, #ff6b3d, #ff8c42);
+  --gradient-dark:linear-gradient(135deg, #c03010, #e53e10);
+  --glow:0 0 40px rgba(229,62,16,.3);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--heading);letter-spacing:.04em;text-transform:uppercase}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:10px}
+::selection{background:var(--primary);color:#fff}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes fireGlow{0%,100%{box-shadow:0 0 20px rgba(229,62,16,.3)}50%{box-shadow:0 0 40px rgba(229,62,16,.6)}}
+@keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}30%{transform:translate(3%,-15%)}50%{transform:translate(12%,9%)}70%{transform:translate(9%,4%)}90%{transform:translate(-1%,7%)}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.9);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+/* PREVIEW BANNER */
+.preview-banner{
+  position:fixed;top:0;left:0;width:100%;z-index:9999;
+  background:linear-gradient(135deg,#e53e10,#ff6b3d);
+  padding:10px 20px;text-align:center;font-size:.85rem;font-weight:600;
+  color:#fff;letter-spacing:.02em;font-family:var(--body);
+  box-shadow:0 2px 20px rgba(229,62,16,.4);
+}
+.preview-banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+/* NAV */
+.nav{
+  position:fixed;top:42px;left:0;width:100%;z-index:999;
+  padding:16px 0;
+  transition:all .4s ease;
+}
+.nav.scrolled{
+  background:rgba(10,10,15,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:12px 0;
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:var(--heading);font-size:1.8rem;letter-spacing:.06em;color:#fff;text-transform:uppercase}
+.nav-logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--text-dim);font-size:.9rem;font-weight:500;transition:color .3s;position:relative}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gradient);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--gradient);color:#fff;padding:10px 24px;border-radius:50px;
+  font-weight:600;font-size:.85rem;letter-spacing:.02em;border:none;cursor:pointer;
+  transition:all .3s;text-transform:uppercase;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:140px 24px 100px;
+  background:var(--bg);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(229,62,16,.12),transparent 70%),
+             radial-gradient(ellipse 60% 40% at 80% 20%,rgba(255,107,61,.08),transparent 60%);
+  z-index:1;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index:1;opacity:.5;
+}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(229,62,16,.12);border:1px solid rgba(229,62,16,.25);
+  padding:8px 20px;border-radius:50px;font-size:.8rem;font-weight:600;
+  color:var(--primary-light);margin-bottom:32px;letter-spacing:.08em;
+  text-transform:uppercase;animation:fadeIn 1s ease;
+}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--primary);animation:pulse 2s infinite}
+.hero h1{
+  font-size:clamp(3.5rem,10vw,8rem);line-height:.9;letter-spacing:.04em;
+  margin-bottom:24px;animation:fadeUp .8s ease;
+}
+.hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.25rem);color:var(--text-dim);
+  max-width:560px;margin:0 auto 40px;line-height:1.8;font-weight:400;
+  animation:fadeUp .8s ease .2s both;
+}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s ease .4s both}
+.btn-primary{
+  background:var(--gradient);color:#fff;padding:16px 36px;border-radius:50px;
+  font-weight:700;font-size:.95rem;letter-spacing:.04em;border:none;cursor:pointer;
+  transition:all .3s;text-transform:uppercase;font-family:var(--body);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(229,62,16,.4)}
+.btn-secondary{
+  background:transparent;color:#fff;padding:16px 36px;border-radius:50px;
+  font-weight:600;font-size:.95rem;letter-spacing:.04em;border:2px solid rgba(255,255,255,.15);
+  cursor:pointer;transition:all .3s;text-transform:uppercase;font-family:var(--body);
+}
+.btn-secondary:hover{border-color:var(--primary);background:rgba(229,62,16,.08);transform:translateY(-3px)}
+.hero-stats{
+  display:flex;gap:48px;justify-content:center;margin-top:64px;
+  animation:fadeUp .8s ease .6s both;
+}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:var(--heading);font-size:2.8rem;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+
+/* SECTION COMMON */
+.section{padding:120px 24px;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.75rem;font-weight:700;color:var(--primary-light);
+  text-transform:uppercase;letter-spacing:.15em;margin-bottom:16px;
+}
+.section-label::before{content:'';width:24px;height:2px;background:var(--gradient);border-radius:2px}
+.section-title{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1;margin-bottom:20px}
+.section-desc{font-size:1.05rem;color:var(--text-dim);max-width:560px;line-height:1.8}
+
+/* SERVICES */
+.services{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.service-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:40px 32px;transition:all .5s cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--gradient);transform:scaleX(0);transform-origin:left;
+  transition:transform .5s ease;
+}
+.service-card:hover{transform:translateY(-8px);border-color:rgba(229,62,16,.2);background:var(--surface-2)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:rgba(229,62,16,.1);display:flex;align-items:center;justify-content:center;
+  margin-bottom:24px;font-size:1.5rem;transition:all .4s;
+}
+.service-card:hover .service-icon{background:rgba(229,62,16,.2);transform:scale(1.05)}
+.service-card h3{font-size:1.5rem;margin-bottom:12px;letter-spacing:.06em}
+.service-card p{color:var(--text-dim);font-size:.92rem;line-height:1.7}
+
+/* ABOUT */
+.about{background:var(--surface)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:56px}
+.about-visual{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  aspect-ratio:4/5;
+  background:linear-gradient(135deg, var(--surface-2), var(--surface-3));
+  display:flex;align-items:center;justify-content:center;
+}
+.about-visual-inner{
+  text-align:center;padding:40px;
+}
+.about-visual-icon{font-size:5rem;margin-bottom:16px;filter:grayscale(0)}
+.about-visual-text{font-family:var(--heading);font-size:2rem;letter-spacing:.08em;color:var(--muted)}
+.about-visual::after{
+  content:'';position:absolute;inset:0;
+  border:1px solid var(--border);border-radius:var(--radius);
+}
+.about-content h2{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin-bottom:24px}
+.about-content p{color:var(--text-dim);font-size:1rem;line-height:1.9;margin-bottom:20px}
+.about-features{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.about-feature{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 20px;background:rgba(229,62,16,.06);
+  border:1px solid rgba(229,62,16,.1);border-radius:12px;
+  font-weight:500;font-size:.95rem;
+  transition:all .3s;
+}
+.about-feature:hover{background:rgba(229,62,16,.1);border-color:rgba(229,62,16,.2);transform:translateX(6px)}
+.about-feature-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--gradient);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+
+/* VALUES */
+.values{background:var(--bg)}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
+.value-card{
+  text-align:center;padding:40px 24px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  transition:all .5s;
+}
+.value-card:hover{transform:translateY(-6px);border-color:rgba(229,62,16,.2)}
+.value-icon{font-size:2.5rem;margin-bottom:16px}
+.value-card h3{font-size:1.3rem;margin-bottom:8px}
+.value-card p{color:var(--text-dim);font-size:.88rem;line-height:1.6}
+
+/* CTA */
+.cta-section{
+  padding:120px 24px;position:relative;overflow:hidden;
+  background:var(--surface);
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(229,62,16,.1),transparent);
+}
+.cta-inner{
+  position:relative;z-index:2;text-align:center;max-width:700px;margin:0 auto;
+}
+.cta-inner h2{font-size:clamp(2.5rem,5vw,4rem);line-height:1;margin-bottom:20px}
+.cta-inner p{color:var(--text-dim);font-size:1.1rem;margin-bottom:40px;line-height:1.8}
+
+/* CONTACT */
+.contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:24px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);transition:all .4s;
+}
+.contact-item:hover{border-color:rgba(229,62,16,.2);transform:translateY(-4px)}
+.contact-item-icon{
+  width:48px;height:48px;border-radius:12px;flex-shrink:0;
+  background:rgba(229,62,16,.1);display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+}
+.contact-item h4{font-size:1.1rem;margin-bottom:4px;letter-spacing:.04em}
+.contact-item p{color:var(--text-dim);font-size:.92rem}
+.contact-item a{color:var(--primary-light);transition:color .3s}
+.contact-item a:hover{color:#fff}
+
+.contact-map{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;min-height:400px;display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.contact-map-placeholder{
+  text-align:center;padding:40px;
+}
+.contact-map-placeholder-icon{font-size:3rem;margin-bottom:12px}
+.contact-map-placeholder p{color:var(--muted);font-size:.9rem}
+
+/* FOOTER */
+.footer{
+  background:var(--surface);border-top:1px solid var(--border);
+  padding:48px 24px;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+}
+.footer-logo{font-family:var(--heading);font-size:1.4rem;letter-spacing:.06em}
+.footer-logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-links{display:flex;gap:24px;list-style:none}
+.footer-links a{color:var(--muted);font-size:.85rem;transition:color .3s}
+.footer-links a:hover{color:#fff}
+.footer-powered{color:var(--muted);font-size:.8rem;text-align:center;margin-top:32px}
+.footer-powered a{color:var(--primary-light);font-weight:600}
+
+/* MOBILE NAV */
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100vh;
+  background:rgba(10,10,15,.97);backdrop-filter:blur(20px);
+  z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.mobile-menu.open{display:flex;opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--heading);font-size:2rem;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.mobile-menu a:hover{color:var(--primary-light)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero h1{font-size:clamp(2.8rem,8vw,5rem)}
+  .hero-stats{flex-direction:column;gap:24px}
+  .services-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-visual{aspect-ratio:16/10}
+  .values-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .section{padding:80px 24px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- PREVIEW BANNER -->
+<div class="preview-banner">
+  Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä: <a href="mailto:yassinfennir@gmail.com">yassinfennir@gmail.com</a> | <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Töölö <span>Gym</span></a>
+    <ul class="nav-links">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#arvot">Miksi me</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+    <a href="#yhteystiedot" class="nav-cta">Aloita nyt</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#palvelut" onclick="closeMobile()">Palvelut</a>
+  <a href="#meista" onclick="closeMobile()">Meistä</a>
+  <a href="#arvot" onclick="closeMobile()">Miksi me</a>
+  <a href="#yhteystiedot" onclick="closeMobile()">Yhteystiedot</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Premium kuntosali — Helsinki, Töölö
+    </div>
+    <h1>Rakenna<br><span class="gradient">Voimasi</span></h1>
+    <p class="hero-sub">Töölö Gym on Helsingin sydämessä sijaitseva premium-kuntosali, joka tarjoaa huipputason harjoitteluympäristön ja ammattitaitoisen valmennuksen.</p>
+    <div class="hero-buttons">
+      <a href="#yhteystiedot" class="btn-primary">Aloita harjoittelu →</a>
+      <a href="#palvelut" class="btn-secondary">Tutustu palveluihin</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">6+</div>
+        <div class="hero-stat-label">Palvelua</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Omistautumista</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">Töölö</div>
+        <div class="hero-stat-label">Helsinki</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="palvelut">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Palvelumme</div>
+      <h2 class="section-title">Kaikki mitä tarvitset<br>huipputuloksiin</h2>
+      <p class="section-desc">Monipuoliset palvelumme tukevat sinua jokaisessa vaiheessa — olitpa aloittelija tai kokenut urheilija.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="transition-delay:.1s">
+        <div class="service-icon">🏋️</div>
+        <h3>Kuntosali</h3>
+        <p>Laaja valikoima moderneja kuntoilulaitteita ja vapaita painoja kaikentasoisille harjoittelijoille. Tilava ja inspiroiva harjoitteluympäristö.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.2s">
+        <div class="service-icon">🎯</div>
+        <h3>Personal Training</h3>
+        <p>Henkilökohtainen valmennus ammattitaitoiselta personal trainerilta. Räätälöidyt ohjelmat ja tuki tavoitteidesi saavuttamiseen.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.3s">
+        <div class="service-icon">👥</div>
+        <h3>Ryhmäliikunta</h3>
+        <p>Energiset ryhmätunnit, jotka motivoivat ja haastavat. Monipuolinen valikointi eri kuntotasoille sopivissa ryhmissä.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.4s">
+        <div class="service-icon">💪</div>
+        <h3>Painonnosto</h3>
+        <p>Erikoisvarusteltu painonnostoalue olympianostoihin ja voimanostoharjoitteluun. Laatutankoja ja kilpalevyjä.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.5s">
+        <div class="service-icon">⚡</div>
+        <h3>Toiminnallinen harjoittelu</h3>
+        <p>Functional training -tila monipuoliseen harjoitteluun. Kehitä voimaa, liikkuvuutta ja kestävyyttä tehokkaasti.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.6s">
+        <div class="service-icon">🧘</div>
+        <h3>Venyttely</h3>
+        <p>Omistettu venyttelyalue palautumiseen ja liikkuvuuden kehittämiseen. Rauhallinen tila kehon huollolle treenin jälkeen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="meista">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-visual-inner">
+          <div class="about-visual-icon">🔥</div>
+          <div class="about-visual-text">Töölö Gym</div>
+        </div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-label">Meistä</div>
+        <h2>Premium kuntosali<br>Helsingin Töölössä</h2>
+        <p>Töölö Gym on enemmän kuin pelkkä kuntosali — se on yhteisö, joka tukee ja kannustaa. Sijaitsemme Helsingin Töölössä erinomaisilla liikenneyhteyksillä.</p>
+        <p>Tarjoamme huipputason laitteet, ammattitaitoisen ohjauksen ja inspiroivan ympäristön, jossa jokainen tuntee olonsa tervetulleeksi.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">🏆</div>
+            Ammattitaitoinen henkilökunta
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">⚙️</div>
+            Modernit ja laadukkaat laitteet
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">📍</div>
+            Erinomainen sijainti Töölössä
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🤝</div>
+            Kannustava yhteisö
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values" id="arvot">
+  <div class="section-inner">
+    <div style="text-align:center" class="reveal">
+      <div class="section-label" style="justify-content:center">Miksi Töölö Gym</div>
+      <h2 class="section-title">Enemmän kuin<br>pelkkä kuntosali</h2>
+      <p class="section-desc" style="margin:0 auto">Arvomme ohjaavat kaikkea mitä teemme — tuloksia, yhteisöä ja hyvinvointia.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal" style="transition-delay:.1s">
+        <div class="value-icon">🔥</div>
+        <h3>Intohimo</h3>
+        <p>Rakas harjoitteluun ja tuloksiin näkyy kaikessa mitä teemme.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay:.2s">
+        <div class="value-icon">💎</div>
+        <h3>Laatu</h3>
+        <p>Vain parhaat laitteet, tilat ja palvelut jäsenillemme.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay:.3s">
+        <div class="value-icon">🤝</div>
+        <h3>Yhteisö</h3>
+        <p>Kannustava ja motivoiva ilmapiiri jokaiselle kävijälle.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay:.4s">
+        <div class="value-icon">📈</div>
+        <h3>Tulokset</h3>
+        <p>Kaikki tähtää konkreettisiin tuloksiin ja tavoitteidesi saavuttamiseen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal-scale">
+    <h2>Valmis<br><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Muutokseen?</span></h2>
+    <p>Ota ensimmäinen askel kohti vahvempaa ja terveempää sinua. Liity Töölö Gym -yhteisöön jo tänään.</p>
+    <div class="hero-buttons" style="justify-content:center">
+      <a href="#yhteystiedot" class="btn-primary">Ota yhteyttä →</a>
+      <a href="https://wa.me/3589490320" target="_blank" class="btn-secondary">WhatsApp 💬</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="yhteystiedot">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Yhteystiedot</div>
+      <h2 class="section-title">Ota meihin<br>yhteyttä</h2>
+      <p class="section-desc">Kysy lisää palveluistamme tai tule tutustumaan salillemme Töölöön.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <a href="mailto:info@toologym.fi" class="contact-item reveal" style="transition-delay:.1s">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <h4>Sähköposti</h4>
+            <p>info@toologym.fi</p>
+          </div>
+        </a>
+        <a href="tel:+3589490320" class="contact-item reveal" style="transition-delay:.2s">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <h4>Puhelin</h4>
+            <p>+358 9 490 320</p>
+          </div>
+        </a>
+        <a href="https://wa.me/3589490320" target="_blank" class="contact-item reveal" style="transition-delay:.3s">
+          <div class="contact-item-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>Lähetä viesti WhatsAppissa</p>
+          </div>
+        </a>
+        <div class="contact-item reveal" style="transition-delay:.4s">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <h4>Sijainti</h4>
+            <p>Töölö, Helsinki</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-map reveal-right">
+        <div class="contact-map-placeholder">
+          <div class="contact-map-placeholder-icon">📍</div>
+          <p>Töölö, Helsinki<br><span style="color:var(--primary-light)">Erinomainen sijainti Helsingin keskustassa</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Töölö <span>Gym</span></div>
+    <ul class="footer-links">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+  </div>
+  <div class="footer-powered" style="max-width:1200px;margin:32px auto 0">
+    Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  const spans = hamburger.querySelectorAll('span');
+  if (mobileMenu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = '';
+  }
+});
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].style.transform = '';
+  spans[1].style.opacity = '1';
+  spans[2].style.transform = '';
+}
+
+// INTERSECTION OBSERVER
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+  observer.observe(el);
+});
+
+// SMOOTH SCROLL FOR ANCHOR LINKS
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 100;
+      const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitZone Tampere — Kuntosali &amp; Fitness Center</title>
+<meta name="description" content="FitZone Tampere — Moderni kuntosali Tampereella. Vapaat painot, ryhmäliikunta, personal training ja sauna. Kokeile ilmaiseksi!">
+<meta property="og:title" content="FitZone Tampere — Kuntosali & Fitness Center">
+<meta property="og:description" content="Moderni kuntosali Tampereella. Vapaat painot, ryhmäliikunta, personal training ja sauna.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="kuntosali, tampere, fitzone, treeni, fitness, gym, vapaat painot, ryhmäliikunta, personal training, jäsenyys">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23F97316'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "name": "FitZone Tampere",
+  "description": "Moderni kuntosali ja fitness center Tampereella.",
+  "url": "https://fitzonetampere.fi",
+  "telephone": "+358401234567",
+  "email": "info@fitzonetampere.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tampere",
+    "addressCountry": "FI"
+  },
+  "priceRange": "€€"
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#F97316;
+  --primary-dark:#EA580C;
+  --accent:#22C55E;
+  --bg:#0A0A0A;
+  --surface:#111111;
+  --surface-2:#161616;
+  --surface-3:#1a1a1a;
+  --text:#ffffff;
+  --muted:#8a8a9a;
+  --border:rgba(255,255,255,.06);
+  --radius:16px;
+  --glass:rgba(15,15,15,.85);
+  --heading:'Poppins', sans-serif;
+  --body:'DM Sans', sans-serif;
+  --glow-orange:0 0 40px rgba(249,115,22,.3);
+  --glow-green:0 0 40px rgba(34,197,94,.2);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:color .3s}
+a:hover{color:var(--accent)}
+h1,h2,h3,h4{font-family:var(--heading);letter-spacing:-.02em}
+img{max-width:100%;display:block}
+
+[data-lucide]{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:10px}
+::selection{background:var(--primary);color:#fff}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(249,115,22,.2)}50%{box-shadow:0 0 40px rgba(249,115,22,.5)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.1)}28%{transform:scale(1)}42%{transform:scale(1.1)}70%{transform:scale(1)}}
+@keyframes rotateIn{from{opacity:0;transform:rotate(-10deg) scale(.9)}to{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes countUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes borderGlow{0%,100%{border-color:rgba(249,115,22,.3)}50%{border-color:rgba(249,115,22,.8)}}
+@keyframes energyPulse{0%{box-shadow:0 0 0 0 rgba(249,115,22,.4)}70%{box-shadow:0 0 0 20px rgba(249,115,22,0)}100%{box-shadow:0 0 0 0 rgba(249,115,22,0)}}
+
+.anim{opacity:0;transition:all .8s cubic-bezier(.23,1,.32,1)}
+.anim.visible{opacity:1}
+.anim-up.visible{animation:fadeInUp .8s cubic-bezier(.23,1,.32,1) forwards}
+.anim-left.visible{animation:fadeInLeft .8s cubic-bezier(.23,1,.32,1) forwards}
+.anim-right.visible{animation:fadeInRight .8s cubic-bezier(.23,1,.32,1) forwards}
+.anim-scale.visible{animation:scaleIn .8s cubic-bezier(.23,1,.32,1) forwards}
+.anim-rotate.visible{animation:rotateIn .8s cubic-bezier(.23,1,.32,1) forwards}
+
+/* ===== TOP BANNER ===== */
+.top-banner{
+  background:linear-gradient(90deg,var(--primary),var(--primary-dark),var(--primary));
+  background-size:200% auto;
+  animation:shimmer 3s linear infinite;
+  text-align:center;
+  padding:10px 16px;
+  font-size:.82rem;
+  font-weight:600;
+  color:#fff;
+  letter-spacing:.02em;
+  position:relative;
+  z-index:1000;
+}
+.top-banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+/* ===== NAVIGATION ===== */
+.nav{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  background:rgba(10,10,10,.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all .4s ease;
+  padding-top:38px;
+}
+.nav.scrolled{padding-top:0;background:rgba(10,10,10,.95);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.nav.scrolled .top-banner{display:none}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{font-family:var(--heading);font-weight:900;font-size:1.6rem;color:#fff;display:flex;align-items:center;gap:8px}
+.nav-logo span{color:var(--primary)}
+.nav-logo .logo-icon{width:36px;height:36px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:1rem}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s;position:relative}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--primary);color:#fff!important;padding:10px 22px;border-radius:50px;font-weight:600;font-size:.85rem;transition:all .3s}
+.nav-cta:hover{background:var(--accent);transform:translateY(-2px);box-shadow:var(--glow-green)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{width:26px;height:2.5px;background:#fff;border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100vh;
+  background:rgba(10,10,10,.98);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:24px;z-index:998;
+}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:#fff;font-size:1.3rem;font-weight:600;font-family:var(--heading)}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0A0A0A 0%,#111 40%,#0A0A0A 100%);
+  padding:140px 24px 80px;
+}
+.hero::before{
+  content:'';position:absolute;top:-50%;right:-30%;width:800px;height:800px;
+  background:radial-gradient(circle,rgba(249,115,22,.12) 0%,transparent 70%);
+  border-radius:50%;pointer-events:none;animation:float 8s ease-in-out infinite;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-30%;left:-20%;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(34,197,94,.08) 0%,transparent 70%);
+  border-radius:50%;pointer-events:none;animation:float 10s ease-in-out infinite reverse;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(249,115,22,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.hero-content{max-width:800px;text-align:center;position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);
+  padding:8px 20px;border-radius:50px;font-size:.8rem;font-weight:600;
+  color:var(--primary);margin-bottom:28px;
+  animation:borderGlow 3s ease-in-out infinite;
+}
+.hero-badge-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:1.05;margin-bottom:20px;letter-spacing:-.03em}
+.hero h1 .gradient{
+  background:linear-gradient(135deg,var(--primary),#FBBF24,var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.6}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  background:var(--primary);color:#fff;padding:16px 36px;border-radius:50px;
+  font-weight:700;font-size:1rem;display:inline-flex;align-items:center;gap:10px;
+  transition:all .3s;border:none;cursor:pointer;font-family:var(--body);
+  animation:energyPulse 2.5s infinite;
+}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-3px);box-shadow:var(--glow-orange);color:#fff}
+.btn-secondary{
+  background:transparent;color:#fff;padding:16px 36px;border-radius:50px;
+  font-weight:700;font-size:1rem;display:inline-flex;align-items:center;gap:10px;
+  border:2px solid rgba(255,255,255,.15);transition:all .3s;cursor:pointer;font-family:var(--body);
+}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:56px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-number{font-family:var(--heading);font-size:2.2rem;font-weight:900;color:var(--primary)}
+.hero-stat-label{font-size:.85rem;color:var(--muted);margin-top:2px}
+
+/* ===== SECTIONS ===== */
+.section{padding:100px 24px}
+.section-header{text-align:center;max-width:600px;margin:0 auto 64px}
+.section-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);
+  padding:6px 16px;border-radius:50px;font-size:.75rem;font-weight:600;
+  color:var(--primary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;
+}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px;line-height:1.15}
+.section-desc{color:var(--muted);font-size:1.05rem;line-height:1.7}
+.container{max-width:1200px;margin:0 auto}
+
+/* ===== SERVICES ===== */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.service-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 28px;transition:all .4s cubic-bezier(.23,1,.32,1);position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.service-card:hover{transform:translateY(-8px);border-color:rgba(249,115,22,.3);box-shadow:var(--glow-orange)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{
+  width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:rgba(249,115,22,.1);color:var(--primary);margin-bottom:20px;font-size:1.5rem;
+  transition:all .3s;
+}
+.service-card:hover .service-icon{background:var(--primary);color:#fff;transform:scale(1.1)}
+.service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.service-card p{color:var(--muted);font-size:.92rem;line-height:1.6}
+
+/* ===== ABOUT ===== */
+.about{background:var(--surface)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1200px;margin:0 auto}
+.about-content h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:20px;line-height:1.15}
+.about-content p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:24px}
+.about-features{display:flex;flex-direction:column;gap:16px}
+.about-feature{display:flex;align-items:center;gap:14px}
+.about-feature-icon{
+  width:44px;height:44px;min-width:44px;border-radius:12px;
+  background:rgba(34,197,94,.1);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+}
+.about-feature span{font-weight:600;font-size:.95rem}
+.about-visual{
+  position:relative;background:linear-gradient(145deg,var(--surface-2),var(--surface-3));
+  border-radius:24px;padding:48px;border:1px solid var(--border);
+  display:flex;flex-direction:column;gap:28px;
+}
+.about-stat-row{display:flex;gap:20px}
+.about-stat-card{
+  flex:1;background:var(--bg);border-radius:16px;padding:24px;text-align:center;
+  border:1px solid var(--border);transition:all .3s;
+}
+.about-stat-card:hover{border-color:rgba(249,115,22,.3);transform:translateY(-4px)}
+.about-stat-card .num{font-family:var(--heading);font-size:2rem;font-weight:900;color:var(--primary);display:block}
+.about-stat-card .lbl{font-size:.82rem;color:var(--muted);margin-top:4px;display:block}
+
+/* ===== MEMBERSHIP / PRICING ===== */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;max-width:1000px;margin:0 auto}
+.price-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:40px 32px;text-align:center;position:relative;transition:all .4s;overflow:hidden;
+}
+.price-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.price-card.featured{border-color:var(--primary);background:linear-gradient(170deg,var(--surface),rgba(249,115,22,.05))}
+.price-card.featured::before{
+  content:'SUOSITUIN';position:absolute;top:20px;right:-32px;
+  background:var(--primary);color:#fff;font-size:.7rem;font-weight:700;
+  padding:6px 40px;transform:rotate(45deg);letter-spacing:.06em;
+}
+.price-card .plan-name{font-size:1rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.price-card .price{font-family:var(--heading);font-size:3.2rem;font-weight:900;color:#fff;margin-bottom:4px}
+.price-card .price span{font-size:1rem;font-weight:500;color:var(--muted)}
+.price-card .price-period{font-size:.85rem;color:var(--muted);margin-bottom:28px}
+.price-card ul{list-style:none;text-align:left;margin-bottom:32px;display:flex;flex-direction:column;gap:12px}
+.price-card ul li{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--muted)}
+.price-card ul li .check{color:var(--accent);font-weight:700;font-size:1.1rem}
+.price-card ul li.disabled{opacity:.4}
+.price-card ul li.disabled .check{color:var(--muted)}
+.price-btn{
+  width:100%;padding:14px;border-radius:50px;font-weight:700;font-size:.95rem;
+  border:2px solid var(--border);background:transparent;color:#fff;
+  cursor:pointer;transition:all .3s;font-family:var(--body);
+}
+.price-btn:hover{border-color:var(--primary);color:var(--primary)}
+.price-card.featured .price-btn{background:var(--primary);border-color:var(--primary);color:#fff}
+.price-card.featured .price-btn:hover{background:var(--primary-dark);transform:scale(1.03)}
+
+/* ===== SCHEDULE ===== */
+.schedule{background:var(--surface)}
+.schedule-table-wrap{max-width:1100px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.schedule-table{width:100%;border-collapse:collapse;min-width:700px}
+.schedule-table th{
+  background:var(--primary);color:#fff;padding:14px 12px;font-weight:700;
+  font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;text-align:center;
+}
+.schedule-table th:first-child{text-align:left;border-radius:12px 0 0 0}
+.schedule-table th:last-child{border-radius:0 12px 0 0}
+.schedule-table td{
+  padding:14px 12px;text-align:center;border-bottom:1px solid var(--border);
+  font-size:.88rem;color:var(--muted);vertical-align:top;
+}
+.schedule-table td:first-child{
+  text-align:left;font-weight:600;color:#fff;white-space:nowrap;
+}
+.schedule-table tr:hover td{background:rgba(249,115,22,.03)}
+.class-tag{
+  display:inline-block;padding:4px 10px;border-radius:8px;font-size:.78rem;font-weight:600;
+  background:rgba(249,115,22,.1);color:var(--primary);white-space:nowrap;
+}
+.class-tag.green{background:rgba(34,197,94,.1);color:var(--accent)}
+.class-tag.white{background:rgba(255,255,255,.08);color:#fff}
+
+/* ===== REVIEWS ===== */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.review-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:32px;transition:all .4s;
+}
+.review-card:hover{border-color:rgba(249,115,22,.2);transform:translateY(-4px)}
+.review-stars{color:#FBBF24;font-size:1.1rem;margin-bottom:16px;letter-spacing:2px}
+.review-text{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{
+  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.9rem;color:#fff;
+}
+.review-name{font-weight:700;font-size:.9rem}
+.review-role{font-size:.8rem;color:var(--muted)}
+
+/* ===== CTA ===== */
+.cta-section{
+  background:linear-gradient(160deg,rgba(249,115,22,.1),var(--bg),rgba(34,197,94,.05));
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;top:50%;left:50%;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);
+  transform:translate(-50%,-50%);border-radius:50%;
+}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.cta-inner h2{font-size:clamp(2rem,5vw,3rem);font-weight:900;margin-bottom:16px}
+.cta-inner p{color:var(--muted);font-size:1.1rem;margin-bottom:36px}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--surface)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:0 auto}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-item-icon{
+  width:48px;height:48px;min-width:48px;border-radius:14px;
+  background:rgba(249,115,22,.1);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-item h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.contact-item p{color:var(--muted);font-size:.9rem}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:.85rem;font-weight:600;color:var(--muted)}
+.form-group input,.form-group textarea,.form-group select{
+  background:var(--bg);border:1px solid var(--border);border-radius:12px;
+  padding:14px 16px;color:#fff;font-family:var(--body);font-size:.95rem;
+  transition:border-color .3s;outline:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--primary)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{
+  background:var(--primary);color:#fff;padding:16px;border-radius:50px;
+  border:none;font-weight:700;font-size:1rem;cursor:pointer;
+  transition:all .3s;font-family:var(--body);
+}
+.form-submit:hover{background:var(--primary-dark);transform:translateY(-2px)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 24px 24px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:var(--heading);font-weight:900;font-size:1.3rem}
+.footer-logo span{color:var(--primary)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:var(--muted);font-size:.85rem;transition:color .3s}
+.footer-links a:hover{color:var(--primary)}
+.footer-copy{width:100%;text-align:center;padding-top:24px;margin-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:.82rem}
+
+/* ===== WHATSAPP FAB ===== */
+.whatsapp-fab{
+  position:fixed;bottom:28px;right:28px;z-index:997;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;
+  transition:all .3s;animation:float 4s ease-in-out infinite;
+}
+.whatsapp-fab:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.6)}
+.whatsapp-fab svg{width:30px;height:30px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:968px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .contact-grid{grid-template-columns:1fr}
+  .hero-stats{gap:32px}
+  .pricing-grid{grid-template-columns:1fr;max-width:400px}
+}
+@media(max-width:640px){
+  .section{padding:72px 16px}
+  .hero{padding:120px 16px 60px}
+  .hero-buttons{flex-direction:column;align-items:center}
+  .hero-stats{flex-direction:column;gap:20px}
+  .about-stat-row{flex-direction:column}
+  .services-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner" id="topBanner">
+  This is a FREE preview website designed by <a href="https://elfennir.com" target="_blank">elfennir.com</a> — Contact us to make it yours!
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">FZ</div>
+      Fit<span>Zone</span>
+    </a>
+    <div class="nav-links">
+      <a href="#palvelut">Palvelut</a>
+      <a href="#meista">Meistä</a>
+      <a href="#hinnat">Hinnat</a>
+      <a href="#aikataulu">Aikataulu</a>
+      <a href="#arvostelut">Arvostelut</a>
+      <a href="#yhteystiedot">Yhteystiedot</a>
+      <a href="#trial" class="nav-cta">Ilmainen Kokeilu</a>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#palvelut" onclick="closeMenu()">Palvelut</a>
+  <a href="#meista" onclick="closeMenu()">Meistä</a>
+  <a href="#hinnat" onclick="closeMenu()">Hinnat</a>
+  <a href="#aikataulu" onclick="closeMenu()">Aikataulu</a>
+  <a href="#arvostelut" onclick="closeMenu()">Arvostelut</a>
+  <a href="#yhteystiedot" onclick="closeMenu()">Yhteystiedot</a>
+  <a href="#trial" class="btn-primary" onclick="closeMenu()">Ilmainen Kokeilu</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge anim anim-up">
+      <div class="hero-badge-dot"></div>
+      Tampereen modernein kuntosali
+    </div>
+    <h1 class="anim anim-up" style="animation-delay:.1s">
+      Transform<br>Your <span class="gradient">Body</span>
+    </h1>
+    <p class="hero-sub anim anim-up" style="animation-delay:.2s">
+      Huipputason laitteet, inspiroivat ryhmäliikuntatunnit ja henkilökohtainen valmennus. Saavuta tavoitteesi FitZone Tampereella.
+    </p>
+    <div class="hero-buttons anim anim-up" style="animation-delay:.3s">
+      <a href="#trial" class="btn-primary">
+        <i data-lucide="zap" style="width:20px;height:20px"></i>
+        Aloita Ilmainen Kokeilu
+      </a>
+      <a href="#palvelut" class="btn-secondary">
+        <i data-lucide="arrow-down" style="width:20px;height:20px"></i>
+        Tutustu Palveluihin
+      </a>
+    </div>
+    <div class="hero-stats anim anim-up" style="animation-delay:.45s">
+      <div class="hero-stat">
+        <div class="hero-stat-number">1500+</div>
+        <div class="hero-stat-label">Aktiivista jäsentä</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">50+</div>
+        <div class="hero-stat-label">Viikkotuntia</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">800m²</div>
+        <div class="hero-stat-label">Treenitilaa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="palvelut">
+  <div class="section-header">
+    <div class="section-badge anim anim-up"><i data-lucide="dumbbell" style="width:14px;height:14px"></i> Palvelut</div>
+    <h2 class="section-title anim anim-up">Kaikki mitä tarvitset</h2>
+    <p class="section-desc anim anim-up">Monipuoliset palvelut ja huippulaitteet tavoitteidesi saavuttamiseksi.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card anim anim-up">
+      <div class="service-icon"><i data-lucide="dumbbell"></i></div>
+      <h3>Voimaharjoittelu</h3>
+      <p>Laaja valikoima vapaita painoja, tankoja ja Smith-koneita. Kattava laitevalikoima kaikille tasoille.</p>
+    </div>
+    <div class="service-card anim anim-up" style="animation-delay:.1s">
+      <div class="service-icon"><i data-lucide="heart-pulse"></i></div>
+      <h3>Kardioalue</h3>
+      <p>Juoksumatot, crosstrainerit, soutulaitteet ja spinningpyörät uusimmalla teknologialla.</p>
+    </div>
+    <div class="service-card anim anim-up" style="animation-delay:.2s">
+      <div class="service-icon"><i data-lucide="users"></i></div>
+      <h3>Ryhmäliikunta</h3>
+      <p>Spinning, jooga, HIIT ja nyrkkeily. Energiset tunnit ammattivalmentajien johdolla.</p>
+    </div>
+    <div class="service-card anim anim-up" style="animation-delay:.3s">
+      <div class="service-icon"><i data-lucide="target"></i></div>
+      <h3>Personal Training</h3>
+      <p>Henkilökohtainen valmennus räätälöitynä sinun tavoitteisiisi ja tarpeidesi mukaan.</p>
+    </div>
+    <div class="service-card anim anim-up" style="animation-delay:.4s">
+      <div class="service-icon"><i data-lucide="flame"></i></div>
+      <h3>Sauna &amp; Pukuhuoneet</h3>
+      <p>Rentoudu treenin jälkeen saunassa. Tilavat pukuhuoneet suihkuineen ja lukollisilla kaapeilla.</p>
+    </div>
+    <div class="service-card anim anim-up" style="animation-delay:.5s">
+      <div class="service-icon"><i data-lucide="apple"></i></div>
+      <h3>Ravintovalmennus</h3>
+      <p>Ammattitaitoinen ravintoneuvonta tukee treenisi tuloksia ja hyvinvointiasi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="meista">
+  <div class="about-grid">
+    <div class="about-content anim anim-left">
+      <div class="section-badge"><i data-lucide="info" style="width:14px;height:14px"></i> Meistä</div>
+      <h2>Tampereen energisin kuntosali</h2>
+      <p>FitZone Tampere on moderni kuntosali ja fitness center, joka tarjoaa huipputason treenipuitteet Tampereen keskustassa. Intohimomme on auttaa jokaista jäsentä saavuttamaan omat tavoitteensa.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="check-circle" style="width:20px;height:20px"></i></div>
+          <span>Uusimmat laitteet ja vapaat painot</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="check-circle" style="width:20px;height:20px"></i></div>
+          <span>Sertifioidut personal trainerit</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="check-circle" style="width:20px;height:20px"></i></div>
+          <span>Auki 05:00 - 23:00 joka päivä</span>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i data-lucide="check-circle" style="width:20px;height:20px"></i></div>
+          <span>Ilmainen parkkipaikka jäsenille</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual anim anim-right">
+      <div class="about-stat-row">
+        <div class="about-stat-card">
+          <span class="num">5+</span>
+          <span class="lbl">Vuotta Tampereella</span>
+        </div>
+        <div class="about-stat-card">
+          <span class="num">15</span>
+          <span class="lbl">Ammattivalmentajaa</span>
+        </div>
+      </div>
+      <div class="about-stat-row">
+        <div class="about-stat-card">
+          <span class="num">98%</span>
+          <span class="lbl">Suosittelisi meille</span>
+        </div>
+        <div class="about-stat-card">
+          <span class="num">24/7</span>
+          <span class="lbl">Kulkuoikeus VIP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="hinnat">
+  <div class="section-header">
+    <div class="section-badge anim anim-up"><i data-lucide="credit-card" style="width:14px;height:14px"></i> Hinnat</div>
+    <h2 class="section-title anim anim-up">Valitse jäsenyytesi</h2>
+    <p class="section-desc anim anim-up">Joustavia vaihtoehtoja jokaiselle. Ei sitoutumispakkoa.</p>
+  </div>
+  <div class="pricing-grid">
+    <!-- Basic -->
+    <div class="price-card anim anim-up">
+      <div class="plan-name">Basic</div>
+      <div class="price">€39 <span>/kk</span></div>
+      <div class="price-period">Ei sitoutumisaikaa</div>
+      <ul>
+        <li><span class="check">&#10003;</span> Kuntosalin käyttö (05-23)</li>
+        <li><span class="check">&#10003;</span> Pukuhuoneet &amp; suihkut</li>
+        <li><span class="check">&#10003;</span> Aloitusohjelma</li>
+        <li><span class="check">&#10003;</span> FitZone-sovellus</li>
+        <li class="disabled"><span class="check">&#10007;</span> Ryhmäliikuntatunnit</li>
+        <li class="disabled"><span class="check">&#10007;</span> Sauna</li>
+        <li class="disabled"><span class="check">&#10007;</span> Personal training</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('trial').scrollIntoView({behavior:'smooth'})">Aloita Nyt</button>
+    </div>
+    <!-- Premium -->
+    <div class="price-card featured anim anim-up" style="animation-delay:.15s">
+      <div class="plan-name">Premium</div>
+      <div class="price">€59 <span>/kk</span></div>
+      <div class="price-period">Suosituin valinta</div>
+      <ul>
+        <li><span class="check">&#10003;</span> Kuntosalin käyttö (05-23)</li>
+        <li><span class="check">&#10003;</span> Pukuhuoneet &amp; suihkut</li>
+        <li><span class="check">&#10003;</span> Kaikki ryhmäliikuntatunnit</li>
+        <li><span class="check">&#10003;</span> Sauna</li>
+        <li><span class="check">&#10003;</span> Ravinto-ohjelma</li>
+        <li><span class="check">&#10003;</span> FitZone-sovellus</li>
+        <li class="disabled"><span class="check">&#10007;</span> Personal training</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('trial').scrollIntoView({behavior:'smooth'})">Aloita Nyt</button>
+    </div>
+    <!-- VIP -->
+    <div class="price-card anim anim-up" style="animation-delay:.3s">
+      <div class="plan-name">VIP</div>
+      <div class="price">€89 <span>/kk</span></div>
+      <div class="price-period">Kaikki mukana</div>
+      <ul>
+        <li><span class="check">&#10003;</span> 24/7 kulkuoikeus</li>
+        <li><span class="check">&#10003;</span> Kaikki ryhmäliikuntatunnit</li>
+        <li><span class="check">&#10003;</span> Sauna &amp; VIP-pukuhuone</li>
+        <li><span class="check">&#10003;</span> 2x PT-sessio / kk</li>
+        <li><span class="check">&#10003;</span> Ravintovalmennus</li>
+        <li><span class="check">&#10003;</span> Vierailijapassi (2x/kk)</li>
+        <li><span class="check">&#10003;</span> Prioriteetti varaukset</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('trial').scrollIntoView({behavior:'smooth'})">Aloita Nyt</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="section schedule" id="aikataulu">
+  <div class="section-header">
+    <div class="section-badge anim anim-up"><i data-lucide="calendar" style="width:14px;height:14px"></i> Aikataulu</div>
+    <h2 class="section-title anim anim-up">Viikkoaikataulu</h2>
+    <p class="section-desc anim anim-up">Ryhmäliikuntatuntien aikataulu. Premium &amp; VIP jäsenille.</p>
+  </div>
+  <div class="schedule-table-wrap anim anim-up">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Aika</th>
+          <th>Maanantai</th>
+          <th>Tiistai</th>
+          <th>Keskiviikko</th>
+          <th>Torstai</th>
+          <th>Perjantai</th>
+          <th>Lauantai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>07:00</td>
+          <td><span class="class-tag">HIIT</span></td>
+          <td><span class="class-tag green">Jooga</span></td>
+          <td><span class="class-tag">HIIT</span></td>
+          <td><span class="class-tag green">Jooga</span></td>
+          <td><span class="class-tag">HIIT</span></td>
+          <td><span class="class-tag white">Spinning</span></td>
+        </tr>
+        <tr>
+          <td>09:00</td>
+          <td><span class="class-tag white">Spinning</span></td>
+          <td><span class="class-tag">Nyrkkeily</span></td>
+          <td><span class="class-tag white">Spinning</span></td>
+          <td><span class="class-tag">Nyrkkeily</span></td>
+          <td><span class="class-tag green">Jooga</span></td>
+          <td><span class="class-tag">HIIT</span></td>
+        </tr>
+        <tr>
+          <td>12:00</td>
+          <td><span class="class-tag green">Jooga</span></td>
+          <td>-</td>
+          <td><span class="class-tag">Nyrkkeily</span></td>
+          <td>-</td>
+          <td><span class="class-tag white">Spinning</span></td>
+          <td><span class="class-tag green">Jooga</span></td>
+        </tr>
+        <tr>
+          <td>17:00</td>
+          <td><span class="class-tag">Nyrkkeily</span></td>
+          <td><span class="class-tag">HIIT</span></td>
+          <td><span class="class-tag green">Jooga</span></td>
+          <td><span class="class-tag white">Spinning</span></td>
+          <td><span class="class-tag">Nyrkkeily</span></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>18:30</td>
+          <td><span class="class-tag white">Spinning</span></td>
+          <td><span class="class-tag green">Jooga</span></td>
+          <td><span class="class-tag">HIIT</span></td>
+          <td><span class="class-tag">HIIT</span></td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>20:00</td>
+          <td><span class="class-tag">HIIT</span></td>
+          <td><span class="class-tag white">Spinning</span></td>
+          <td><span class="class-tag">Nyrkkeily</span></td>
+          <td><span class="class-tag green">Jooga</span></td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="arvostelut">
+  <div class="section-header">
+    <div class="section-badge anim anim-up"><i data-lucide="star" style="width:14px;height:14px"></i> Arvostelut</div>
+    <h2 class="section-title anim anim-up">Jäsenet kertovat</h2>
+    <p class="section-desc anim anim-up">Lue mitä jäsenemme sanovat FitZone-kokemuksestaan.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card anim anim-up">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Paras kuntosali Tampereella! Laitteet ovat huippuluokkaa ja ilmapiiri on todella motivoiva. Personal trainer auttoi minua saavuttamaan tavoitteeni kolmessa kuukaudessa."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#F97316,#EA580C)">MK</div>
+        <div>
+          <div class="review-name">Mikko Korhonen</div>
+          <div class="review-role">Premium-jäsen, 2 vuotta</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card anim anim-up" style="animation-delay:.15s">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Ryhmäliikuntatunnit ovat aivan mahtavia! Spinning ja HIIT ovat suosikkejani. Valmentajat ovat energisiä ja ammattitaitoisia. Suosittelen lämpimästi!"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#22C55E,#16A34A)">SV</div>
+        <div>
+          <div class="review-name">Sanna Virtanen</div>
+          <div class="review-role">VIP-jäsen, 1 vuosi</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card anim anim-up" style="animation-delay:.3s">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Hinta-laatusuhde on erinomainen. Sauna treenin jälkeen on bonus! Sijainti on täydellinen keskustassa ja parkkipaikkakin löytyy helposti."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#FBBF24,#F59E0B)">JH</div>
+        <div>
+          <div class="review-name">Jari Hämäläinen</div>
+          <div class="review-role">Basic-jäsen, 6 kk</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card anim anim-up" style="animation-delay:.1s">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Joogatunnit ovat rauhoittavia ja ammattimaisesti ohjattuja. Tilat ovat siistit ja modernit. Olen treenannut monessa salissa, mutta FitZone on selvästi paras."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#8B5CF6,#7C3AED)">LN</div>
+        <div>
+          <div class="review-name">Laura Nieminen</div>
+          <div class="review-role">Premium-jäsen, 1,5 vuotta</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card anim anim-up" style="animation-delay:.25s">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <p class="review-text">"Nyrkkeilytunnit ovat mahtavia! Treenin intensiteetti on juuri sopiva ja valmentaja osaa motivoida. Ainut miinus on ruuhka-ajat, mutta muuten täydellistä."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#EC4899,#DB2777)">TP</div>
+        <div>
+          <div class="review-name">Tommi Peltonen</div>
+          <div class="review-role">VIP-jäsen, 8 kk</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card anim anim-up" style="animation-delay:.4s">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Ravintovalmennus muutti kaiken! Yhdessä treeniohjelman kanssa tulokset ovat olleet uskomattomia. Henkilökunta on ystävällistä ja auttavaista."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#14B8A6,#0D9488)">AK</div>
+        <div>
+          <div class="review-name">Anna Kallio</div>
+          <div class="review-role">Premium-jäsen, 3 vuotta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / FREE TRIAL -->
+<section class="section cta-section" id="trial">
+  <div class="cta-inner">
+    <div class="section-badge anim anim-up"><i data-lucide="zap" style="width:14px;height:14px"></i> Ilmainen Kokeilu</div>
+    <h2 class="anim anim-up">Kokeile <span style="color:var(--primary)">ilmaiseksi</span> 7 päivää</h2>
+    <p class="anim anim-up">Ei sitoutumista, ei piilokuluja. Tule tutustumaan FitZone Tampereeseen ja koe ero itse. Aloita matkasi kohti parempaa kuntoa tänään!</p>
+    <div class="cta-buttons anim anim-up">
+      <a href="https://wa.me/358401234567?text=Hei!%20Haluaisin%20varata%20ilmaisen%20kokeilujakson." class="btn-primary" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.534 5.886L.057 23.64l5.898-1.544A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.92 0-3.748-.518-5.346-1.46l-.384-.228-3.982 1.044 1.063-3.882-.25-.397A9.776 9.776 0 012.18 12C2.18 6.58 6.58 2.18 12 2.18S21.82 6.58 21.82 12 17.42 21.82 12 21.82z"/></svg>
+        Varaa WhatsAppilla
+      </a>
+      <a href="tel:+358401234567" class="btn-secondary">
+        <i data-lucide="phone" style="width:20px;height:20px"></i>
+        Soita Meille
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="yhteystiedot">
+  <div class="section-header">
+    <div class="section-badge anim anim-up"><i data-lucide="mail" style="width:14px;height:14px"></i> Yhteystiedot</div>
+    <h2 class="section-title anim anim-up">Ota Yhteyttä</h2>
+    <p class="section-desc anim anim-up">Kysy lisää tai varaa ilmainen kokeilujaksosi.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info anim anim-left">
+      <div class="contact-item">
+        <div class="contact-item-icon"><i data-lucide="map-pin"></i></div>
+        <div>
+          <h4>Sijainti</h4>
+          <p>Tampere, Suomi</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i data-lucide="phone"></i></div>
+        <div>
+          <h4>Puhelin</h4>
+          <p><a href="tel:+358401234567">+358 40 123 4567</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i data-lucide="mail"></i></div>
+        <div>
+          <h4>Sähköposti</h4>
+          <p><a href="mailto:info@fitzonetampere.fi">info@fitzonetampere.fi</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i data-lucide="clock"></i></div>
+        <div>
+          <h4>Aukioloajat</h4>
+          <p>Ma-Pe: 05:00 - 23:00<br>La-Su: 07:00 - 21:00<br>VIP: 24/7</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon" style="background:rgba(34,197,94,.1);color:var(--accent)"><i data-lucide="message-circle"></i></div>
+        <div>
+          <h4>WhatsApp</h4>
+          <p><a href="https://wa.me/358401234567" target="_blank">Lähetä viesti WhatsAppilla</a></p>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form anim anim-right" onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:40px\'><div style=\'font-size:3rem;margin-bottom:16px\'>&#10003;</div><h3>Kiitos viestistäsi!</h3><p style=\'color:var(--muted);margin-top:8px\'>Otamme yhteyttä pian.</p></div>'">
+      <div class="form-group">
+        <label>Nimi</label>
+        <input type="text" placeholder="Nimesi" required>
+      </div>
+      <div class="form-group">
+        <label>Sähköposti</label>
+        <input type="email" placeholder="sahkoposti@esimerkki.fi" required>
+      </div>
+      <div class="form-group">
+        <label>Puhelin</label>
+        <input type="tel" placeholder="+358 40 ...">
+      </div>
+      <div class="form-group">
+        <label>Kiinnostuksen kohde</label>
+        <select>
+          <option value="">Valitse...</option>
+          <option>Ilmainen kokeilu</option>
+          <option>Basic-jäsenyys</option>
+          <option>Premium-jäsenyys</option>
+          <option>VIP-jäsenyys</option>
+          <option>Personal Training</option>
+          <option>Ryhmäliikunta</option>
+          <option>Muu kysymys</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Viesti</label>
+        <textarea placeholder="Kirjoita viestisi..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Lähetä Viesti</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Fit<span>Zone</span> Tampere</div>
+    <div class="footer-links">
+      <a href="#palvelut">Palvelut</a>
+      <a href="#hinnat">Hinnat</a>
+      <a href="#aikataulu">Aikataulu</a>
+      <a href="#yhteystiedot">Yhteystiedot</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 FitZone Tampere. Kaikki oikeudet pidätetään. | Preview by <a href="https://elfennir.com" target="_blank">elfennir.com</a></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/358401234567?text=Hei!%20Haluaisin%20tietää%20lisää%20FitZone%20Tampereesta." class="whatsapp-fab" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.534 5.886L.057 23.64l5.898-1.544A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.92 0-3.748-.518-5.346-1.46l-.384-.228-3.982 1.044 1.063-3.882-.25-.397A9.776 9.776 0 012.18 12C2.18 6.58 6.58 2.18 12 2.18S21.82 6.58 21.82 12 17.42 21.82 12 21.82z"/></svg>
+</a>
+
+<script>
+// Lucide icons
+document.addEventListener('DOMContentLoaded',()=>{if(window.lucide)lucide.createIcons()});
+
+// Scroll animations
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.anim').forEach(el=>observer.observe(el));
+
+// Navbar scroll
+const nav=document.getElementById('navbar');
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const st=window.pageYOffset;
+  if(st>60)nav.classList.add('scrolled');else nav.classList.remove('scrolled');
+  lastScroll=st;
+});
+
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('active');
+  document.getElementById('mobileMenu').classList.toggle('active');
+  document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('active')?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('active');
+  document.getElementById('mobileMenu').classList.remove('active');
+  document.body.style.overflow='';
+}
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+
+// Counter animation for hero stats
+function animateCounters(){
+  document.querySelectorAll('.hero-stat-number').forEach(el=>{
+    const text=el.textContent;
+    const num=parseInt(text.replace(/[^0-9]/g,''));
+    const suffix=text.replace(/[0-9]/g,'');
+    let current=0;
+    const increment=Math.ceil(num/40);
+    const timer=setInterval(()=>{
+      current+=increment;
+      if(current>=num){current=num;clearInterval(timer)}
+      el.textContent=current+suffix;
+    },30);
+  });
+}
+const heroObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCounters();heroObserver.unobserve(e.target)}})
+},{threshold:.5});
+const heroStats=document.querySelector('.hero-stats');
+if(heroStats)heroObserver.observe(heroStats);
+</script>
+
+</body>
+</html>

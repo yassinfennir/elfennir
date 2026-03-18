@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fenix Kauneus | Kauneushoitola Helsinki, Lauttasaari</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0D0D0D;--dark:#141414;--dark2:#1A1A1A;--dark3:#222;
+  --gold:#C9A96E;--gold-light:#ddc08a;--gold-dim:rgba(201,169,110,.15);
+  --rose:#C4717A;--rose-light:#d4979f;--rose-dim:rgba(196,113,122,.12);
+  --cream:#F5F0EB;--cream-dim:rgba(245,240,235,.9);
+  --white:#fff;--text:#ccc;--text-dim:#999;
+  --shadow:0 8px 40px rgba(0,0,0,.4);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--black);overflow-x:hidden;line-height:1.7}
+
+/* BANNER */
+.banner{background:var(--gold);color:var(--black);text-align:center;padding:10px 16px;font-size:.82rem;letter-spacing:.3px;position:relative;z-index:1000;font-weight:500}
+.banner a{color:var(--black);text-decoration:underline;font-weight:700}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:999;background:rgba(13,13,13,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(201,169,110,.1);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.5)}
+.nav-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+.logo{font-size:1.5rem;font-weight:700;color:var(--cream);letter-spacing:2.5px;text-transform:uppercase}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--cream);font-size:.85rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--cream);border-radius:2px;transition:.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:var(--black);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(201,169,110,.08) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(196,113,122,.06) 0%,transparent 50%)}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-glow1{position:absolute;top:-120px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,169,110,.1) 0%,transparent 70%);border-radius:50%;animation:glow1 10s ease-in-out infinite}
+.hero-glow2{position:absolute;bottom:-100px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,113,122,.08) 0%,transparent 70%);border-radius:50%;animation:glow2 12s ease-in-out infinite}
+@keyframes glow1{0%,100%{transform:translate(0,0) scale(1);opacity:.6}50%{transform:translate(40px,30px) scale(1.1);opacity:1}}
+@keyframes glow2{0%,100%{transform:translate(0,0) scale(1);opacity:.5}50%{transform:translate(-30px,-40px) scale(1.15);opacity:.9}}
+.hero-content{position:relative;z-index:2;padding:40px 24px;max-width:800px}
+.hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:8px 28px;border-radius:40px;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:32px;animation:fadeUp .8s ease forwards;opacity:0}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.8rem);color:var(--cream);font-weight:200;line-height:1.1;margin-bottom:24px;animation:fadeUp .8s ease .15s forwards;opacity:0;letter-spacing:1px}
+.hero h1 strong{font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.1rem;color:var(--text-dim);max-width:540px;margin:0 auto 40px;animation:fadeUp .8s ease .3s forwards;opacity:0}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s ease .45s forwards;opacity:0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 38px;border-radius:50px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .35s;cursor:pointer;border:none;letter-spacing:.5px}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#b8954f);color:var(--black);box-shadow:0 6px 28px rgba(201,169,110,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(201,169,110,.45)}
+.btn-outline{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+.btn-outline:hover{background:var(--gold);color:var(--black);transform:translateY(-3px)}
+.btn-rose{background:linear-gradient(135deg,var(--rose),#a85d65);color:var(--white);box-shadow:0 6px 28px rgba(196,113,122,.3)}
+.btn-rose:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(196,113,122,.45)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-line{width:60px;height:2px;background:var(--gold);margin:0 auto 32px;animation:fadeUp .8s ease .1s forwards;opacity:0}
+
+/* SCROLL INDICATOR */
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;animation:bounce 2s infinite}
+.scroll-indicator span{display:block;width:24px;height:40px;border:2px solid var(--gold);border-radius:12px;position:relative}
+.scroll-indicator span::after{content:'';width:4px;height:8px;background:var(--gold);border-radius:2px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollDot 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes scrollDot{0%{opacity:1;top:6px}100%{opacity:0;top:20px}}
+
+/* SECTIONS */
+section{padding:100px 24px}
+.section-title{text-align:center;margin-bottom:64px}
+.section-title span{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 22px;border-radius:30px;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.section-title h2{font-size:clamp(1.9rem,4vw,2.8rem);color:var(--cream);font-weight:200;line-height:1.3}
+.section-title h2 strong{font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-title p{color:var(--text-dim);margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto;font-size:.95rem}
+
+/* SERVICES */
+.services{background:var(--dark)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1200px;margin:auto}
+.service-card{background:var(--dark2);border-radius:20px;padding:36px 28px;text-align:center;transition:all .4s;border:1px solid rgba(201,169,110,.08);position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.5);border-color:rgba(201,169,110,.25)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--rose));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:68px;height:68px;background:var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.7rem;transition:all .3s}
+.service-card:hover .service-icon{background:rgba(201,169,110,.25);transform:scale(1.05)}
+.service-card h3{font-size:1.05rem;color:var(--cream);margin-bottom:8px;font-weight:600;letter-spacing:.3px}
+.service-card p{font-size:.85rem;color:var(--text-dim);line-height:1.6}
+
+/* ABOUT */
+.about{background:var(--black);position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(201,169,110,.04) 0%,transparent 60%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:auto;align-items:center}
+.about-visual{position:relative}
+.about-image{width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,var(--dark2),var(--dark3));border-radius:24px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,169,110,.1);overflow:hidden;position:relative}
+.about-image::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.05),rgba(196,113,122,.05))}
+.about-image-text{font-size:5rem;opacity:.15;color:var(--gold)}
+.about-decorator{position:absolute;top:-20px;right:-20px;width:120px;height:120px;border:2px solid var(--gold);border-radius:50%;opacity:.15}
+.about-decorator2{position:absolute;bottom:-15px;left:-15px;width:80px;height:80px;border:2px solid var(--rose);border-radius:50%;opacity:.12}
+.about-content h3{font-size:1rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.about-content h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--cream);font-weight:300;line-height:1.35;margin-bottom:20px}
+.about-content h2 strong{font-weight:700}
+.about-content p{color:var(--text-dim);margin-bottom:16px;font-size:.95rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;padding-top:32px;border-top:1px solid rgba(201,169,110,.1)}
+.stat-item{text-align:center}
+.stat-num{font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.78rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* PRICING */
+.pricing{background:var(--dark)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:1100px;margin:auto}
+.price-card{background:var(--dark2);border-radius:20px;padding:40px 32px;border:1px solid rgba(201,169,110,.08);transition:all .4s;position:relative;overflow:hidden}
+.price-card:hover{border-color:rgba(201,169,110,.2);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.price-card.featured{border-color:var(--gold);background:linear-gradient(135deg,var(--dark2),rgba(201,169,110,.05))}
+.price-card.featured::before{content:'Suosittu';position:absolute;top:20px;right:-30px;background:var(--gold);color:var(--black);font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 40px;transform:rotate(45deg)}
+.price-card-header{margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(201,169,110,.1)}
+.price-card-header h3{font-size:1.2rem;color:var(--cream);font-weight:600;margin-bottom:6px}
+.price-card-header p{font-size:.85rem;color:var(--text-dim)}
+.price-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.price-item:last-child{border-bottom:none}
+.price-name{color:var(--text);font-size:.9rem}
+.price-duration{color:var(--text-dim);font-size:.78rem;margin-top:2px}
+.price-amount{color:var(--gold);font-weight:700;font-size:1rem;white-space:nowrap}
+
+/* REVIEWS */
+.reviews{background:var(--black);position:relative}
+.reviews::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,169,110,.04) 0%,transparent 50%)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;max-width:1100px;margin:auto;position:relative;z-index:1}
+.review-card{background:var(--dark2);border-radius:20px;padding:36px 28px;border:1px solid rgba(201,169,110,.06);transition:all .4s}
+.review-card:hover{border-color:rgba(201,169,110,.15);transform:translateY(-4px)}
+.review-stars{color:var(--gold);font-size:1rem;letter-spacing:3px;margin-bottom:16px}
+.review-text{color:var(--text);font-size:.92rem;line-height:1.7;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:14px}
+.review-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dim),var(--rose-dim));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);font-size:.9rem}
+.review-name{font-weight:600;color:var(--cream);font-size:.9rem}
+.review-date{font-size:.78rem;color:var(--text-dim);margin-top:2px}
+
+/* CONTACT */
+.contact{background:var(--dark)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:auto}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;padding:24px;background:var(--dark2);border-radius:16px;border:1px solid rgba(201,169,110,.06);transition:all .3s}
+.contact-item:hover{border-color:rgba(201,169,110,.15);transform:translateX(4px)}
+.contact-icon{width:50px;height:50px;min-width:50px;background:var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.contact-item h4{color:var(--cream);font-size:.95rem;margin-bottom:4px}
+.contact-item p{color:var(--text-dim);font-size:.88rem}
+.contact-item a{color:var(--gold);text-decoration:none;font-size:.88rem;transition:color .3s}
+.contact-item a:hover{color:var(--gold-light)}
+.contact-map{border-radius:20px;overflow:hidden;border:1px solid rgba(201,169,110,.1);min-height:400px}
+.contact-map iframe{width:100%;height:100%;min-height:400px;border:none;filter:grayscale(.6) brightness(.8) contrast(1.1)}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--dark2),var(--black));text-align:center;padding:80px 24px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,169,110,.06) 0%,transparent 60%)}
+.cta-content{position:relative;z-index:1;max-width:600px;margin:auto}
+.cta h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--cream);font-weight:300;margin-bottom:16px}
+.cta h2 strong{font-weight:700;color:var(--gold)}
+.cta p{color:var(--text-dim);margin-bottom:32px;font-size:1rem}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(201,169,110,.08);padding:40px 24px;text-align:center}
+.footer-inner{max-width:1100px;margin:auto}
+.footer-logo{font-size:1.3rem;font-weight:700;color:var(--cream);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px}
+.footer-logo span{color:var(--gold)}
+footer p{color:var(--text-dim);font-size:.82rem;margin-top:6px}
+footer a{color:var(--gold);text-decoration:none}
+
+/* DIVIDER */
+.section-divider{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--rose));margin:0 auto 40px;border-radius:2px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(13,13,13,.98);backdrop-filter:blur(18px);flex-direction:column;padding:20px 24px;gap:16px;border-bottom:1px solid rgba(201,169,110,.1)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .hero h1{font-size:clamp(2rem,8vw,3rem)}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-visual{order:-1}
+  .contact-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:repeat(3,1fr);gap:12px}
+  section{padding:70px 20px}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center;max-width:280px}
+  .about-stats{grid-template-columns:1fr}
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:998;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;text-decoration:none;font-size:1.6rem;color:#fff}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+  This is a FREE preview website designed by <a href="https://elfennir.com" target="_blank">elfennir.com</a> &mdash; Contact us to make it yours!
+</div>
+
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo">Fenix <span>Kauneus</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#palvelut" onclick="closeMenu()">Palvelut</a></li>
+      <li><a href="#meista" onclick="closeMenu()">Meistä</a></li>
+      <li><a href="#hinnasto" onclick="closeMenu()">Hinnasto</a></li>
+      <li><a href="#arvostelut" onclick="closeMenu()">Arvostelut</a></li>
+      <li><a href="#yhteystiedot" onclick="closeMenu()">Yhteystiedot</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Kauneushoitola &bull; Helsinki</div>
+    <div class="hero-line"></div>
+    <h1>Discover Your<br><strong>Inner Beauty</strong></h1>
+    <p>Luksushoitoja ja kokonaisvaltaista hyvinvointia Lauttasaaressa. Koe ainutlaatuinen kauneuskokemus ammattitaitoisissa käsissä.</p>
+    <div class="hero-btns">
+      <a href="tel:+358505957979" class="btn btn-primary">&#9742; Varaa Aika</a>
+      <a href="#palvelut" class="btn btn-outline">Tutustu Palveluihin</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span></span></div>
+</section>
+
+<!-- Services -->
+<section class="services" id="palvelut">
+  <div class="section-title fade-in">
+    <span>Palvelut</span>
+    <h2>Kauneutta &amp; <strong>Hyvinvointia</strong></h2>
+    <p>Laaja valikoima hoitoja kasvoista varpaanpäihin. Jokainen hoito räätälöidään juuri sinulle.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">&#10024;</div>
+      <h3>Kasvohoito</h3>
+      <p>Syväpuhdistavia ja elvyttäviä kasvohoitoja, jotka palauttavat ihon luonnollisen hehkun.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#9878;</div>
+      <h3>Kemiallinen Kuorinta</h3>
+      <p>Ammattilaistason kemialliset kuorinnat uudistavat ihoa ja tasoittavat ihon sävyä tehokkaasti.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#10038;</div>
+      <h3>Microneedling</h3>
+      <p>Mikroneulahoito stimuloi ihon omaa kollageenin tuotantoa ja parantaa ihon rakennetta.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#9829;</div>
+      <h3>Vartalohieronta</h3>
+      <p>Rentouttava kokovartalo&shy;hieronta, joka lievittää lihasjännitystä ja palauttaa tasapainon.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#9832;</div>
+      <h3>Kuumakivihieronta</h3>
+      <p>Lämpimät laavakivet sulattavat jännityksen ja tuovat syvän rentoutumisen koko keholle.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#10047;</div>
+      <h3>Ripsipidennykset</h3>
+      <p>Kauniit, luonnollisen näköiset ripsipidennykset, jotka korostavat katsettasi.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#9733;</div>
+      <h3>Kulmakarvojen Laminointi</h3>
+      <p>Täyteläiset ja huoliteltu näköiset kulmat laminointikäsittelyllä.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#9827;</div>
+      <h3>Geelilakkaus</h3>
+      <p>Kestävä ja kaunis geelilakkaus, joka pitää kyntesi virheettöminä viikkoja.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#10070;</div>
+      <h3>Vahaukset</h3>
+      <p>Ammattitaitoinen ihokarvojen poisto vahauksella &mdash; hellävaraisesti ja tehokkaasti.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">&#128269;</div>
+      <h3>Ihokonsultaatio</h3>
+      <p>Perusteellinen ihoanalyysi ja henkilö&shy;kohtainen hoitosuunnitelma asiantuntijaltamme.</p>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="meista">
+  <div class="about-grid">
+    <div class="about-visual fade-in">
+      <div class="about-image">
+        <div class="about-image-text">FK</div>
+      </div>
+      <div class="about-decorator"></div>
+      <div class="about-decorator2"></div>
+    </div>
+    <div class="about-content fade-in">
+      <h3>Meistä</h3>
+      <h2>Premium-kauneushoitola <strong>Lauttasaaressa</strong></h2>
+      <p>Fenix Kauneus on Lauttasaaressa sijaitseva luksus&shy;kauneus&shy;hoitola, jossa yhdistyvät huippuluokan hoidot ja lämmin, henkilökohtainen palvelu. Meillä jokainen asiakas on ainutlaatuinen.</p>
+      <p>Kokeneet kauneudenhoitoalan ammattilaisemme käyttävät parhaita tuotteita ja uusimpia tekniikoita varmistaakseen, että lähdet meiltä aina hehkuen. Tervetuloa kokemaan ero.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Asiakasta</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Hoitoa</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5.0</div>
+          <div class="stat-label">Arvosana</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="hinnasto">
+  <div class="section-title fade-in">
+    <span>Hinnasto</span>
+    <h2>Läpinäkyvä <strong>Hinnoittelu</strong></h2>
+    <p>Laadukkaat hoidot reiluun hintaan. Kaikki hinnat sisältävät ALV:n.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card fade-in">
+      <div class="price-card-header">
+        <h3>&#10024; Kasvo- &amp; Ihohoito</h3>
+        <p>Kasvohoitoja ja ihonhoitoa</p>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Perus kasvohoito</div><div class="price-duration">60 min</div></div>
+        <div class="price-amount">75 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Luksus kasvohoito</div><div class="price-duration">90 min</div></div>
+        <div class="price-amount">110 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Kemiallinen kuorinta</div><div class="price-duration">45 min</div></div>
+        <div class="price-amount">95 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Microneedling</div><div class="price-duration">60 min</div></div>
+        <div class="price-amount">120 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Ihokonsultaatio</div><div class="price-duration">30 min</div></div>
+        <div class="price-amount">Maksuton</div>
+      </div>
+    </div>
+    <div class="price-card featured fade-in">
+      <div class="price-card-header">
+        <h3>&#9829; Hieronnat &amp; Vartalohoito</h3>
+        <p>Rentouttavia hierontoja ja hoitoja</p>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Klassinen hieronta</div><div class="price-duration">60 min</div></div>
+        <div class="price-amount">70 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Klassinen hieronta</div><div class="price-duration">90 min</div></div>
+        <div class="price-amount">95 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Kuumakivihieronta</div><div class="price-duration">75 min</div></div>
+        <div class="price-amount">105 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Vahaukset (jalat)</div><div class="price-duration">30 min</div></div>
+        <div class="price-amount">40 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Vahaukset (koko vartalo)</div><div class="price-duration">60 min</div></div>
+        <div class="price-amount">75 &euro;</div>
+      </div>
+    </div>
+    <div class="price-card fade-in">
+      <div class="price-card-header">
+        <h3>&#10047; Ripset, Kulmat &amp; Kynnet</h3>
+        <p>Viimeistele lookisi</p>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Classic ripsipidennykset</div><div class="price-duration">120 min</div></div>
+        <div class="price-amount">89 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Volume ripsipidennykset</div><div class="price-duration">150 min</div></div>
+        <div class="price-amount">119 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Ripsien täyttö</div><div class="price-duration">60 min</div></div>
+        <div class="price-amount">55 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Kulmakarvojen laminointi</div><div class="price-duration">45 min</div></div>
+        <div class="price-amount">49 &euro;</div>
+      </div>
+      <div class="price-item">
+        <div><div class="price-name">Geelilakkaus</div><div class="price-duration">45 min</div></div>
+        <div class="price-amount">45 &euro;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews" id="arvostelut">
+  <div class="section-title fade-in">
+    <span>Arvostelut</span>
+    <h2>Asiakkaidemme <strong>Kokemuksia</strong></h2>
+    <p>Lue, mitä tyytyväiset asiakkaamme kertovat kokemuksistaan.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card fade-in">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Paras kasvohoito, jonka olen koskaan saanut! Ihoni hehkui vielä viikon jälkeenkin. Upea tunnelma ja todella ammattitaitoinen palvelu."</p>
+      <div class="review-author">
+        <div class="review-avatar">SL</div>
+        <div>
+          <div class="review-name">Saara Lehtonen</div>
+          <div class="review-date">2 viikkoa sitten</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Kuumakivihieronta oli taivaallinen kokemus. Olin aivan eri ihminen hoidon jälkeen. Tulen ehdottomasti uudelleen!"</p>
+      <div class="review-author">
+        <div class="review-avatar">MV</div>
+        <div>
+          <div class="review-name">Maria Virtanen</div>
+          <div class="review-date">1 kuukausi sitten</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Ripsipidennykset näyttävät aivan upealta ja ovat kestäneet todella hyvin. Luonnollisen näköiset mutta silti dramaattiset. Suosittelen!"</p>
+      <div class="review-author">
+        <div class="review-avatar">EK</div>
+        <div>
+          <div class="review-name">Emilia Korhonen</div>
+          <div class="review-date">3 viikkoa sitten</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Microneedling-hoitojen jälkeen ihoni on kuin uudestisyntynyt. Arvet ovat haalistuneet merkittävästi. Kiitos Fenix Kauneus!"</p>
+      <div class="review-author">
+        <div class="review-avatar">JH</div>
+        <div>
+          <div class="review-name">Jenni Hakala</div>
+          <div class="review-date">1 kuukausi sitten</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Lauttasaaren paras kauneushoitola! Geelilakkaus kesti yli kolme viikkoa ilman lohkeilua. Todella huolellista työtä."</p>
+      <div class="review-author">
+        <div class="review-avatar">AN</div>
+        <div>
+          <div class="review-name">Anna Nieminen</div>
+          <div class="review-date">2 kuukautta sitten</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Kulmakarvojen laminointi muutti koko ilmeeni! En tiennyt, että kulmat voivat näyttää näin hyviltä. Ehdoton suosikki."</p>
+      <div class="review-author">
+        <div class="review-avatar">LM</div>
+        <div>
+          <div class="review-name">Laura Mäkinen</div>
+          <div class="review-date">3 viikkoa sitten</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="yhteystiedot">
+  <div class="section-title fade-in">
+    <span>Yhteystiedot</span>
+    <h2>Ota <strong>Yhteyttä</strong></h2>
+    <p>Varaa aikasi tai kysy lisätietoja &mdash; olemme täällä sinua varten.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info fade-in">
+      <div class="contact-item">
+        <div class="contact-icon">&#128205;</div>
+        <div>
+          <h4>Sijainti</h4>
+          <p>Lauttasaari, Helsinki</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#9742;</div>
+        <div>
+          <h4>Puhelin</h4>
+          <a href="tel:+358505957979">+358 50 595 7979</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#9993;</div>
+        <div>
+          <h4>Sähköposti</h4>
+          <a href="mailto:info@fenixkauneus.fi">info@fenixkauneus.fi</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#128172;</div>
+        <div>
+          <h4>WhatsApp</h4>
+          <a href="https://wa.me/358505957979" target="_blank">Lähetä viesti WhatsAppilla</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#128338;</div>
+        <div>
+          <h4>Aukioloajat</h4>
+          <p>Ma&ndash;Pe: 9:00 &ndash; 19:00<br>La: 10:00 &ndash; 16:00<br>Su: Suljettu</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map fade-in">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7934.556!2d24.873!3d60.159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bb0f1e8a32d%3A0x4b0b0c0e8c8b8a8a!2sLauttasaari%2C%20Helsinki!5e0!3m2!1sfi!2sfi!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-content fade-in">
+    <h2>Varaa aikasi <strong>tänään</strong></h2>
+    <p>Koe luksus ja hemmottele itseäsi ammattitaitoisissa käsissä Lauttasaaressa.</p>
+    <div class="cta-btns">
+      <a href="tel:+358505957979" class="btn btn-primary">&#9742; Soita Nyt</a>
+      <a href="https://wa.me/358505957979" target="_blank" class="btn btn-rose">&#128172; WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Fenix <span>Kauneus</span></div>
+    <p>Kauneushoitola &bull; Lauttasaari, Helsinki</p>
+    <p style="margin-top:16px">&copy; 2026 Fenix Kauneus. Kaikki oikeudet pidätetään.</p>
+    <p>Sivusto: <a href="https://elfennir.com" target="_blank">elfennir.com</a></p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/358505957979" target="_blank" class="whatsapp-float" aria-label="WhatsApp">&#128172;</a>
+
+<script>
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+function closeMenu(){
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+}
+
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Scroll animations
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>

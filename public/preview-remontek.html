@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RemonTek Oy — Remonttipalvelut Espoo & Helsinki</title>
+<meta name="description" content="RemonTek Oy — Luotettava remonttipalvelu Espoossa ja Helsingissä. Kylpyhuone-, keittiö- ja kokonaisremontit ammattitaidolla. Pyydä ilmainen tarjous!">
+<meta property="og:title" content="RemonTek Oy — Remonttipalvelut Espoo & Helsinki">
+<meta property="og:description" content="Luotettava remonttipalvelu Espoossa ja Helsingissä. Kylpyhuone-, keittiö- ja kokonaisremontit.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="remontti, espoo, helsinki, kylpyhuoneremontti, keittiöremontti, remontek, remonttipalvelu, pintaremontti, putkiremontti, saunaremontti">
+<link rel="canonical" href="https://remontek.fi">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='40' width='80' height='50' rx='4' fill='%23F97316'/><polygon points='50,10 5,45 95,45' fill='%231E293B'/><rect x='38' y='55' width='24' height='35' rx='2' fill='%231E293B'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "RemonTek Oy",
+  "description": "Luotettava remonttipalvelu Espoossa ja Helsingissä. Kylpyhuone-, keittiö- ja kokonaisremontit ammattitaidolla.",
+  "url": "https://remontek.fi",
+  "telephone": "+358501112233",
+  "email": "info@remontek.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Espoo",
+    "addressCountry": "FI"
+  },
+  "areaServed": ["Espoo", "Helsinki", "Vantaa", "Kauniainen"],
+  "priceRange": "€€"
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#F97316;
+  --primary-dark:#EA580C;
+  --primary-light:#FDBA74;
+  --accent:#92400E;
+  --bg:#0F172A;
+  --surface:#1E293B;
+  --surface-2:#334155;
+  --surface-3:#475569;
+  --text:#F8FAFC;
+  --muted:#94A3B8;
+  --border:rgba(255,255,255,.08);
+  --radius:16px;
+  --glass:rgba(15,23,42,.88);
+  --heading:'Poppins', sans-serif;
+  --body:'DM Sans', sans-serif;
+  --shadow:0 25px 50px -12px rgba(0,0,0,.4);
+  --glow:0 0 40px rgba(249,115,22,.2);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:color .3s}
+a:hover{color:var(--primary-light)}
+h1,h2,h3,h4,h5{font-family:var(--heading);letter-spacing:-.02em}
+img{max-width:100%;display:block}
+[data-lucide]{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:10px}
+::selection{background:var(--primary);color:#fff}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes counterUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.anim{opacity:0;transition:all .8s cubic-bezier(.16,1,.3,1)}
+.anim.visible{opacity:1;transform:translateY(0) translateX(0) scale(1)}
+.anim-up{transform:translateY(50px)}
+.anim-left{transform:translateX(-50px)}
+.anim-right{transform:translateX(50px)}
+.anim-scale{transform:scale(.85)}
+
+/* ===== AGENCY BANNER ===== */
+.agency-banner{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark),#C2410C);
+  background-size:300% 300%;
+  animation:gradientShift 4s ease infinite;
+  padding:12px 20px;
+  text-align:center;
+  font-size:.85rem;
+  font-weight:600;
+  color:#fff;
+  position:relative;
+  z-index:1000;
+  letter-spacing:.02em;
+}
+.agency-banner a{color:#fff;text-decoration:underline;text-underline-offset:2px;font-weight:700}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  padding:16px 0;
+  transition:all .4s cubic-bezier(.16,1,.3,1);
+}
+.navbar.scrolled{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 4px 30px rgba(0,0,0,.3);
+  border-bottom:1px solid var(--border);
+  padding:10px 0;
+}
+.nav-inner{
+  max-width:1240px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-family:var(--heading);font-weight:800;font-size:1.6rem;
+  color:var(--text);display:flex;align-items:center;gap:10px;
+}
+.nav-logo span{color:var(--primary)}
+.nav-logo-icon{
+  width:38px;height:38px;background:var(--primary);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-logo-icon svg{width:20px;height:20px;color:#fff}
+.nav-links{display:flex;gap:32px;align-items:center;list-style:none}
+.nav-links a{
+  color:var(--muted);font-size:.9rem;font-weight:500;
+  transition:color .3s;position:relative;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+  background:var(--primary);transition:width .3s;border-radius:2px;
+}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--primary);color:#fff;padding:10px 24px;border-radius:50px;
+  font-weight:600;font-size:.85rem;border:none;cursor:pointer;
+  transition:all .3s;display:inline-flex;align-items:center;gap:8px;
+}
+.nav-cta:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--glow);color:#fff}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:1001}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:all .3s;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(15,23,42,.97);backdrop-filter:blur(20px);
+  z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:24px;
+}
+.mobile-menu.active{display:flex}
+.mobile-menu a{
+  color:var(--text);font-size:1.4rem;font-weight:600;
+  font-family:var(--heading);transition:color .3s;
+}
+.mobile-menu a:hover{color:var(--primary)}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:120px 24px 80px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(249,115,22,.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(146,64,14,.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(249,115,22,.06) 0%, transparent 40%);
+  z-index:0;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:60px 60px;
+  z-index:0;
+}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);
+  padding:8px 20px;border-radius:50px;font-size:.82rem;font-weight:600;
+  color:var(--primary-light);margin-bottom:28px;
+  animation:fadeIn 1s .2s both;
+}
+.hero-badge-dot{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite}
+.hero h1{
+  font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;line-height:1.08;
+  margin-bottom:24px;animation:fadeUp 1s .4s both;
+}
+.hero h1 .gradient{
+  background:linear-gradient(135deg,var(--primary),var(--primary-light),var(--primary));
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmer 3s linear infinite;
+}
+.hero p{
+  font-size:clamp(1rem,2vw,1.25rem);color:var(--muted);max-width:650px;
+  margin:0 auto 40px;line-height:1.8;animation:fadeUp 1s .6s both;
+}
+.hero-btns{
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp 1s .8s both;
+}
+.btn-primary{
+  background:var(--primary);color:#fff;padding:16px 36px;border-radius:50px;
+  font-weight:700;font-size:1rem;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:all .3s;font-family:var(--body);
+}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-3px);box-shadow:var(--glow);color:#fff}
+.btn-primary svg{width:20px;height:20px}
+.btn-secondary{
+  background:rgba(255,255,255,.06);color:var(--text);padding:16px 36px;border-radius:50px;
+  font-weight:700;font-size:1rem;border:1px solid var(--border);cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:all .3s;font-family:var(--body);
+}
+.btn-secondary:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);color:var(--text)}
+.btn-secondary svg{width:20px;height:20px}
+
+.hero-stats{
+  display:flex;justify-content:center;gap:60px;margin-top:64px;
+  animation:fadeUp 1s 1s both;
+}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:var(--heading);font-size:2.5rem;font-weight:800;color:var(--primary)}
+.hero-stat-label{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* ===== SECTION ===== */
+.section{padding:100px 24px}
+.section-dark{background:var(--surface)}
+.container{max-width:1240px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:64px}
+.section-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);
+  padding:6px 18px;border-radius:50px;font-size:.78rem;font-weight:600;
+  color:var(--primary);text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:16px;
+}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.section-title .highlight{color:var(--primary)}
+.section-desc{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.8}
+
+/* ===== SERVICES ===== */
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:24px;
+}
+.service-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 28px;transition:all .4s cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:hidden;
+}
+.section-dark .service-card{background:var(--bg)}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--primary-light));
+  transform:scaleX(0);transition:transform .4s;transform-origin:left;
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+  border-color:rgba(249,115,22,.2);
+}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:rgba(249,115,22,.1);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;transition:all .3s;
+}
+.service-icon svg{width:26px;height:26px;color:var(--primary)}
+.service-card:hover .service-icon{background:var(--primary)}
+.service-card:hover .service-icon svg{color:#fff}
+.service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.service-card p{font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* ===== BEFORE/AFTER ===== */
+.ba-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:32px}
+.ba-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;transition:all .4s;
+}
+.ba-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.ba-visual{
+  display:grid;grid-template-columns:1fr 1fr;min-height:200px;
+}
+.ba-before,.ba-after{padding:32px 24px;position:relative}
+.ba-before{
+  background:linear-gradient(135deg,#374151,#1F2937);
+}
+.ba-after{
+  background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(146,64,14,.1));
+}
+.ba-label{
+  font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  margin-bottom:12px;display:flex;align-items:center;gap:6px;
+}
+.ba-before .ba-label{color:#9CA3AF}
+.ba-after .ba-label{color:var(--primary)}
+.ba-before .ba-label::before{content:'';width:8px;height:8px;background:#6B7280;border-radius:50%}
+.ba-after .ba-label::before{content:'';width:8px;height:8px;background:var(--primary);border-radius:50%}
+.ba-text{font-size:.85rem;line-height:1.7}
+.ba-before .ba-text{color:#9CA3AF}
+.ba-after .ba-text{color:var(--text)}
+.ba-info{padding:24px}
+.ba-info h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.ba-info p{font-size:.85rem;color:var(--muted)}
+.ba-arrow{
+  position:absolute;right:-14px;top:50%;transform:translateY(-50%);z-index:2;
+  width:28px;height:28px;background:var(--primary);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.ba-arrow svg{width:14px;height:14px;color:#fff}
+
+/* ===== PRICING ===== */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
+.pricing-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:40px 32px;transition:all .4s;position:relative;
+}
+.pricing-card.featured{
+  border-color:var(--primary);
+  box-shadow:0 0 40px rgba(249,115,22,.15);
+}
+.pricing-card.featured::before{
+  content:'Suosittu';position:absolute;top:16px;right:16px;
+  background:var(--primary);color:#fff;padding:4px 14px;border-radius:50px;
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+}
+.pricing-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.pricing-icon{
+  width:48px;height:48px;border-radius:12px;background:rgba(249,115,22,.1);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+}
+.pricing-icon svg{width:24px;height:24px;color:var(--primary)}
+.pricing-card h3{font-size:1.2rem;font-weight:700;margin-bottom:6px}
+.pricing-card .pricing-desc{font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.pricing-range{
+  font-family:var(--heading);font-size:1.8rem;font-weight:800;color:var(--primary);
+  margin-bottom:4px;
+}
+.pricing-note{font-size:.78rem;color:var(--muted);margin-bottom:20px}
+.pricing-features{list-style:none;margin-bottom:28px}
+.pricing-features li{
+  font-size:.88rem;color:var(--muted);padding:8px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+}
+.pricing-features li svg{width:16px;height:16px;color:var(--primary);flex-shrink:0}
+.pricing-btn{
+  display:block;text-align:center;padding:14px;border-radius:12px;
+  font-weight:700;font-size:.9rem;transition:all .3s;width:100%;
+  border:none;cursor:pointer;font-family:var(--body);
+}
+.pricing-card.featured .pricing-btn{background:var(--primary);color:#fff}
+.pricing-card.featured .pricing-btn:hover{background:var(--primary-dark);color:#fff}
+.pricing-card:not(.featured) .pricing-btn{
+  background:rgba(249,115,22,.1);color:var(--primary);border:1px solid rgba(249,115,22,.2);
+}
+.pricing-card:not(.featured) .pricing-btn:hover{background:var(--primary);color:#fff}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-visual{position:relative}
+.about-img-placeholder{
+  width:100%;aspect-ratio:4/3;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--surface-2),var(--surface));
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  position:relative;overflow:hidden;
+}
+.about-img-placeholder::before{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(135deg, rgba(249,115,22,.08) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(249,115,22,.03) 20px, rgba(249,115,22,.03) 40px);
+}
+.about-img-icon{
+  width:80px;height:80px;background:rgba(249,115,22,.15);border-radius:20px;
+  display:flex;align-items:center;justify-content:center;position:relative;z-index:1;
+}
+.about-img-icon svg{width:40px;height:40px;color:var(--primary)}
+.about-img-text{color:var(--muted);font-size:.9rem;position:relative;z-index:1;font-weight:500}
+.about-float{
+  position:absolute;bottom:-20px;right:-20px;
+  background:var(--primary);color:#fff;padding:24px 28px;border-radius:var(--radius);
+  font-family:var(--heading);text-align:center;
+  box-shadow:0 20px 40px rgba(249,115,22,.3);
+  animation:float 4s ease-in-out infinite;
+}
+.about-float-num{font-size:2.5rem;font-weight:900;line-height:1}
+.about-float-label{font-size:.78rem;font-weight:600;margin-top:4px;opacity:.9}
+.about-content h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;margin-bottom:20px}
+.about-content h2 .highlight{color:var(--primary)}
+.about-content>p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:28px}
+.about-list{display:flex;flex-direction:column;gap:16px;margin-bottom:32px}
+.about-list-item{display:flex;align-items:flex-start;gap:14px}
+.about-list-icon{
+  width:44px;height:44px;border-radius:12px;background:rgba(249,115,22,.1);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.about-list-icon svg{width:20px;height:20px;color:var(--primary)}
+.about-list-text h4{font-size:.95rem;font-weight:700;margin-bottom:2px}
+.about-list-text p{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+/* ===== REVIEWS ===== */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px}
+.review-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 28px;transition:all .4s;position:relative;
+}
+.section-dark .review-card{background:var(--bg)}
+.review-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.review-stars{display:flex;gap:4px;margin-bottom:16px}
+.review-stars svg{width:18px;height:18px;color:var(--primary);fill:var(--primary)}
+.review-text{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:24px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:14px}
+.review-avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--heading);font-weight:700;font-size:1.1rem;color:#fff;
+}
+.review-info h4{font-size:.95rem;font-weight:700}
+.review-info p{font-size:.8rem;color:var(--muted)}
+.review-quote{
+  position:absolute;top:20px;right:24px;font-size:4rem;
+  font-family:Georgia,serif;color:rgba(249,115,22,.1);line-height:1;
+}
+
+/* ===== CTA ===== */
+.cta-section{
+  padding:100px 24px;
+  background:linear-gradient(135deg,rgba(249,115,22,.08),rgba(146,64,14,.06));
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(249,115,22,.1),transparent 70%);
+}
+.cta-inner{position:relative;z-index:1;text-align:center;max-width:700px;margin:0 auto}
+.cta-inner h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.cta-inner h2 .highlight{color:var(--primary)}
+.cta-inner p{color:var(--muted);font-size:1.05rem;line-height:1.8;margin-bottom:40px}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.ci-icon{
+  width:52px;height:52px;border-radius:14px;background:rgba(249,115,22,.1);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ci-icon svg{width:24px;height:24px;color:var(--primary)}
+.ci-text h4{font-size:1rem;font-weight:700;margin-bottom:4px}
+.ci-text p{font-size:.9rem;color:var(--muted);line-height:1.6}
+.ci-text a{color:var(--primary);font-weight:500}
+.contact-form{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:40px;
+}
+.contact-form h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.contact-form>p{font-size:.9rem;color:var(--muted);margin-bottom:28px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--muted)}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:14px 18px;background:var(--bg);border:1px solid var(--border);
+  border-radius:12px;color:var(--text);font-family:var(--body);font-size:.9rem;
+  transition:all .3s;outline:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  border-color:var(--primary);box-shadow:0 0 0 3px rgba(249,115,22,.15);
+}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-group select{cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394A3B8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.submit-btn{
+  width:100%;padding:16px;background:var(--primary);color:#fff;border:none;
+  border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;
+  transition:all .3s;font-family:var(--body);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.submit-btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--glow)}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:var(--surface);border-top:1px solid var(--border);
+  padding:60px 24px 30px;
+}
+.footer-inner{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;
+  padding-bottom:40px;border-bottom:1px solid var(--border);margin-bottom:30px;
+}
+.footer-brand .nav-logo{margin-bottom:16px}
+.footer-brand p{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:340px}
+.footer-col h4{font-size:.95rem;font-weight:700;margin-bottom:16px;color:var(--text)}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{color:var(--muted);font-size:.88rem;transition:color .3s}
+.footer-col a:hover{color:var(--primary)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  max-width:1240px;margin:0 auto;
+}
+.footer-bottom p{font-size:.82rem;color:var(--muted)}
+.footer-social{display:flex;gap:12px}
+.footer-social a{
+  width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;color:var(--muted);
+}
+.footer-social a:hover{background:var(--primary);color:#fff}
+.footer-social a svg{width:18px;height:18px}
+
+/* ===== WHATSAPP FAB ===== */
+.whatsapp-fab{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;color:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);
+  transition:all .3s;animation:float 3s ease-in-out infinite;
+}
+.whatsapp-fab:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+.whatsapp-fab svg{width:28px;height:28px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-visual{order:2}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:40px}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero-stats{flex-direction:column;gap:24px}
+  .services-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr}
+  .ba-visual{grid-template-columns:1fr}
+  .ba-arrow{display:none}
+  .pricing-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .section{padding:72px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- Agency Banner -->
+<div class="agency-banner">
+  This is a FREE preview website designed by <a href="https://elfennir.com" target="_blank">elfennir.com</a> — Contact us to make it yours!
+</div>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon"><i data-lucide="hammer"></i></div>
+      Remon<span>Tek</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#tulokset">Tulokset</a></li>
+      <li><a href="#hinnasto">Hinnasto</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#arvostelut">Arvostelut</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+    <a href="#yhteystiedot" class="nav-cta">Pyydä tarjous <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#palvelut" onclick="closeMobile()">Palvelut</a>
+  <a href="#tulokset" onclick="closeMobile()">Tulokset</a>
+  <a href="#hinnasto" onclick="closeMobile()">Hinnasto</a>
+  <a href="#meista" onclick="closeMobile()">Meistä</a>
+  <a href="#arvostelut" onclick="closeMobile()">Arvostelut</a>
+  <a href="#yhteystiedot" onclick="closeMobile()">Yhteystiedot</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Luotettava remonttipalvelu Espoossa</div>
+    <h1>Uudista kotisi<br><span class="gradient">ammattitaidolla</span></h1>
+    <p>RemonTek Oy tarjoaa laadukkaat remonttipalvelut Espoon ja Helsingin alueella. Kylpyhuoneista keittiöihin, saunoista parvekkeisiin — toteutamme unelmiesi kodin avaimet käteen -periaatteella.</p>
+    <div class="hero-btns">
+      <a href="#yhteystiedot" class="btn-primary"><i data-lucide="send"></i> Ilmainen tarjous</a>
+      <a href="#palvelut" class="btn-secondary"><i data-lucide="layers"></i> Tutustu palveluihin</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">Toteutettua remonttia</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">Vuotta kokemusta</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4.9</div>
+        <div class="hero-stat-label">Google-arvosana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section section-dark" id="palvelut">
+  <div class="container">
+    <div class="section-header anim anim-up">
+      <div class="section-tag"><i data-lucide="wrench" style="width:14px;height:14px"></i> Palvelut</div>
+      <h2 class="section-title">Kattavat <span class="highlight">remonttipalvelut</span></h2>
+      <p class="section-desc">Tarjoamme monipuolisia remontti- ja rakennuspalveluja niin pieniin pintaremontteihin kuin suuriin kokonaisremontteihin.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="bath"></i></div>
+        <h3>Kylpyhuoneremontti</h3>
+        <p>Täydellinen kylpyhuoneen uudistus vedeneristyksestä laatoitukseen, kalusteisiin ja valaistukseen. Toteutamme modernit ja toimivat kylpyhuoneet.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="chef-hat"></i></div>
+        <h3>Keittiöremontti</h3>
+        <p>Suunnittelemme ja toteutamme unelmiesi keittiön. Kaapistot, tasot, kodinkoneet ja valaistus — kaikki yhdestä paikasta.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="rectangle-horizontal"></i></div>
+        <h3>Lattiatyöt</h3>
+        <p>Laminaatti, parketti, vinyyli tai laatoitus — asennamme kaikki lattiatyypit ammattitaidolla ja huolellisesti.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="paint-roller"></i></div>
+        <h3>Maalaustyöt</h3>
+        <p>Seinien, kattojen ja listojen maalaus sekä tapetointi. Huolellista jälkeä ja siisti lopputulos joka kerta.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="grid-3x3"></i></div>
+        <h3>Laatoitustyöt</h3>
+        <p>Seinä- ja lattialaatoitukset kylpyhuoneisiin, keittiöihin ja eteisiin. Tarkka ja kestävä laatoitus takuulla.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="pipette"></i></div>
+        <h3>Putkityöt</h3>
+        <p>LVI-asennukset ja -korjaukset ammattitaidolla. Vesikalusteet, viemärit ja lämmitysjärjestelmät.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="zap"></i></div>
+        <h3>Sähkötyöt</h3>
+        <p>Sähköasennukset ja -muutokset remontin yhteydessä. Pistorasiat, valaistus ja sähkökeskukset.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="home"></i></div>
+        <h3>Kokonaisremontti</h3>
+        <p>Koko asunnon remontti avaimet käteen. Suunnittelusta toteutukseen ja loppusiivoukseen — me hoidamme kaiken.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="flame"></i></div>
+        <h3>Saunaremontti</h3>
+        <p>Saunan uudistus paneeliverhouksesta lauteisiin ja kiukaaseen. Perinteistä ja modernia saunasuunnittelua.</p>
+      </div>
+      <div class="service-card anim anim-up">
+        <div class="service-icon"><i data-lucide="fence"></i></div>
+        <h3>Parvekeremontti</h3>
+        <p>Parvekkeen lasitus, lattioiden uusiminen ja pintojen käsittely. Tee parvekkeesta viihtyisä oleskelutila.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Before/After -->
+<section class="section" id="tulokset">
+  <div class="container">
+    <div class="section-header anim anim-up">
+      <div class="section-tag"><i data-lucide="sparkles" style="width:14px;height:14px"></i> Ennen & Jälkeen</div>
+      <h2 class="section-title">Näe muutos <span class="highlight">omin silmin</span></h2>
+      <p class="section-desc">Jokainen remontti on meille ylpeyden aihe. Tässä muutamia esimerkkejä toteutetuista projekteistamme.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card anim anim-up">
+        <div class="ba-visual">
+          <div class="ba-before">
+            <div class="ba-label">Ennen</div>
+            <div class="ba-text">Vanhanaikainen kylpyhuone 1980-luvulta. Kuluneet laatat, kellastunut amme ja heikko valaistus. Vedeneristys puutteellinen.</div>
+            <div class="ba-arrow"><i data-lucide="arrow-right"></i></div>
+          </div>
+          <div class="ba-after">
+            <div class="ba-label">Jälkeen</div>
+            <div class="ba-text">Moderni spa-henkinen kylpyhuone. Suuret harmaat laatat, walk-in suihku, led-valaistus ja lattialämmitys.</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <h3>Kylpyhuoneremontti — Espoo, Tapiola</h3>
+          <p>Kokonaisvaltainen kylpyhuoneen uudistus, 8 m² — kesto 3 viikkoa</p>
+        </div>
+      </div>
+      <div class="ba-card anim anim-up">
+        <div class="ba-visual">
+          <div class="ba-before">
+            <div class="ba-label">Ennen</div>
+            <div class="ba-text">Ahdas ja pimeä keittiö erillisillä kaapeilla. Kulunut työtaso, vanhat kodinkoneet ja riittämätön säilytystila.</div>
+            <div class="ba-arrow"><i data-lucide="arrow-right"></i></div>
+          </div>
+          <div class="ba-after">
+            <div class="ba-label">Jälkeen</div>
+            <div class="ba-text">Avara ja valoisa keittiö. Valkoiset kaapit, kvartsi-työtaso, integroidut kodinkoneet ja saareke.</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <h3>Keittiöremontti — Helsinki, Kallio</h3>
+          <p>Keittiön täydellinen uusiminen, 12 m² — kesto 4 viikkoa</p>
+        </div>
+      </div>
+      <div class="ba-card anim anim-up">
+        <div class="ba-visual">
+          <div class="ba-before">
+            <div class="ba-label">Ennen</div>
+            <div class="ba-text">Tumma ja ahtaan tuntuinen olohuone. Vanha muovimatto, kellertävät seinät ja huono pohjaratkaisu.</div>
+            <div class="ba-arrow"><i data-lucide="arrow-right"></i></div>
+          </div>
+          <div class="ba-after">
+            <div class="ba-label">Jälkeen</div>
+            <div class="ba-text">Raikas ja moderni tila. Tammiparketit, vaaleat seinät, uusi valaistussuunnitelma ja avoin pohjaratkaisu.</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <h3>Kokonaisremontti — Espoo, Leppävaara</h3>
+          <p>3h+k asunnon täysremontti, 72 m² — kesto 8 viikkoa</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section section-dark" id="hinnasto">
+  <div class="container">
+    <div class="section-header anim anim-up">
+      <div class="section-tag"><i data-lucide="euro" style="width:14px;height:14px"></i> Hinnasto</div>
+      <h2 class="section-title">Selkeä <span class="highlight">hinnoittelu</span></h2>
+      <p class="section-desc">Läpinäkyvät hinnat ilman yllätyksiä. Jokainen remontti hinnoitellaan yksilöllisesti — tässä suuntaa-antavia hinta-arvioita.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card anim anim-up">
+        <div class="pricing-icon"><i data-lucide="paint-roller"></i></div>
+        <h3>Pintaremontti</h3>
+        <p class="pricing-desc">Maalaus, tapetointi ja lattian uusiminen. Nopea tapa uudistaa kodin ilme.</p>
+        <div class="pricing-range">30–50 €/m²</div>
+        <div class="pricing-note">Huoneen koko ja materiaalit vaikuttavat hintaan</div>
+        <ul class="pricing-features">
+          <li><i data-lucide="check"></i> Seinien ja kattojen maalaus</li>
+          <li><i data-lucide="check"></i> Lattian vaihto / hionta</li>
+          <li><i data-lucide="check"></i> Listojen uusiminen</li>
+          <li><i data-lucide="check"></i> Materiaalit sisältyvät hintaan</li>
+        </ul>
+        <a href="#yhteystiedot" class="pricing-btn">Pyydä tarjous</a>
+      </div>
+      <div class="pricing-card featured anim anim-up">
+        <div class="pricing-icon"><i data-lucide="bath"></i></div>
+        <h3>Kylpyhuoneremontti</h3>
+        <p class="pricing-desc">Täydellinen kylpyhuoneen uusiminen vedeneristyksestä kalusteisiin.</p>
+        <div class="pricing-range">5 000–12 000 €</div>
+        <div class="pricing-note">Riippuen koosta (4–10 m²) ja materiaalivalinnoista</div>
+        <ul class="pricing-features">
+          <li><i data-lucide="check"></i> Vedeneristys ja laatoitus</li>
+          <li><i data-lucide="check"></i> Kalusteasennus</li>
+          <li><i data-lucide="check"></i> Putki- ja sähkötyöt</li>
+          <li><i data-lucide="check"></i> Lattialämmitys (lisähinta)</li>
+          <li><i data-lucide="check"></i> 10 vuoden takuu vedeneristykselle</li>
+        </ul>
+        <a href="#yhteystiedot" class="pricing-btn">Pyydä tarjous</a>
+      </div>
+      <div class="pricing-card anim anim-up">
+        <div class="pricing-icon"><i data-lucide="chef-hat"></i></div>
+        <h3>Keittiöremontti</h3>
+        <p class="pricing-desc">Keittiön uudistus kaapistoista työtasoihin ja kodinkoneisiin.</p>
+        <div class="pricing-range">8 000–20 000 €</div>
+        <div class="pricing-note">Riippuen laajuudesta ja materiaalivalinnoista</div>
+        <ul class="pricing-features">
+          <li><i data-lucide="check"></i> Kaapistot ja työtasot</li>
+          <li><i data-lucide="check"></i> Kodinkoneasennukset</li>
+          <li><i data-lucide="check"></i> Sähkö- ja putkityöt</li>
+          <li><i data-lucide="check"></i> Välitilan laatoitus</li>
+        </ul>
+        <a href="#yhteystiedot" class="pricing-btn">Pyydä tarjous</a>
+      </div>
+      <div class="pricing-card anim anim-up">
+        <div class="pricing-icon"><i data-lucide="home"></i></div>
+        <h3>Kokonaisremontti</h3>
+        <p class="pricing-desc">Koko asunnon remontti avaimet käteen -periaatteella.</p>
+        <div class="pricing-range">600–1 200 €/m²</div>
+        <div class="pricing-note">Sisältää suunnittelun, materiaalit ja työn</div>
+        <ul class="pricing-features">
+          <li><i data-lucide="check"></i> Pohjapiirustus ja suunnittelu</li>
+          <li><i data-lucide="check"></i> Kaikki remonttityöt</li>
+          <li><i data-lucide="check"></i> Materiaalien hankinta</li>
+          <li><i data-lucide="check"></i> Loppusiivous</li>
+          <li><i data-lucide="check"></i> Projektin hallinta</li>
+        </ul>
+        <a href="#yhteystiedot" class="pricing-btn">Pyydä tarjous</a>
+      </div>
+      <div class="pricing-card anim anim-up">
+        <div class="pricing-icon"><i data-lucide="flame"></i></div>
+        <h3>Saunaremontti</h3>
+        <p class="pricing-desc">Saunan täydellinen uudistus paneeliverhouksesta kiukaaseen.</p>
+        <div class="pricing-range">4 000–9 000 €</div>
+        <div class="pricing-note">Riippuen saunan koosta ja materiaalivalinnoista</div>
+        <ul class="pricing-features">
+          <li><i data-lucide="check"></i> Panelointi ja eristys</li>
+          <li><i data-lucide="check"></i> Lauteiden rakennus</li>
+          <li><i data-lucide="check"></i> Kiuasasennus</li>
+          <li><i data-lucide="check"></i> Valaistus</li>
+        </ul>
+        <a href="#yhteystiedot" class="pricing-btn">Pyydä tarjous</a>
+      </div>
+      <div class="pricing-card anim anim-up">
+        <div class="pricing-icon"><i data-lucide="fence"></i></div>
+        <h3>Parvekeremontti</h3>
+        <p class="pricing-desc">Parvekkeen lasitus, lattia ja pintojen käsittely.</p>
+        <div class="pricing-range">3 000–8 000 €</div>
+        <div class="pricing-note">Riippuen parvekkeen koosta ja lasitustyypistä</div>
+        <ul class="pricing-features">
+          <li><i data-lucide="check"></i> Lattian uusiminen</li>
+          <li><i data-lucide="check"></i> Kaiteiden kunnostus</li>
+          <li><i data-lucide="check"></i> Pintojen käsittely</li>
+          <li><i data-lucide="check"></i> Lasitus (lisähinta)</li>
+        </ul>
+        <a href="#yhteystiedot" class="pricing-btn">Pyydä tarjous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="meista">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual anim anim-left">
+        <div class="about-img-placeholder">
+          <div class="about-img-icon"><i data-lucide="hard-hat"></i></div>
+          <div class="about-img-text">RemonTek Oy — Ammattitaitoinen tiimi</div>
+        </div>
+        <div class="about-float">
+          <div class="about-float-num">15+</div>
+          <div class="about-float-label">Vuotta kokemusta</div>
+        </div>
+      </div>
+      <div class="about-content anim anim-right">
+        <div class="section-tag"><i data-lucide="users" style="width:14px;height:14px"></i> Meistä</div>
+        <h2>Kokenut <span class="highlight">remonttitiiimi</span><br>Espoon ja Helsingin alueella</h2>
+        <p>RemonTek Oy on espoolainen remonttialan yritys, joka on palvellut pääkaupunkiseudun asukkaita ja taloyhtiöitä jo yli 15 vuoden ajan. Tiimimme koostuu kokeneista ammattilaisista, jotka ovat intohimoisia laadukkaasta rakentamisesta.</p>
+        <div class="about-list">
+          <div class="about-list-item">
+            <div class="about-list-icon"><i data-lucide="shield-check"></i></div>
+            <div class="about-list-text">
+              <h4>Takuu kaikille töille</h4>
+              <p>Tarjoamme kattavan takuun kaikille remonteillemme. Työnjälkemme kestää vuosia.</p>
+            </div>
+          </div>
+          <div class="about-list-item">
+            <div class="about-list-icon"><i data-lucide="clock"></i></div>
+            <div class="about-list-text">
+              <h4>Aikataulussa pysyminen</h4>
+              <p>Noudatamme sovittuja aikatauluja ja pidämme sinut ajan tasalla koko projektin ajan.</p>
+            </div>
+          </div>
+          <div class="about-list-item">
+            <div class="about-list-icon"><i data-lucide="file-text"></i></div>
+            <div class="about-list-text">
+              <h4>Selkeä tarjous</h4>
+              <p>Saat yksityiskohtaisen ja kiinteän tarjouksen ennen työn aloittamista — ei yllätyksiä.</p>
+            </div>
+          </div>
+          <div class="about-list-item">
+            <div class="about-list-icon"><i data-lucide="award"></i></div>
+            <div class="about-list-text">
+              <h4>Sertifioitu laatu</h4>
+              <p>Kaikki asentajamme ovat koulutettuja ja sertifioituja. Vedeneristyssertifikaatit VTT:ltä.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#yhteystiedot" class="btn-primary"><i data-lucide="message-circle"></i> Ota yhteyttä</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section section-dark" id="arvostelut">
+  <div class="container">
+    <div class="section-header anim anim-up">
+      <div class="section-tag"><i data-lucide="star" style="width:14px;height:14px"></i> Arvostelut</div>
+      <h2 class="section-title">Asiakkaamme <span class="highlight">suosittelevat</span></h2>
+      <p class="section-desc">Lue mitä asiakkaamme sanovat remonttipalveluistamme. Tyytyväiset asiakkaat ovat paras käyntikorttimme.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card anim anim-up">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">Kylpyhuoneremontti toteutettiin aikataulussa ja budjetissa. Lopputulos ylitti odotuksemme — moderni ja tyylikäs kylpyhuone. Suosittelen lämpimästi!</p>
+        <div class="review-author">
+          <div class="review-avatar">MK</div>
+          <div class="review-info">
+            <h4>Matti Korhonen</h4>
+            <p>Kylpyhuoneremontti, Espoo</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card anim anim-up">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">Teimme koko asunnon remontin RemonTekin kanssa. Kommunikaatio oli erinomaista koko projektin ajan ja työn laatu huippuluokkaa. Ehdottomasti paras remonttikokemus.</p>
+        <div class="review-author">
+          <div class="review-avatar">SV</div>
+          <div class="review-info">
+            <h4>Sanna Virtanen</h4>
+            <p>Kokonaisremontti, Helsinki</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card anim anim-up">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">Keittiöremontti valmistui jopa etuajassa! Ammattitaitoinen tiimi, siisti työmaa ja lopputulos oli upea. Uusi keittiömme on kuin unelmasta.</p>
+        <div class="review-author">
+          <div class="review-avatar">JH</div>
+          <div class="review-info">
+            <h4>Juha Hämäläinen</h4>
+            <p>Keittiöremontti, Espoo</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card anim anim-up">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">Saunaremontti oli todella onnistunut. Uudet lauteet, paneelit ja valaistus tekivät saunasta aivan uuden. Erityiskiitos huolellisesta vedeneristyksestä.</p>
+        <div class="review-author">
+          <div class="review-avatar">LN</div>
+          <div class="review-info">
+            <h4>Laura Nieminen</h4>
+            <p>Saunaremontti, Kauniainen</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card anim anim-up">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">Taloyhtiömme parvekkeiden remontti sujui mallikkaasti. RemonTek hoiti kaiken alusta loppuun ja piti asukkaat hyvin informoituna. Ammattitaitoista toimintaa.</p>
+        <div class="review-author">
+          <div class="review-avatar">PL</div>
+          <div class="review-info">
+            <h4>Pekka Lahtinen</h4>
+            <p>Parvekeremontti, Vantaa</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card anim anim-up">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">Pintaremontti yksiööni sujui nopeasti ja edullisesti. Maalaus ja lattian vaihto antoivat asunnolle uuden ilmeen. Hinnan ja laadun suhde erinomainen!</p>
+        <div class="review-author">
+          <div class="review-avatar">AK</div>
+          <div class="review-info">
+            <h4>Anna Koskinen</h4>
+            <p>Pintaremontti, Helsinki</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner anim anim-scale">
+    <h2>Haluatko uudistaa <span class="highlight">kotisi?</span></h2>
+    <p>Pyydä ilmainen ja sitoumukseton tarjous remonttiisi. Otamme yhteyttä 24 tunnin sisällä ja sovimme ilmaisen arviointikäynnin.</p>
+    <div class="cta-btns">
+      <a href="#yhteystiedot" class="btn-primary"><i data-lucide="send"></i> Pyydä ilmainen tarjous</a>
+      <a href="https://wa.me/358501112233" target="_blank" class="btn-secondary" style="border-color:#25D366;color:#25D366"><i data-lucide="message-circle"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="yhteystiedot">
+  <div class="container">
+    <div class="section-header anim anim-up">
+      <div class="section-tag"><i data-lucide="mail" style="width:14px;height:14px"></i> Yhteystiedot</div>
+      <h2 class="section-title">Ota <span class="highlight">yhteyttä</span></h2>
+      <p class="section-desc">Kerro meille remonttitoiveesi ja saat ilmaisen tarjouksen. Vastaamme yhteydenottoihin arkisin 24 tunnin sisällä.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info anim anim-left">
+        <div class="contact-item">
+          <div class="ci-icon"><i data-lucide="phone"></i></div>
+          <div class="ci-text">
+            <h4>Puhelin</h4>
+            <p><a href="tel:+358501112233">+358 50 111 2233</a></p>
+            <p>Arkisin klo 8–17</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><i data-lucide="mail"></i></div>
+          <div class="ci-text">
+            <h4>Sähköposti</h4>
+            <p><a href="mailto:info@remontek.fi">info@remontek.fi</a></p>
+            <p>Vastaamme 24h sisällä</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><i data-lucide="message-circle"></i></div>
+          <div class="ci-text">
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/358501112233" target="_blank">+358 50 111 2233</a></p>
+            <p>Nopein tapa tavoittaa meidät</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon"><i data-lucide="map-pin"></i></div>
+          <div class="ci-text">
+            <h4>Toimialue</h4>
+            <p>Espoo, Helsinki, Vantaa, Kauniainen</p>
+            <p>Koko pääkaupunkiseutu</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form anim anim-right">
+        <h3>Pyydä ilmainen tarjous</h3>
+        <p>Täytä lomake ja kerro remonttitoiveistasi</p>
+        <form onsubmit="event.preventDefault();document.querySelector('.submit-btn').innerHTML='<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;><polyline points=&quot;20 6 9 17 4 12&quot;></polyline></svg> Kiitos! Otamme yhteyttä pian.';document.querySelector('.submit-btn').style.background='#16A34A'">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nimi *</label>
+              <input type="text" placeholder="Etunimi Sukunimi" required>
+            </div>
+            <div class="form-group">
+              <label>Puhelin *</label>
+              <input type="tel" placeholder="+358 40 123 4567" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Sähköposti</label>
+            <input type="email" placeholder="nimi@esimerkki.fi">
+          </div>
+          <div class="form-group">
+            <label>Remonttityyppi *</label>
+            <select required>
+              <option value="" disabled selected>Valitse remonttityyppi</option>
+              <option>Kylpyhuoneremontti</option>
+              <option>Keittiöremontti</option>
+              <option>Kokonaisremontti</option>
+              <option>Pintaremontti</option>
+              <option>Saunaremontti</option>
+              <option>Parvekeremontti</option>
+              <option>Lattiatyöt</option>
+              <option>Laatoitustyöt</option>
+              <option>Putki- ja sähkötyöt</option>
+              <option>Muu remontti</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Kerro lisää remontista</label>
+            <textarea placeholder="Kuvaile remonttia: pinta-ala, toiveet, aikataulu..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn"><i data-lucide="send" style="width:18px;height:18px"></i> Lähetä tarjouspyyntö</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon"><i data-lucide="hammer"></i></div>
+        Remon<span>Tek</span>
+      </a>
+      <p>Luotettava remonttipalvelu Espoon ja Helsingin alueella. Toteutamme unelmiesi kodin ammattitaidolla ja intohimolla laadukkaaseen rakentamiseen.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Palvelut</h4>
+      <ul>
+        <li><a href="#palvelut">Kylpyhuoneremontti</a></li>
+        <li><a href="#palvelut">Keittiöremontti</a></li>
+        <li><a href="#palvelut">Kokonaisremontti</a></li>
+        <li><a href="#palvelut">Saunaremontti</a></li>
+        <li><a href="#palvelut">Pintaremontti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <ul>
+        <li><a href="tel:+358501112233">+358 50 111 2233</a></li>
+        <li><a href="mailto:info@remontek.fi">info@remontek.fi</a></li>
+        <li><a href="https://wa.me/358501112233">WhatsApp</a></li>
+        <li><a href="#yhteystiedot">Pyydä tarjous</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 RemonTek Oy. Kaikki oikeudet pidätetään.</p>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+      <a href="#" aria-label="Linkedin"><i data-lucide="linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/358501112233" target="_blank" class="whatsapp-fab" aria-label="WhatsApp">
+  <i data-lucide="message-circle"></i>
+</a>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Scroll animations
+const animEls = document.querySelectorAll('.anim');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+animEls.forEach(el => observer.observe(el));
+
+// Counter animation for hero stats
+function animateCounters() {
+  document.querySelectorAll('.hero-stat-num').forEach(el => {
+    const text = el.textContent;
+    const num = parseFloat(text);
+    const suffix = text.replace(/[\d.]/g, '');
+    const isDecimal = text.includes('.');
+    let current = 0;
+    const increment = num / 60;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= num) {
+        current = num;
+        clearInterval(timer);
+      }
+      el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+    }, 25);
+  });
+}
+
+// Trigger counter animation when hero is visible
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      heroObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+heroObserver.observe(document.querySelector('.hero'));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const offset = 80;
+      const pos = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: pos, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>

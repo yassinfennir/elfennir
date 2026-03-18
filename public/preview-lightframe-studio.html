@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LightFrame Studio — Valokuvaus Studio Tampere</title>
+<meta name="description" content="LightFrame Studio — Ammattimainen valokuvaus Tampereella. Muotokuvia, hääkuvaus, yrityskuvaus ja paljon muuta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#F8F7F4;--bg-cream:#F3F0EA;--charcoal:#292524;--copper:#B45309;--copper-light:#D97706;
+--text:#44403C;--text-light:#78716C;--white:#FFFFFF;--border:#E7E5E0;
+--font-display:'Playfair Display',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+
+/* PREVIEW BANNER */
+.preview-banner{
+background:linear-gradient(135deg,var(--charcoal) 0%,#1C1917 100%);
+color:var(--white);text-align:center;padding:14px 20px;font-size:.85rem;
+position:relative;z-index:1000;letter-spacing:.3px;
+}
+.preview-banner a{color:var(--copper-light);text-decoration:none;font-weight:600;transition:color .3s}
+.preview-banner a:hover{color:#FBBF24}
+
+/* NAV */
+.nav{
+position:sticky;top:0;z-index:900;background:rgba(248,247,244,.92);
+backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);transition:box-shadow .3s;
+}
+.nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--charcoal);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:var(--copper);font-weight:400}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:var(--text);text-decoration:none;font-size:.875rem;font-weight:500;letter-spacing:.3px;
+text-transform:uppercase;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--copper);transition:width .3s}
+.nav-links a:hover{color:var(--copper)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--copper);color:var(--white)!important;padding:10px 24px;border-radius:6px;
+font-size:.8rem!important;letter-spacing:.5px!important;transition:background .3s,transform .3s!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--copper-light);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--charcoal);transition:all .3s}
+
+/* HERO */
+.hero{
+min-height:100vh;display:flex;align-items:center;justify-content:center;
+background:linear-gradient(170deg,#292524 0%,#1C1917 40%,#44403C 100%);
+position:relative;overflow:hidden;text-align:center;padding:120px 24px 80px;
+}
+.hero::before{
+content:'';position:absolute;inset:0;
+background:radial-gradient(ellipse at 30% 20%,rgba(180,83,9,.15) 0%,transparent 60%),
+radial-gradient(ellipse at 70% 80%,rgba(180,83,9,.08) 0%,transparent 50%);
+}
+.hero-grid{
+position:absolute;inset:0;opacity:.04;
+background-image:linear-gradient(var(--white) 1px,transparent 1px),linear-gradient(90deg,var(--white) 1px,transparent 1px);
+background-size:80px 80px;
+}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+background:rgba(180,83,9,.15);border:1px solid rgba(180,83,9,.3);
+padding:8px 20px;border-radius:50px;margin-bottom:32px;
+color:var(--copper-light);font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
+}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--copper-light);border-radius:50%;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+font-family:var(--font-display);color:var(--white);font-size:clamp(2.8rem,6vw,5rem);
+font-weight:700;line-height:1.1;margin-bottom:8px;letter-spacing:-1px;
+}
+.hero h1 em{font-style:italic;color:var(--copper-light);font-weight:400}
+.hero-tagline{
+font-family:var(--font-display);font-style:italic;color:rgba(255,255,255,.5);
+font-size:clamp(1.1rem,2vw,1.4rem);margin-bottom:32px;font-weight:400;
+}
+.hero-desc{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:560px;margin:0 auto 48px;line-height:1.8}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{
+display:inline-flex;align-items:center;gap:8px;
+padding:16px 36px;border-radius:8px;font-size:.9rem;font-weight:600;
+text-decoration:none;letter-spacing:.5px;text-transform:uppercase;
+transition:all .3s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--copper);color:var(--white)}
+.btn-primary:hover{background:var(--copper-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(180,83,9,.3)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.25)}
+.btn-outline:hover{border-color:var(--copper-light);color:var(--copper-light);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:64px;padding-top:48px;border-top:1px solid rgba(255,255,255,.08)}
+.stat{text-align:center}
+.stat-num{font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--white);line-height:1}
+.stat-num span{color:var(--copper-light)}
+.stat-label{color:rgba(255,255,255,.4);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-top:6px}
+
+/* SECTIONS */
+section{padding:100px 24px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{
+font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--copper);font-weight:600;
+margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.section-label::before{content:'';width:30px;height:1.5px;background:var(--copper)}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--charcoal);line-height:1.15;margin-bottom:20px}
+.section-desc{color:var(--text-light);font-size:1.05rem;max-width:560px;line-height:1.8}
+
+/* SERVICES */
+.services-section{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;margin-top:56px}
+.service-card{
+background:var(--white);border:1px solid var(--border);border-radius:16px;
+padding:36px 28px;transition:all .4s;position:relative;overflow:hidden;
+}
+.service-card::before{
+content:'';position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,var(--copper),var(--copper-light));
+transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.06);border-color:transparent}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{
+width:52px;height:52px;border-radius:12px;
+background:linear-gradient(135deg,rgba(180,83,9,.08),rgba(180,83,9,.04));
+display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+font-size:1.4rem;
+}
+.service-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--charcoal);margin-bottom:10px}
+.service-card p{color:var(--text-light);font-size:.9rem;line-height:1.7}
+
+/* PORTFOLIO */
+.portfolio-section{background:var(--charcoal);color:var(--white)}
+.portfolio-section .section-title{color:var(--white)}
+.portfolio-section .section-desc{color:rgba(255,255,255,.5)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.portfolio-item{
+position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1/1;
+background:linear-gradient(135deg,#3a3633,#1c1917);cursor:pointer;
+}
+.portfolio-item.tall{grid-row:span 2;aspect-ratio:auto}
+.portfolio-item.wide{grid-column:span 2;aspect-ratio:2/1}
+.portfolio-placeholder{
+position:absolute;inset:0;display:flex;flex-direction:column;
+align-items:center;justify-content:center;padding:24px;text-align:center;
+background:linear-gradient(135deg,rgba(180,83,9,.06),rgba(180,83,9,.02));
+transition:all .4s;
+}
+.portfolio-item:hover .portfolio-placeholder{background:linear-gradient(135deg,rgba(180,83,9,.15),rgba(180,83,9,.06))}
+.portfolio-placeholder svg{width:40px;height:40px;stroke:var(--copper);stroke-width:1.2;fill:none;margin-bottom:12px;opacity:.5}
+.portfolio-placeholder span{color:rgba(255,255,255,.4);font-size:.8rem;letter-spacing:.5px}
+.portfolio-overlay{
+position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent 60%);
+opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:24px;
+}
+.portfolio-item:hover .portfolio-overlay{opacity:1}
+.portfolio-overlay span{color:var(--white);font-family:var(--font-display);font-size:1rem}
+
+/* PRICING */
+.pricing-section{background:var(--bg-cream)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:56px}
+.pricing-card{
+background:var(--white);border:1px solid var(--border);border-radius:20px;
+padding:44px 36px;position:relative;transition:all .4s;
+}
+.pricing-card.featured{
+border-color:var(--copper);box-shadow:0 16px 60px rgba(180,83,9,.1);
+}
+.pricing-card.featured::before{
+content:'Suosituin';position:absolute;top:-1px;right:32px;
+background:var(--copper);color:var(--white);padding:6px 16px;border-radius:0 0 8px 8px;
+font-size:.7rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;
+}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
+.pricing-name{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--charcoal);margin-bottom:8px}
+.pricing-desc{color:var(--text-light);font-size:.88rem;margin-bottom:24px}
+.pricing-price{margin-bottom:28px}
+.pricing-price .amount{font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--charcoal)}
+.pricing-price .currency{font-size:1.2rem;color:var(--text-light);vertical-align:super}
+.pricing-price .from{font-size:.85rem;color:var(--text-light);display:block;margin-bottom:4px}
+.pricing-features{list-style:none;margin-bottom:32px}
+.pricing-features li{
+padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text);
+display:flex;align-items:center;gap:10px;
+}
+.pricing-features li:last-child{border-bottom:none}
+.pricing-features li::before{content:'';width:18px;height:18px;border-radius:50%;
+background:rgba(180,83,9,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23B45309' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+background-repeat:no-repeat;background-position:center;
+}
+.pricing-btn{
+display:block;width:100%;text-align:center;padding:16px;border-radius:10px;
+font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;
+text-decoration:none;transition:all .3s;
+}
+.pricing-btn-primary{background:var(--copper);color:var(--white)}
+.pricing-btn-primary:hover{background:var(--copper-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(180,83,9,.25)}
+.pricing-btn-outline{background:transparent;color:var(--charcoal);border:1.5px solid var(--border)}
+.pricing-btn-outline:hover{border-color:var(--copper);color:var(--copper)}
+
+/* ABOUT */
+.about-section{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px}
+.about-image{
+aspect-ratio:4/5;border-radius:20px;overflow:hidden;position:relative;
+background:linear-gradient(135deg,var(--bg-cream),#E8E4DC);
+}
+.about-image-inner{
+position:absolute;inset:24px;border-radius:14px;
+background:linear-gradient(135deg,#3a3633,#1c1917);
+display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.about-image-inner svg{width:64px;height:64px;stroke:var(--copper);stroke-width:1;fill:none;opacity:.4;margin-bottom:16px}
+.about-image-inner span{color:rgba(255,255,255,.3);font-size:.85rem;font-style:italic}
+.about-content h3{font-family:var(--font-display);font-size:1.6rem;color:var(--charcoal);margin-bottom:20px;line-height:1.3}
+.about-content p{color:var(--text-light);margin-bottom:16px;line-height:1.8}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.about-value{padding:20px;background:var(--white);border-radius:12px;border:1px solid var(--border)}
+.about-value h4{font-family:var(--font-display);font-size:1rem;color:var(--charcoal);margin-bottom:4px}
+.about-value p{font-size:.82rem;color:var(--text-light);margin:0}
+
+/* REVIEWS */
+.reviews-section{background:var(--bg-cream)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:56px}
+.review-card{
+background:var(--white);border:1px solid var(--border);border-radius:16px;
+padding:36px;transition:all .3s;
+}
+.review-card:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.05)}
+.review-stars{display:flex;gap:3px;margin-bottom:16px}
+.review-stars svg{width:16px;height:16px;fill:var(--copper)}
+.review-text{color:var(--text);font-size:.95rem;line-height:1.8;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{
+width:44px;height:44px;border-radius:50%;
+background:linear-gradient(135deg,rgba(180,83,9,.15),rgba(180,83,9,.05));
+display:flex;align-items:center;justify-content:center;
+font-family:var(--font-display);font-weight:700;color:var(--copper);font-size:.9rem;
+}
+.review-name{font-weight:600;color:var(--charcoal);font-size:.9rem}
+.review-role{font-size:.78rem;color:var(--text-light)}
+
+/* CTA */
+.cta-section{
+background:linear-gradient(170deg,#292524 0%,#1C1917 100%);
+text-align:center;position:relative;overflow:hidden;
+}
+.cta-section::before{
+content:'';position:absolute;inset:0;
+background:radial-gradient(ellipse at 50% 50%,rgba(180,83,9,.1) 0%,transparent 70%);
+}
+.cta-inner{position:relative;z-index:2}
+.cta-section .section-label{justify-content:center;color:var(--copper-light)}
+.cta-section .section-label::before{background:var(--copper-light)}
+.cta-section .section-title{color:var(--white)}
+.cta-section .section-desc{color:rgba(255,255,255,.5);margin:0 auto 40px}
+
+/* CONTACT */
+.contact-section{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:56px}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-icon{
+width:48px;height:48px;border-radius:12px;flex-shrink:0;
+background:linear-gradient(135deg,rgba(180,83,9,.1),rgba(180,83,9,.04));
+display:flex;align-items:center;justify-content:center;
+}
+.contact-icon svg{width:20px;height:20px;stroke:var(--copper);stroke-width:2;fill:none}
+.contact-item h4{font-size:.95rem;font-weight:600;color:var(--charcoal);margin-bottom:4px}
+.contact-item p,.contact-item a{font-size:.9rem;color:var(--text-light);text-decoration:none;transition:color .3s}
+.contact-item a:hover{color:var(--copper)}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:.8rem;font-weight:600;color:var(--charcoal);letter-spacing:.3px;text-transform:uppercase}
+.form-group input,.form-group textarea,.form-group select{
+padding:14px 18px;border:1px solid var(--border);border-radius:10px;
+font-family:var(--font-body);font-size:.9rem;color:var(--charcoal);
+background:var(--white);transition:border-color .3s;outline:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--copper)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* FOOTER */
+.footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:64px 24px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo{color:var(--white);display:inline-block;margin-bottom:12px}
+.footer-brand p{font-size:.88rem;line-height:1.7;max-width:280px}
+.footer h4{color:var(--white);font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.footer ul{list-style:none}
+.footer ul li{margin-bottom:10px}
+.footer ul a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;transition:color .3s}
+.footer ul a:hover{color:var(--copper-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-bottom p{font-size:.82rem}
+.footer-social{display:flex;gap:12px}
+.footer-social a{
+width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.1);
+display:flex;align-items:center;justify-content:center;transition:all .3s;
+}
+.footer-social a:hover{border-color:var(--copper);background:rgba(180,83,9,.1)}
+.footer-social a svg{width:16px;height:16px;fill:rgba(255,255,255,.5)}
+.footer-social a:hover svg{fill:var(--copper-light)}
+
+/* WHATSAPP */
+.whatsapp-float{
+position:fixed;bottom:28px;right:28px;z-index:800;
+width:60px;height:60px;border-radius:50%;
+background:#25D366;color:white;
+display:flex;align-items:center;justify-content:center;
+box-shadow:0 4px 20px rgba(37,211,102,.35);
+transition:all .3s;text-decoration:none;
+}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.45)}
+.whatsapp-float svg{width:28px;height:28px;fill:white}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+.nav-links{
+position:fixed;top:0;right:-100%;width:280px;height:100vh;
+background:var(--white);flex-direction:column;
+padding:80px 32px 32px;gap:0;
+box-shadow:-4px 0 30px rgba(0,0,0,.1);
+transition:right .3s;
+}
+.nav-links.open{right:0}
+.nav-links a{padding:16px 0;border-bottom:1px solid var(--border);display:block;width:100%}
+.nav-cta{margin-top:16px;text-align:center}
+.hamburger{display:flex}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.hero-stats{flex-direction:column;gap:24px}
+.portfolio-grid{grid-template-columns:1fr 1fr}
+.portfolio-item.wide{grid-column:span 1}
+.portfolio-item.tall{grid-row:span 1}
+.about-grid{grid-template-columns:1fr;gap:32px}
+.about-image{max-height:360px}
+.contact-grid{grid-template-columns:1fr;gap:32px}
+.footer-top{grid-template-columns:1fr 1fr;gap:32px}
+.form-row{grid-template-columns:1fr}
+.pricing-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.portfolio-grid{grid-template-columns:1fr}
+.about-values{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Preview Banner -->
+<div class="preview-banner">
+This is a FREE preview website designed by <a href="https://elfennir.com" target="_blank">elfennir.com</a> — Contact us to make it yours!
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a href="#" class="logo">Light<span>Frame</span></a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#palvelut">Palvelut</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#hinnat">Hinnat</a></li>
+<li><a href="#meista">Meistä</a></li>
+<li><a href="#arvostelut">Arvostelut</a></li>
+<li><a href="#yhteystiedot" class="nav-cta">Varaa aika</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<div class="hero-grid"></div>
+<div class="hero-content">
+<div class="hero-badge">Valokuvaus Studio — Tampere</div>
+<h1>Capturing your <em>moments</em></h1>
+<p class="hero-tagline">Taide, tunne ja valokuvan voima</p>
+<p class="hero-desc">Ammattimainen valokuvaus, joka tallentaa elämäsi tärkeimmät hetket kauniisti ja ajattomasti. Tervetuloa LightFrame Studioon Tampereella.</p>
+<div class="hero-btns">
+<a href="#yhteystiedot" class="btn btn-primary">Varaa kuvaus</a>
+<a href="#portfolio" class="btn btn-outline">Katso portfolio</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><div class="stat-num">500<span>+</span></div><div class="stat-label">Kuvaukset</div></div>
+<div class="stat"><div class="stat-num">8</div><div class="stat-label">Vuotta kokemusta</div></div>
+<div class="stat"><div class="stat-num">4.9<span>/5</span></div><div class="stat-label">Arvosana</div></div>
+</div>
+</div>
+</section>
+
+<!-- Services -->
+<section class="services-section" id="palvelut">
+<div class="section-inner">
+<div class="section-label">Palvelut</div>
+<h2 class="section-title">Ammattitaitoa jokaiseen<br>hetkeen</h2>
+<p class="section-desc">Tarjoamme monipuolisia valokuvauspalveluita — muotokuvista häihin, yrityksistä tuotekuviin.</p>
+<div class="services-grid">
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+</div>
+<h3>Muotokuvaus</h3>
+<p>Persoonalliset muotokuvat studiossa tai luonnossa. Jokainen kuva kertoo sinun tarinasi.</p>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+</div>
+<h3>Hääkuvaus</h3>
+<p>Ikuistamme hääpäivänne tunnelman aidosti ja kauniisti — valmistelusta juhliin saakka.</p>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+</div>
+<h3>Yrityskuvaus</h3>
+<p>Ammattimaiset yrityskuvat, henkilökuvat ja brändikuvaukset yrityksesi tarpeisiin.</p>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</div>
+<h3>Tapahtumakuvaus</h3>
+<p>Juhlat, seminaarit ja tapahtumat tallennettuna tunnelmallisesti ja ammattitaidolla.</p>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+</div>
+<h3>Tuotekuvaus</h3>
+<p>Laadukkaat tuotekuvat verkkokauppaasi tai markkinointimateriaaleihisi.</p>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+</div>
+<h3>Perhekuvaus</h3>
+<p>Luonnolliset ja lämpimät perhekuvat, jotka tallentavat yhteiset hetkenne.</p>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="3"/><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/></svg>
+</div>
+<h3>Vastasyntyneenkuvaus</h3>
+<p>Herkkä ja turvallinen vastasyntyneenkuvaus — elämän ensimmäiset hetket ikuistettuna.</p>
+</div>
+<div class="service-card fade-in">
+<div class="service-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+</div>
+<h3>Raskausajan kuvaus</h3>
+<p>Kaunis raskausajan kuvaus, joka tallentaa odotuksen ainutlaatuisen tunnelman.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio -->
+<section class="portfolio-section" id="portfolio">
+<div class="section-inner">
+<div class="section-label">Portfolio</div>
+<h2 class="section-title">Töitämme</h2>
+<p class="section-desc">Valikoima viimeaikaisia kuvauksiamme — jokaisessa projektissa panostamme tunnelmaan ja yksityiskohtiin.</p>
+<div class="portfolio-grid">
+<div class="portfolio-item tall fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Hääkuvaus — Tampere</span>
+</div>
+<div class="portfolio-overlay"><span>Hääkuvaus</span></div>
+</div>
+<div class="portfolio-item fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Muotokuva — Studio</span>
+</div>
+<div class="portfolio-overlay"><span>Muotokuva</span></div>
+</div>
+<div class="portfolio-item fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Yrityskuvaus</span>
+</div>
+<div class="portfolio-overlay"><span>Yrityskuvaus</span></div>
+</div>
+<div class="portfolio-item wide fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Perhekuvaus — Luonto</span>
+</div>
+<div class="portfolio-overlay"><span>Perhekuvaus</span></div>
+</div>
+<div class="portfolio-item fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Vastasyntyneet</span>
+</div>
+<div class="portfolio-overlay"><span>Vastasyntynyt</span></div>
+</div>
+<div class="portfolio-item fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Tuotekuvaus</span>
+</div>
+<div class="portfolio-overlay"><span>Tuotekuvaus</span></div>
+</div>
+<div class="portfolio-item fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Tapahtuma</span>
+</div>
+<div class="portfolio-overlay"><span>Tapahtumakuvaus</span></div>
+</div>
+<div class="portfolio-item fade-in">
+<div class="portfolio-placeholder">
+<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+<span>Raskausaika</span>
+</div>
+<div class="portfolio-overlay"><span>Raskausajan kuvaus</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing-section" id="hinnat">
+<div class="section-inner">
+<div class="section-label">Hinnat</div>
+<h2 class="section-title">Selkeät hintapaketit</h2>
+<p class="section-desc">Valitse sinulle sopiva paketti tai pyydä räätälöity tarjous tarpeidesi mukaan.</p>
+<div class="pricing-grid">
+<div class="pricing-card fade-in">
+<div class="pricing-name">Muotokuva</div>
+<div class="pricing-desc">Henkilökohtainen muotokuvaus studiossa tai ulkona</div>
+<div class="pricing-price">
+<span class="amount"><span class="currency">€</span>149</span>
+</div>
+<ul class="pricing-features">
+<li>1 tunnin kuvaussessio</li>
+<li>15 muokattua kuvaa</li>
+<li>Online-galleria</li>
+<li>Yksi vaatevaihto</li>
+<li>Kuvat digitaalisena</li>
+</ul>
+<a href="#yhteystiedot" class="pricing-btn pricing-btn-outline">Varaa aika</a>
+</div>
+<div class="pricing-card featured fade-in">
+<div class="pricing-name">Hääkuvaus</div>
+<div class="pricing-desc">Koko hääpäivänne tallennettuna kauniisti</div>
+<div class="pricing-price">
+<span class="from">alkaen</span>
+<span class="amount"><span class="currency">€</span>1 499</span>
+</div>
+<ul class="pricing-features">
+<li>8 tuntia kuvausta</li>
+<li>300+ muokattua kuvaa</li>
+<li>Esikatselu 48h sisällä</li>
+<li>Online-galleria 1 vuosi</li>
+<li>Toinen kuvaaja saatavilla</li>
+<li>Hääalbumi lisähintaan</li>
+</ul>
+<a href="#yhteystiedot" class="pricing-btn pricing-btn-primary">Varaa aika</a>
+</div>
+<div class="pricing-card fade-in">
+<div class="pricing-name">Yrityskuvaus</div>
+<div class="pricing-desc">Ammattimaiset kuvat tiimillenne ja brändillenne</div>
+<div class="pricing-price">
+<span class="amount"><span class="currency">€</span>299</span>
+</div>
+<ul class="pricing-features">
+<li>2 tunnin kuvaussessio</li>
+<li>10 henkilökuvaa</li>
+<li>Tiimikuvat</li>
+<li>Toimitilakuvaus</li>
+<li>Kuvat kaikkiin kanaviin</li>
+</ul>
+<a href="#yhteystiedot" class="pricing-btn pricing-btn-outline">Varaa aika</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About -->
+<section class="about-section" id="meista">
+<div class="section-inner">
+<div class="section-label">Meistä</div>
+<h2 class="section-title">Luova studio Tampereen<br>sydämessä</h2>
+<div class="about-grid">
+<div class="about-image fade-in">
+<div class="about-image-inner">
+<svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+<span>Studio-kuva</span>
+</div>
+</div>
+<div class="about-content fade-in">
+<h3>Valokuvaamme on intohimomme — ja teemme sitä sydämellä</h3>
+<p>LightFrame Studio on tamperelainen valokuvausstudio, joka on erikoistunut luomaan kauniita, ajattomia kuvia. Jo kahdeksan vuoden ajan olemme ikuistaneet perheiden, pariskuntien ja yritysten tärkeitä hetkiä.</p>
+<p>Studiomme sijaitsee Tampereen keskustassa, ja tarjoamme modernit tilat sekä luonnollisen valon hyödyntämiseen suunnitellun ympäristön. Uskomme, että parhaat kuvat syntyvät rennossa ilmapiirissä.</p>
+<div class="about-values">
+<div class="about-value">
+<h4>Laatu</h4>
+<p>Jokaisessa kuvassa panostamme yksityiskohtiin</p>
+</div>
+<div class="about-value">
+<h4>Luovuus</h4>
+<p>Tuoretta näkemystä ja taiteellista silmää</p>
+</div>
+<div class="about-value">
+<h4>Luottamus</h4>
+<p>Rento ilmapiiri ja ammattimainen ote</p>
+</div>
+<div class="about-value">
+<h4>Nopeus</h4>
+<p>Kuvat toimitettuna sovitussa aikataulussa</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews-section" id="arvostelut">
+<div class="section-inner">
+<div class="section-label">Arvostelut</div>
+<h2 class="section-title">Asiakkaidemme kokemuksia</h2>
+<p class="section-desc">Lue mitä asiakkaamme sanovat meistä — tyytyväisyytesi on meille tärkeintä.</p>
+<div class="reviews-grid">
+<div class="review-card fade-in">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">Hääkuvamme ovat aivan uskomattomia! LightFrame tallensi päivämme tunnelman täydellisesti. Suosittelemme lämpimästi kaikille pareille.</p>
+<div class="review-author">
+<div class="review-avatar">AL</div>
+<div><div class="review-name">Anna Laitinen</div><div class="review-role">Hääkuvaus</div></div>
+</div>
+</div>
+<div class="review-card fade-in">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">Erittäin ammattitaitoinen studio! Yrityskuvamme olivat juuri sitä mitä tarvitsimme uudistetuille verkkosivuillemme. Nopea toimitus ja loistava laatu.</p>
+<div class="review-author">
+<div class="review-avatar">MV</div>
+<div><div class="review-name">Mikko Virtanen</div><div class="review-role">Yrityskuvaus</div></div>
+</div>
+</div>
+<div class="review-card fade-in">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">Perhekuvaus oli ihanaa! Lapset viihtyivät ja tunnelma oli rento. Saimme kauniita kuvia, joita katsomme vielä vuosien päästä. Kiitos!</p>
+<div class="review-author">
+<div class="review-avatar">SN</div>
+<div><div class="review-name">Sofia Nieminen</div><div class="review-role">Perhekuvaus</div></div>
+</div>
+</div>
+<div class="review-card fade-in">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">Vastasyntyneemme kuvaus oli niin kaunista ja turvallista. Kuvaaja oli kärsivällinen ja ammattitaitoinen. Kuvat ovat meille korvaamattomia aarteita.</p>
+<div class="review-author">
+<div class="review-avatar">JK</div>
+<div><div class="review-name">Jenna Korhonen</div><div class="review-role">Vastasyntyneenkuvaus</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+<div class="section-inner cta-inner">
+<div class="section-label">Aloitetaan</div>
+<h2 class="section-title">Varataan sinulle aika?</h2>
+<p class="section-desc">Ota yhteyttä ja kerro millaista kuvausta tarvitset — suunnitellaan yhdessä täydellinen kuvaussessio.</p>
+<div class="hero-btns">
+<a href="#yhteystiedot" class="btn btn-primary">Ota yhteyttä</a>
+<a href="https://wa.me/358441234567" target="_blank" class="btn btn-outline">WhatsApp</a>
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section class="contact-section" id="yhteystiedot">
+<div class="section-inner">
+<div class="section-label">Yhteystiedot</div>
+<h2 class="section-title">Ota yhteyttä</h2>
+<p class="section-desc">Kerro meille projektistasi niin palaamme asiaan mahdollisimman pian.</p>
+<div class="contact-grid">
+<div class="contact-info fade-in">
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+</div>
+<div>
+<h4>Studio</h4>
+<p>Tampere, Suomi</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</div>
+<div>
+<h4>Sähköposti</h4>
+<a href="mailto:info@lightframestudio.fi">info@lightframestudio.fi</a>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</div>
+<div>
+<h4>Puhelin</h4>
+<a href="tel:+358441234567">+358 44 123 4567</a>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+</div>
+<div>
+<h4>WhatsApp</h4>
+<a href="https://wa.me/358441234567" target="_blank">Lähetä viesti</a>
+</div>
+</div>
+</div>
+<form class="contact-form fade-in" onsubmit="event.preventDefault();alert('Kiitos yhteydenotostasi! Palaamme asiaan pian.')">
+<div class="form-row">
+<div class="form-group">
+<label>Nimi</label>
+<input type="text" placeholder="Nimesi" required>
+</div>
+<div class="form-group">
+<label>Sähköposti</label>
+<input type="email" placeholder="email@esimerkki.fi" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Puhelin</label>
+<input type="tel" placeholder="+358 ...">
+</div>
+<div class="form-group">
+<label>Palvelu</label>
+<select>
+<option value="">Valitse palvelu</option>
+<option>Muotokuvaus</option>
+<option>Hääkuvaus</option>
+<option>Yrityskuvaus</option>
+<option>Tapahtumakuvaus</option>
+<option>Tuotekuvaus</option>
+<option>Perhekuvaus</option>
+<option>Vastasyntyneenkuvaus</option>
+<option>Raskausajan kuvaus</option>
+<option>Muu</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label>Viesti</label>
+<textarea placeholder="Kerro projektistasi..."></textarea>
+</div>
+<button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Lähetä viesti</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-top">
+<div class="footer-brand">
+<a href="#" class="logo">Light<span>Frame</span></a>
+<p>Ammattimainen valokuvausstudio Tampereen sydämessä. Ikuistamme elämäsi tärkeimmät hetket.</p>
+</div>
+<div>
+<h4>Palvelut</h4>
+<ul>
+<li><a href="#palvelut">Muotokuvaus</a></li>
+<li><a href="#palvelut">Hääkuvaus</a></li>
+<li><a href="#palvelut">Yrityskuvaus</a></li>
+<li><a href="#palvelut">Perhekuvaus</a></li>
+</ul>
+</div>
+<div>
+<h4>Studio</h4>
+<ul>
+<li><a href="#meista">Meistä</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#hinnat">Hinnat</a></li>
+<li><a href="#arvostelut">Arvostelut</a></li>
+</ul>
+</div>
+<div>
+<h4>Yhteystiedot</h4>
+<ul>
+<li><a href="mailto:info@lightframestudio.fi">info@lightframestudio.fi</a></li>
+<li><a href="tel:+358441234567">+358 44 123 4567</a></li>
+<li><a href="https://wa.me/358441234567">WhatsApp</a></li>
+<li><a href="#yhteystiedot">Varaa aika</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 LightFrame Studio. Kaikki oikeudet pidätetään.</p>
+<div class="footer-social">
+<a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+<a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+<a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.808-2.425.853 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.282a.3.3 0 0 1 .069.288l-.278 1.133c-.044.183-.145.222-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/358441234567" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+</a>
+
+<script>
+// Sticky nav shadow
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)});
+
+// Mobile menu
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')}));
+
+// Scroll animations
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+a.addEventListener('click',e=>{
+e.preventDefault();
+const t=document.querySelector(a.getAttribute('href'));
+if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+});
+});
+</script>
+</body>
+</html>

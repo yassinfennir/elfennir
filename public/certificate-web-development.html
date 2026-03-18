@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Diploma - Web Development & Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tangerine:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4 landscape;margin:0}
+html,body{height:100%}
+body{display:flex;justify-content:center;align-items:center;min-height:100vh;background:#b8b0a0;font-family:'Crimson Pro',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+.diploma{
+  width:1122px;height:794px;position:relative;overflow:hidden;
+  background:#fffef8;
+  box-shadow:0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* Aged paper texture via multiple gradients */
+.diploma::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 10% 10%,rgba(200,180,140,0.06) 0%,transparent 50%),
+    radial-gradient(ellipse at 90% 90%,rgba(200,180,140,0.05) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,254,245,0.8) 0%,transparent 100%),
+    linear-gradient(180deg,rgba(240,230,210,0.08) 0%,transparent 20%,transparent 80%,rgba(240,230,210,0.08) 100%);
+}
+
+/* Subtle diagonal watermark lines */
+.diploma::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.012;
+  background:repeating-linear-gradient(45deg,transparent,transparent 80px,#6b5b3a 80px,#6b5b3a 80.5px),
+  repeating-linear-gradient(-45deg,transparent,transparent 80px,#6b5b3a 80px,#6b5b3a 80.5px)}
+
+/* Watermark text */
+.wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-20deg);z-index:0;pointer-events:none;
+  font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:700;color:rgba(100,85,55,0.022);
+  letter-spacing:30px;text-transform:uppercase;white-space:nowrap;user-select:none}
+
+/* Outer ornate border — guilloché style */
+.bdr-1{position:absolute;inset:12px;border:3px solid #6b5b3a;z-index:1}
+.bdr-2{position:absolute;inset:18px;border:0.5px solid #9a8a60;z-index:1}
+.bdr-3{position:absolute;inset:22px;border:1.5px solid #7a6a44;z-index:1}
+.bdr-4{position:absolute;inset:28px;border:0.5px solid #baa870;z-index:1}
+
+/* Top gold bar */
+.top-bar{position:absolute;top:0;left:0;right:0;height:10px;z-index:2;
+  background:linear-gradient(90deg,#4a3e28,#6b5b3a 10%,#9a8a60 30%,#c4aa70 50%,#9a8a60 70%,#6b5b3a 90%,#4a3e28)}
+.bottom-bar{position:absolute;bottom:0;left:0;right:0;height:10px;z-index:2;
+  background:linear-gradient(90deg,#4a3e28,#6b5b3a 10%,#9a8a60 30%,#c4aa70 50%,#9a8a60 70%,#6b5b3a 90%,#4a3e28)}
+
+/* Content */
+.content{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;
+  height:100%;padding:44px 70px 38px;text-align:center}
+
+/* Crest / coat of arms */
+.crest{margin-bottom:6px}
+.crest svg{width:58px;height:62px}
+
+.inst{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;
+  letter-spacing:7px;text-transform:uppercase;color:#3a3020;margin-bottom:2px}
+.inst-loc{font-family:'Crimson Pro',serif;font-weight:400;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;color:#8a7a55;margin-bottom:2px}
+.est{font-family:'Crimson Pro',serif;font-weight:300;font-style:italic;font-size:9px;
+  color:#a09570;margin-bottom:14px;letter-spacing:2px}
+
+/* Ornamental rule */
+.rule{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px}
+.rule .l{width:120px;height:0.5px;background:linear-gradient(90deg,transparent,#9a8a60,transparent)}
+.rule .d{width:5px;height:5px;border:0.5px solid #9a8a60;transform:rotate(45deg)}
+.rule .sm{width:3px;height:3px;background:#9a8a60;border-radius:50%}
+
+/* Main title block */
+.pre-title{font-family:'Crimson Pro',serif;font-weight:300;font-size:11px;letter-spacing:7px;
+  text-transform:uppercase;color:#7a6a44;margin-bottom:6px}
+.title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:44px;color:#2a2010;
+  letter-spacing:2px;margin-bottom:2px;line-height:1}
+.field{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;color:#5a4e30;
+  letter-spacing:5px;text-transform:uppercase;margin-bottom:14px}
+
+/* Conferral */
+.conf{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-size:11px;
+  color:#7a6a44;margin-bottom:4px;letter-spacing:1px}
+.name{font-family:'Tangerine',cursive;font-size:58px;font-weight:700;color:#1a1508;
+  line-height:1.1;margin-bottom:0}
+.name-rule{width:300px;height:0.5px;background:linear-gradient(90deg,transparent,#6b5b3a,transparent);
+  margin:2px auto 12px}
+
+/* Description */
+.desc{font-family:'Libre Baskerville',serif;font-size:11.5px;color:#3a3020;line-height:2;
+  max-width:600px;margin-bottom:10px;font-weight:400;text-align:justify;text-align-last:center}
+
+/* Skills in subtle traditional style */
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 8px;margin-bottom:14px}
+.sk{font-family:'Crimson Pro',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:#6b5b3a;font-weight:500;padding:2px 10px;border:0.5px solid #d0c4a0}
+
+/* Signatures */
+.sigs{display:flex;justify-content:space-between;align-items:flex-end;width:100%;max-width:820px;margin-top:auto}
+.sig{text-align:center;width:200px}
+.sig-hand{font-family:'Tangerine',cursive;font-size:30px;font-weight:700;color:#1a1508;margin-bottom:0}
+.sig-rule{width:175px;height:0.5px;background:#3a3020;margin:1px auto 3px}
+.sig-n{font-family:'Crimson Pro',serif;font-size:10px;font-weight:600;color:#2a2010;letter-spacing:0.5px}
+.sig-t{font-family:'Crimson Pro',serif;font-size:7.5px;color:#6b5b3a;letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.sig-r{font-family:'Crimson Pro',serif;font-size:6.5px;color:#9a8a60;letter-spacing:0.5px;margin-top:1px}
+
+/* Official seal — looks embossed/stamped */
+.seal-wrap{position:relative}
+.seal{width:95px;height:95px;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 38% 35%,#ddd2b8,#c4b898 30%,#a89870 60%,#8a7a50 90%);
+  box-shadow:0 1px 4px rgba(80,60,20,0.35),inset 0 2px 6px rgba(255,250,230,0.25),inset 0 -1px 3px rgba(80,60,20,0.2);
+  display:flex;align-items:center;justify-content:center}
+.seal-mid{width:82px;height:82px;border-radius:50%;
+  background:radial-gradient(circle at 40% 38%,#f5efd8,#e8dfc0 40%,#d4c8a0 80%);
+  border:1px solid #a89870;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 1px 2px rgba(80,60,20,0.1)}
+.seal-in{width:68px;height:68px;border-radius:50%;
+  border:1.5px solid #8a7a50;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 40% 35%,#faf6e8,#ede4c8)}
+.seal-txt{font-family:'Cormorant Garamond',serif;font-size:5px;letter-spacing:2.5px;
+  text-transform:uppercase;color:#5a4e30;font-weight:700}
+.seal-star{font-size:16px;color:#7a6a44;margin:1px 0}
+.seal-yr{font-family:'Crimson Pro',serif;font-size:9px;color:#5a4e30;font-weight:600}
+.seal-sub{font-family:'Crimson Pro',serif;font-size:4.5px;color:#9a8a60;letter-spacing:2px;text-transform:uppercase}
+
+/* Document footer */
+.doc-footer{position:absolute;bottom:32px;left:36px;right:36px;z-index:5;
+  display:flex;justify-content:space-between;align-items:flex-end}
+.doc-col{display:flex;flex-direction:column;gap:1px}
+.doc-meta{font-family:'Crimson Pro',serif;font-size:7px;color:#a09570;letter-spacing:0.5px}
+
+/* Verification strip */
+.vstrip{position:absolute;bottom:55px;left:36px;right:36px;height:12px;z-index:4;
+  border-top:0.5px solid rgba(154,138,96,0.15);border-bottom:0.5px solid rgba(154,138,96,0.15);
+  display:flex;align-items:center;justify-content:center;gap:40px}
+.vstrip span{font-family:'Crimson Pro',serif;font-size:4.5px;letter-spacing:3px;text-transform:uppercase;color:rgba(154,138,96,0.25)}
+
+/* Barcode-like pattern */
+.barcode{display:flex;gap:1px;align-items:center;height:18px}
+.barcode .b{width:1px;background:#3a3020;opacity:0.3}
+.barcode .b.w{width:1.5px}
+.barcode .b.n{width:0.5px}
+
+/* Document number overlay bottom-right */
+.docnum{position:absolute;bottom:14px;right:16px;z-index:6;
+  font-family:'Crimson Pro',serif;font-size:5.5px;color:#c4b898;letter-spacing:1px;
+  transform:rotate(0deg)}
+
+@media print{
+  body{background:#fff}
+  .diploma{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="diploma">
+  <div class="wm">IIWT</div>
+  <div class="top-bar"></div>
+  <div class="bottom-bar"></div>
+  <div class="bdr-1"></div>
+  <div class="bdr-2"></div>
+  <div class="bdr-3"></div>
+  <div class="bdr-4"></div>
+
+  <div class="content">
+    <!-- Institutional Crest -->
+    <div class="crest">
+      <svg viewBox="0 0 58 62" fill="none">
+        <path d="M29 2 L54 15 L54 35 C54 50 42 58 29 62 C16 58 4 50 4 35 L4 15 Z" stroke="#6b5b3a" stroke-width="1.2" fill="none"/>
+        <path d="M29 8 L48 18 L48 34 C48 46 39 53 29 56 C19 53 10 46 10 34 L10 18 Z" stroke="#9a8a60" stroke-width="0.6" fill="none"/>
+        <path d="M22 28 L27 33 L37 23" stroke="#6b5b3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="29" cy="14" r="2" fill="#9a8a60"/>
+        <path d="M25 14 L29 10 L33 14" stroke="#9a8a60" stroke-width="0.5" fill="none"/>
+        <line x1="29" y1="40" x2="29" y2="48" stroke="#9a8a60" stroke-width="0.4"/>
+        <line x1="25" y1="44" x2="33" y2="44" stroke="#9a8a60" stroke-width="0.4"/>
+      </svg>
+    </div>
+
+    <div class="inst">International Institute of Web Technologies</div>
+    <div class="inst-loc">Helsinki, Finland &mdash; European Union</div>
+    <div class="est">Accredited Professional Institution &middot; Established 2008</div>
+
+    <div class="rule">
+      <div class="l"></div><div class="sm"></div><div class="d"></div><div class="sm"></div><div class="l"></div>
+    </div>
+
+    <div class="pre-title">The Board of Governors hereby awards this</div>
+    <div class="title">Professional Diploma</div>
+    <div class="field">Web Development & Design</div>
+
+    <div class="conf">This is to certify that the following individual has fulfilled all requirements</div>
+    <div class="name">Yassin El Fennir</div>
+    <div class="name-rule"></div>
+
+    <div class="desc">
+      Having demonstrated exceptional proficiency in modern web development technologies,
+      responsive design architecture, front-end and back-end engineering, user interface
+      and user experience design, search engine optimization, and the creation of
+      high-performance, conversion-optimized business applications. This diploma is awarded
+      with all the rights, privileges, and responsibilities pertaining thereto.
+    </div>
+
+    <div class="skills">
+      <span class="sk">HTML5 & CSS3</span>
+      <span class="sk">React & Next.js</span>
+      <span class="sk">Responsive Design</span>
+      <span class="sk">UI/UX Engineering</span>
+      <span class="sk">SEO & Performance</span>
+      <span class="sk">TypeScript</span>
+    </div>
+
+    <!-- Signatures -->
+    <div class="sigs">
+      <div class="sig">
+        <div class="sig-hand">Dr. M. Keller</div>
+        <div class="sig-rule"></div>
+        <div class="sig-n">Dr. Martin Keller, Ph.D.</div>
+        <div class="sig-t">Director of Web Technologies</div>
+        <div class="sig-r">Member, European Web Standards Board</div>
+      </div>
+
+      <div class="seal-wrap">
+        <div class="seal">
+          <div class="seal-mid">
+            <div class="seal-in">
+              <div class="seal-txt">Authenticated</div>
+              <div class="seal-star">&#9733;</div>
+              <div class="seal-yr">2025</div>
+              <div class="seal-sub">Official Seal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sig">
+        <div class="sig-hand">Prof. S. Lindgren</div>
+        <div class="sig-rule"></div>
+        <div class="sig-n">Prof. Sarah Lindgren, M.Sc.</div>
+        <div class="sig-t">Head of Digital Design Faculty</div>
+        <div class="sig-r">Certified UX Research Fellow</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verification strip -->
+  <div class="vstrip">
+    <span>Security Document</span>
+    <span>Authenticated</span>
+    <span>IIWT Official</span>
+    <span>Reg. FI-2025-04891</span>
+    <span>Tamper-Evident</span>
+  </div>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <div class="doc-col">
+      <div class="doc-meta">Date of Issue: January 15, 2025</div>
+      <div class="doc-meta">Place of Issue: Helsinki, Finland</div>
+      <div class="doc-meta">Document No: IIWT-WD-2025-04891</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="barcode">
+        <div class="b" style="height:16px"></div><div class="b n" style="height:14px"></div><div class="b w" style="height:16px"></div>
+        <div class="b n" style="height:12px"></div><div class="b" style="height:16px"></div><div class="b w" style="height:14px"></div>
+        <div class="b" style="height:16px"></div><div class="b n" style="height:10px"></div><div class="b w" style="height:16px"></div>
+        <div class="b" style="height:14px"></div><div class="b n" style="height:16px"></div><div class="b" style="height:12px"></div>
+        <div class="b w" style="height:16px"></div><div class="b n" style="height:14px"></div><div class="b" style="height:16px"></div>
+        <div class="b" style="height:10px"></div><div class="b w" style="height:16px"></div><div class="b n" style="height:14px"></div>
+        <div class="b" style="height:16px"></div><div class="b" style="height:12px"></div><div class="b w" style="height:16px"></div>
+        <div class="b n" style="height:14px"></div><div class="b" style="height:16px"></div><div class="b" style="height:10px"></div>
+      </div>
+      <div style="font-family:'Crimson Pro',serif;font-size:5px;color:#9a8a60;letter-spacing:1px">FI-2025-WD-04891</div>
+    </div>
+    <div class="doc-col" style="text-align:right">
+      <div class="doc-meta">Credential ID: WD-FI-04891-2025</div>
+      <div class="doc-meta">Accreditation: EU-PROF-5b28-2025</div>
+      <div class="doc-meta">Validity: Permanent &middot; Worldwide</div>
+    </div>
+  </div>
+
+  <div class="docnum">IIWT/WD/2025/04891/FI</div>
+</div>
+</body>
+</html>

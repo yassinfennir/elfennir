@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Q Hair Lounge | Premium Kampaamo Helsinki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#111118;--bg3:#18181f;--bg4:#1e1e28;
+  --gold:#c8a45e;--gold-light:#dfc07a;--gold-dark:#a8863e;
+  --warm:#e8d5b7;--cream:#f5eee0;
+  --text:#c8c4be;--text-light:#9a968f;--text-dim:#6b6860;
+  --white:#ffffff;
+  --shadow:0 12px 40px rgba(0,0,0,.5);
+  --shadow-gold:0 8px 30px rgba(200,164,94,.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.7}
+
+/* PREVIEW BANNER */
+.preview-banner{background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));color:var(--bg);text-align:center;padding:11px 20px;font-size:.82rem;font-weight:600;letter-spacing:.3px;position:fixed;top:0;left:0;right:0;z-index:10000;font-family:'Inter',sans-serif}
+.preview-banner a{color:var(--bg);text-decoration:underline;font-weight:700}
+.preview-banner a:hover{opacity:.8}
+
+/* NAV */
+nav{position:sticky;top:42px;z-index:999;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,164,94,.08);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.4)}
+.nav-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 28px}
+.logo{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:600;color:var(--white);letter-spacing:2px;text-decoration:none}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text);font-size:.85rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--cream);border-radius:2px;transition:.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:var(--bg);overflow:hidden;padding-top:42px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(200,164,94,.06) 0%,transparent 70%)}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='rgba(200,164,94,0.03)' stroke-width='0.5'/%3E%3C/svg%3E");opacity:.5}
+.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(120px);opacity:.12;animation:floatGlow 12s ease-in-out infinite}
+.hero-glow.g1{background:var(--gold);top:-10%;right:10%}
+.hero-glow.g2{background:#8b6914;bottom:0;left:5%;animation-delay:-6s}
+@keyframes floatGlow{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-30px) scale(1.1)}}
+.hero-content{position:relative;z-index:2;padding:40px 24px;max-width:820px}
+.hero-badge{display:inline-block;border:1px solid rgba(200,164,94,.3);color:var(--gold);padding:8px 28px;border-radius:40px;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:32px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5rem);color:var(--white);font-weight:400;line-height:1.1;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero .hero-sub{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--gold-light);font-weight:400;font-style:italic;margin-bottom:24px;opacity:.85}
+.hero p{font-size:1rem;color:var(--text-light);max-width:520px;margin:0 auto 40px;line-height:1.8}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 38px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .4s;cursor:pointer;border:none;letter-spacing:.8px;text-transform:uppercase;font-family:'Inter',sans-serif}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);box-shadow:var(--shadow-gold)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(200,164,94,.3);background:linear-gradient(135deg,var(--gold-light),var(--gold))}
+.btn-outline{background:transparent;color:var(--gold);border:1.5px solid rgba(200,164,94,.4)}
+.btn-outline:hover{background:rgba(200,164,94,.08);border-color:var(--gold);transform:translateY(-3px)}
+.hero-divider{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,var(--bg2),transparent)}
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* SECTIONS */
+section{padding:110px 24px}
+.section-header{text-align:center;margin-bottom:70px}
+.section-label{display:inline-block;border:1px solid rgba(200,164,94,.2);color:var(--gold);padding:6px 22px;border-radius:30px;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:18px}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);color:var(--white);font-weight:400;line-height:1.25}
+.section-header h2 em{font-style:italic;color:var(--gold)}
+.section-header p{color:var(--text-light);margin-top:16px;max-width:560px;margin-left:auto;margin-right:auto;font-size:.95rem}
+.gold-line{width:50px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto 0}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:auto}
+.service-card{background:var(--bg3);border-radius:20px;padding:40px 30px;text-align:center;transition:all .45s;border:1px solid rgba(200,164,94,.06);position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.4);border-color:rgba(200,164,94,.15)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .45s;transform-origin:center}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:70px;height:70px;background:rgba(200,164,94,.06);border:1px solid rgba(200,164,94,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:1.7rem;transition:all .4s}
+.service-card:hover .service-icon{background:rgba(200,164,94,.12);border-color:rgba(200,164,94,.25);transform:scale(1.08)}
+.service-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:10px;font-weight:500}
+.service-card p{font-size:.85rem;color:var(--text-light);line-height:1.7}
+.service-price{margin-top:16px;font-size:.9rem;color:var(--gold);font-weight:600;letter-spacing:.5px}
+
+/* GALLERY STRIP */
+.gallery{background:var(--bg);padding:80px 0;overflow:hidden}
+.gallery-header{text-align:center;padding:0 24px;margin-bottom:50px}
+.gallery-strip{display:flex;gap:20px;animation:scrollStrip 25s linear infinite;width:max-content}
+.gallery-strip:hover{animation-play-state:paused}
+.gallery-item{width:300px;height:380px;border-radius:16px;overflow:hidden;flex-shrink:0;position:relative;background:var(--bg3);border:1px solid rgba(200,164,94,.06)}
+.gallery-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(145deg,var(--bg3),var(--bg4))}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,15,.7) 0%,transparent 50%)}
+.gallery-label{position:absolute;bottom:20px;left:20px;z-index:2;font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);font-style:italic}
+@keyframes scrollStrip{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{background:var(--bg2);position:relative}
+.about::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(200,164,94,.04),transparent 70%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;max-width:1100px;margin:auto;align-items:center}
+.about-visual{position:relative}
+.about-img{width:100%;aspect-ratio:4/5;background:linear-gradient(145deg,rgba(200,164,94,.15),rgba(200,164,94,.05));border-radius:24px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(200,164,94,.1);position:relative;overflow:hidden}
+.about-img span{font-size:5rem;position:relative;z-index:2}
+.about-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,15,.3))}
+.about-float{position:absolute;bottom:-20px;right:-20px;background:var(--bg3);padding:22px 30px;border-radius:16px;box-shadow:var(--shadow);text-align:center;border:1px solid rgba(200,164,94,.1)}
+.about-float .num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:600;color:var(--gold)}
+.about-float .label{font-size:.72rem;color:var(--text-light);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+.about-text h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:20px;font-weight:400;line-height:1.4}
+.about-text h3 em{font-style:italic;color:var(--gold)}
+.about-text p{color:var(--text-light);margin-bottom:18px;font-size:.95rem}
+.about-features{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.about-feat{display:flex;align-items:center;gap:8px;background:var(--bg3);padding:10px 20px;border-radius:40px;font-size:.8rem;color:var(--cream);font-weight:500;border:1px solid rgba(200,164,94,.08)}
+.about-feat .feat-dot{width:6px;height:6px;background:var(--gold);border-radius:50%}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--bg);position:relative}
+.testimonials::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 50%,rgba(200,164,94,.03),transparent)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:1100px;margin:auto}
+.testimonial-card{background:var(--bg2);border-radius:20px;padding:36px 32px;border:1px solid rgba(200,164,94,.06);transition:all .4s;position:relative}
+.testimonial-card:hover{border-color:rgba(200,164,94,.15);transform:translateY(-4px)}
+.testimonial-stars{color:var(--gold);font-size:.9rem;letter-spacing:3px;margin-bottom:16px}
+.testimonial-card p{font-size:.92rem;color:var(--text);line-height:1.8;font-style:italic;margin-bottom:20px}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:rgba(200,164,94,.1);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--gold);font-weight:600;border:1px solid rgba(200,164,94,.15)}
+.testimonial-info .name{font-size:.88rem;color:var(--white);font-weight:600}
+.testimonial-info .role{font-size:.75rem;color:var(--text-dim)}
+
+/* CONTACT */
+.contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:1100px;margin:auto}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;align-items:flex-start;gap:18px}
+.contact-icon{width:52px;height:52px;background:rgba(200,164,94,.06);border:1px solid rgba(200,164,94,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-item h4{font-size:.95rem;color:var(--white);font-weight:600;margin-bottom:4px}
+.contact-item p{font-size:.88rem;color:var(--text-light)}
+.contact-item a{color:var(--gold);text-decoration:none;transition:opacity .3s}
+.contact-item a:hover{opacity:.75}
+.map-container{border-radius:20px;overflow:hidden;border:1px solid rgba(200,164,94,.08);height:100%;min-height:360px}
+.map-container iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.1)}
+
+/* CTA SECTION */
+.cta{background:linear-gradient(135deg,var(--bg3),var(--bg));text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(200,164,94,.06),transparent)}
+.cta h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);font-weight:400;margin-bottom:16px}
+.cta h2 em{color:var(--gold);font-style:italic}
+.cta p{color:var(--text-light);max-width:480px;margin:0 auto 36px;font-size:1rem}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid rgba(200,164,94,.06);padding:50px 24px 30px;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);font-weight:600;letter-spacing:2px;margin-bottom:8px}
+.footer-logo span{color:var(--gold)}
+footer p{color:var(--text-dim);font-size:.82rem;margin-bottom:6px}
+footer a{color:var(--gold);text-decoration:none;font-weight:500}
+footer a:hover{text-decoration:underline}
+.footer-powered{margin-top:24px;padding-top:20px;border-top:1px solid rgba(200,164,94,.06);font-size:.78rem;color:var(--text-dim)}
+.footer-powered a{color:var(--gold-light)}
+
+/* WHATSAPP */
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.35);z-index:9999;transition:all .35s;text-decoration:none}
+.whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,.45)}
+.whatsapp-btn svg{width:30px;height:30px;fill:#fff}
+
+/* MOBILE */
+@media(max-width:768px){
+  .preview-banner{font-size:.72rem;padding:9px 14px}
+  nav{top:38px}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(10,10,15,.97);backdrop-filter:blur(20px);padding:20px 28px;gap:0;border-bottom:1px solid rgba(200,164,94,.08)}
+  .nav-links.open{display:flex}
+  .nav-links li{padding:14px 0;border-bottom:1px solid rgba(200,164,94,.04)}
+  .nav-links li:last-child{border:none}
+  .hamburger{display:flex}
+  .hero h1{font-size:clamp(2.2rem,8vw,3.2rem)}
+  .hero-btns{flex-direction:column;align-items:center}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .about-float{bottom:-10px;right:10px}
+  section{padding:80px 20px}
+  .services-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .gallery-item{width:240px;height:300px}
+}
+
+/* SUBTLE GRAIN */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.015;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+</style>
+</head>
+<body>
+
+<!-- PREVIEW BANNER -->
+<div class="preview-banner">
+  Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä: yassinfennir@gmail.com | <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">The <span>Q</span> Hair Lounge</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#arvostelut">Arvostelut</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Valikko">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Premium Kampaamo Helsinki</div>
+    <h1>Luksusta jokaiselle <em>hiuslaadulle</em></h1>
+    <div class="hero-sub">Tyyliä, taidetta & täydellistä palvelua</div>
+    <p>Koe huippuluokan kampaamopalvelut Helsingin sydämessä. The Q Hair Lounge yhdistää modernin muotoilun ja ajattoman eleganssin.</p>
+    <div class="hero-btns">
+      <a href="#yhteystiedot" class="btn btn-primary">Varaa Aika</a>
+      <a href="#palvelut" class="btn btn-outline">Palvelumme</a>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="palvelut">
+  <div class="section-header reveal">
+    <div class="section-label">Palvelut</div>
+    <h2>Huippuluokan <em>kampaamopalvelut</em></h2>
+    <p>Jokainen käynti on räätälöity juuri sinulle. Ammattitaitoiset kampaajamme huolehtivat hiuksistasi.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">&#9986;</div>
+      <h3>Hiustenleikkaus</h3>
+      <p>Trendikkäät ja klassisen tyylikkäät leikkaukset naisille ja miehille. Jokaiseen leikkaukseen sisältyy konsultaatio.</p>
+      <div class="service-price">alk. 45 &euro;</div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">&#127912;</div>
+      <h3>Värjäys & Raidat</h3>
+      <p>Sävytykset, raidat, balayage ja ombr&eacute;. Käytämme laadukkaita ammattituotteita suojaten hiuksesi terveyttä.</p>
+      <div class="service-price">alk. 85 &euro;</div>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">&#128142;</div>
+      <h3>Kampaukset</h3>
+      <p>Juhlakampaukset häihin, gaalaan tai arkeen. Luomme näyttävät kampaukset jokaiseen tilaisuuteen.</p>
+      <div class="service-price">alk. 65 &euro;</div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">&#10024;</div>
+      <h3>Hiushoidot</h3>
+      <p>Syvähoitavat keratiinikäsittelyt, kosteuttavat naamiot ja elvyttävät hoidot väsyneille hiuksille.</p>
+      <div class="service-price">alk. 55 &euro;</div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">&#128136;</div>
+      <h3>Pidennykset</h3>
+      <p>Laadukkailla aitohiuspidennyksillä lisää pituutta ja tuuheutta. Luonnollinen ja huomaamaton lopputulos.</p>
+      <div class="service-price">alk. 250 &euro;</div>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">&#128133;</div>
+      <h3>Parturi</h3>
+      <p>Miesten leikkaukset, parranajo ja -muotoilu. Klassista parturitaidetta modernilla otteella.</p>
+      <div class="service-price">alk. 35 &euro;</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">Galleria</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);color:var(--white);font-weight:400">Työmme <em style="color:var(--gold);font-style:italic">kertoo puolestaan</em></h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="gallery-strip" id="galleryStrip">
+    <div class="gallery-item"><div class="gallery-placeholder">&#128135;&#8205;&#9792;&#65039;</div><div class="gallery-label">Balayage</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#128131;</div><div class="gallery-label">Kampaukset</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#9986;</div><div class="gallery-label">Leikkaukset</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#127912;</div><div class="gallery-label">Värjäykset</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#10024;</div><div class="gallery-label">Hoidot</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#128133;</div><div class="gallery-label">Parturi</div></div>
+    <!-- duplicates for loop -->
+    <div class="gallery-item"><div class="gallery-placeholder">&#128135;&#8205;&#9792;&#65039;</div><div class="gallery-label">Balayage</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#128131;</div><div class="gallery-label">Kampaukset</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#9986;</div><div class="gallery-label">Leikkaukset</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#127912;</div><div class="gallery-label">Värjäykset</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#10024;</div><div class="gallery-label">Hoidot</div></div>
+    <div class="gallery-item"><div class="gallery-placeholder">&#128133;</div><div class="gallery-label">Parturi</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="meista">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-img">
+        <span>&#128135;&#8205;&#9792;&#65039;</span>
+      </div>
+      <div class="about-float">
+        <div class="num">15+</div>
+        <div class="label">Vuotta kokemusta</div>
+      </div>
+    </div>
+    <div class="about-text reveal reveal-delay-2">
+      <div class="section-label">Meistä</div>
+      <h3>Premium-kampaamo Helsingin <em>sydämessä</em></h3>
+      <p>The Q Hair Lounge sijaitsee arvostetulla Runeberginkadulla, aivan Helsingin keskustan tuntumassa. Salonkimme tarjoaa rauhallisen ja tyylikkään ympäristön, jossa voit rentoutua ja nauttia ammattilaisten palveluista.</p>
+      <p>Tiimimme koostuu kokeneista kampaajista, jotka seuraavat jatkuvasti alan uusimpia trendejä ja tekniikoita. Käytämme vain premium-tuotteita varmistaaksemme parhaan lopputuloksen.</p>
+      <div class="about-features">
+        <div class="about-feat"><span class="feat-dot"></span>Premium-tuotteet</div>
+        <div class="about-feat"><span class="feat-dot"></span>Kokeneet ammattilaiset</div>
+        <div class="about-feat"><span class="feat-dot"></span>Keskustan sijainti</div>
+        <div class="about-feat"><span class="feat-dot"></span>Yksilöllinen palvelu</div>
+        <div class="about-feat"><span class="feat-dot"></span>Moderni salonki</div>
+        <div class="about-feat"><span class="feat-dot"></span>Ilmainen konsultaatio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="arvostelut">
+  <div class="section-header reveal">
+    <div class="section-label">Arvostelut</div>
+    <h2>Asiakkaidemme <em>kokemukset</em></h2>
+    <p>Lue mitä tyytyväiset asiakkaamme kertovat palveluistamme.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Paras kampaamo Helsingissä! Sain täydellisen balayagen ja tunnelma salongissa on ihana. Suosittelen lämpimästi kaikille."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">MK</div>
+        <div class="testimonial-info">
+          <div class="name">Maria K.</div>
+          <div class="role">Vakioasiakas</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Ammattitaitoinen henkilökunta ja viihtyisä ympäristö. Hiustenleikkaus oli juuri sitä mitä halusin. Tulen ehdottomasti uudelleen!"</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">JS</div>
+        <div class="testimonial-info">
+          <div class="name">Johanna S.</div>
+          <div class="role">Vakioasiakas</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Upea kokemus alusta loppuun. Kampaus häihini oli unelmieni mukainen. Kiitos The Q Hair Lounge -tiimille!"</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">LH</div>
+        <div class="testimonial-info">
+          <div class="name">Laura H.</div>
+          <div class="role">Juhlakampaus</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="reveal">
+    <div class="section-label">Varaa Aikasi</div>
+    <h2>Valmis uuteen <em>ilmeeseen?</em></h2>
+    <p>Ota yhteyttä ja varaa aikasi jo tänään. Asiantuntijamme auttavat sinua löytämään juuri sinulle sopivan tyylin.</p>
+    <div class="cta-btns">
+      <a href="tel:+3589626670" class="btn btn-primary">&#128222; Soita Meille</a>
+      <a href="https://wa.me/3589626670" target="_blank" class="btn btn-outline">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="yhteystiedot">
+  <div class="section-header reveal">
+    <div class="section-label">Yhteystiedot</div>
+    <h2>Ota <em>yhteyttä</em></h2>
+    <p>Tervetuloa käymään salongissamme tai ota yhteyttä alla olevin tiedoin.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-icon">&#128205;</div>
+        <div>
+          <h4>Sijainti</h4>
+          <p>Runeberginkatu 4 a D<br>00100 Helsinki</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#128222;</div>
+        <div>
+          <h4>Puhelin</h4>
+          <p><a href="tel:+3589626670">+358 9 626 670</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#9993;</div>
+        <div>
+          <h4>Sähköposti</h4>
+          <p><a href="mailto:info@qhair.fi">info@qhair.fi</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">&#128337;</div>
+        <div>
+          <h4>Aukioloajat</h4>
+          <p>Ma-Pe: 09:00 - 19:00<br>La: 10:00 - 16:00<br>Su: Suljettu</p>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <a href="https://wa.me/3589626670" target="_blank" class="btn btn-primary" style="font-size:.82rem;padding:13px 30px">&#128172; Lähetä WhatsApp-viesti</a>
+      </div>
+    </div>
+    <div class="map-container reveal reveal-delay-2">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.5!2d24.9286!3d60.1721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc8ed677e9b%3A0x0!2sRuneberginkatu+4%2C+Helsinki!5e0!3m2!1sfi!2sfi!4v1700000000000!5m2!1sfi!2sfi" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">The <span>Q</span> Hair Lounge</div>
+  <p>Runeberginkatu 4 a D, 00100 Helsinki</p>
+  <p><a href="tel:+3589626670">+358 9 626 670</a> &nbsp;|&nbsp; <a href="mailto:info@qhair.fi">info@qhair.fi</a></p>
+  <div class="footer-powered">Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — <a href="https://elfennir.com" target="_blank">elfennir.com</a></div>
+</footer>
+
+<!-- WHATSAPP FLOATING BTN -->
+<a href="https://wa.me/3589626670" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.9 15.9 0 0016.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.316 22.594c-.39 1.1-1.932 2.014-3.166 2.28-.846.18-1.95.324-5.67-1.218-4.76-1.972-7.822-6.81-8.06-7.124-.228-.314-1.916-2.552-1.916-4.866 0-2.314 1.214-3.452 1.644-3.924.39-.428 1.028-.612 1.636-.612.198 0 .376.01.536.018.47.02.706.048 1.016.788.39.924 1.34 3.268 1.456 3.506.118.238.236.558.076.872-.148.324-.278.468-.516.74-.238.272-.464.48-.702.774-.218.256-.464.53-.196 1.002.268.462 1.19 1.962 2.556 3.178 1.756 1.564 3.236 2.05 3.696 2.278.46.228.73.19.998-.114.278-.314 1.186-1.38 1.502-1.854.306-.474.622-.394 1.048-.236.43.148 2.74 1.292 3.208 1.528.47.236.782.352.898.55.118.196.118 1.148-.272 2.252z"/></svg>
+</a>
+
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+
+// Scroll reveal with IntersectionObserver
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// Hero entrance animations
+window.addEventListener('DOMContentLoaded', () => {
+  const heroEls = document.querySelectorAll('.hero-badge, .hero h1, .hero .hero-sub, .hero p, .hero-btns');
+  heroEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `opacity .8s ease ${i * .15}s, transform .8s ease ${i * .15}s`;
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 100);
+  });
+});
+</script>
+</body>
+</html>

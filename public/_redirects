@@ -1,0 +1,2 @@
+# Redirect www to non-www
+https://www.elfennir.com/* https://elfennir.com/:splat 301!

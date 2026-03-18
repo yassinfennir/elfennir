@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal Siivous Oy — Siivouspalvelu Tampere</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{
+            --bg:#0a0a0f;--bg-card:#12121a;--bg-card-hover:#181824;
+            --accent:#00d1ff;--accent-dark:#00a8cc;--accent-glow:rgba(0,209,255,.15);
+            --text:#e4e4e7;--text-muted:#8b8b9e;--text-heading:#ffffff;
+            --border:rgba(255,255,255,.06);--border-accent:rgba(0,209,255,.2);
+        }
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.7}
+
+        /* BANNER */
+        .preview-banner{
+            background:linear-gradient(135deg,#00d1ff 0%,#0090b0 100%);
+            color:#0a0a0f;text-align:center;padding:12px 20px;font-size:.85rem;font-weight:600;
+            position:relative;z-index:1000;
+        }
+        .preview-banner a{color:#0a0a0f;font-weight:800;text-decoration:underline}
+        .preview-banner a:hover{opacity:.8}
+
+        /* NAV */
+        .nav{
+            position:sticky;top:0;z-index:999;
+            background:rgba(10,10,15,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+            border-bottom:1px solid var(--border);transition:box-shadow .3s;
+        }
+        .nav.scrolled{box-shadow:0 4px 40px rgba(0,209,255,.06)}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-heading)}
+        .logo-icon{
+            width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+            border-radius:12px;display:flex;align-items:center;justify-content:center;
+            font-size:20px;color:#0a0a0f;font-weight:800;
+        }
+        .logo-text{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
+        .logo-text span{color:var(--accent)}
+        .nav-links{display:flex;gap:32px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--text-muted);font-size:.9rem;font-weight:500;transition:color .3s;position:relative}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s}
+        .nav-links a:hover{color:var(--text-heading)}
+        .nav-links a:hover::after{width:100%}
+        .nav-cta{
+            background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#0a0a0f;
+            padding:10px 26px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;
+            transition:all .3s;border:none;cursor:pointer;
+        }
+        .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,209,255,.35)}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+        .hamburger span{display:block;width:24px;height:2.5px;background:var(--text-heading);border-radius:4px;transition:all .3s}
+
+        /* HERO */
+        .hero{
+            min-height:92vh;display:flex;align-items:center;
+            background:radial-gradient(ellipse at 30% 20%,rgba(0,209,255,.07) 0%,transparent 60%),
+                        radial-gradient(ellipse at 70% 80%,rgba(0,209,255,.04) 0%,transparent 50%),
+                        var(--bg);
+            position:relative;overflow:hidden;
+        }
+        .hero::before{
+            content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;
+            background:radial-gradient(circle,rgba(0,209,255,.08) 0%,transparent 70%);
+            border-radius:50%;animation:heroFloat 8s ease-in-out infinite;
+        }
+        .hero::after{
+            content:'';position:absolute;bottom:-150px;left:-100px;width:450px;height:450px;
+            background:radial-gradient(circle,rgba(0,209,255,.05) 0%,transparent 70%);
+            border-radius:50%;animation:heroFloat 10s ease-in-out infinite reverse;
+        }
+        @keyframes heroFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+        .hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%}
+        .hero-badge{
+            display:inline-flex;align-items:center;gap:8px;
+            background:var(--accent-glow);border:1px solid var(--border-accent);
+            border-radius:50px;padding:8px 18px;font-size:.82rem;font-weight:600;color:var(--accent);margin-bottom:20px;
+        }
+        .hero-badge::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+        .hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:var(--text-heading);line-height:1.1;margin-bottom:20px;letter-spacing:-.03em}
+        .hero h1 .accent{color:var(--accent)}
+        .hero p{font-size:1.1rem;color:var(--text-muted);max-width:520px;margin-bottom:32px;line-height:1.8}
+        .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+        .btn-primary{
+            background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#0a0a0f;
+            padding:14px 34px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.95rem;
+            transition:all .3s;display:inline-flex;align-items:center;gap:8px;
+        }
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(0,209,255,.3)}
+        .btn-secondary{
+            background:transparent;color:var(--text-heading);
+            padding:14px 34px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.95rem;
+            transition:all .3s;border:1px solid var(--border-accent);display:inline-flex;align-items:center;gap:8px;
+        }
+        .btn-secondary:hover{background:var(--accent-glow);border-color:var(--accent)}
+
+        /* HERO VISUAL */
+        .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+        .hero-graphic{
+            width:100%;max-width:480px;aspect-ratio:1;
+            background:radial-gradient(circle at 40% 40%,rgba(0,209,255,.12) 0%,rgba(0,209,255,.03) 50%,transparent 70%);
+            border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;
+        }
+        .hero-graphic::before{
+            content:'';position:absolute;inset:20px;border:1px dashed var(--border-accent);border-radius:50%;
+            animation:spin 30s linear infinite;
+        }
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .hero-icon-center{font-size:5rem;filter:drop-shadow(0 0 40px rgba(0,209,255,.3))}
+        .floating-badge{
+            position:absolute;background:var(--bg-card);border:1px solid var(--border);
+            border-radius:16px;padding:14px 20px;display:flex;align-items:center;gap:10px;
+            box-shadow:0 8px 32px rgba(0,0,0,.3);animation:floatBadge 4s ease-in-out infinite;
+        }
+        .floating-badge:nth-child(2){top:10%;right:0;animation-delay:0s}
+        .floating-badge:nth-child(3){bottom:15%;left:-10px;animation-delay:1.5s}
+        .floating-badge:nth-child(4){top:55%;right:-10px;animation-delay:3s}
+        @keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        .floating-badge .badge-icon{font-size:1.5rem}
+        .floating-badge .badge-text{font-size:.8rem;color:var(--text-muted);line-height:1.3}
+        .floating-badge .badge-text strong{display:block;color:var(--text-heading);font-size:.9rem}
+
+        /* STATS */
+        .stats{
+            background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+            padding:50px 24px;
+        }
+        .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+        .stat-num{font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:var(--accent);line-height:1}
+        .stat-label{color:var(--text-muted);font-size:.9rem;margin-top:6px}
+
+        /* SECTIONS */
+        .section{padding:100px 24px}
+        .section-inner{max-width:1200px;margin:0 auto}
+        .section-badge{
+            display:inline-flex;align-items:center;gap:8px;
+            background:var(--accent-glow);border:1px solid var(--border-accent);
+            border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:var(--accent);
+            margin-bottom:16px;
+        }
+        .section-title{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--text-heading);margin-bottom:16px;letter-spacing:-.02em}
+        .section-sub{color:var(--text-muted);font-size:1.05rem;max-width:600px;line-height:1.8}
+        .section-header{margin-bottom:60px}
+        .section-header.center{text-align:center}
+        .section-header.center .section-sub{margin:0 auto}
+
+        /* SERVICES */
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+        .service-card{
+            background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+            padding:36px 30px;transition:all .4s;position:relative;overflow:hidden;
+        }
+        .service-card::before{
+            content:'';position:absolute;top:0;left:0;right:0;height:3px;
+            background:linear-gradient(90deg,var(--accent),var(--accent-dark));
+            transform:scaleX(0);transform-origin:left;transition:transform .4s;
+        }
+        .service-card:hover{border-color:var(--border-accent);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,209,255,.08)}
+        .service-card:hover::before{transform:scaleX(1)}
+        .service-icon{
+            width:56px;height:56px;background:var(--accent-glow);border:1px solid var(--border-accent);
+            border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+            margin-bottom:20px;
+        }
+        .service-card h3{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text-heading);margin-bottom:10px}
+        .service-card p{color:var(--text-muted);font-size:.92rem;line-height:1.7}
+
+        /* ABOUT */
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+        .about-visual{
+            position:relative;aspect-ratio:4/3;background:var(--bg-card);border:1px solid var(--border);
+            border-radius:24px;overflow:hidden;display:flex;align-items:center;justify-content:center;
+        }
+        .about-visual-bg{
+            position:absolute;inset:0;
+            background:radial-gradient(circle at 30% 30%,rgba(0,209,255,.1) 0%,transparent 60%),
+                        radial-gradient(circle at 70% 70%,rgba(0,209,255,.06) 0%,transparent 50%);
+        }
+        .about-visual .big-icon{font-size:6rem;position:relative;z-index:1;filter:drop-shadow(0 0 30px rgba(0,209,255,.2))}
+        .about-content .section-sub{max-width:none;margin-bottom:32px}
+        .about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+        .about-feature{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--text)}
+        .about-feature .check{color:var(--accent);font-size:1.1rem}
+
+        /* WHY US */
+        .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+        .why-card{
+            background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+            padding:36px 30px;text-align:center;transition:all .4s;
+        }
+        .why-card:hover{border-color:var(--border-accent);transform:translateY(-4px)}
+        .why-icon{font-size:2.4rem;margin-bottom:16px}
+        .why-card h3{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text-heading);margin-bottom:10px}
+        .why-card p{color:var(--text-muted);font-size:.9rem;line-height:1.7}
+
+        /* CTA SECTION */
+        .cta-section{
+            background:linear-gradient(135deg,rgba(0,209,255,.08) 0%,rgba(0,209,255,.02) 100%);
+            border-top:1px solid var(--border-accent);border-bottom:1px solid var(--border-accent);
+        }
+        .cta-box{text-align:center;max-width:700px;margin:0 auto}
+        .cta-box .section-title{margin-bottom:16px}
+        .cta-box .section-sub{margin:0 auto 32px;max-width:none}
+        .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+        /* CONTACT */
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+        .contact-info{display:flex;flex-direction:column;gap:24px}
+        .contact-item{
+            display:flex;align-items:flex-start;gap:16px;
+            background:var(--bg-card);border:1px solid var(--border);
+            border-radius:16px;padding:24px;transition:all .3s;
+        }
+        .contact-item:hover{border-color:var(--border-accent)}
+        .contact-item-icon{
+            width:50px;height:50px;background:var(--accent-glow);border:1px solid var(--border-accent);
+            border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;
+        }
+        .contact-item-text{font-size:.85rem;color:var(--text-muted)}
+        .contact-item-text strong{display:block;color:var(--text-heading);font-size:1rem;margin-bottom:2px}
+        .contact-item-text a{color:var(--accent);text-decoration:none;transition:opacity .3s}
+        .contact-item-text a:hover{opacity:.8}
+        .contact-map{
+            background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+            overflow:hidden;min-height:360px;display:flex;align-items:center;justify-content:center;
+            position:relative;
+        }
+        .contact-map iframe{width:100%;height:100%;min-height:360px;border:0;filter:invert(90%) hue-rotate(180deg) brightness(1.1) contrast(.9)}
+
+        /* FOOTER */
+        .footer{
+            background:var(--bg-card);border-top:1px solid var(--border);padding:48px 24px 32px;
+        }
+        .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .footer-brand{display:flex;align-items:center;gap:10px}
+        .footer-brand .logo-icon{width:36px;height:36px;font-size:16px;border-radius:10px}
+        .footer-brand span{font-family:'Poppins',sans-serif;font-weight:700;color:var(--text-heading);font-size:.95rem}
+        .footer-links{display:flex;gap:28px;list-style:none}
+        .footer-links a{color:var(--text-muted);text-decoration:none;font-size:.85rem;transition:color .3s}
+        .footer-links a:hover{color:var(--accent)}
+        .footer-bottom{
+            max-width:1200px;margin:24px auto 0;padding-top:24px;border-top:1px solid var(--border);
+            display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+            font-size:.82rem;color:var(--text-muted);
+        }
+        .footer-bottom a{color:var(--accent);text-decoration:none}
+        .footer-bottom a:hover{opacity:.8}
+
+        /* ANIMATIONS */
+        .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .reveal-delay-1{transition-delay:.1s}
+        .reveal-delay-2{transition-delay:.2s}
+        .reveal-delay-3{transition-delay:.3s}
+        .reveal-delay-4{transition-delay:.4s}
+        .reveal-delay-5{transition-delay:.5s}
+        .reveal-delay-6{transition-delay:.6s}
+
+        /* MOBILE NAV */
+        .mobile-menu{
+            display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,15,.97);
+            backdrop-filter:blur(20px);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+        }
+        .mobile-menu.active{display:flex}
+        .mobile-menu a{color:var(--text-heading);font-size:1.3rem;font-weight:600;text-decoration:none;transition:color .3s}
+        .mobile-menu a:hover{color:var(--accent)}
+
+        /* RESPONSIVE */
+        @media(max-width:968px){
+            .hero-inner{grid-template-columns:1fr;text-align:center}
+            .hero p{margin:0 auto 32px}
+            .hero-btns{justify-content:center}
+            .hero-visual{display:none}
+            .about-grid{grid-template-columns:1fr}
+            .about-visual{max-height:300px}
+            .contact-grid{grid-template-columns:1fr}
+            .stats-inner{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .nav-links,.nav-cta{display:none}
+            .hamburger{display:flex}
+            .section{padding:70px 20px}
+            .services-grid{grid-template-columns:1fr}
+            .why-grid{grid-template-columns:1fr}
+            .about-features{grid-template-columns:1fr}
+            .footer-inner{flex-direction:column;text-align:center}
+            .footer-bottom{flex-direction:column;text-align:center}
+        }
+        @media(max-width:480px){
+            .stats-inner{grid-template-columns:1fr}
+            .hero-btns{flex-direction:column;align-items:center}
+        }
+    </style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="preview-banner">
+    Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä: <a href="mailto:yassinfennir@gmail.com">yassinfennir@gmail.com</a> | <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">DS</div>
+            <div class="logo-text">Deal <span>Siivous</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#palvelut">Palvelut</a></li>
+            <li><a href="#meista">Meistä</a></li>
+            <li><a href="#miksi">Miksi me</a></li>
+            <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+        </ul>
+        <a href="#yhteystiedot" class="nav-cta">Pyydä tarjous</a>
+        <button class="hamburger" id="hamburger" aria-label="Valikko">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#palvelut" onclick="closeMobile()">Palvelut</a>
+    <a href="#meista" onclick="closeMobile()">Meistä</a>
+    <a href="#miksi" onclick="closeMobile()">Miksi me</a>
+    <a href="#yhteystiedot" onclick="closeMobile()">Yhteystiedot</a>
+    <a href="#yhteystiedot" class="btn-primary" onclick="closeMobile()">Pyydä tarjous</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div>
+            <div class="hero-badge">✦ Luotettava siivouspalvelu Tampereella</div>
+            <h1>Puhdas koti, <span class="accent">puhdas mieli</span></h1>
+            <p>Deal Siivous Oy tarjoaa ammattitaitoista siivouspalvelua Tampereen alueella. Kotisiivous, toimistosiivous ja erikoissiivous — kaikki saman katon alta.</p>
+            <div class="hero-btns">
+                <a href="#yhteystiedot" class="btn-primary">Pyydä tarjous →</a>
+                <a href="#palvelut" class="btn-secondary">Katso palvelut</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-graphic">
+                <div class="hero-icon-center">🧹</div>
+                <div class="floating-badge">
+                    <div class="badge-icon">✨</div>
+                    <div class="badge-text"><strong>100%</strong>Tyytyväisyystakuu</div>
+                </div>
+                <div class="floating-badge">
+                    <div class="badge-icon">🏠</div>
+                    <div class="badge-text"><strong>Kotisiivous</strong>Säännöllinen palvelu</div>
+                </div>
+                <div class="floating-badge">
+                    <div class="badge-icon">🏢</div>
+                    <div class="badge-text"><strong>Toimistot</strong>Yrityspalvelut</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+    <div class="stats-inner">
+        <div class="reveal">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Tyytyväistä asiakasta</div>
+        </div>
+        <div class="reveal reveal-delay-1">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Vuotta kokemusta</div>
+        </div>
+        <div class="reveal reveal-delay-2">
+            <div class="stat-num">7</div>
+            <div class="stat-label">Eri palvelua</div>
+        </div>
+        <div class="reveal reveal-delay-3">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Tyytyväisyystakuu</div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="palvelut">
+    <div class="section-inner">
+        <div class="section-header center reveal">
+            <div class="section-badge">✦ Palvelut</div>
+            <h2 class="section-title">Kattavat siivouspalvelut</h2>
+            <p class="section-sub">Tarjoamme monipuolisia siivousratkaisuja niin yksityis- kuin yritysasiakkaille Tampereen alueella.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">🏠</div>
+                <h3>Kotisiivous</h3>
+                <p>Ammattitaitoinen kotisiivous, joka pitää kotisi puhtaana ja viihtyisänä. Räätälöidään tarpeittesi mukaan.</p>
+            </div>
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-icon">🏢</div>
+                <h3>Toimistosiivous</h3>
+                <p>Siisti ja hygieeninen työympäristö parantaa työhyvinvointia. Hoidamme toimistonne siivouksen tehokkaasti.</p>
+            </div>
+            <div class="service-card reveal reveal-delay-2">
+                <div class="service-icon">📦</div>
+                <h3>Muuttosiivous</h3>
+                <p>Muutatko pois tai uuteen kotiin? Huolehdimme perusteellisesta muuttosiivouksesta puolestasi.</p>
+            </div>
+            <div class="service-card reveal reveal-delay-3">
+                <div class="service-icon">🪟</div>
+                <h3>Ikkunanpesu</h3>
+                <p>Kirkkaat ja puhtaat ikkunat tuovat valoa ja ilmettä. Pesemme ikkunat ammattitaidolla.</p>
+            </div>
+            <div class="service-card reveal reveal-delay-4">
+                <div class="service-icon">🧹</div>
+                <h3>Loppusiivous</h3>
+                <p>Rakennustöiden tai remontin jälkeinen loppusiivous. Hoidamme tilat käyttökuntoon tehokkaasti.</p>
+            </div>
+            <div class="service-card reveal reveal-delay-5">
+                <div class="service-icon">🔄</div>
+                <h3>Säännöllinen siivous</h3>
+                <p>Sopimuspohjainen säännöllinen siivouspalvelu, joka takaa jatkuvan puhtauden ilman huolia.</p>
+            </div>
+            <div class="service-card reveal reveal-delay-6">
+                <div class="service-icon">🏗️</div>
+                <h3>Kiinteistöhuolto</h3>
+                <p>Kattava kiinteistöjen ylläpito- ja siivouspalvelu taloyhtiöille ja kiinteistönomistajille.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="meista" style="background:var(--bg-card)">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div class="about-visual reveal">
+                <div class="about-visual-bg"></div>
+                <div class="big-icon">🏆</div>
+            </div>
+            <div class="about-content">
+                <div class="reveal">
+                    <div class="section-badge">✦ Meistä</div>
+                    <h2 class="section-title">Luotettava siivouspalvelu Tampereella</h2>
+                    <p class="section-sub">Deal Siivous Oy on tamperelainen siivousyritys, joka on omistautunut tarjoamaan laadukkaita ja luotettavia siivouspalveluita. Ammattitaitoinen tiimimme huolehtii siitä, että tilasi ovat aina moitteettomassa kunnossa.</p>
+                </div>
+                <div class="about-features reveal">
+                    <div class="about-feature"><span class="check">✓</span> Ammattitaitoinen henkilökunta</div>
+                    <div class="about-feature"><span class="check">✓</span> Ympäristöystävälliset aineet</div>
+                    <div class="about-feature"><span class="check">✓</span> Joustava aikataulutus</div>
+                    <div class="about-feature"><span class="check">✓</span> Kilpailukykyiset hinnat</div>
+                    <div class="about-feature"><span class="check">✓</span> Tyytyväisyystakuu</div>
+                    <div class="about-feature"><span class="check">✓</span> Vakuutettu toiminta</div>
+                </div>
+                <a href="#yhteystiedot" class="btn-primary reveal">Ota yhteyttä →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="miksi">
+    <div class="section-inner">
+        <div class="section-header center reveal">
+            <div class="section-badge">✦ Miksi Deal Siivous</div>
+            <h2 class="section-title">Miksi valita meidät?</h2>
+            <p class="section-sub">Panostamme laatuun, luotettavuuteen ja asiakastyytyväisyyteen jokaisessa toimeksiannossamme.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-icon">⭐</div>
+                <h3>Laatu edellä</h3>
+                <p>Käytämme vain laadukkaita ja ympäristöystävällisiä siivousaineita varmistaaksemme parhaan lopputuloksen.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-1">
+                <div class="why-icon">⏰</div>
+                <h3>Täsmällisyys</h3>
+                <p>Saavumme aina sovittuna aikana ja hoidamme työmme tehokkaasti sovitussa aikataulussa.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-2">
+                <div class="why-icon">💎</div>
+                <h3>Luotettavuus</h3>
+                <p>Henkilökuntamme on luotettavaa ja kokenutta. Voit huoletta jättää avaimet meille.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-3">
+                <div class="why-icon">💬</div>
+                <h3>Helppo yhteydenpito</h3>
+                <p>Tavoitat meidät helposti puhelimella, sähköpostilla tai WhatsAppilla — vastaamme nopeasti.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section">
+    <div class="section-inner">
+        <div class="cta-box reveal">
+            <div class="section-badge">✦ Aloitetaan</div>
+            <h2 class="section-title">Tarvitsetko siivouspalvelua?</h2>
+            <p class="section-sub">Pyydä maksuton ja sitomaton tarjous. Otamme yhteyttä sinuun nopeasti ja kartoitamme tarpeesi.</p>
+            <div class="cta-btns">
+                <a href="https://wa.me/358405104142" target="_blank" class="btn-primary">💬 WhatsApp</a>
+                <a href="tel:+358405104142" class="btn-secondary">📞 Soita nyt</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="yhteystiedot">
+    <div class="section-inner">
+        <div class="section-header center reveal">
+            <div class="section-badge">✦ Yhteystiedot</div>
+            <h2 class="section-title">Ota yhteyttä</h2>
+            <p class="section-sub">Olemme täällä auttamassa sinua. Ota rohkeasti yhteyttä — tarjous on aina maksuton!</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item reveal">
+                    <div class="contact-item-icon">📧</div>
+                    <div class="contact-item-text">
+                        <strong>Sähköposti</strong>
+                        <a href="mailto:toimisto@dealsiivous.fi">toimisto@dealsiivous.fi</a>
+                    </div>
+                </div>
+                <div class="contact-item reveal reveal-delay-1">
+                    <div class="contact-item-icon">📞</div>
+                    <div class="contact-item-text">
+                        <strong>Puhelin</strong>
+                        <a href="tel:+358405104142">+358 40 510 4142</a>
+                    </div>
+                </div>
+                <div class="contact-item reveal reveal-delay-2">
+                    <div class="contact-item-icon">💬</div>
+                    <div class="contact-item-text">
+                        <strong>WhatsApp</strong>
+                        <a href="https://wa.me/358405104142" target="_blank">Lähetä viesti WhatsAppissa</a>
+                    </div>
+                </div>
+                <div class="contact-item reveal reveal-delay-3">
+                    <div class="contact-item-icon">📍</div>
+                    <div class="contact-item-text">
+                        <strong>Sijainti</strong>
+                        Tampere, Suomi
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59587.97339866959!2d23.72894695!3d61.49791105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468edfb9e47fdb0d%3A0x4001e913cbf5e60!2sTampere!5e0!3m2!1sen!2sfi!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="logo-icon">DS</div>
+            <span>Deal Siivous Oy</span>
+        </div>
+        <ul class="footer-links">
+            <li><a href="#palvelut">Palvelut</a></li>
+            <li><a href="#meista">Meistä</a></li>
+            <li><a href="#miksi">Miksi me</a></li>
+            <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Deal Siivous Oy. Kaikki oikeudet pidätetään.</span>
+        <span>Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — elfennir.com</span>
+    </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    const spans = hamburger.querySelectorAll('span');
+    if (mobileMenu.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+    }
+});
+function closeMobile() {
+    mobileMenu.classList.remove('active');
+    const spans = hamburger.querySelectorAll('span');
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+}
+
+// IntersectionObserver for reveal animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L-Beauty | Kauneushoitola Helsinki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg-light:#111118;--bg-card:#16161f;--bg-card-hover:#1c1c28;
+  --rose-gold:#c6a07c;--rose-gold-light:#d4b896;--rose-pink:#d4a0a0;--soft-pink:#e8b4b8;
+  --accent:#c6a07c;--accent-light:#d4b896;--accent-glow:rgba(198,160,124,.15);
+  --text:#e0ddd8;--text-muted:#8a8690;--text-light:#b5b0ba;
+  --border:rgba(198,160,124,.1);--border-hover:rgba(198,160,124,.25);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+  --shadow:0 8px 40px rgba(0,0,0,.4);--glow:0 0 60px rgba(198,160,124,.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.7}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* BANNER */
+.banner{background:linear-gradient(90deg,var(--accent),var(--rose-pink));color:var(--bg);text-align:center;padding:10px 16px;font-size:.8rem;font-weight:500;letter-spacing:.3px;position:relative;z-index:1001}
+.banner a{color:var(--bg);font-weight:700;text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:999;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .4s}
+nav.scrolled{background:rgba(10,10,15,.95);box-shadow:0 4px 30px rgba(0,0,0,.5)}
+.nav-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+.logo{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:#fff;letter-spacing:2px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text-muted);font-size:.85rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:var(--bg)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(198,160,124,.07) 0%,rgba(212,160,160,.04) 40%,transparent 70%)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:orbFloat 20s ease-in-out infinite}
+.hero-orb:nth-child(1){width:500px;height:500px;background:radial-gradient(circle,rgba(198,160,124,.12),transparent);top:-10%;right:-5%;animation-delay:0s}
+.hero-orb:nth-child(2){width:400px;height:400px;background:radial-gradient(circle,rgba(212,160,160,.08),transparent);bottom:-10%;left:-5%;animation-delay:-7s}
+.hero-orb:nth-child(3){width:300px;height:300px;background:radial-gradient(circle,rgba(232,180,184,.06),transparent);top:40%;left:50%;animation-delay:-14s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.1)}66%{transform:translate(-20px,30px) scale(.95)}}
+.hero-content{position:relative;z-index:2;padding:40px 24px;max-width:800px}
+.hero-line{width:60px;height:1.5px;background:linear-gradient(90deg,var(--accent),var(--rose-pink));margin:0 auto 28px;animation:fadeUp .8s ease forwards;opacity:0}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5rem);color:#fff;font-weight:300;line-height:1.1;margin-bottom:12px;animation:fadeUp .8s ease .15s forwards;opacity:0}
+.hero h1 strong{font-weight:600;background:linear-gradient(135deg,var(--accent),var(--soft-pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--text-muted);font-style:italic;font-weight:300;margin-bottom:28px;animation:fadeUp .8s ease .3s forwards;opacity:0}
+.hero p{font-size:1rem;color:var(--text-muted);max-width:520px;margin:0 auto 40px;animation:fadeUp .8s ease .45s forwards;opacity:0}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s ease .6s forwards;opacity:0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 38px;border-radius:50px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .4s;cursor:pointer;border:none;letter-spacing:.6px;text-transform:uppercase;font-family:var(--sans)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--rose-pink));color:var(--bg);box-shadow:0 6px 30px rgba(198,160,124,.25)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(198,160,124,.4)}
+.btn-outline{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.btn-outline:hover{background:var(--accent);color:var(--bg);transform:translateY(-3px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+section{padding:110px 24px}
+.section-header{text-align:center;margin-bottom:70px}
+.section-header .label{display:inline-block;color:var(--accent);font-size:.75rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:16px;position:relative;padding:0 20px}
+.section-header .label::before,.section-header .label::after{content:'';position:absolute;top:50%;width:30px;height:1px;background:var(--accent)}
+.section-header .label::before{left:-20px}
+.section-header .label::after{right:-20px}
+.section-header h2{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);color:#fff;font-weight:300;line-height:1.2}
+.section-header h2 strong{font-weight:600}
+.section-header p{color:var(--text-muted);margin-top:16px;max-width:560px;margin-left:auto;margin-right:auto;font-size:.95rem}
+
+/* SERVICES */
+.services{background:var(--bg-light)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:auto}
+.service-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:40px 28px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--rose-pink));transform:scaleX(0);transition:transform .5s;transform-origin:left}
+.service-card:hover{transform:translateY(-8px);background:var(--bg-card-hover);border-color:var(--border-hover);box-shadow:var(--glow)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:68px;height:68px;background:var(--accent-glow);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:1.6rem;transition:all .4s}
+.service-card:hover .service-icon{border-color:var(--accent);background:rgba(198,160,124,.2);box-shadow:0 0 30px rgba(198,160,124,.15)}
+.service-card h3{font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:10px;font-weight:500}
+.service-card p{font-size:.85rem;color:var(--text-muted);line-height:1.7}
+
+/* ABOUT */
+.about{background:var(--bg);position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(198,160,124,.04),transparent 70%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:auto;align-items:center}
+.about-visual{position:relative}
+.about-box{background:linear-gradient(135deg,var(--bg-card),var(--bg-card-hover));border:1px solid var(--border);border-radius:24px;padding:50px 40px;position:relative;overflow:hidden}
+.about-box::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle at 70% 30%,rgba(198,160,124,.06),transparent 50%)}
+.about-box .big-letter{font-family:var(--serif);font-size:8rem;font-weight:700;color:rgba(198,160,124,.08);position:absolute;top:-20px;right:20px;line-height:1}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.stat{text-align:center;padding:20px;background:rgba(198,160,124,.05);border:1px solid var(--border);border-radius:16px}
+.stat .num{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--accent);display:block}
+.stat .txt{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.about-text h3{font-family:var(--serif);font-size:1.8rem;color:#fff;font-weight:400;margin-bottom:20px;line-height:1.3}
+.about-text h3 strong{font-weight:600;color:var(--accent)}
+.about-text p{color:var(--text-muted);margin-bottom:16px;font-size:.95rem;line-height:1.8}
+.about-features{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.about-features li{display:flex;align-items:center;gap:12px;color:var(--text-light);font-size:.9rem}
+.about-features li::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;flex-shrink:0}
+
+/* WHY US */
+.why{background:var(--bg-light)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;max-width:1100px;margin:auto}
+.why-card{text-align:center;padding:40px 24px}
+.why-card .icon{font-size:2.4rem;margin-bottom:20px;display:block}
+.why-card h3{font-family:var(--serif);font-size:1.15rem;color:#fff;margin-bottom:10px;font-weight:500}
+.why-card p{font-size:.85rem;color:var(--text-muted);line-height:1.7}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,rgba(198,160,124,.08),rgba(212,160,160,.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
+.cta h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;font-weight:300;margin-bottom:16px}
+.cta h2 strong{font-weight:600;color:var(--accent)}
+.cta p{color:var(--text-muted);max-width:500px;margin:0 auto 36px;font-size:.95rem}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* CONTACT */
+.contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:1000px;margin:auto;align-items:start}
+.contact-info h3{font-family:var(--serif);font-size:1.6rem;color:#fff;font-weight:400;margin-bottom:24px}
+.contact-info h3 strong{font-weight:600;color:var(--accent)}
+.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;transition:all .3s}
+.contact-item:hover{border-color:var(--border-hover);background:var(--bg-card-hover)}
+.contact-item .ci-icon{width:48px;height:48px;background:var(--accent-glow);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-item .ci-label{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.contact-item a,.contact-item .ci-value{color:var(--text-light);text-decoration:none;font-size:.95rem;transition:color .3s}
+.contact-item a:hover{color:var(--accent)}
+.contact-hours h3{font-family:var(--serif);font-size:1.6rem;color:#fff;font-weight:400;margin-bottom:24px}
+.contact-hours h3 strong{font-weight:600;color:var(--accent)}
+.hours-table{width:100%}
+.hours-row{display:flex;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border);font-size:.9rem}
+.hours-row:last-child{border-bottom:none}
+.hours-row .day{color:var(--text-light)}
+.hours-row .time{color:var(--accent);font-weight:500}
+
+/* FOOTER */
+footer{background:var(--bg-light);border-top:1px solid var(--border);padding:40px 24px;text-align:center}
+.footer-inner{max-width:1100px;margin:auto}
+.footer-logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;letter-spacing:2px;margin-bottom:8px}
+.footer-logo span{color:var(--accent)}
+footer p{color:var(--text-muted);font-size:.82rem;margin-top:8px}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.footer-divider{width:60px;height:1px;background:var(--accent);margin:20px auto;opacity:.3}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+.reveal-delay-5{transition-delay:.5s}
+.reveal-delay-6{transition-delay:.6s}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+  .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--bg-light);flex-direction:column;padding:80px 32px 40px;gap:0;border-left:1px solid var(--border);transition:right .4s ease;box-shadow:-10px 0 40px rgba(0,0,0,.5)}
+  .nav-links.open{right:0}
+  .nav-links a{padding:16px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+  .nav-links a::after{display:none}
+  .hamburger{display:flex;z-index:1001}
+  .hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .services-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  section{padding:80px 20px}
+  .about-box{padding:36px 24px}
+  .about-box .big-letter{font-size:5rem}
+}
+@media(max-width:480px){
+  .why-grid{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center;max-width:280px}
+}
+
+/* MOBILE OVERLAY */
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:997}
+.nav-overlay.open{display:block}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg-card);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  Tämä on esikatselu — Haluatko tällaisen sivuston? Ota yhteyttä: <a href="https://elfennir.com" target="_blank">elfennir.com</a> | yassinfennir@gmail.com
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo">L-<span>Beauty</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#palvelut" onclick="closeNav()">Palvelut</a></li>
+      <li><a href="#meista" onclick="closeNav()">Meistä</a></li>
+      <li><a href="#miksi" onclick="closeNav()">Miksi me</a></li>
+      <li><a href="#yhteystiedot" onclick="closeNav()">Yhteystiedot</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Valikko">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-content">
+    <div class="hero-line"></div>
+    <h1>Koe todellinen<br><strong>kauneuden luksus</strong></h1>
+    <p class="hero-sub">Ammattitaitoista kauneudenhoitoa Helsingin sydämessä</p>
+    <p>L-Beauty tarjoaa laajan valikoiman kauneudenhoitopalveluita, jotka on suunniteltu sinun hyvinvointiasi varten. Rentoudu ja anna meidän huolehtia sinusta.</p>
+    <div class="hero-btns">
+      <a href="#palvelut" class="btn btn-primary">Tutustu palveluihin</a>
+      <a href="https://wa.me/358409351559" target="_blank" class="btn btn-outline">WhatsApp &#10132;</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="palvelut">
+  <div class="section-header reveal">
+    <div class="label">Palvelut</div>
+    <h2>Hemmottele itseäsi <strong>ammattitaidolla</strong></h2>
+    <p>Monipuolinen valikoima kauneudenhoitopalveluita, jokaiselle jotakin</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">&#10024;</div>
+      <h3>Kasvohoito</h3>
+      <p>Syväpuhdistavia ja ihoa ravitsevia kasvohoitoja, jotka tuovat hehkun takaisin ihoosi.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">&#9996;</div>
+      <h3>Kulmien muotoilu</h3>
+      <p>Täydellisesti muotoillut kulmat, jotka kehystävät kasvojasi luonnollisen kauniisti.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">&#128065;</div>
+      <h3>Ripsienpidennykset</h3>
+      <p>Volyymia ja pituutta ripsillesi — klassisista luonnollisista dramaattisiin volyymiripsiin.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">&#129526;</div>
+      <h3>Jalkahoito</h3>
+      <p>Hoitava ja rentouttava jalkahoito, joka pitää jalkasi terveinä ja hyvinvoivina.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">&#128588;</div>
+      <h3>Hieronta</h3>
+      <p>Rentouttava tai terapeuttinen hieronta, joka laukaisee jännityksen ja palauttaa energian.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">&#127800;</div>
+      <h3>Vartalohoito</h3>
+      <p>Kokonaisvaltaisia vartalohoitoja, jotka tekevät ihostasi silkkisen pehmeän ja heleän.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">&#127807;</div>
+      <h3>Sokerointi</h3>
+      <p>Hellävarainen ja tehokas ihonkarvojen poisto luonnollisella sokerointimenetelmällä.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">&#128133;</div>
+      <h3>Käsihoito</h3>
+      <p>Hemmotteleva käsihoito ja manikyyri, joka pitää kätesi huoliteltuina ja kauniina.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">&#128142;</div>
+      <h3>Ihonhoito</h3>
+      <p>Yksilöllinen ihonhoitokonsultaatio ja laadukkaita tuotteita juuri sinun ihollesi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="meista">
+  <div class="section-header reveal">
+    <div class="label">Meistä</div>
+    <h2>Luksusta ja <strong>ammattitaitoa</strong></h2>
+    <p>Helsingin sydämessä toimiva kauneushoitola, joka on omistautunut sinun hyvinvoinnillesi</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-box">
+        <div class="big-letter">L</div>
+        <p style="font-family:var(--serif);font-size:1.6rem;color:#fff;font-weight:300;line-height:1.4;position:relative;z-index:1">"Jokainen asiakas ansaitsee henkilökohtaista, laadukasta kauneudenhoitoa."</p>
+        <div class="about-stats">
+          <div class="stat"><span class="num">500+</span><span class="txt">Tyytyväistä asiakasta</span></div>
+          <div class="stat"><span class="num">9+</span><span class="txt">Palvelukategoriaa</span></div>
+          <div class="stat"><span class="num">5/5</span><span class="txt">Arvosana</span></div>
+          <div class="stat"><span class="num">Helsinki</span><span class="txt">Sijainti</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text reveal reveal-delay-2">
+      <h3>Kauneushoitola <strong>L-Beauty</strong> — Sinun hyvinvointisi on meille tärkeintä</h3>
+      <p>L-Beauty on helsinkiläinen kauneushoitola, joka tarjoaa laajan valikoiman ammattitaitoisia kauneudenhoitopalveluita. Meillä yhdistyvät laadukkaat tuotteet, moderni tekniikka ja aito välittäminen jokaisesta asiakkaasta.</p>
+      <p>Tavoitteenamme on luoda sinulle rentouttava kokemus, josta lähdet hyvinvoivana ja hyväntuulisena. Tervetuloa nauttimaan kauneuden luksuksesta.</p>
+      <ul class="about-features">
+        <li>Ammattitaitoiset ja kokeneet kauneudenhoitajat</li>
+        <li>Laadukkaat ja ihoystävälliset tuotteet</li>
+        <li>Rauhallinen ja luksusmainen ympäristö</li>
+        <li>Henkilökohtainen palvelu jokaiselle asiakkaalle</li>
+        <li>Erinomainen sijainti Helsingissä</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="miksi">
+  <div class="section-header reveal">
+    <div class="label">Miksi L-Beauty</div>
+    <h2>Meidät <strong>erottaa muista</strong></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal reveal-delay-1">
+      <span class="icon">&#128171;</span>
+      <h3>Ammattitaito</h3>
+      <p>Kokeneet kauneudenhoitajat, jotka pitävät itsensä ajan tasalla alan uusimmista trendeistä ja tekniikoista.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <span class="icon">&#127919;</span>
+      <h3>Yksilöllisyys</h3>
+      <p>Jokainen hoito räätälöidään sinun tarpeidesi ja toiveidesi mukaan — et ole meille vain numero.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <span class="icon">&#129497;</span>
+      <h3>Laadukkaat tuotteet</h3>
+      <p>Käytämme vain huolella valikoituja, ammattilaistason tuotteita parhaan lopputuloksen varmistamiseksi.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-4">
+      <span class="icon">&#128150;</span>
+      <h3>Hyvinvointi</h3>
+      <p>Hoitola on suunniteltu luomaan sinulle rentouttava ja luksusmainen kokemus alusta loppuun.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Varaa aikasi <strong>tänään</strong></h2>
+  <p>Ota yhteyttä ja anna meidän auttaa sinua näyttämään ja tuntemaan parhaalta.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/358409351559" target="_blank" class="btn btn-primary">Varaa WhatsAppissa</a>
+    <a href="tel:+358409351559" class="btn btn-outline">Soita meille</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="yhteystiedot">
+  <div class="section-header reveal">
+    <div class="label">Yhteystiedot</div>
+    <h2>Ota meihin <strong>yhteyttä</strong></h2>
+    <p>Olemme täällä sinua varten — älä epäröi ottaa yhteyttä</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Tavoita <strong>L-Beauty</strong></h3>
+      <div class="contact-item">
+        <div class="ci-icon">&#128222;</div>
+        <div>
+          <div class="ci-label">Puhelin</div>
+          <a href="tel:+358409351559">+358 40 935 1559</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">&#128231;</div>
+        <div>
+          <div class="ci-label">Sähköposti</div>
+          <a href="mailto:info@l-beauty.fi">info@l-beauty.fi</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">&#128172;</div>
+        <div>
+          <div class="ci-label">WhatsApp</div>
+          <a href="https://wa.me/358409351559" target="_blank">Lähetä viesti</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">&#128205;</div>
+        <div>
+          <div class="ci-label">Sijainti</div>
+          <div class="ci-value">Helsinki</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-hours reveal reveal-delay-2">
+      <h3>Aukioloajat</h3>
+      <div class="hours-table">
+        <div class="hours-row"><span class="day">Maanantai</span><span class="time">9:00 — 18:00</span></div>
+        <div class="hours-row"><span class="day">Tiistai</span><span class="time">9:00 — 18:00</span></div>
+        <div class="hours-row"><span class="day">Keskiviikko</span><span class="time">9:00 — 18:00</span></div>
+        <div class="hours-row"><span class="day">Torstai</span><span class="time">9:00 — 18:00</span></div>
+        <div class="hours-row"><span class="day">Perjantai</span><span class="time">9:00 — 18:00</span></div>
+        <div class="hours-row"><span class="day">Lauantai</span><span class="time">10:00 — 16:00</span></div>
+        <div class="hours-row"><span class="day">Sunnuntai</span><span class="time">Suljettu</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">L-<span>Beauty</span></div>
+    <p>Kauneushoitola Helsinki</p>
+    <div class="footer-divider"></div>
+    <p>Powered by <a href="https://elfennir.com" target="_blank">El Fennir</a> — elfennir.com</p>
+  </div>
+</footer>
+
+<script>
+// NAV
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+const navOverlay=document.getElementById('navOverlay');
+const nav=document.getElementById('nav');
+
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+  navOverlay.classList.toggle('open');
+});
+function closeNav(){
+  hamburger.classList.remove('active');
+  navLinks.classList.remove('open');
+  navOverlay.classList.remove('open');
+}
+
+// SCROLL NAV SHADOW
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>50);
+});
+
+// INTERSECTION OBSERVER ANIMATIONS
+const revealEls=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>observer.observe(el));
+
+// SMOOTH SCROLL FOR ALL ANCHOR LINKS
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){
+      const offset=80;
+      const top=target.getBoundingClientRect().top+window.pageYOffset-offset;
+      window.scrollTo({top,behavior:'smooth'});
+    }
+  });
+});
+</script>
+</body>
+</html>

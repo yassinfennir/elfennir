@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Lagoon Kamppi — Premium Beauty Salon in Helsinki</title>
+<meta name="description" content="Blue Lagoon Kamppi — Premium beauty salon in the heart of Helsinki. Facial treatments, massages, manicure, lash extensions and more. Book your appointment today.">
+<meta property="og:title" content="Blue Lagoon Kamppi — Premium Beauty Salon in Helsinki">
+<meta property="og:description" content="Luxury beauty treatments in Kamppi, Helsinki. Facials, massages, nails, lashes and more.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="beauty salon, helsinki, kamppi, facial treatment, massage, manicure, pedicure, lash extensions, kauneushoitola, blue lagoon">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%230A3D3D'/><circle cx='50' cy='50' r='22' fill='%23D4A76A'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Blue Lagoon Kamppi",
+  "description": "Premium beauty salon in Kamppi, Helsinki offering facial treatments, massages, manicure, pedicure, lash extensions and more.",
+  "telephone": "+358105826270",
+  "email": "markkinointi@bluelagoon.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Helsinki",
+    "addressRegion": "Kamppi",
+    "addressCountry": "FI"
+  },
+  "priceRange": "$$"
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --deep-teal:#0A3D3D;
+  --teal-dark:#072C2C;
+  --teal-mid:#0E4F4F;
+  --gold:#D4A76A;
+  --gold-light:#E8C99B;
+  --gold-dark:#B8894E;
+  --white:#F5F0EB;
+  --white-pure:#FFFFFF;
+  --text-light:rgba(245,240,235,0.85);
+  --text-muted:rgba(245,240,235,0.55);
+  --bg-card:rgba(14,79,79,0.45);
+  --bg-card-hover:rgba(14,79,79,0.7);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Raleway',sans-serif;background:var(--teal-dark);color:var(--white);line-height:1.7;overflow-x:hidden}
+
+/* === PREVIEW BANNER === */
+.preview-banner{
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));
+  color:var(--deep-teal);
+  text-align:center;
+  padding:12px 20px;
+  font-size:0.85rem;
+  font-weight:600;
+  letter-spacing:0.3px;
+  position:relative;
+  z-index:1000;
+}
+.preview-banner a{color:var(--deep-teal);text-decoration:underline;font-weight:700}
+
+/* === NAV === */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(7,44,44,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(212,167,106,0.15);
+  transition:all 0.4s ease;
+  padding-top:44px;
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;font-weight:700;
+  color:var(--white);text-decoration:none;
+  letter-spacing:1px;
+}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  color:var(--text-light);text-decoration:none;
+  font-size:0.9rem;font-weight:500;letter-spacing:0.5px;
+  text-transform:uppercase;transition:color 0.3s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;
+  width:0;height:1.5px;background:var(--gold);
+  transition:width 0.3s ease;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--deep-teal);padding:10px 24px;border-radius:50px;
+  text-decoration:none;font-weight:700;font-size:0.85rem;
+  letter-spacing:0.5px;text-transform:uppercase;
+  transition:all 0.3s;border:none;cursor:pointer;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,167,106,0.35)}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{display:block;width:26px;height:2px;background:var(--gold);transition:all 0.3s}
+
+/* === SECTIONS === */
+section{padding:100px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-label{
+  font-size:0.8rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:12px;
+  display:inline-block;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,3rem);font-weight:700;
+  line-height:1.2;margin-bottom:20px;
+}
+.section-subtitle{
+  color:var(--text-muted);font-size:1.05rem;max-width:600px;line-height:1.8;
+}
+.text-center{text-align:center}
+.text-center .section-subtitle{margin:0 auto}
+
+/* === HERO === */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(212,167,106,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(14,79,79,0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(10,61,61,0.9) 0%, var(--teal-dark) 70%);
+  position:relative;overflow:hidden;
+  padding-top:160px;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A76A' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity:0.5;
+}
+.hero-content{position:relative;z-index:2;max-width:800px;padding:0 24px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(212,167,106,0.1);border:1px solid rgba(212,167,106,0.25);
+  padding:8px 20px;border-radius:50px;
+  font-size:0.8rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:28px;
+  animation:fadeInDown 0.8s ease;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,7vw,5rem);
+  font-weight:700;line-height:1.1;margin-bottom:10px;
+  animation:fadeInUp 0.8s ease 0.1s both;
+}
+.hero h1 span{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-tagline{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  font-style:italic;color:var(--gold-light);
+  margin-bottom:24px;font-weight:400;
+  animation:fadeInUp 0.8s ease 0.2s both;
+}
+.hero-desc{
+  color:var(--text-muted);font-size:1.05rem;max-width:550px;margin:0 auto 40px;
+  line-height:1.8;animation:fadeInUp 0.8s ease 0.3s both;
+}
+.hero-btns{
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  animation:fadeInUp 0.8s ease 0.4s both;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--deep-teal);padding:16px 36px;border-radius:50px;
+  text-decoration:none;font-weight:700;font-size:0.9rem;
+  letter-spacing:1px;text-transform:uppercase;
+  transition:all 0.3s;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(212,167,106,0.3)}
+.btn-secondary{
+  background:transparent;color:var(--white);
+  padding:16px 36px;border-radius:50px;
+  text-decoration:none;font-weight:600;font-size:0.9rem;
+  letter-spacing:1px;text-transform:uppercase;
+  border:1.5px solid rgba(245,240,235,0.3);
+  transition:all 0.3s;cursor:pointer;
+}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+/* Decorative orb */
+.hero-orb{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,167,106,0.06),transparent 70%);
+  animation:orbFloat 8s ease-in-out infinite;
+  pointer-events:none;
+}
+.hero-orb-1{top:-10%;right:-8%}
+.hero-orb-2{bottom:-15%;left:-10%;animation-delay:-4s}
+
+/* === SERVICES === */
+.services{
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(14,79,79,0.4) 0%, transparent 50%),
+    var(--teal-dark);
+}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;margin-top:50px;
+}
+.service-card{
+  background:var(--bg-card);
+  border:1px solid rgba(212,167,106,0.1);
+  border-radius:20px;padding:36px 30px;
+  transition:all 0.4s ease;position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity 0.4s;
+}
+.service-card:hover{
+  background:var(--bg-card-hover);
+  transform:translateY(-6px);
+  border-color:rgba(212,167,106,0.25);
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+.service-card:hover::before{opacity:1}
+.service-icon{
+  width:56px;height:56px;border-radius:16px;
+  background:linear-gradient(135deg,rgba(212,167,106,0.15),rgba(212,167,106,0.05));
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;font-size:1.6rem;
+}
+.service-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;font-weight:600;margin-bottom:10px;
+}
+.service-card p{color:var(--text-muted);font-size:0.95rem;line-height:1.7}
+
+/* === ABOUT === */
+.about{
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(212,167,106,0.06) 0%, transparent 50%),
+    var(--deep-teal);
+}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  margin-top:50px;
+}
+.about-visual{
+  position:relative;border-radius:24px;overflow:hidden;
+  aspect-ratio:4/5;
+  background:linear-gradient(135deg,var(--teal-mid),rgba(212,167,106,0.15));
+  display:flex;align-items:center;justify-content:center;
+}
+.about-visual-inner{
+  text-align:center;padding:40px;
+}
+.about-visual-icon{font-size:4rem;margin-bottom:16px;display:block}
+.about-visual-text{
+  font-family:'Playfair Display',serif;font-size:1.6rem;
+  font-style:italic;color:var(--gold-light);line-height:1.4;
+}
+.about-visual::after{
+  content:'';position:absolute;inset:0;
+  border:1px solid rgba(212,167,106,0.15);border-radius:24px;
+  pointer-events:none;
+}
+.about-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;
+}
+.stat{
+  background:var(--bg-card);border-radius:16px;padding:24px;
+  border:1px solid rgba(212,167,106,0.08);
+}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:700;color:var(--gold);
+}
+.stat-label{color:var(--text-muted);font-size:0.85rem;margin-top:4px}
+
+/* === PRICING === */
+.pricing{
+  background:
+    radial-gradient(ellipse at 50% 80%, rgba(14,79,79,0.5) 0%, transparent 50%),
+    var(--teal-dark);
+}
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:24px;margin-top:50px;
+}
+.price-card{
+  background:var(--bg-card);
+  border:1px solid rgba(212,167,106,0.1);
+  border-radius:20px;padding:36px 30px;
+  text-align:center;transition:all 0.4s ease;
+  position:relative;
+}
+.price-card.featured{
+  border-color:rgba(212,167,106,0.4);
+  background:linear-gradient(165deg,rgba(212,167,106,0.1),var(--bg-card));
+}
+.price-card.featured::before{
+  content:'POPULAR';position:absolute;top:16px;right:16px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--deep-teal);font-size:0.65rem;font-weight:800;
+  padding:4px 12px;border-radius:50px;letter-spacing:1.5px;
+}
+.price-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(212,167,106,0.3);
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+.price-icon{font-size:2.2rem;margin-bottom:16px;display:block}
+.price-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:600;margin-bottom:6px;
+}
+.price-card .duration{color:var(--text-muted);font-size:0.85rem;margin-bottom:20px}
+.price-amount{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;font-weight:700;color:var(--gold);
+  margin-bottom:6px;
+}
+.price-amount span{font-size:1rem;font-weight:400;color:var(--text-muted)}
+.price-features{
+  list-style:none;margin:20px 0 28px;text-align:left;
+}
+.price-features li{
+  padding:8px 0;font-size:0.9rem;color:var(--text-light);
+  border-bottom:1px solid rgba(245,240,235,0.06);
+  display:flex;align-items:center;gap:10px;
+}
+.price-features li::before{content:'&#10003;';color:var(--gold);font-weight:700;font-size:0.8rem}
+.price-card .btn-primary{width:100%;justify-content:center;padding:14px 28px}
+
+/* === EXPERIENCE === */
+.experience{
+  background:var(--deep-teal);
+  position:relative;overflow:hidden;
+}
+.experience::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(212,167,106,0.05), transparent 40%),
+    radial-gradient(circle at 90% 50%, rgba(212,167,106,0.05), transparent 40%);
+}
+.exp-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:36px;margin-top:50px;position:relative;z-index:1;
+}
+.exp-item{text-align:center;padding:30px 20px}
+.exp-num{
+  font-family:'Playfair Display',serif;
+  font-size:3.5rem;font-weight:700;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1;margin-bottom:12px;
+}
+.exp-item h3{font-size:1rem;font-weight:600;margin-bottom:8px}
+.exp-item p{color:var(--text-muted);font-size:0.9rem}
+
+/* === CONTACT === */
+.contact{
+  background:
+    radial-gradient(ellipse at 30% 80%, rgba(212,167,106,0.06) 0%, transparent 50%),
+    var(--teal-dark);
+}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:50px;
+}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;border-radius:16px;
+  background:var(--bg-card);
+  border:1px solid rgba(212,167,106,0.08);
+  transition:all 0.3s;
+}
+.contact-item:hover{border-color:rgba(212,167,106,0.2);transform:translateX(4px)}
+.contact-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(212,167,106,0.15),rgba(212,167,106,0.05));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.contact-item h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}
+.contact-item p{color:var(--text-muted);font-size:0.9rem}
+.contact-item a{color:var(--gold);text-decoration:none;transition:color 0.3s}
+.contact-item a:hover{color:var(--gold-light)}
+
+.map-wrap{
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,167,106,0.15);
+  height:100%;min-height:350px;
+}
+.map-wrap iframe{width:100%;height:100%;border:0;filter:brightness(0.85) contrast(1.1) saturate(0.6)}
+
+/* === FOOTER === */
+footer{
+  background:var(--teal-dark);
+  border-top:1px solid rgba(212,167,106,0.1);
+  padding:40px 24px;text-align:center;
+}
+.footer-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;color:var(--white);
+  margin-bottom:8px;
+}
+.footer-logo span{color:var(--gold)}
+footer p{color:var(--text-muted);font-size:0.85rem}
+footer a{color:var(--gold);text-decoration:none}
+
+/* === WHATSAPP === */
+.whatsapp-float{
+  position:fixed;bottom:28px;right:28px;z-index:998;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 6px 25px rgba(37,211,102,0.4);
+  transition:all 0.3s;
+  animation:whatsappPulse 2s ease-in-out infinite;
+}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5)}
+.whatsapp-float svg{width:30px;height:30px;fill:#fff}
+
+/* === DIVIDER === */
+.section-divider{
+  width:60px;height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  margin:16px auto 0;
+}
+.section-divider.left{margin:16px 0 0}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeInDown{
+  from{opacity:0;transform:translateY(-20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(-20px,20px) scale(1.05)}
+}
+@keyframes whatsappPulse{
+  0%,100%{box-shadow:0 6px 25px rgba(37,211,102,0.4)}
+  50%{box-shadow:0 6px 25px rgba(37,211,102,0.2),0 0 0 12px rgba(37,211,102,0.08)}
+}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* === RESPONSIVE === */
+@media(max-width:900px){
+  .nav-links,.nav-cta-wrap{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;right:0;
+    background:rgba(7,44,44,0.98);
+    padding:20px 24px;gap:16px;
+    border-bottom:1px solid rgba(212,167,106,0.15);
+  }
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .about-visual{aspect-ratio:16/9}
+  .contact-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  section{padding:70px 20px}
+  .hero{padding-top:140px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2.4rem}
+  .hero-tagline{font-size:1rem}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-primary,.btn-secondary{width:100%;text-align:center;justify-content:center}
+  .exp-num{font-size:2.8rem}
+  .about-stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Preview Banner -->
+<div class="preview-banner">
+  This is a FREE preview website designed by <a href="https://elfennir.com" target="_blank" rel="noopener">elfennir.com</a> &mdash; Contact us to make it yours!
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Blue Lagoon <span>Kamppi</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta-wrap">
+      <a href="tel:+358105826270" class="nav-cta">Book Now</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">&#10022; Premium Beauty Salon &#10022;</div>
+    <h1>Blue Lagoon <span>Kamppi</span></h1>
+    <p class="hero-tagline">Where luxury meets beauty in the heart of Helsinki</p>
+    <p class="hero-desc">
+      Experience world-class beauty treatments in our serene Kamppi sanctuary.
+      From rejuvenating facials to expert nail artistry, we bring out your natural radiance.
+    </p>
+    <div class="hero-btns">
+      <a href="tel:+358105826270" class="btn-primary">
+        &#9742; Book Appointment
+      </a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="container text-center">
+    <div class="reveal">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Our Premium Services</h2>
+      <p class="section-subtitle">
+        Indulge in a curated selection of beauty treatments, each designed to pamper and transform.
+      </p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">&#9883;</div>
+        <h3>Facial Treatments</h3>
+        <p>Customised facials using premium products to cleanse, exfoliate, and rejuvenate your skin for a radiant, youthful glow.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#9752;</div>
+        <h3>Relaxing Massages</h3>
+        <p>Unwind with our therapeutic massage treatments. From Swedish to deep tissue, find your perfect escape from daily stress.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#10022;</div>
+        <h3>Manicure &amp; Pedicure</h3>
+        <p>Beautifully crafted nails with long-lasting polish, gel options, and luxurious hand and foot care treatments.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#10049;</div>
+        <h3>Lash Extensions</h3>
+        <p>Dramatic or natural-looking lash extensions applied with precision. Wake up every day with effortlessly stunning eyes.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#9733;</div>
+        <h3>Body Treatments</h3>
+        <p>Full-body wraps, scrubs, and contouring treatments designed to nourish your skin and enhance your silhouette.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#9826;</div>
+        <h3>Waxing &amp; Skin Consultation</h3>
+        <p>Professional waxing services and expert skin consultations to build your personalised beauty routine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-visual-inner">
+          <span class="about-visual-icon">&#127800;</span>
+          <p class="about-visual-text">
+            A sanctuary of beauty<br>in the heart of Kamppi
+          </p>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Your Beauty Destination in Kamppi</h2>
+        <div class="section-divider left"></div>
+        <p class="section-subtitle" style="margin-top:20px">
+          Blue Lagoon Kamppi is a premium beauty salon nestled in one of Helsinki's most vibrant neighbourhoods. We combine expert techniques with luxury products to deliver treatments that leave you feeling refreshed, confident, and beautiful.
+        </p>
+        <p class="section-subtitle" style="margin-top:16px">
+          Our team of skilled professionals is dedicated to providing a warm, relaxing atmosphere where every visit feels like a retreat. Whether you are preparing for a special occasion or simply treating yourself, we are here to make you shine.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5000+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Expert Treatments</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">4.9</div>
+            <div class="stat-label">Google Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Numbers -->
+<section class="experience">
+  <div class="container">
+    <div class="exp-grid">
+      <div class="exp-item reveal">
+        <div class="exp-num">01</div>
+        <h3>Book Your Visit</h3>
+        <p>Call us or book online to reserve your preferred time slot with our specialists.</p>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-num">02</div>
+        <h3>Personalised Consultation</h3>
+        <p>We listen to your needs and recommend the perfect treatment plan for you.</p>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-num">03</div>
+        <h3>Relax &amp; Enjoy</h3>
+        <p>Sit back and let our experts work their magic in our serene environment.</p>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-num">04</div>
+        <h3>Leave Radiant</h3>
+        <p>Walk out feeling refreshed, confident, and beautifully transformed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+  <div class="container text-center">
+    <div class="reveal">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">Popular Treatments</h2>
+      <p class="section-subtitle">
+        Transparent pricing for our most-loved beauty services. All treatments include consultation.
+      </p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <span class="price-icon">&#9883;</span>
+        <h3>Classic Facial</h3>
+        <p class="duration">60 minutes</p>
+        <div class="price-amount">&euro;75</div>
+        <ul class="price-features">
+          <li>Deep cleansing &amp; exfoliation</li>
+          <li>Hydrating mask treatment</li>
+          <li>Face &amp; neck massage</li>
+          <li>Premium skincare products</li>
+        </ul>
+        <a href="tel:+358105826270" class="btn-primary">Book Now</a>
+      </div>
+      <div class="price-card featured reveal">
+        <span class="price-icon">&#9752;</span>
+        <h3>Full Body Massage</h3>
+        <p class="duration">90 minutes</p>
+        <div class="price-amount">&euro;110</div>
+        <ul class="price-features">
+          <li>Swedish or deep tissue</li>
+          <li>Aromatherapy oils</li>
+          <li>Stress &amp; tension relief</li>
+          <li>Full relaxation experience</li>
+        </ul>
+        <a href="tel:+358105826270" class="btn-primary">Book Now</a>
+      </div>
+      <div class="price-card reveal">
+        <span class="price-icon">&#10022;</span>
+        <h3>Gel Manicure</h3>
+        <p class="duration">45 minutes</p>
+        <div class="price-amount">&euro;55</div>
+        <ul class="price-features">
+          <li>Nail shaping &amp; cuticle care</li>
+          <li>Long-lasting gel polish</li>
+          <li>Hand massage included</li>
+          <li>Wide colour selection</li>
+        </ul>
+        <a href="tel:+358105826270" class="btn-primary">Book Now</a>
+      </div>
+      <div class="price-card reveal">
+        <span class="price-icon">&#10049;</span>
+        <h3>Lash Extensions</h3>
+        <p class="duration">120 minutes</p>
+        <div class="price-amount">&euro;130</div>
+        <ul class="price-features">
+          <li>Classic or volume lashes</li>
+          <li>Premium silk fibres</li>
+          <li>Natural or dramatic look</li>
+          <li>Lasts 3&ndash;4 weeks</li>
+        </ul>
+        <a href="tel:+358105826270" class="btn-primary">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Visit Us in Kamppi</h2>
+      <p class="section-subtitle">
+        We would love to welcome you. Reach out to book an appointment or ask any questions.
+      </p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon">&#9742;</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+358105826270">+358 10 582 6270</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9993;</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:markkinointi@bluelagoon.fi">markkinointi@bluelagoon.fi</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9872;</div>
+          <div>
+            <h4>Location</h4>
+            <p>Kamppi, Helsinki, Finland</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9200;</div>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>Mon&ndash;Fri: 9:00&ndash;20:00<br>Sat: 10:00&ndash;18:00<br>Sun: Closed</p>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.5!2d24.9322!3d60.1685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc8ed677e0b%3A0x6db80fa9a2a7a2f0!2sKamppi%2C%20Helsinki!5e0!3m2!1sen!2sfi!4v1700000000000!5m2!1sen!2sfi" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">Blue Lagoon <span>Kamppi</span></div>
+    <p>&copy; 2026 Blue Lagoon Kamppi. All rights reserved.</p>
+    <p style="margin-top:8px">
+      Preview designed by <a href="https://elfennir.com" target="_blank" rel="noopener">elfennir.com</a>
+    </p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/358105826270" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- Minimal JS for menu toggle and scroll reveal -->
+<script>
+// Hamburger toggle
+document.getElementById('hamburger').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+// Scroll reveal
+var reveals=document.querySelectorAll('.reveal');
+function checkReveal(){
+  for(var i=0;i<reveals.length;i++){
+    var top=reveals[i].getBoundingClientRect().top;
+    if(top<window.innerHeight-80){
+      reveals[i].classList.add('visible');
+    }
+  }
+}
+window.addEventListener('scroll',checkReveal);
+window.addEventListener('load',checkReveal);
+</script>
+
+</body>
+</html>

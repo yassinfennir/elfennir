@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hammaslääkärikeskus Elegant — Hammaslääkäri Turku</title>
+<meta name="description" content="Hammaslääkärikeskus Elegant — Laadukas ja moderni hammashoito Turussa. Kokeneet hammaslääkärit, nykyaikaiset tilat ja kattavat palvelut koko perheelle.">
+<meta property="og:title" content="Hammaslääkärikeskus Elegant — Hammaslääkäri Turku">
+<meta property="og:description" content="Laadukas ja moderni hammashoito Turussa. Kokeneet hammaslääkärit ja nykyaikaiset tilat.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="hammaslääkäri, turku, hammashoito, hammasklinikka, hampaiden valkaisu, implantti, oikomishoito, juurihoito, kruunut, laminaatit">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🦷</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Hammaslääkärikeskus Elegant",
+  "description": "Laadukas ja moderni hammashoito Turussa. Kokeneet hammaslääkärit ja nykyaikaiset tilat.",
+  "telephone": "+35822330000",
+  "email": "info@elegant.fi",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Turku",
+    "addressCountry": "FI"
+  },
+  "priceRange": "€€"
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#0284C7;
+  --primary-dark:#0369A1;
+  --primary-light:#E0F2FE;
+  --navy:#0C4A6E;
+  --navy-light:#164E63;
+  --mint:#34D399;
+  --mint-light:#D1FAE5;
+  --bg:#F8FAFC;
+  --white:#FFFFFF;
+  --text:#0C4A6E;
+  --muted:#64748B;
+  --border:#E2E8F0;
+  --radius:16px;
+  --shadow:0 4px 24px rgba(12,74,110,.08);
+  --shadow-lg:0 12px 48px rgba(12,74,110,.12);
+  --heading:'Playfair Display', serif;
+  --body:'Inter', sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:color .3s}
+a:hover{color:var(--primary-dark)}
+h1,h2,h3,h4{font-family:var(--heading);letter-spacing:-.01em}
+img{max-width:100%;display:block}
+
+[data-lucide]{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:10px}
+::selection{background:var(--primary);color:#fff}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes toothBounce{0%,100%{transform:rotate(0deg) scale(1)}25%{transform:rotate(-5deg) scale(1.05)}75%{transform:rotate(5deg) scale(1.05)}}
+@keyframes gentlePulse{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
+.reveal-delay-3{transition-delay:.45s}
+.reveal-delay-4{transition-delay:.6s}
+
+/* ===== PREVIEW BANNER ===== */
+.preview-banner{
+  background:linear-gradient(135deg,var(--navy) 0%,#082F49 100%);
+  color:#fff;padding:14px 20px;text-align:center;font-size:.85rem;
+  font-weight:500;position:relative;z-index:1000;letter-spacing:.02em;
+}
+.preview-banner a{color:var(--mint);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.preview-banner a:hover{color:var(--mint-light)}
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:999;
+  background:rgba(248,250,252,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all .3s ease;
+}
+.nav.scrolled{box-shadow:0 2px 20px rgba(12,74,110,.08)}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;height:72px;
+}
+.nav-logo{
+  font-family:var(--heading);font-size:1.3rem;font-weight:700;color:var(--navy);
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo .tooth-icon{
+  width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--navy));
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;color:#fff;
+}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{
+  color:var(--muted);font-size:.88rem;font-weight:500;
+  transition:color .3s;position:relative;
+}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+  background:var(--primary);transition:width .3s;border-radius:2px;
+}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
+  padding:10px 24px;border-radius:50px;
+  font-weight:600;font-size:.88rem;transition:all .3s;border:none;cursor:pointer;
+}
+.nav-cta:hover{background:linear-gradient(135deg,var(--primary-dark),var(--navy));color:#fff;transform:translateY(-1px);box-shadow:0 6px 20px rgba(2,132,199,.3)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:92vh;display:flex;align-items:center;
+  background:linear-gradient(160deg,#F8FAFC 0%,#E0F2FE 40%,#F0F9FF 100%);
+  overflow:hidden;
+}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg-shapes .shape{position:absolute;border-radius:50%;opacity:.12}
+.hero-bg-shapes .shape-1{
+  width:500px;height:500px;background:var(--primary);top:-100px;right:-100px;
+  animation:float 8s ease-in-out infinite;
+}
+.hero-bg-shapes .shape-2{
+  width:300px;height:300px;background:var(--mint);bottom:-50px;left:-50px;
+  animation:float 10s ease-in-out infinite 2s;
+}
+.hero-bg-shapes .shape-3{
+  width:200px;height:200px;background:var(--primary-light);top:40%;left:30%;
+  animation:float 12s ease-in-out infinite 4s;opacity:.08;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;padding:80px 24px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:2;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--white);border:1px solid var(--border);
+  padding:8px 18px;border-radius:50px;font-size:.82rem;font-weight:600;
+  color:var(--primary);margin-bottom:20px;
+  animation:fadeUp .8s ease-out;
+}
+.hero-badge i[data-lucide]{width:16px;height:16px;color:var(--mint)}
+.hero h1{
+  font-size:3.4rem;font-weight:800;line-height:1.1;color:var(--navy);
+  margin-bottom:20px;animation:fadeUp .8s ease-out .1s both;
+}
+.hero h1 span{
+  background:linear-gradient(135deg,var(--primary),var(--mint));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero p{
+  font-size:1.15rem;color:var(--muted);margin-bottom:32px;max-width:500px;
+  animation:fadeUp .8s ease-out .2s both;line-height:1.8;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s ease-out .3s both}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
+  padding:14px 32px;border-radius:50px;font-weight:600;font-size:.95rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .3s;border:none;cursor:pointer;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(2,132,199,.3);color:#fff}
+.btn-secondary{
+  background:var(--white);color:var(--navy);
+  padding:14px 32px;border-radius:50px;font-weight:600;font-size:.95rem;
+  display:inline-flex;align-items:center;gap:8px;
+  border:2px solid var(--border);transition:all .3s;cursor:pointer;
+}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+.hero-visual{
+  position:relative;display:flex;justify-content:center;align-items:center;
+  animation:fadeIn 1s ease-out .4s both;
+}
+.hero-card{
+  background:var(--white);border-radius:24px;padding:48px;
+  box-shadow:var(--shadow-lg);position:relative;
+  border:1px solid rgba(2,132,199,.08);
+}
+.hero-card-icon{
+  width:80px;height:80px;
+  background:linear-gradient(135deg,var(--primary),var(--navy));
+  border-radius:20px;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;font-size:2.5rem;
+  animation:toothBounce 3s ease-in-out infinite;
+}
+.hero-card h3{font-size:1.5rem;text-align:center;color:var(--navy);margin-bottom:8px}
+.hero-card p{text-align:center;color:var(--muted);font-size:.9rem}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;
+  padding-top:28px;border-top:1px solid var(--border);
+}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:var(--heading);font-size:1.6rem;font-weight:700;color:var(--primary)}
+.hero-stat .label{font-size:.75rem;color:var(--muted);margin-top:2px}
+
+.hero-float{
+  position:absolute;background:var(--white);border-radius:16px;padding:14px 18px;
+  box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;
+  font-size:.82rem;font-weight:600;animation:float 4s ease-in-out infinite;
+}
+.hero-float-1{top:-10px;left:-20px;animation-delay:0s;color:var(--mint)}
+.hero-float-1 .icon-circle{background:var(--mint-light);color:var(--mint)}
+.hero-float-2{bottom:20px;right:-30px;animation-delay:1.5s;color:var(--primary)}
+.hero-float-2 .icon-circle{background:var(--primary-light);color:var(--primary)}
+.icon-circle{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.icon-circle i[data-lucide]{width:18px;height:18px}
+
+/* ===== SECTION COMMON ===== */
+.section{padding:100px 24px}
+.section-header{text-align:center;max-width:640px;margin:0 auto 60px}
+.section-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--primary-light);color:var(--primary);
+  padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;
+}
+.section-header h2{font-size:2.4rem;font-weight:700;color:var(--navy);margin-bottom:12px}
+.section-header p{color:var(--muted);font-size:1.05rem}
+
+/* ===== SERVICES ===== */
+.services-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;
+}
+.service-card{
+  background:var(--white);border-radius:var(--radius);padding:32px 28px;
+  border:1px solid var(--border);transition:all .4s cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:hidden;cursor:default;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--mint));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;font-size:1.4rem;
+}
+.service-icon.blue{background:var(--primary-light);color:var(--primary)}
+.service-icon.mint{background:var(--mint-light);color:#059669}
+.service-icon.navy{background:rgba(12,74,110,.08);color:var(--navy)}
+.service-card h3{font-size:1.15rem;color:var(--navy);margin-bottom:8px;font-family:var(--body);font-weight:700}
+.service-card p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:14px}
+.service-price{
+  font-size:.85rem;font-weight:700;color:var(--primary);
+  background:var(--primary-light);display:inline-block;
+  padding:4px 14px;border-radius:50px;
+}
+
+/* ===== ABOUT ===== */
+.about{background:linear-gradient(160deg,var(--white),#F0F9FF)}
+.about-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.about-visual{position:relative}
+.about-card{
+  background:linear-gradient(135deg,var(--primary),var(--navy));
+  border-radius:24px;padding:48px;color:#fff;position:relative;overflow:hidden;
+}
+.about-card::after{
+  content:'';position:absolute;width:200px;height:200px;
+  background:rgba(255,255,255,.08);border-radius:50%;
+  top:-40px;right:-40px;
+}
+.about-card .big-icon{font-size:4rem;margin-bottom:20px;display:block}
+.about-card h3{font-size:1.8rem;margin-bottom:12px;font-family:var(--heading)}
+.about-card p{opacity:.85;line-height:1.8;font-size:.95rem}
+.about-content h2{font-size:2.2rem;color:var(--navy);margin-bottom:20px}
+.about-content > p{color:var(--muted);font-size:1rem;margin-bottom:28px;line-height:1.8}
+.about-features{display:flex;flex-direction:column;gap:18px}
+.about-feature{display:flex;align-items:flex-start;gap:14px}
+.about-feature .check{
+  width:28px;height:28px;min-width:28px;border-radius:8px;
+  background:var(--mint-light);color:var(--mint);
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.about-feature .check i[data-lucide]{width:16px;height:16px}
+.about-feature div h4{font-size:.95rem;color:var(--navy);margin-bottom:2px;font-family:var(--body);font-weight:700}
+.about-feature div p{font-size:.85rem;color:var(--muted)}
+
+/* ===== PRICING ===== */
+.pricing{background:var(--bg)}
+.pricing-grid{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;
+}
+.pricing-card{
+  background:var(--white);border-radius:var(--radius);padding:36px 30px;
+  border:1px solid var(--border);transition:all .4s;text-align:center;
+}
+.pricing-card.featured{
+  border-color:var(--primary);position:relative;
+  box-shadow:0 8px 32px rgba(2,132,199,.15);
+}
+.pricing-card.featured::before{
+  content:'Suosittu';position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--primary),var(--mint));color:#fff;
+  padding:4px 18px;border-radius:50px;font-size:.75rem;font-weight:700;
+}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.pricing-card h3{font-size:1.1rem;color:var(--navy);margin-bottom:6px;font-family:var(--body);font-weight:700}
+.pricing-card .price{
+  font-family:var(--heading);font-size:2.2rem;font-weight:700;color:var(--primary);
+  margin:16px 0;
+}
+.pricing-card .price span{font-size:.9rem;color:var(--muted);font-family:var(--body);font-weight:400}
+.pricing-card p{color:var(--muted);font-size:.85rem;margin-bottom:20px;line-height:1.6}
+.pricing-card .btn-outline{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 24px;border-radius:50px;border:2px solid var(--border);
+  color:var(--navy);font-weight:600;font-size:.85rem;transition:all .3s;
+}
+.pricing-card .btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+.pricing-card.featured .btn-outline{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;border-color:transparent;
+}
+.pricing-card.featured .btn-outline:hover{box-shadow:0 6px 20px rgba(2,132,199,.3)}
+
+/* ===== TEAM ===== */
+.team-grid{
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;
+}
+.team-card{
+  background:var(--white);border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--border);transition:all .4s;text-align:center;
+}
+.team-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.team-avatar{
+  width:100%;height:200px;
+  background:linear-gradient(135deg,var(--primary-light),#E0F2FE);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.team-avatar::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:linear-gradient(to top,var(--white),transparent);
+}
+.team-avatar .avatar-icon{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--navy));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;color:#fff;position:relative;z-index:1;
+}
+.team-info{padding:24px 24px 28px}
+.team-info h3{font-size:1.15rem;color:var(--navy);margin-bottom:4px}
+.team-info .role{color:var(--primary);font-size:.85rem;font-weight:600;margin-bottom:10px}
+.team-info p{color:var(--muted);font-size:.85rem;line-height:1.6}
+
+/* ===== REVIEWS ===== */
+.reviews{background:linear-gradient(160deg,#F0F9FF,#F8FAFC)}
+.reviews-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;
+}
+.review-card{
+  background:var(--white);border-radius:var(--radius);padding:32px;
+  border:1px solid var(--border);transition:all .4s;position:relative;
+}
+.review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.review-stars{display:flex;gap:3px;margin-bottom:16px}
+.review-stars .star{color:#FBBF24;font-size:1rem}
+.review-card blockquote{
+  color:var(--text);font-size:.95rem;line-height:1.8;
+  margin-bottom:20px;font-style:italic;
+}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-author .avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary-light),var(--mint-light));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--primary);font-size:.85rem;
+}
+.review-author div h4{font-size:.9rem;color:var(--navy);font-family:var(--body);font-weight:600}
+.review-author div p{font-size:.78rem;color:var(--muted)}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--white)}
+.contact-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-item .ci-icon{
+  width:48px;height:48px;min-width:48px;border-radius:14px;
+  background:var(--primary-light);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-item div h4{font-size:.95rem;color:var(--navy);margin-bottom:2px;font-family:var(--body);font-weight:700}
+.contact-item div p{color:var(--muted);font-size:.88rem}
+.contact-item div a{color:var(--primary);font-weight:500}
+.contact-map{
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--border);min-height:360px;
+}
+.contact-map iframe{width:100%;height:100%;min-height:360px;border:0}
+
+/* ===== CTA ===== */
+.cta{
+  background:linear-gradient(135deg,var(--primary),var(--navy));
+  padding:80px 24px;text-align:center;color:#fff;position:relative;overflow:hidden;
+}
+.cta::before{
+  content:'';position:absolute;width:400px;height:400px;
+  background:rgba(52,211,153,.15);border-radius:50%;
+  top:-100px;right:-100px;animation:float 8s ease-in-out infinite;
+}
+.cta::after{
+  content:'';position:absolute;width:300px;height:300px;
+  background:rgba(255,255,255,.05);border-radius:50%;
+  bottom:-80px;left:-80px;animation:float 10s ease-in-out infinite 2s;
+}
+.cta h2{font-size:2.4rem;margin-bottom:16px;position:relative;z-index:2}
+.cta p{opacity:.85;max-width:500px;margin:0 auto 32px;font-size:1.05rem;position:relative;z-index:2}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.btn-white{
+  background:#fff;color:var(--navy);padding:14px 32px;border-radius:50px;
+  font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;
+  transition:all .3s;border:none;cursor:pointer;
+}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2);color:var(--navy)}
+.btn-ghost{
+  background:transparent;color:#fff;padding:14px 32px;border-radius:50px;
+  font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;
+  border:2px solid rgba(255,255,255,.3);transition:all .3s;cursor:pointer;
+}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1);color:#fff}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,.7);padding:60px 24px 30px;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;
+}
+.footer-brand .f-logo{
+  font-family:var(--heading);font-size:1.3rem;font-weight:700;color:#fff;
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.footer-brand .f-logo .tooth-icon{
+  width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--mint));
+  border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.footer-brand p{font-size:.88rem;line-height:1.7;max-width:300px}
+.footer h4{color:#fff;font-size:.9rem;font-family:var(--body);font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:.05em}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,.6);font-size:.88rem;transition:color .3s}
+.footer-links a:hover{color:var(--mint)}
+.footer-bottom{
+  max-width:1200px;margin:40px auto 0;padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.1);
+  text-align:center;font-size:.8rem;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp-btn{
+  position:fixed;bottom:28px;right:28px;z-index:998;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(37,211,102,.4);
+  transition:all .3s;animation:pulse 2s infinite;cursor:pointer;
+}
+.whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.5);color:#fff}
+.whatsapp-btn svg{width:28px;height:28px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:968px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;padding:60px 24px}
+  .hero h1{font-size:2.6rem}
+  .hero p{margin:0 auto 32px}
+  .hero-btns{justify-content:center}
+  .hero-visual{order:-1}
+  .hero-float-1{left:10px;top:0}
+  .hero-float-2{right:10px;bottom:10px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-visual{order:-1}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:30px;text-align:center}
+  .footer-brand p{max-width:100%;margin:0 auto}
+}
+@media(max-width:768px){
+  .nav-links{
+    display:none;position:absolute;top:72px;left:0;right:0;
+    background:var(--white);flex-direction:column;gap:0;
+    border-bottom:1px solid var(--border);padding:12px 0;
+    box-shadow:0 8px 24px rgba(12,74,110,.08);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 24px;display:block}
+  .nav-links a::after{display:none}
+  .nav-toggle{display:flex}
+  .hero h1{font-size:2.2rem}
+  .section{padding:70px 20px}
+  .section-header h2{font-size:1.9rem}
+  .reviews-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .cta h2{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Preview Banner -->
+<div class="preview-banner">
+  This is a FREE preview website designed by <a href="https://elfennir.com" target="_blank">elfennir.com</a> — Contact us to make it yours!
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="tooth-icon">🦷</div>
+      Elegant
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#hinnat">Hinnat</a></li>
+      <li><a href="#tiimi">Tiimi</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#arvostelut">Arvostelut</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+    <a href="tel:+35822330000" class="nav-cta">
+      <i data-lucide="phone" style="width:16px;height:16px"></i>
+      Soita meille
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <i data-lucide="shield-check"></i>
+        Luotettu hammasklinikka Turussa
+      </div>
+      <h1>Your Smile,<br>Our <span>Expertise</span></h1>
+      <p>Hammaslääkärikeskus Elegant tarjoaa kattavat ja modernit hammashoitopalvelut Turun sydämessä. Ammattitaitoinen tiimimme huolehtii hymystäsi.</p>
+      <div class="hero-btns">
+        <a href="#yhteystiedot" class="btn-primary">
+          <i data-lucide="calendar" style="width:18px;height:18px"></i>
+          Varaa aika
+        </a>
+        <a href="#palvelut" class="btn-secondary">
+          <i data-lucide="arrow-down" style="width:18px;height:18px"></i>
+          Tutustu palveluihin
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon">🦷</div>
+        <h3>Hammaslääkärikeskus Elegant</h3>
+        <p>Laadukas hammashoito ammattitaidolla ja huolenpidolla</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">20+</div>
+            <div class="label">Vuotta kokemusta</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">15k+</div>
+            <div class="label">Tyytyväistä potilasta</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">4.9</div>
+            <div class="label">Google-arvosana</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-float hero-float-1">
+        <div class="icon-circle"><i data-lucide="check-circle"></i></div>
+        Kivuton hoito
+      </div>
+      <div class="hero-float hero-float-2">
+        <div class="icon-circle"><i data-lucide="sparkles"></i></div>
+        Moderni teknologia
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="palvelut">
+  <div class="section-header reveal">
+    <div class="section-badge"><i data-lucide="stethoscope" style="width:14px;height:14px"></i> Palvelut</div>
+    <h2>Kattavat hammashoitopalvelut</h2>
+    <p>Tarjoamme monipuoliset hammashoitopalvelut koko perheelle nykyaikaisissa tiloissa</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div class="service-icon blue">🦷</div>
+      <h3>Yleishammashoito</h3>
+      <p>Perusteelliset tarkastukset, paikkaukset ja ennaltaehkäisevä hammashoito koko perheelle.</p>
+      <div class="service-price">alk. 65 €</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon mint">✨</div>
+      <h3>Esteettinen hammashoito</h3>
+      <p>Kaunis hymy suunniteltuna sinulle. Laminaatit, muotoilut ja kokonaisvaltaiset hymyn muokkaukset.</p>
+      <div class="service-price">alk. 250 €</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon navy">💎</div>
+      <h3>Hampaiden valkaisu</h3>
+      <p>Ammattimainen hampaiden valkaisu turvallisesti ja tehokkaasti. Näkyvä tulos yhdellä käynnillä.</p>
+      <div class="service-price">alk. 290 €</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon mint">🔩</div>
+      <h3>Hammaskruunut</h3>
+      <p>Pitkäikäiset hammasimplantit korvaavat puuttuvat hampaat luonnollisesti ja kestävästi.</p>
+      <div class="service-price">alk. 1 400 €</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon blue">😁</div>
+      <h3>Oikomishoito</h3>
+      <p>Näkymättömät oikomiskiskot ja perinteiset raudat suorien hampaiden saavuttamiseksi.</p>
+      <div class="service-price">alk. 2 500 €</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon navy">🔬</div>
+      <h3>Juurihoito</h3>
+      <p>Kivuton ja tehokas juurihoito modernilla tekniikalla. Pelastamme hampaan aina kun mahdollista.</p>
+      <div class="service-price">alk. 350 €</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon blue">👑</div>
+      <h3>Kruunut ja laminaatit</h3>
+      <p>Kestävät ja luonnolliset kruunut ja laminaatit, jotka palauttavat hampaan muodon ja toiminnan.</p>
+      <div class="service-price">alk. 650 €</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon mint">👶</div>
+      <h3>Lasten hammashoito</h3>
+      <p>Lempeä ja turvallinen hammashoito lapsille. Luomme positiivisen kokemuksen hammaslääkärissä käymisestä.</p>
+      <div class="service-price">alk. 55 €</div>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon navy">🚨</div>
+      <h3>Päivystyshammashoito</h3>
+      <p>Äkilliset hammasongelmat? Tarjoamme nopeaa päivystyshoitoa hammassärkyyn ja tapaturmiin.</p>
+      <div class="service-price">alk. 95 €</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon mint">🪥</div>
+      <h3>Suuhygienia</h3>
+      <p>Perusteellinen hammaskiven poisto ja suun terveystarkastus suuhygienistin vastaanotolla.</p>
+      <div class="service-price">alk. 85 €</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section pricing" id="hinnat">
+  <div class="section-header reveal">
+    <div class="section-badge"><i data-lucide="euro" style="width:14px;height:14px"></i> Hinnasto</div>
+    <h2>Selkeät ja kilpailukykyiset hinnat</h2>
+    <p>Tarjoamme laadukasta hammashoitoa reiluin hinnoin ilman piilokustannuksia</p>
+  </div>
+  <div class="pricing-grid">
+
+    <div class="pricing-card reveal">
+      <h3>Tarkastus &amp; hygienia</h3>
+      <div class="price">85 € <span>/ käynti</span></div>
+      <p>Perusteellinen suun tarkastus, hammaskiven poisto ja henkilökohtaiset hoito-ohjeet</p>
+      <a href="#yhteystiedot" class="btn-outline">
+        <i data-lucide="calendar" style="width:16px;height:16px"></i>
+        Varaa aika
+      </a>
+    </div>
+
+    <div class="pricing-card featured reveal reveal-delay-1">
+      <h3>Hampaiden valkaisu</h3>
+      <div class="price">290 € <span>/ hoito</span></div>
+      <p>Ammattimainen valkaisuhoito vastaanottollamme. Jopa 8 sävyä vaaleammat hampaat</p>
+      <a href="#yhteystiedot" class="btn-outline">
+        <i data-lucide="calendar" style="width:16px;height:16px"></i>
+        Varaa aika
+      </a>
+    </div>
+
+    <div class="pricing-card reveal reveal-delay-2">
+      <h3>Hammasimplantti</h3>
+      <div class="price">1 400 € <span>/ implantti</span></div>
+      <p>Laadukas titaani-implantti kruunuineen. Sisältää kaikki kontrollikäynnit</p>
+      <a href="#yhteystiedot" class="btn-outline">
+        <i data-lucide="calendar" style="width:16px;height:16px"></i>
+        Varaa aika
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Team -->
+<section class="section" id="tiimi">
+  <div class="section-header reveal">
+    <div class="section-badge"><i data-lucide="users" style="width:14px;height:14px"></i> Tiimimme</div>
+    <h2>Kokeneet ammattilaiset</h2>
+    <p>Tiimimme koostuu kokeneista hammaslääkäreistä, jotka ovat sitoutuneet tarjoamaan parasta hoitoa</p>
+  </div>
+  <div class="team-grid">
+
+    <div class="team-card reveal">
+      <div class="team-avatar">
+        <div class="avatar-icon">👨‍⚕️</div>
+      </div>
+      <div class="team-info">
+        <h3>HLL Mikko Virtanen</h3>
+        <div class="role">Vastaava hammaslääkäri</div>
+        <p>Yli 20 vuoden kokemus yleishammaslääketieteestä ja hammaskirurgiasta. Erikoistunut implanttihoitoihin.</p>
+      </div>
+    </div>
+
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-avatar">
+        <div class="avatar-icon">👩‍⚕️</div>
+      </div>
+      <div class="team-info">
+        <h3>HLL Sanna Korhonen</h3>
+        <div class="role">Esteettinen hammaslääkäri</div>
+        <p>Erikoistunut esteettiseen hammashoitoon, laminaatteihin ja hampaiden valkaisuun. 15 vuoden kokemus.</p>
+      </div>
+    </div>
+
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-avatar">
+        <div class="avatar-icon">👨‍⚕️</div>
+      </div>
+      <div class="team-info">
+        <h3>EHL Juha Mäkinen</h3>
+        <div class="role">Oikomishoidon erikoislääkäri</div>
+        <p>Erikoishammaslääkäri oikomishoidossa. Invisalign-sertifioitu asiantuntija aikuisten ja lasten oikomishoidossa.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="meista">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-card">
+        <span class="big-icon">🏥</span>
+        <h3>Perustettu Turussa</h3>
+        <p>Hammaslääkärikeskus Elegant on palvellut turkulaisia yli 20 vuoden ajan. Nykyaikaisissa tiloissamme yhdistyvät uusin teknologia ja lämmin, inhimillinen hoito. Jokainen potilas on meille tärkeä.</p>
+      </div>
+    </div>
+    <div class="about-content reveal reveal-delay-1">
+      <h2>Miksi valita Hammaslääkärikeskus Elegant?</h2>
+      <p>Olemme sitoutuneet tarjoamaan korkeatasoista hammashoitoa modernissa ja rennossa ympäristössä. Meillä potilaan mukavuus ja turvallisuus ovat aina etusijalla.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="check"><i data-lucide="check"></i></div>
+          <div>
+            <h4>Nykyaikainen teknologia</h4>
+            <p>3D-kuvantaminen, digitaalinen jäljennöstekniikka ja laserhoito</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="check"><i data-lucide="check"></i></div>
+          <div>
+            <h4>Kivuton hoito</h4>
+            <p>Uusimmat puudutus- ja sedaatiomenetelmät mukavuutesi takaamiseksi</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="check"><i data-lucide="check"></i></div>
+          <div>
+            <h4>Joustava ajanvaraus</h4>
+            <p>Ilta- ja viikonloppuajat sekä nopeat päivystysajat</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="check"><i data-lucide="check"></i></div>
+          <div>
+            <h4>Kela-korvaus</h4>
+            <p>Autamme sinua Kela-korvausten hakemisessa hoitokustannuksiin</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section reviews" id="arvostelut">
+  <div class="section-header reveal">
+    <div class="section-badge"><i data-lucide="star" style="width:14px;height:14px"></i> Arvostelut</div>
+    <h2>Potilaiden kokemuksia</h2>
+    <p>Lue mitä tyytyväiset potilamme kertovat kokemuksistaan Hammaslääkärikeskus Elegantissa</p>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="review-card reveal">
+      <div class="review-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <blockquote>Erittäin ammattitaitoinen ja ystävällinen palvelu. Hampaiden valkaisu onnistui todella hyvin ja tulokset näkyivät heti. Suosittelen lämpimästi kaikille!</blockquote>
+      <div class="review-author">
+        <div class="avatar">AH</div>
+        <div>
+          <h4>Anna Hämäläinen</h4>
+          <p>Hampaiden valkaisu</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <blockquote>Pelkäsin hammaslääkärissä käyntiä vuosia, mutta Elegant-klinikalla pelko hävisi kokonaan. Hoito oli lempeää ja kivutonta. Kiitos erityisesti HLL Virtaselle!</blockquote>
+      <div class="review-author">
+        <div class="avatar">JL</div>
+        <div>
+          <h4>Joonas Lahtinen</h4>
+          <p>Juurihoito</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <blockquote>Lapsemme rakastaa käydä Elegant-klinikalla! Henkilökunta on todella kärsivällistä ja osaa luoda turvallisen ilmapiirin. Paras hammasklinikka Turussa.</blockquote>
+      <div class="review-author">
+        <div class="avatar">MN</div>
+        <div>
+          <h4>Maria Nieminen</h4>
+          <p>Lasten hammashoito</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <blockquote>Sain uudet laminaatit ja olen täysin tyytyväinen lopputulokseen. HLL Korhonen ymmärsi täydellisesti mitä halusin. Hymyni on nyt aivan upea!</blockquote>
+      <div class="review-author">
+        <div class="avatar">SP</div>
+        <div>
+          <h4>Sari Peltonen</h4>
+          <p>Laminaatit</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <blockquote>Implanttileikkaus meni todella sujuvasti. Koko prosessi alusta loppuun oli hyvin suunniteltu ja toteutettu. Suosittelut ja selkeä hinnoittelu.</blockquote>
+      <div class="review-author">
+        <div class="avatar">TK</div>
+        <div>
+          <h4>Timo Koskinen</h4>
+          <p>Hammasimplantti</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <blockquote>Olen käynyt Elegantissa jo monta vuotta. Aina saa ajan nopeasti ja palvelu on lämminhenkistä. Erityiskiitos suuhygienistille perusteellisesta hoidosta!</blockquote>
+      <div class="review-author">
+        <div class="avatar">LR</div>
+        <div>
+          <h4>Laura Rantala</h4>
+          <p>Suuhygienia</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 class="reveal">Varaa aikasi tänään</h2>
+  <p class="reveal reveal-delay-1">Ota ensimmäinen askel kohti tervettä ja kaunista hymyä. Varaa ilmainen alkukonsultaatio nyt!</p>
+  <div class="cta-btns reveal reveal-delay-2">
+    <a href="tel:+35822330000" class="btn-white">
+      <i data-lucide="phone" style="width:18px;height:18px"></i>
+      Soita: +358 2 233 0000
+    </a>
+    <a href="mailto:info@elegant.fi" class="btn-ghost">
+      <i data-lucide="mail" style="width:18px;height:18px"></i>
+      info@elegant.fi
+    </a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="yhteystiedot">
+  <div class="section-header reveal">
+    <div class="section-badge"><i data-lucide="map-pin" style="width:14px;height:14px"></i> Yhteystiedot</div>
+    <h2>Ota yhteyttä</h2>
+    <p>Tervetuloa vastaanotolle Turun keskustaan tai ota yhteyttä puhelimitse ja sähköpostilla</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+
+      <div class="contact-item">
+        <div class="ci-icon"><i data-lucide="map-pin"></i></div>
+        <div>
+          <h4>Osoite</h4>
+          <p>Turku, Suomi</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon"><i data-lucide="phone"></i></div>
+        <div>
+          <h4>Puhelin</h4>
+          <a href="tel:+35822330000">+358 2 233 0000</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon"><i data-lucide="mail"></i></div>
+        <div>
+          <h4>Sähköposti</h4>
+          <a href="mailto:info@elegant.fi">info@elegant.fi</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon"><i data-lucide="clock"></i></div>
+        <div>
+          <h4>Aukioloajat</h4>
+          <p>Ma–Pe: 8:00–18:00<br>La: 9:00–15:00<br>Su: Suljettu</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon" style="background:var(--mint-light);color:#059669"><i data-lucide="message-circle"></i></div>
+        <div>
+          <h4>WhatsApp</h4>
+          <a href="https://wa.me/35822330000" target="_blank">Lähetä viesti WhatsAppissa</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="contact-map reveal reveal-delay-1">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15260.34854830738!2d22.261763!3d60.451389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468c770c30a3a7e5%3A0x400b36f18c80960!2sTurku!5e0!3m2!1sfi!2sfi!4v1700000000000!5m2!1sfi!2sfi" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="f-logo">
+        <div class="tooth-icon">🦷</div>
+        Hammaslääkärikeskus Elegant
+      </div>
+      <p>Laadukas ja moderni hammashoito Turun sydämessä. Tarjoamme kattavat hammashoitopalvelut koko perheelle ammattitaidolla ja huolenpidolla.</p>
+    </div>
+    <div>
+      <h4>Palvelut</h4>
+      <ul class="footer-links">
+        <li><a href="#palvelut">Yleishammashoito</a></li>
+        <li><a href="#palvelut">Hampaiden valkaisu</a></li>
+        <li><a href="#palvelut">Hammasimplantit</a></li>
+        <li><a href="#palvelut">Oikomishoito</a></li>
+        <li><a href="#palvelut">Päivystys</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Yhteystiedot</h4>
+      <ul class="footer-links">
+        <li><a href="tel:+35822330000">+358 2 233 0000</a></li>
+        <li><a href="mailto:info@elegant.fi">info@elegant.fi</a></li>
+        <li><a href="https://wa.me/35822330000" target="_blank">WhatsApp</a></li>
+        <li><a href="#yhteystiedot">Turku, Suomi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Hammaslääkärikeskus Elegant. Kaikki oikeudet pidätetään. | Preview by <a href="https://elfennir.com" target="_blank" style="color:var(--mint)">elfennir.com</a>
+  </div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/35822330000" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  const spans = navToggle.querySelectorAll('span');
+  if(navLinks.classList.contains('open')){
+    spans[0].style.transform='rotate(45deg) translate(5px,5px)';
+    spans[1].style.opacity='0';
+    spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+  } else {
+    spans[0].style.transform='none';
+    spans[1].style.opacity='1';
+    spans[2].style.transform='none';
+  }
+});
+
+// Close mobile menu on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    const spans = navToggle.querySelectorAll('span');
+    spans[0].style.transform='none';
+    spans[1].style.opacity='1';
+    spans[2].style.transform='none';
+  });
+});
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Initialize Lucide icons
+lucide.createIcons();
+</script>
+
+</body>
+</html>

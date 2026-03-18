@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iHelp Autokorjaamo – Helsinki | Ammattitaitoinen autohuolto</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+/* ========== RESET & BASE ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'DM Sans',sans-serif;color:#1a1a2e;background:#050d1a;overflow-x:hidden}
+
+/* Custom scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#050d1a}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#e63946,#0f4c81);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#ff4d5a,#1a6ab5)}
+
+/* ========== REVEAL ANIMATIONS ========== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-left.active{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(50px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-right.active{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(0.9);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-scale.active{opacity:1;transform:scale(1)}
+
+/* Stagger delays */
+.delay-1{transition-delay:0.1s}
+.delay-2{transition-delay:0.2s}
+.delay-3{transition-delay:0.3s}
+.delay-4{transition-delay:0.4s}
+.delay-5{transition-delay:0.5s}
+.delay-6{transition-delay:0.6s}
+
+/* ========== NAVBAR ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:all 0.4s ease}
+.nav.scrolled{background:rgba(5,13,26,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:80px}
+.logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:24px;color:#fff;text-decoration:none;letter-spacing:-0.5px}
+.logo span{background:linear-gradient(135deg,#e63946,#ff6b7a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.65);font-size:14px;font-weight:500;transition:all 0.3s;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,#e63946,#ff6b7a);transition:width 0.3s ease;border-radius:2px}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:linear-gradient(135deg,#e63946,#d62836);color:#fff;border:none;padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#ff4d5a,#e63946);opacity:0;transition:opacity 0.3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(230,57,70,0.35)}
+.nav-cta:hover::before{opacity:1}
+.nav-cta span{position:relative;z-index:1}
+
+/* Mobile menu */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(5,13,26,0.98);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{color:#fff;text-decoration:none;font-family:'Poppins',sans-serif;font-size:28px;font-weight:600;transition:color 0.3s}
+.mobile-menu a:hover{color:#e63946}
+
+/* ========== HERO ========== */
+.hero{min-height:100vh;padding:140px 24px 100px;position:relative;overflow:hidden;display:flex;align-items:center;background:#050d1a}
+
+/* Hero background image */
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.2;filter:brightness(0.5)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,13,26,0.95) 0%,rgba(10,22,40,0.85) 40%,rgba(15,40,71,0.8) 100%)}
+
+/* Animated gradient mesh */
+.hero-gradient{position:absolute;inset:0;z-index:1;overflow:hidden}
+.hero-gradient .orb{position:absolute;border-radius:50%;filter:blur(80px);animation:float 8s ease-in-out infinite}
+.hero-gradient .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(230,57,70,0.15),transparent);top:-10%;right:-5%;animation-delay:0s}
+.hero-gradient .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(15,76,129,0.25),transparent);bottom:-15%;left:-5%;animation-delay:2s}
+.hero-gradient .orb-3{width:300px;height:300px;background:radial-gradient(circle,rgba(91,184,245,0.1),transparent);top:40%;left:40%;animation-delay:4s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.05)}66%{transform:translate(-20px,20px) scale(0.95)}}
+
+/* Particles */
+.particles{position:absolute;inset:0;z-index:2;overflow:hidden}
+.particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,0.15);border-radius:50%;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) translateX(50px);opacity:0}}
+
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:10;display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;width:100%}
+
+/* Hero text stagger animation */
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:8px 18px;border-radius:50px;font-size:13px;font-weight:500;color:#a8d0f0;margin-bottom:24px;backdrop-filter:blur(10px);opacity:0;animation:fadeSlideUp 0.8s ease forwards 0.3s}
+.hero-badge .dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(74,222,128,0.4)}50%{opacity:0.8;box-shadow:0 0 0 6px rgba(74,222,128,0)}}
+.hero h1{font-family:'Poppins',sans-serif;font-size:56px;font-weight:800;line-height:1.08;margin-bottom:20px;color:#fff;letter-spacing:-1.5px;opacity:0;animation:fadeSlideUp 0.8s ease forwards 0.5s}
+.hero h1 .accent{background:linear-gradient(135deg,#5bb8f5,#93d1ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:18px;color:rgba(168,192,216,0.9);line-height:1.8;margin-bottom:36px;max-width:500px;opacity:0;animation:fadeSlideUp 0.8s ease forwards 0.7s}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeSlideUp 0.8s ease forwards 0.9s}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+
+.btn-primary{background:linear-gradient(135deg,#e63946,#d62836);color:#fff;border:none;padding:16px 36px;border-radius:50px;font-weight:700;font-size:15px;cursor:pointer;transition:all 0.35s;text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(230,57,70,0.3)}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#ff4d5a,#e63946);opacity:0;transition:opacity 0.35s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 35px rgba(230,57,70,0.45)}
+.btn-primary:hover::before{opacity:1}
+.btn-primary span{position:relative;z-index:1}
+.btn-secondary{background:rgba(255,255,255,0.05);color:#fff;border:1.5px solid rgba(255,255,255,0.15);padding:16px 32px;border-radius:50px;font-weight:600;font-size:15px;cursor:pointer;transition:all 0.35s;text-decoration:none;font-family:'DM Sans',sans-serif;backdrop-filter:blur(10px)}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.1);transform:translateY(-3px)}
+
+/* Hero visual - glass card */
+.hero-visual{opacity:0;animation:fadeSlideUp 0.8s ease forwards 1.1s}
+.hero-glass{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:36px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:relative;overflow:hidden}
+.hero-glass::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px;text-align:center;transition:all 0.4s;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#e63946,#5bb8f5);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.stat:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.12);transform:translateY(-2px)}
+.stat:hover::before{transform:scaleX(1)}
+.stat-num{font-family:'Poppins',sans-serif;font-size:40px;font-weight:800;background:linear-gradient(135deg,#5bb8f5,#93d1ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.stat-label{font-size:12px;color:#6a8aaa;margin-top:6px;letter-spacing:1px;text-transform:uppercase;font-weight:500}
+
+/* Scroll indicator */
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;animation:fadeSlideUp 0.8s ease forwards 1.5s;opacity:0}
+.scroll-mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,0.25);border-radius:12px;position:relative}
+.scroll-mouse::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:8px;background:rgba(255,255,255,0.5);border-radius:2px;animation:scroll-down 2s ease-in-out infinite}
+@keyframes scroll-down{0%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(12px)}}
+
+/* ========== MARQUEE TRUST BANNER ========== */
+.marquee-section{background:linear-gradient(180deg,#0a1628,#050d1a);padding:20px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);overflow:hidden;position:relative}
+.marquee-track{display:flex;animation:marquee 30s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{display:flex;align-items:center;gap:12px;padding:12px 40px;color:rgba(255,255,255,0.5);font-size:14px;font-weight:500;white-space:nowrap;letter-spacing:0.5px}
+.marquee-item i{color:#e63946;width:20px;height:20px}
+.marquee-sep{color:rgba(230,57,70,0.4);font-size:8px;padding:0 10px}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ========== SERVICES ========== */
+.services{padding:120px 24px;max-width:1200px;margin:0 auto}
+.section-label{font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:#e63946;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.section-label::before{content:'';width:30px;height:2px;background:linear-gradient(90deg,#e63946,transparent);border-radius:2px}
+.section-title{font-family:'Poppins',sans-serif;font-size:42px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.15;letter-spacing:-1px}
+.section-sub{font-size:17px;color:rgba(138,168,200,0.8);margin-bottom:56px;max-width:560px;line-height:1.7}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:36px;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;cursor:default}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e63946,#5bb8f5);transform:scaleX(0);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);transform-origin:left}
+.service-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(230,57,70,0.06),transparent 70%);opacity:0;transition:opacity 0.5s}
+.service-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12);transform:translateY(-8px)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover::after{opacity:1}
+.service-card:hover .service-icon{transform:scale(1.1) rotate(-5deg)}
+
+.service-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;z-index:1}
+.service-icon i{width:26px;height:26px}
+.service-icon.blue{background:rgba(91,184,245,0.1);border:1px solid rgba(91,184,245,0.15);color:#5bb8f5}
+.service-icon.red{background:rgba(230,57,70,0.1);border:1px solid rgba(230,57,70,0.15);color:#e63946}
+.service-icon.green{background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.15);color:#4ade80}
+.service-card h3{font-family:'Poppins',sans-serif;font-size:19px;font-weight:700;margin-bottom:10px;color:#fff;position:relative;z-index:1}
+.service-card p{font-size:14.5px;color:rgba(138,168,200,0.8);line-height:1.75;position:relative;z-index:1}
+
+/* ========== PHOTO BREAK ========== */
+.photo-break{position:relative;height:400px;overflow:hidden}
+.photo-break img{width:100%;height:100%;object-fit:cover}
+.photo-break::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,13,26,0.85),rgba(15,40,71,0.7))}
+.photo-break-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.photo-break-content h2{font-family:'Poppins',sans-serif;font-size:38px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-1px}
+.photo-break-content p{font-size:17px;color:rgba(168,192,216,0.8);max-width:500px}
+
+/* ========== STATS SECTION ========== */
+.stats-section{padding:100px 24px;background:linear-gradient(180deg,#050d1a,#0a1628)}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stats-card{text-align:center;padding:40px 24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:20px;position:relative;overflow:hidden;transition:all 0.4s}
+.stats-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(91,184,245,0.05),transparent 70%);opacity:0;transition:opacity 0.4s}
+.stats-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.1)}
+.stats-card:hover::before{opacity:1}
+.stats-number{font-family:'Poppins',sans-serif;font-size:48px;font-weight:800;background:linear-gradient(135deg,#e63946,#ff6b7a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin-bottom:4px}
+.stats-number.blue-grad{background:linear-gradient(135deg,#5bb8f5,#93d1ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stats-label{font-size:14px;color:rgba(138,168,200,0.7);font-weight:500;letter-spacing:0.5px}
+
+/* ========== WHY US ========== */
+.why{padding:120px 24px;background:#050d1a;position:relative}
+.why::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
+.why-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why .section-label{color:#5bb8f5}
+.why .section-label::before{background:linear-gradient(90deg,#5bb8f5,transparent)}
+.why .section-title{color:#fff}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:24px;margin-top:8px}
+.why-item{display:flex;gap:16px;align-items:flex-start;padding:16px;border-radius:16px;transition:all 0.3s;cursor:default}
+.why-item:hover{background:rgba(255,255,255,0.03)}
+.why-check{width:36px;height:36px;border-radius:10px;background:rgba(91,184,245,0.1);border:1px solid rgba(91,184,245,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s}
+.why-check i{color:#5bb8f5;width:18px;height:18px}
+.why-item:hover .why-check{background:rgba(91,184,245,0.2);transform:scale(1.05)}
+.why-item-text h4{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;margin-bottom:4px;color:#fff}
+.why-item-text p{font-size:14px;color:rgba(138,168,200,0.7);line-height:1.7}
+
+/* Reviews glass cards */
+.reviews-stack{display:flex;flex-direction:column;gap:20px}
+.review-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all 0.4s;position:relative;overflow:hidden}
+.review-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)}
+.review-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.12);transform:translateY(-4px)}
+.review-stars{display:flex;gap:3px;margin-bottom:12px}
+.review-stars .star{color:#fbbf24;font-size:16px}
+.review-text{font-size:15px;color:rgba(192,208,224,0.9);line-height:1.7;font-style:italic;margin-bottom:14px}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#e63946,#5bb8f5);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;font-family:'Poppins',sans-serif}
+.review-name{font-size:13px;color:#fff;font-weight:600}
+.review-source{font-size:11px;color:rgba(106,138,170,0.8);margin-top:2px;display:flex;align-items:center;gap:4px}
+
+/* ========== CTA ========== */
+.cta{padding:120px 24px;text-align:center;position:relative;overflow:hidden;background:#050d1a}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(230,57,70,0.12),transparent 70%);filter:blur(60px);pointer-events:none}
+.cta-inner{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.cta-inner .section-label{justify-content:center}
+.cta-inner .section-label::before{display:none}
+.cta h2{font-family:'Poppins',sans-serif;font-size:44px;font-weight:800;color:#fff;margin-bottom:14px;letter-spacing:-1px}
+.cta p{font-size:18px;color:rgba(168,192,216,0.8);margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btn{background:linear-gradient(135deg,#e63946,#d62836);color:#fff;border:none;padding:18px 48px;border-radius:50px;font-weight:700;font-size:17px;cursor:pointer;transition:all 0.35s;text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden;box-shadow:0 4px 30px rgba(230,57,70,0.3)}
+.cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#ff4d5a,#e63946);opacity:0;transition:opacity 0.35s}
+.cta-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 40px rgba(230,57,70,0.5)}
+.cta-btn:hover::before{opacity:1}
+.cta-btn span{position:relative;z-index:1;display:flex;align-items:center;gap:10px}
+.cta-info{margin-top:24px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.cta-info a{color:rgba(168,192,216,0.8);text-decoration:none;font-size:15px;transition:color 0.3s;display:flex;align-items:center;gap:8px}
+.cta-info a:hover{color:#fff}
+.cta-info i{width:16px;height:16px}
+
+/* ========== LOCATION / MAP ========== */
+.location{padding:100px 24px;background:linear-gradient(180deg,#050d1a,#0a1628)}
+.location-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.location-info{display:flex;flex-direction:column;gap:24px}
+.location-item{display:flex;gap:16px;align-items:flex-start}
+.location-item-icon{width:48px;height:48px;border-radius:14px;background:rgba(230,57,70,0.1);border:1px solid rgba(230,57,70,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.location-item-icon i{color:#e63946;width:22px;height:22px}
+.location-item h4{font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;color:#fff;margin-bottom:3px}
+.location-item p{font-size:14px;color:rgba(138,168,200,0.7);line-height:1.6}
+.location-map{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);height:360px}
+.location-map iframe{width:100%;height:100%;border:none;filter:brightness(0.8) contrast(1.1) saturate(0.5)}
+
+/* ========== FOOTER ========== */
+footer{background:#030810;color:rgba(138,168,200,0.6);padding:80px 24px 24px;position:relative}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+.footer-brand{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:14px;letter-spacing:-0.5px}
+.footer-brand span{background:linear-gradient(135deg,#e63946,#ff6b7a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-desc{font-size:14px;line-height:1.8;margin-bottom:20px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);transition:all 0.3s;text-decoration:none}
+.footer-social a:hover{background:rgba(230,57,70,0.15);border-color:rgba(230,57,70,0.3);color:#e63946;transform:translateY(-2px)}
+.footer-social a i{width:18px;height:18px}
+.footer-col h4{font-family:'Poppins',sans-serif;color:#fff;font-size:15px;font-weight:600;margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{color:rgba(138,168,200,0.6);text-decoration:none;font-size:14px;transition:all 0.3s;display:flex;align-items:center;gap:8px}
+.footer-col a:hover{color:#fff;transform:translateX(3px)}
+.footer-col a i{width:14px;height:14px;opacity:0.5}
+.footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(106,138,170,0.5);flex-wrap:wrap;gap:12px}
+.footer-bottom-links{display:flex;gap:24px}
+.footer-bottom-links a{color:rgba(106,138,170,0.5);text-decoration:none;transition:color 0.3s}
+.footer-bottom-links a:hover{color:rgba(255,255,255,0.6)}
+
+/* ========== PREVIEW BANNER ========== */
+.preview-banner{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(90deg,#0a1628,#0f2847,#0a1628);color:#fff;text-align:center;padding:14px 24px;z-index:2000;font-size:14px;font-weight:500;border-top:1px solid rgba(230,57,70,0.2);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.preview-banner strong{font-weight:700;color:#fff}
+.preview-banner a{color:#fbbf24;text-decoration:none;font-weight:700;transition:color 0.3s}
+.preview-banner a:hover{color:#ffd666}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links,.nav-cta{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .hero h1{font-size:38px}
+  .hero-visual{display:block}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .stat-num{font-size:30px}
+  .services-grid{grid-template-columns:1fr}
+  .why-inner{grid-template-columns:1fr}
+  .location-inner{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .section-title{font-size:32px}
+  .cta h2{font-size:32px}
+  .photo-break{height:280px}
+  .photo-break-content h2{font-size:28px}
+  .scroll-indicator{display:none}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .stats-number{font-size:36px}
+}
+@media(max-width:480px){
+  .hero{padding:120px 16px 80px}
+  .hero h1{font-size:30px}
+  .hero p{font-size:16px}
+  .btn-primary,.btn-secondary{padding:14px 24px;font-size:14px;width:100%;justify-content:center}
+  .hero-btns{flex-direction:column}
+  .stats-inner{grid-template-columns:1fr}
+  .marquee-item{font-size:12px;padding:8px 24px}
+}
+
+/* Add padding for preview banner */
+body{padding-bottom:52px}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">i<span>Help</span> Autokorjaamo</a>
+    <ul class="nav-links">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#miksi">Miksi me</a></li>
+      <li><a href="#sijainti">Sijainti</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='tel:0453236464'"><span>Soita nyt</span></button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#palvelut" onclick="closeMobile()">Palvelut</a>
+  <a href="#miksi" onclick="closeMobile()">Miksi me</a>
+  <a href="#sijainti" onclick="closeMobile()">Sijainti</a>
+  <a href="#yhteystiedot" onclick="closeMobile()">Yhteystiedot</a>
+  <a href="tel:0453236464" style="color:#e63946" onclick="closeMobile()">Soita: 045 323 6464</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1400&q=80" alt="Auto repair" loading="eager">
+  </div>
+  <div class="hero-gradient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><div class="dot"></div>Avoinna Ma-Pe 8-17</div>
+      <h1>Ammattitaitoinen <span class="accent">autokorjaamo</span> Helsingissa</h1>
+      <p>Luotettava autohuolto ja korjaus kilpailukykyiseen hintaan. Tuomme autosi kuntoon nopeasti ja ammattitaitoisesti.</p>
+      <div class="hero-btns">
+        <a href="tel:0453236464" class="btn-primary"><span>&#9742; Varaa aika: 045 323 6464</span></a>
+        <a href="#palvelut" class="btn-secondary">Katso palvelut</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-glass">
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num" data-target="15" data-suffix="+">0</div><div class="stat-label">Vuotta kokemusta</div></div>
+          <div class="stat"><div class="stat-num" data-target="5000" data-suffix="+">0</div><div class="stat-label">Tyytyvaista asiakasta</div></div>
+          <div class="stat"><div class="stat-num" data-target="4.8" data-suffix="" data-decimal="true">0</div><div class="stat-label">Google-arvio</div></div>
+          <div class="stat"><div class="stat-num" data-target="24" data-suffix="h">0</div><div class="stat-label">Nopea palvelu</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-mouse"></div>
+    Selaa alas
+  </div>
+</section>
+
+<!-- Marquee Trust Banner -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><i data-lucide="shield-check"></i> Ammattitaitoinen henkilokunta</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="trending-up"></i> Kilpailukykyiset hinnat</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="wrench"></i> Kaikki automerkit</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="map-pin"></i> Helsinki, Herttoniemi</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="clock"></i> Avoinna Ma-Pe 8-17</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="star"></i> 4.8 Google-arvio</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="zap"></i> Nopea palvelu</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="shield-check"></i> Ammattitaitoinen henkilokunta</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="trending-up"></i> Kilpailukykyiset hinnat</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="wrench"></i> Kaikki automerkit</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="map-pin"></i> Helsinki, Herttoniemi</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="clock"></i> Avoinna Ma-Pe 8-17</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="star"></i> 4.8 Google-arvio</div>
+    <div class="marquee-sep">&#9670;</div>
+    <div class="marquee-item"><i data-lucide="zap"></i> Nopea palvelu</div>
+    <div class="marquee-sep">&#9670;</div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="services" id="palvelut">
+  <div class="reveal">
+    <div class="section-label">Palvelumme</div>
+    <div class="section-title">Kaikki autohuoltopalvelut<br>yhdesta paikasta</div>
+    <div class="section-sub">Hoidamme autosi huollon ja korjauksen ammattitaidolla. Kaytossamme on modernit diagnostiikkalaitteet.</div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal delay-1">
+      <div class="service-icon blue"><i data-lucide="settings"></i></div>
+      <h3>Huolto & Maaraikaistarkastus</h3>
+      <p>Sahko- ja mekaaniset huollot kaikille automerkeille. Maaraikaistarkastukset nopeasti ja edullisesti.</p>
+    </div>
+    <div class="service-card reveal delay-2">
+      <div class="service-icon red"><i data-lucide="disc"></i></div>
+      <h3>Jarru- & Alustakorjaus</h3>
+      <p>Jarrujen, iskunvaimentimien ja alustan korjaukset. Turvallisuus ensin — aina.</p>
+    </div>
+    <div class="service-card reveal delay-3">
+      <div class="service-icon green"><i data-lucide="cog"></i></div>
+      <h3>Moottori & Vaihteisto</h3>
+      <p>Moottorin diagnostiikka ja vaihteiston korjaukset. Moderni diagnostiikkalaitteet.</p>
+    </div>
+    <div class="service-card reveal delay-4">
+      <div class="service-icon blue"><i data-lucide="thermometer"></i></div>
+      <h3>Ilmastointi & Lampo</h3>
+      <p>Ilmastointihuolto, taytto ja korjaus. Lammitin- ja jaahdytysjarjestelman huolto.</p>
+    </div>
+    <div class="service-card reveal delay-5">
+      <div class="service-icon red"><i data-lucide="circle-dot"></i></div>
+      <h3>Rengastyot</h3>
+      <p>Rengasvaihdot, tasapainotus ja rengashotelli. Nopea ja edullinen palvelu.</p>
+    </div>
+    <div class="service-card reveal delay-6">
+      <div class="service-icon green"><i data-lucide="zap"></i></div>
+      <h3>Sahkotyot & Diagnostiikka</h3>
+      <p>Vikadiagnostiikka, akkujen vaihto ja sahkojarjestelmien korjaus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Photo Break -->
+<div class="photo-break">
+  <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1400&q=80" alt="Auto repair workshop" loading="lazy">
+  <div class="photo-break-content reveal">
+    <h2>Sinun autosi, meidan intohimomme</h2>
+    <p>Yli 15 vuoden kokemus ja tuhansia tyytyvaisia asiakkaita Helsingissa.</p>
+  </div>
+</div>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stats-card reveal delay-1">
+      <div class="stats-number" data-target="15" data-suffix="+">0</div>
+      <div class="stats-label">Vuotta kokemusta</div>
+    </div>
+    <div class="stats-card reveal delay-2">
+      <div class="stats-number blue-grad" data-target="5000" data-suffix="+">0</div>
+      <div class="stats-label">Tyytyvaista asiakasta</div>
+    </div>
+    <div class="stats-card reveal delay-3">
+      <div class="stats-number" data-target="4.8" data-suffix="" data-decimal="true">0</div>
+      <div class="stats-label">Google-arvio</div>
+    </div>
+    <div class="stats-card reveal delay-4">
+      <div class="stats-number blue-grad" data-target="100" data-suffix="%">0</div>
+      <div class="stats-label">Tyytyvaisia asiakkaita</div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section class="why" id="miksi">
+  <div class="why-inner">
+    <div class="reveal-left">
+      <div class="section-label">Miksi me</div>
+      <div class="section-title">Luotettava autokorjaamo jo vuodesta 2009</div>
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-check"><i data-lucide="check"></i></div>
+          <div class="why-item-text">
+            <h4>Lapin hinnat, Helsingin laatu</h4>
+            <p>Kilpailukykyiset hinnat ilman tinkimatta laadusta. Reilu ja lapinakyva hinnoittelu.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check"><i data-lucide="check"></i></div>
+          <div class="why-item-text">
+            <h4>Kaikki automerkit</h4>
+            <p>Huollamme ja korjaamme kaikki automerkit ja -mallit eurooppalaisista aasialaisiin.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check"><i data-lucide="check"></i></div>
+          <div class="why-item-text">
+            <h4>Nopea palvelu</h4>
+            <p>Useimmat korjaukset valmiina saman paivan aikana. Pikahuolto ilman turhaa odottelua.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check"><i data-lucide="check"></i></div>
+          <div class="why-item-text">
+            <h4>Hyvat Google-arviot</h4>
+            <p>Asiakkaamme suosittelevat meita — lue arviot Googlesta. 4.8/5.0 tyytyvaisten asiakkaiden arviolla.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="reviews-stack reveal-right">
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        </div>
+        <div class="review-text">"Erinomainen palvelu! Auto oli valmis samana paivana ja hinta oli todella kilpailukykyinen. Suosittelen!"</div>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Mikko T.</div>
+            <div class="review-source"><i data-lucide="star" style="width:12px;height:12px;color:#fbbf24"></i> Google-arvio</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        </div>
+        <div class="review-text">"Luotettava korjaamo. Selittivat selkeasti mita autoon tehtiin. Tulen varmasti uudelleen."</div>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Anna K.</div>
+            <div class="review-source"><i data-lucide="star" style="width:12px;height:12px;color:#fbbf24"></i> Google-arvio</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        </div>
+        <div class="review-text">"Paras korjaamo Helsingissa! Nopea palvelu ja erittain ystävallinen henkilokunta. Hinnat kohdallaan."</div>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">Jari S.</div>
+            <div class="review-source"><i data-lucide="star" style="width:12px;height:12px;color:#fbbf24"></i> Google-arvio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="yhteystiedot">
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal-scale">
+    <div class="section-label">Ota yhteytta</div>
+    <h2>Varaa huoltoaika tasta</h2>
+    <p>Soita meille tai tule kaymaan. Hoidamme autosi kuntoon nopeasti ja ammattitaitoisesti.</p>
+    <a href="tel:0453236464" class="cta-btn"><span>&#9742; Soita: 045 323 6464</span></a>
+    <div class="cta-info">
+      <a href="mailto:info@ihelpautokorjaamo.fi"><i data-lucide="mail"></i> info@ihelpautokorjaamo.fi</a>
+      <a href="https://maps.google.com/?q=Hernepellontie+15+E+00710+Helsinki" target="_blank"><i data-lucide="map-pin"></i> Hernepellontie 15 E, 00710 Helsinki</a>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="location" id="sijainti">
+  <div class="location-inner">
+    <div class="reveal-left">
+      <div class="section-label">Sijainti</div>
+      <div class="section-title">Helposti saavutettavissa Herttoniemessa</div>
+      <div class="section-sub">Löydat meidan helposti Herttoniemen teollisuusalueelta. Hyvat liikenneyhteydet ja ilmainen parkkipaikka.</div>
+      <div class="location-info">
+        <div class="location-item">
+          <div class="location-item-icon"><i data-lucide="map-pin"></i></div>
+          <div>
+            <h4>Osoite</h4>
+            <p>Hernepellontie 15 E, 00710 Helsinki</p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-item-icon"><i data-lucide="phone"></i></div>
+          <div>
+            <h4>Puhelin</h4>
+            <p>045 323 6464</p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-item-icon"><i data-lucide="mail"></i></div>
+          <div>
+            <h4>Sahkoposti</h4>
+            <p>info@ihelpautokorjaamo.fi</p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-item-icon"><i data-lucide="clock"></i></div>
+          <div>
+            <h4>Aukioloajat</h4>
+            <p>Ma-Pe 8:00 - 17:00<br>La-Su suljettu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="location-map reveal-right">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.5!2d25.0459!3d60.2106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjDCsDEyJzM4LjIiTiAyNcKwMDInNDUuMiJF!5e0!3m2!1sfi!2sfi!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">i<span>Help</span> Autokorjaamo</div>
+      <div class="footer-desc">Ammattitaitoinen autokorjaamo Helsingissa. Huollamme ja korjaamme kaikki automerkit kilpailukykyiseen hintaan. Luotettava kumppani autosi huoltoon jo vuodesta 2009.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="https://maps.google.com" aria-label="Google Maps"><i data-lucide="map"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Palvelut</h4>
+      <ul>
+        <li><a href="#palvelut"><i data-lucide="chevron-right"></i> Huolto</a></li>
+        <li><a href="#palvelut"><i data-lucide="chevron-right"></i> Jarrukorjaus</a></li>
+        <li><a href="#palvelut"><i data-lucide="chevron-right"></i> Moottorikorjaus</a></li>
+        <li><a href="#palvelut"><i data-lucide="chevron-right"></i> Rengastyot</a></li>
+        <li><a href="#palvelut"><i data-lucide="chevron-right"></i> Diagnostiikka</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Tietoa</h4>
+      <ul>
+        <li><a href="#miksi"><i data-lucide="chevron-right"></i> Tietoa meista</a></li>
+        <li><a href="#miksi"><i data-lucide="chevron-right"></i> Arvostelut</a></li>
+        <li><a href="#sijainti"><i data-lucide="chevron-right"></i> Sijainti</a></li>
+        <li><a href="#yhteystiedot"><i data-lucide="chevron-right"></i> Ota yhteytta</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <ul>
+        <li><a href="tel:0453236464"><i data-lucide="phone"></i> 045 323 6464</a></li>
+        <li><a href="mailto:info@ihelpautokorjaamo.fi"><i data-lucide="mail"></i> info@ihelpautokorjaamo.fi</a></li>
+        <li><a href="#"><i data-lucide="clock"></i> Ma-Pe 8-17</a></li>
+        <li><a href="#sijainti"><i data-lucide="map-pin"></i> Herttoniemi, Helsinki</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 iHelp Autokorjaamo. Kaikki oikeudet pidatetaan.</span>
+    <div class="footer-bottom-links">
+      <a href="#">Tietosuoja</a>
+      <a href="#">Kayttoehdot</a>
+      <a href="#">Evasteet</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Preview banner -->
+<div class="preview-banner">
+  &#10024; <strong>Tama on esikatselu uudesta verkkosivustostanne</strong> — Suunnitellut <a href="https://elfennir.com">El Fennir Agency</a> | Ota yhteytta: <a href="tel:+358466109064">+358 46 610 9064</a>
+</div>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// ===== Navbar scroll effect =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== Mobile menu =====
+const hamburger = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  mobileMenu.style.display = mobileMenu.classList.contains('active') ? 'flex' : 'none';
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('active');
+  mobileMenu.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// ===== Particles =====
+(function() {
+  const container = document.getElementById('particles');
+  const count = 40;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    p.style.width = (Math.random() * 2 + 1.5) + 'px';
+    p.style.height = p.style.width;
+    p.style.opacity = Math.random() * 0.3 + 0.1;
+    container.appendChild(p);
+  }
+})();
+
+// ===== IntersectionObserver for reveals =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ===== Animated counters =====
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const isDecimal = el.dataset.decimal === 'true';
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = target * eased;
+
+    if (isDecimal) {
+      el.textContent = current.toFixed(1) + suffix;
+    } else {
+      el.textContent = Math.floor(current).toLocaleString('fi-FI') + suffix;
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('[data-target]');
+      counters.forEach(el => {
+        if (!el.dataset.animated) {
+          el.dataset.animated = 'true';
+          animateCounter(el);
+        }
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.hero-stats, .stats-inner').forEach(el => {
+  counterObserver.observe(el);
+});
+
+// ===== Smooth scroll for anchor links =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
