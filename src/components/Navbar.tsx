@@ -59,7 +59,8 @@ export function Navbar() {
                 alt="El Fennir"
                 width={46}
                 height={46}
-                className="flex-shrink-0 rounded-xl shadow-[0_2px_16px_rgba(153,69,255,0.25)]"
+                className="flex-shrink-0 rounded-xl shadow-[0_2px_16px_rgba(153,69,255,0.25)] bg-transparent"
+                style={{ background: 'transparent' }}
                 priority
               />
               {/* Ambient glow behind logo */}
@@ -69,7 +70,7 @@ export function Navbar() {
               <span className="text-white/50 font-[var(--font-heading)] font-medium text-[10px] tracking-[0.2em] uppercase">
                 Yassin
               </span>
-              <span className="font-[var(--font-heading)] font-extrabold text-[1.4rem] tracking-tight leading-tight gradient-text">
+              <span className="font-[var(--font-heading)] font-extrabold text-[1.4rem] tracking-tight leading-tight bg-gradient-to-r from-[#a78bfa] via-[#818cf8] to-[#06b6d4] bg-clip-text text-transparent">
                 EL FENNIR
               </span>
             </div>

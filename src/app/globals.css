@@ -170,6 +170,7 @@ body {
   border: none;
   z-index: 1;
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 .sol-btn::before {
@@ -240,6 +241,7 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 .sol-btn-ghost:hover {
@@ -264,6 +266,7 @@ body {
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   transform: translateZ(0);
+  text-align: center;
   box-shadow:
     0 1px 3px rgba(0,0,0,0.2),
     0 4px 12px rgba(20,241,149,0.25),

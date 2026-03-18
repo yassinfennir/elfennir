@@ -1,4 +1,5 @@
 "use client";
+/* v2-centered-buttons */
 import { motion, useMotionValue, useTransform, useScroll } from "framer-motion";
 import { ArrowRight, CheckCircle, Phone, Sparkles } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
@@ -366,26 +367,29 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+              className="flex flex-wrap gap-3"
             >
               <a
                 href="https://wa.me/358466109064"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group sol-btn-green inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-semibold rounded-2xl sm:rounded-full"
+                className="group sol-btn-green inline-flex items-center justify-center gap-2 px-5 py-3.5 text-[13px] lg:text-[15px] lg:px-7 lg:py-4 font-semibold rounded-full"
+                style={{ whiteSpace: "nowrap", textAlign: "center" }}
               >
-                <Phone size={16} />
+                <Phone size={15} />
                 <span>{t.hero.ctaWhatsapp}</span>
               </a>
               <a
                 href="#pricing"
-                className="sol-btn-ghost inline-flex items-center justify-center gap-2 px-8 py-4 text-[15px] rounded-2xl sm:rounded-full"
+                className="sol-btn-ghost inline-flex items-center justify-center gap-2 px-5 py-3.5 text-[13px] lg:text-[15px] lg:px-7 lg:py-4 rounded-full"
+                style={{ whiteSpace: "nowrap", textAlign: "center" }}
               >
                 {t.hero.ctaPricing}
               </a>
               <a
                 href="#contact"
-                className="hidden sm:inline-flex group sol-btn items-center justify-center gap-2.5 px-8 py-4 text-white font-semibold text-[15px] transition-all duration-300"
+                className="hidden sm:inline-flex group sol-btn items-center justify-center gap-2 px-5 py-3.5 text-white font-semibold text-[13px] lg:text-[15px] lg:px-7 lg:py-4 transition-all duration-300"
+                style={{ whiteSpace: "nowrap", textAlign: "center" }}
               >
                 <span className="relative z-[2]">{t.hero.ctaBookCall}</span>
                 <ArrowRight size={16} className="relative z-[2] group-hover:translate-x-0.5 transition-transform" />
