@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Star, ShieldCheck, Crown, Sparkles, Zap, Clock, Headphones, RefreshCw, Rocket, CreditCard, Lock, BadgeCheck } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { CyberCard } from "@/components/HackerEffects";
 
 /*
   STRIPE PAYMENT LINKS — Replace these placeholder URLs with real Stripe Payment Links
@@ -47,6 +48,7 @@ export function Pricing() {
       gradient: "from-slate-500/5 to-slate-600/5",
       borderHover: "hover:border-slate-400/20",
       paidCount: 0,
+      glowColor: "#00d1ff",
     },
     {
       name: "Business",
@@ -80,6 +82,7 @@ export function Pricing() {
       gradient: "from-[#9945ff]/[0.12] to-[#9945ff]/[0.04]",
       borderHover: "",
       paidCount: 0,
+      glowColor: "#9945ff",
     },
     {
       name: "Premium",
@@ -114,6 +117,7 @@ export function Pricing() {
       gradient: "from-violet-500/5 to-purple-600/5",
       borderHover: "hover:border-violet-400/20",
       paidCount: 0,
+      glowColor: "#14f195",
     },
   ];
 
@@ -160,9 +164,11 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: 0.1 * i, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative p-8 rounded-3xl transition-all duration-500 ${
+            >
+            <CyberCard glowColor={plan.glowColor} className={`rounded-3xl ${plan.popular ? "scale-[1.03]" : ""}`}>
+            <div className={`relative p-8 rounded-3xl transition-all duration-500 ${
                 plan.popular
-                  ? "bg-gradient-to-b from-[#9945ff]/[0.12] to-[#9945ff]/[0.04] border-2 border-[#9945ff]/25 scale-[1.03] shadow-[0_0_40px_rgba(153,69,255,0.1)]"
+                  ? "bg-gradient-to-b from-[#9945ff]/[0.12] to-[#9945ff]/[0.04] border-2 border-[#9945ff]/25 shadow-[0_0_40px_rgba(153,69,255,0.1)]"
                   : `bg-gradient-to-b ${plan.gradient} border border-white/[0.06] ${plan.borderHover}`
               }`}
             >
@@ -285,6 +291,8 @@ export function Pricing() {
                 <Lock size={9} />
                 {t.pricing.securePayment}
               </div>
+            </div>
+            </CyberCard>
             </motion.div>
           ))}
         </div>

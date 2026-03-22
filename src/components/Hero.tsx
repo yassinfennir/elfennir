@@ -1,10 +1,11 @@
 "use client";
 import { motion, useMotionValue, useTransform, useScroll } from "framer-motion";
-import { ArrowRight, CheckCircle, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle, Phone, Sparkles, Terminal } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Scene3D } from "@/components/Scene3D";
 import { MagneticButton } from "@/components/Card3D";
+import { GlitchText, HackerTerminal, FloatingParticles, HackerGrid } from "@/components/HackerEffects";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -141,11 +142,18 @@ function TechConnectionVisual() {
               <img src={node.logo} alt={node.label} className="rounded-lg" style={{ width: node.size * 0.6, height: node.size * 0.6 }} />
             )}
             {node.isCenter && (
-              <motion.div
-                className="absolute inset-0 rounded-full border border-[#9945ff]/20"
-                animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0, 0.4] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
+              <>
+                <motion.div
+                  className="absolute inset-0 rounded-full border border-[#9945ff]/20"
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0, 0.4] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="absolute inset-0 rounded-full border border-[#00d1ff]/10"
+                  animate={{ scale: [1, 2, 1], opacity: [0.2, 0, 0.2] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+              </>
             )}
           </motion.div>
           {!node.isCenter && (
@@ -193,48 +201,48 @@ export function Hero() {
       onMouseMove={handleMouse}
     >
       {/* Dark base */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#05050a] via-[#08080f] to-[#08080f]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030308] via-[#08080f] to-[#08080f]" />
+
+      {/* Hacker grid background */}
+      <HackerGrid />
 
       {/* 3D Scene Background */}
       <motion.div style={{ scale: scene3DScale, opacity: scene3DOpacity }} className="absolute inset-0">
         <Scene3D />
       </motion.div>
 
+      {/* Floating particles */}
+      <FloatingParticles count={30} />
+
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-overlay" />
 
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(153,69,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(20,241,149,0.1) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
+      {/* Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#08080f_70%)] opacity-40" />
 
       <motion.div style={{ y: contentParallax, opacity: heroOpacity }} className="relative max-w-7xl mx-auto px-6 pt-32 pb-20 w-full z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left — Text Content */}
           <div>
-            {/* Badge */}
+            {/* Terminal Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20, rotateX: 15 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               style={{ transformPerspective: 800 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.05] border border-white/[0.1] rounded-full mb-8 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#9945ff]/[0.08] border border-[#9945ff]/20 rounded-full mb-8 backdrop-blur-xl shadow-[0_0_30px_rgba(153,69,255,0.1)]"
             >
+              <Terminal size={12} className="text-[#9945ff]" />
+              <span className="text-sm text-slate-300 font-mono font-medium">
+                {t.hero.badge}
+              </span>
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14f195] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#14f195]" />
               </span>
-              <span className="text-sm text-slate-300 font-medium">
-                {t.hero.badge}
-              </span>
-              <Sparkles size={12} className="text-[#9945ff]" />
             </motion.div>
 
-            {/* Headline with 3D entrance */}
+            {/* Headline with Glitch effect */}
             <motion.h1
               initial={{ opacity: 0, y: 40, rotateX: 20 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -247,9 +255,13 @@ export function Hero() {
               {t.hero.headline2}{" "}
               <br className="hidden sm:block" />
               <span className="relative inline-block">
-                <span className="gradient-text animate-text-glow font-extrabold">
+                <GlitchText
+                  as="span"
+                  className="gradient-text animate-text-glow font-extrabold"
+                  intensity={0.5}
+                >
                   {t.hero.headline3}
-                </span>
+                </GlitchText>
                 <motion.span
                   className="absolute -bottom-2 left-0 right-0 h-[2px]"
                   style={{
@@ -273,7 +285,7 @@ export function Hero() {
               {t.hero.subtitle}
             </motion.p>
 
-            {/* Trust points */}
+            {/* Trust points with cyber style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -286,12 +298,12 @@ export function Hero() {
                   initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.4 + 0.1 * i }}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 group"
                 >
-                  <div className="w-5 h-5 rounded-full bg-[#14f195]/10 border border-[#14f195]/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#14f195]/10 border border-[#14f195]/20 flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_10px_#14f19540] transition-shadow">
                     <CheckCircle size={12} className="text-[#14f195]" />
                   </div>
-                  <span className="text-sm text-slate-300">{item}</span>
+                  <span className="text-sm text-slate-300 font-mono">{item}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -364,7 +376,7 @@ export function Hero() {
               <div className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white group-hover:gradient-text transition-all duration-300">
                 <AnimatedCounter target={s.num} suffix={s.suffix} />
               </div>
-              <div className="text-sm text-slate-500 mt-1">{s.label}</div>
+              <div className="text-sm text-slate-500 mt-1 font-mono">{s.label}</div>
             </motion.div>
           ))}
         </motion.div>
