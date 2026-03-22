@@ -13,7 +13,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
 import { Card3D } from "@/components/Card3D";
 
-const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
 
 export function WhyUs() {
   const { t } = useLanguage();

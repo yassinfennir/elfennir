@@ -21,14 +21,14 @@ export function SectionDivider3D({ text = "" }: { text?: string }) {
         <div className="flex items-center gap-4 justify-center">
           <motion.div
             style={{ x: x1 }}
-            className="h-px w-[30%] bg-gradient-to-r from-transparent via-[#9945ff]/40 to-[#00d1ff]/20"
+            className="h-px w-[30%] bg-gradient-to-r from-transparent via-[#ff6b00]/40 to-[#00d1ff]/20"
           />
           {text ? (
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600 whitespace-nowrap">
               {text}
             </span>
           ) : (
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#9945ff] to-[#00d1ff] animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#ff6b00] to-[#00d1ff] animate-pulse" />
           )}
           <motion.div
             style={{ x: x2 }}
@@ -63,7 +63,7 @@ export function ScrollingMarquee({
             key={`${word}-${i}`}
             className="font-[var(--font-heading)] text-6xl sm:text-7xl lg:text-8xl font-bold text-transparent"
             style={{
-              WebkitTextStroke: "1px rgba(153,69,255,0.15)",
+              WebkitTextStroke: "1px rgba(255,107,0,0.15)",
             }}
           >
             {word}

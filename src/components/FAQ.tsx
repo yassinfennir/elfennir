@@ -22,10 +22,10 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
           {q}
         </span>
         <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-          open ? "bg-[#9945ff]/20 border border-[#9945ff]/30 rotate-0" : "bg-white/[0.04] border border-white/[0.08]"
+          open ? "bg-[#ff6b00]/20 border border-[#ff6b00]/30 rotate-0" : "bg-white/[0.04] border border-white/[0.08]"
         }`}>
           {open ? (
-            <Minus size={12} className="text-[#9945ff]" />
+            <Minus size={12} className="text-[#ff6b00]" />
           ) : (
             <Plus size={12} className="text-slate-500" />
           )}

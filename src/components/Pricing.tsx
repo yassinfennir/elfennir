@@ -79,10 +79,10 @@ export function Pricing() {
       cta: t.pricing.businessCta,
       stripeUrl: STRIPE_LINKS.business,
       popular: true,
-      gradient: "from-[#9945ff]/[0.12] to-[#9945ff]/[0.04]",
+      gradient: "from-[#ff6b00]/[0.12] to-[#ff6b00]/[0.04]",
       borderHover: "",
       paidCount: 0,
-      glowColor: "#9945ff",
+      glowColor: "#ff6b00",
     },
     {
       name: "Premium",
@@ -168,12 +168,12 @@ export function Pricing() {
             <CyberCard glowColor={plan.glowColor} className={`rounded-3xl ${plan.popular ? "scale-[1.03]" : ""}`}>
             <div className={`relative p-8 rounded-3xl transition-all duration-500 ${
                 plan.popular
-                  ? "bg-gradient-to-b from-[#9945ff]/[0.12] to-[#9945ff]/[0.04] border-2 border-[#9945ff]/25 shadow-[0_0_40px_rgba(153,69,255,0.1)]"
+                  ? "bg-gradient-to-b from-[#ff6b00]/[0.12] to-[#ff6b00]/[0.04] border-2 border-[#ff6b00]/25 shadow-[0_0_40px_rgba(255,107,0,0.1)]"
                   : `bg-gradient-to-b ${plan.gradient} border border-white/[0.06] ${plan.borderHover}`
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-5 py-1.5 bg-gradient-to-r from-[#9945ff] to-[#7c3aed] text-white text-xs font-bold rounded-full shadow-lg shadow-[#9945ff]/40 border border-white/10">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-5 py-1.5 bg-gradient-to-r from-[#ff6b00] to-[#7c3aed] text-white text-xs font-bold rounded-full shadow-lg shadow-[#ff6b00]/40 border border-white/10">
                   <Star size={10} fill="white" />
                   {t.pricing.recommended}
                 </div>
@@ -182,9 +182,9 @@ export function Pricing() {
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                    plan.popular ? "bg-[#9945ff]/20 border border-[#9945ff]/30" : "bg-white/[0.04] border border-white/[0.08]"
+                    plan.popular ? "bg-[#ff6b00]/20 border border-[#ff6b00]/30" : "bg-white/[0.04] border border-white/[0.08]"
                   }`}>
-                    <plan.icon size={16} className={plan.popular ? "text-[#9945ff]" : "text-slate-400"} />
+                    <plan.icon size={16} className={plan.popular ? "text-[#ff6b00]" : "text-slate-400"} />
                   </div>
                   <h3 className="font-[var(--font-heading)] text-lg font-semibold text-white">
                     {plan.name}
@@ -213,13 +213,13 @@ export function Pricing() {
                 {/* Monthly maintenance fee */}
                 <div className={`p-3 rounded-xl mb-3 ${
                   plan.popular
-                    ? "bg-[#9945ff]/10 border border-[#9945ff]/20"
+                    ? "bg-[#ff6b00]/10 border border-[#ff6b00]/20"
                     : "bg-white/[0.03] border border-white/[0.08]"
                 }`}>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs text-slate-400">{t.pricing.monthlyMaintenance}</span>
                     <div className="flex items-baseline gap-0.5">
-                      <span className={`font-[var(--font-heading)] text-lg font-bold ${plan.popular ? "text-[#9945ff]" : "text-white"}`}>
+                      <span className={`font-[var(--font-heading)] text-lg font-bold ${plan.popular ? "text-[#ff6b00]" : "text-white"}`}>
                         {plan.monthlyFee}
                       </span>
                       <span className="text-slate-500 text-xs">€/{t.pricing.monthShort}</span>
@@ -246,7 +246,7 @@ export function Pricing() {
                 {/* Always here badge */}
                 <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold ${
                   plan.popular
-                    ? "bg-[#9945ff]/15 text-[#9945ff] border border-[#9945ff]/20"
+                    ? "bg-[#ff6b00]/15 text-[#ff6b00] border border-[#ff6b00]/20"
                     : "bg-[#14f195]/10 text-[#14f195] border border-[#14f195]/20"
                 }`}>
                   <Headphones size={11} />
@@ -258,12 +258,12 @@ export function Pricing() {
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm">
                     <div className={`w-4.5 h-4.5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                      plan.popular ? "bg-[#9945ff]/15" : "bg-white/[0.04]"
+                      plan.popular ? "bg-[#ff6b00]/15" : "bg-white/[0.04]"
                     }`}>
                       <Check
                         size={11}
                         className={`flex-shrink-0 ${
-                          plan.popular ? "text-[#9945ff]" : "text-slate-500"
+                          plan.popular ? "text-[#ff6b00]" : "text-slate-500"
                         }`}
                       />
                     </div>
@@ -310,7 +310,7 @@ export function Pricing() {
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: RefreshCw, title: t.pricing.maint1Title, desc: t.pricing.maint1Desc, color: "#9945ff" },
+              { icon: RefreshCw, title: t.pricing.maint1Title, desc: t.pricing.maint1Desc, color: "#ff6b00" },
               { icon: Headphones, title: t.pricing.maint2Title, desc: t.pricing.maint2Desc, color: "#00d1ff" },
               { icon: Rocket, title: t.pricing.maint3Title, desc: t.pricing.maint3Desc, color: "#14f195" },
               { icon: ShieldCheck, title: t.pricing.maint4Title, desc: t.pricing.maint4Desc, color: "#f971ff" },

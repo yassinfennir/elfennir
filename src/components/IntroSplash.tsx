@@ -8,7 +8,7 @@ function LogoReveal() {
     <motion.div className="relative flex items-center justify-center">
       {/* Outer ring pulse */}
       <motion.div
-        className="absolute w-36 h-36 rounded-full border border-[#9945ff]/20"
+        className="absolute w-36 h-36 rounded-full border border-[#ff6b00]/20"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: [0, 1.5, 1.2], opacity: [0, 0.5, 0] }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -24,7 +24,7 @@ function LogoReveal() {
       <motion.div
         className="absolute w-20 h-20 rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(153,69,255,0.3) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255,107,0,0.3) 0%, transparent 70%)",
         }}
         initial={{ scale: 0 }}
         animate={{ scale: [0, 2, 1.5] }}
@@ -73,7 +73,7 @@ function TerminalLine({ text, delay, color = "#14f195" }: { text: string; delay:
       animate={{ opacity: 1, y: 0 }}
       className="flex items-center gap-2 font-mono text-xs sm:text-sm"
     >
-      <span className="text-[#9945ff]">›</span>
+      <span className="text-[#ff6b00]">›</span>
       <span style={{ color }}>{displayed}</span>
       {displayed.length < text.length && (
         <span className="inline-block w-1.5 h-4 bg-current animate-pulse" style={{ color }} />
@@ -89,7 +89,7 @@ function LoadingBar() {
       <motion.div
         className="h-full rounded-full"
         style={{
-          background: "linear-gradient(90deg, #9945ff, #00d1ff, #14f195)",
+          background: "linear-gradient(90deg, #ff6b00, #00d1ff, #14f195)",
         }}
         initial={{ width: "0%" }}
         animate={{ width: "100%" }}
@@ -107,7 +107,7 @@ function ParticleBurst({ active }: { active: boolean }) {
     angle: (i / 30) * Math.PI * 2,
     distance: 100 + Math.random() * 200,
     size: 2 + Math.random() * 4,
-    color: ["#9945ff", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
+    color: ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
     delay: Math.random() * 0.15,
   }));
 
@@ -178,7 +178,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
               className="absolute inset-0 opacity-[0.03]"
               style={{
                 backgroundImage: `
-                  linear-gradient(rgba(153,69,255,0.3) 1px, transparent 1px),
+                  linear-gradient(rgba(255,107,0,0.3) 1px, transparent 1px),
                   linear-gradient(90deg, rgba(0,209,255,0.2) 1px, transparent 1px)
                 `,
                 backgroundSize: "60px 60px",
@@ -186,14 +186,14 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
             />
 
             {/* Radial glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_400px_at_center,rgba(153,69,255,0.08),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_400px_at_center,rgba(255,107,0,0.08),transparent)]" />
 
             {/* Scan line */}
             <motion.div
-              className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#9945ff]/30 to-transparent"
+              className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#ff6b00]/30 to-transparent"
               animate={{ top: ["0%", "100%"] }}
               transition={{ duration: 2, ease: "linear" }}
-              style={{ boxShadow: "0 0 20px rgba(153,69,255,0.2)" }}
+              style={{ boxShadow: "0 0 20px rgba(255,107,0,0.2)" }}
             />
 
             {/* Corner decorations */}
@@ -239,7 +239,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
 
               {/* Terminal lines */}
               <div className="flex flex-col gap-1.5 mt-2">
-                <TerminalLine text="Initializing AI systems..." delay={300} color="#9945ff" />
+                <TerminalLine text="Initializing AI systems..." delay={300} color="#ff6b00" />
                 <TerminalLine text="Loading 3D environment..." delay={700} color="#00d1ff" />
                 <TerminalLine text="Connecting neural networks..." delay={1100} color="#14f195" />
                 <TerminalLine text="System ready ✓" delay={1600} color="#14f195" />
@@ -256,7 +256,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
             <motion.div
               className="absolute bottom-0 left-0 right-0 h-[1px]"
               style={{
-                background: "linear-gradient(90deg, transparent, #9945ff, #00d1ff, #14f195, transparent)",
+                background: "linear-gradient(90deg, transparent, #ff6b00, #00d1ff, #14f195, transparent)",
               }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}

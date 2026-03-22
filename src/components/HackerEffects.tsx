@@ -30,7 +30,7 @@ export function MatrixRain({ opacity = 0.06, speed = 1, density = 30 }: { opacit
     resize();
     window.addEventListener("resize", resize);
 
-    const colors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
+    const colors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
 
     function draw() {
       ctx!.fillStyle = `rgba(8,8,15,${0.05 * speed})`;
@@ -121,7 +121,7 @@ export function GlitchText({
 export function CyberCard({
   children,
   className = "",
-  glowColor = "#9945ff",
+  glowColor = "#ff6b00",
   hoverScale = 1.02,
 }: {
   children: React.ReactNode;
@@ -341,7 +341,7 @@ export function FloatingParticles({ count = 20, className = "" }: { count?: numb
         size: 2 + Math.random() * 4,
         duration: 15 + Math.random() * 20,
         delay: Math.random() * 10,
-        color: ["#9945ff", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
+        color: ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
       })),
     [count]
   );
@@ -394,7 +394,7 @@ export function DataStream({ className = "" }: { className?: string }) {
       width: 20 + Math.random() * 80,
       height: 3 + Math.random() * 8,
       gap: 4 + Math.random() * 8,
-      color: ["#9945ff", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
+      color: ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
       opacity: 0.1 + Math.random() * 0.4,
     })),
     []
@@ -435,13 +435,13 @@ export function ScrollProgress() {
           className="absolute top-0 left-0 right-0 origin-top rounded-full"
           style={{
             scaleY,
-            background: "linear-gradient(180deg, #9945ff, #00d1ff, #14f195)",
+            background: "linear-gradient(180deg, #ff6b00, #00d1ff, #14f195)",
             height: "100%",
           }}
         />
       </div>
       <motion.div
-        className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#9945ff] shadow-[0_0_10px_#9945ff80]"
+        className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#ff6b00] shadow-[0_0_10px_#ff6b0080]"
         style={{
           top: useTransform(scaleY, (v) => `${v * 128}px`),
         }}
@@ -504,9 +504,9 @@ export function MagneticCursor() {
             transition={{ type: "spring", stiffness: 500, damping: 28 }}
             style={{
               background: hovering
-                ? "radial-gradient(circle, #9945ff88, #00d1ff44)"
+                ? "radial-gradient(circle, #ff6b0088, #00d1ff44)"
                 : "rgba(255,255,255,0.8)",
-              border: hovering ? "1px solid rgba(153,69,255,0.5)" : "none",
+              border: hovering ? "1px solid rgba(255,107,0,0.5)" : "none",
             }}
           />
           <motion.div
@@ -575,7 +575,7 @@ export function HackerGrid({ className = "" }: { className?: string }) {
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(153,69,255,0.3) 1px, transparent 1px),
+            linear-gradient(rgba(255,107,0,0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(0,209,255,0.2) 1px, transparent 1px)
           `,
           backgroundSize: "80px 80px",
@@ -585,7 +585,7 @@ export function HackerGrid({ className = "" }: { className?: string }) {
       <div
         className="absolute inset-0 opacity-[0.015]"
         style={{
-          backgroundImage: `radial-gradient(circle 2px at center, #9945ff 0%, transparent 100%)`,
+          backgroundImage: `radial-gradient(circle 2px at center, #ff6b00 0%, transparent 100%)`,
           backgroundSize: "80px 80px",
         }}
       />
@@ -593,8 +593,8 @@ export function HackerGrid({ className = "" }: { className?: string }) {
       <motion.div
         className="absolute left-0 right-0 h-[1px]"
         style={{
-          background: "linear-gradient(90deg, transparent, #9945ff40, #00d1ff30, transparent)",
-          boxShadow: "0 0 20px #9945ff20",
+          background: "linear-gradient(90deg, transparent, #ff6b0040, #00d1ff30, transparent)",
+          boxShadow: "0 0 20px #ff6b0020",
         }}
         animate={{ top: ["0%", "100%"] }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}

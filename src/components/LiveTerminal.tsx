@@ -62,7 +62,7 @@ function getTypeColor(type: LogType): string {
   switch (type) {
     case "deploy": return "#14f195";
     case "seo": return "#00d1ff";
-    case "ai": return "#9945ff";
+    case "ai": return "#ff6b00";
     case "automation": return "#f971ff";
     case "security": return "#ff6b6b";
     case "speed": return "#ffd93d";

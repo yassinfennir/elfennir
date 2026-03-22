@@ -5,7 +5,7 @@ import { useRef, useMemo, Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
 
 /* ─── DNA Helix — Double spiral structure ─── */
-function DNAHelix({ position, color1 = "#9945ff", color2 = "#00d1ff", scale = 1 }: { position: [number, number, number]; color1?: string; color2?: string; scale?: number }) {
+function DNAHelix({ position, color1 = "#ff6b00", color2 = "#00d1ff", scale = 1 }: { position: [number, number, number]; color1?: string; color2?: string; scale?: number }) {
   const groupRef = useRef<THREE.Group>(null!);
   const sphereCount = 30;
 
@@ -125,7 +125,7 @@ function FloatingOctahedron({ position, color, speed, scale }: { position: [numb
 }
 
 /* ─── Orbiting Rings ─── */
-function OrbitingRing({ radius = 3, color = "#9945ff", speed = 0.5, tilt = 0 }: { radius?: number; color?: string; speed?: number; tilt?: number }) {
+function OrbitingRing({ radius = 3, color = "#ff6b00", speed = 0.5, tilt = 0 }: { radius?: number; color?: string; speed?: number; tilt?: number }) {
   const ref = useRef<THREE.Mesh>(null!);
   useFrame((state) => {
     ref.current.rotation.z = state.clock.elapsedTime * speed;
@@ -147,7 +147,7 @@ function GlowingSphere() {
   });
   return (
     <Sphere ref={ref} args={[1.2, 64, 64]} position={[0, 0, -2]}>
-      <MeshWobbleMaterial color="#9945ff" transparent opacity={0.06} factor={0.3} speed={1} />
+      <MeshWobbleMaterial color="#ff6b00" transparent opacity={0.06} factor={0.3} speed={1} />
     </Sphere>
   );
 }
@@ -161,7 +161,7 @@ function ParticleField({ count = 300 }: { count?: number }) {
     const col = new Float32Array(count * 3);
     const sz = new Float32Array(count);
     const palette = [
-      new THREE.Color("#9945ff"),
+      new THREE.Color("#ff6b00"),
       new THREE.Color("#00d1ff"),
       new THREE.Color("#14f195"),
       new THREE.Color("#f971ff"),
@@ -218,7 +218,7 @@ function GridFloor() {
   return (
     <gridHelper
       ref={ref}
-      args={[40, 40, "#9945ff", "#9945ff"]}
+      args={[40, 40, "#ff6b00", "#ff6b00"]}
       position={[0, -4, -5]}
       rotation={[Math.PI * 0.05, 0, 0]}
       material-opacity={0.04}
@@ -255,7 +255,7 @@ function SceneContent() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={0.5} color="#9945ff" />
+      <pointLight position={[5, 5, 5]} intensity={0.5} color="#ff6b00" />
       <pointLight position={[-5, 3, 2]} intensity={0.3} color="#00d1ff" />
       <pointLight position={[0, -3, 3]} intensity={0.2} color="#14f195" />
       <pointLight position={[3, -2, -3]} intensity={0.15} color="#f971ff" />
@@ -274,17 +274,17 @@ function SceneContent() {
       <MorphingCube position={[3.5, -2, -6]} color="#f971ff" speed={0.6} />
 
       {/* Orbiting rings */}
-      <OrbitingRing radius={4} color="#9945ff" speed={0.15} tilt={Math.PI * 0.3} />
+      <OrbitingRing radius={4} color="#ff6b00" speed={0.15} tilt={Math.PI * 0.3} />
       <OrbitingRing radius={5.5} color="#00d1ff" speed={-0.1} tilt={Math.PI * 0.15} />
       <OrbitingRing radius={3} color="#14f195" speed={0.2} tilt={Math.PI * 0.5} />
 
       {/* Floating geometries */}
-      <FloatingIcosahedron position={[-3.5, 1.5, -3]} color="#9945ff" speed={1.2} scale={0.7} />
+      <FloatingIcosahedron position={[-3.5, 1.5, -3]} color="#ff6b00" speed={1.2} scale={0.7} />
       <FloatingIcosahedron position={[4, -1, -4]} color="#00d1ff" speed={0.8} scale={0.5} />
       <FloatingTorus position={[3, 2, -5]} color="#14f195" speed={1} scale={0.6} />
       <FloatingTorus position={[-4, -1.5, -6]} color="#f971ff" speed={0.7} scale={0.4} />
       <FloatingOctahedron position={[1.5, 3, -4]} color="#00d1ff" speed={0.9} scale={0.5} />
-      <FloatingOctahedron position={[-2, -2.5, -5]} color="#9945ff" speed={1.1} scale={0.35} />
+      <FloatingOctahedron position={[-2, -2.5, -5]} color="#ff6b00" speed={1.1} scale={0.35} />
       <FloatingIcosahedron position={[5, 0.5, -7]} color="#f971ff" speed={0.6} scale={0.45} />
     </>
   );
@@ -316,9 +316,9 @@ function SectionSceneContent() {
   return (
     <>
       <ambientLight intensity={0.2} />
-      <pointLight position={[3, 3, 3]} intensity={0.3} color="#9945ff" />
+      <pointLight position={[3, 3, 3]} intensity={0.3} color="#ff6b00" />
       <ParticleField count={80} />
-      <FloatingIcosahedron position={[-2, 0, -3]} color="#9945ff" speed={0.5} scale={0.4} />
+      <FloatingIcosahedron position={[-2, 0, -3]} color="#ff6b00" speed={0.5} scale={0.4} />
       <FloatingTorus position={[2, 0, -4]} color="#00d1ff" speed={0.4} scale={0.3} />
       <MorphingCube position={[0, 1, -5]} color="#14f195" speed={0.3} />
     </>

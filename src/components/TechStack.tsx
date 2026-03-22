@@ -33,7 +33,7 @@ export function TechStack() {
   const { t } = useLanguage();
 
   const stats = [
-    { value: "50+", label: t.techStack.stat1Label, color: "#9945ff" },
+    { value: "50+", label: t.techStack.stat1Label, color: "#ff6b00" },
     { value: "100%", label: t.techStack.stat2Label, color: "#00d1ff" },
     { value: "99.9%", label: t.techStack.stat3Label, color: "#14f195" },
     { value: "A+", label: t.techStack.stat4Label, color: "#f971ff" },

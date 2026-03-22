@@ -55,7 +55,7 @@ export function Navbar() {
             <span className="font-[var(--font-heading)] font-bold text-[1.3rem] tracking-tight leading-tight text-white">
               EL FENNIR
             </span>
-            <span className="hidden sm:inline-block text-[10px] font-mono text-[#9945ff] bg-[#9945ff]/10 border border-[#9945ff]/20 px-2 py-0.5 rounded-full tracking-wider">
+            <span className="hidden sm:inline-block text-[10px] font-mono text-[#ff6b00] bg-[#ff6b00]/10 border border-[#ff6b00]/20 px-2 py-0.5 rounded-full tracking-wider">
               AI AGENCY
             </span>
           </a>
@@ -146,7 +146,7 @@ export function Navbar() {
                     }}
                     className="group flex items-center justify-between py-[14px] border-b border-white/[0.04] transition-colors duration-300"
                   >
-                    <span className="text-[1.6rem] font-[var(--font-heading)] font-semibold text-white/90 group-hover:text-white group-active:text-[#9945ff] transition-colors duration-300">
+                    <span className="text-[1.6rem] font-[var(--font-heading)] font-semibold text-white/90 group-hover:text-white group-active:text-[#ff6b00] transition-colors duration-300">
                       {l.label}
                     </span>
                     <ArrowRight

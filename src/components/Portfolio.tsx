@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight, Sparkles, Globe, Eye } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
 
 export function Portfolio() {
   const { t } = useLanguage();
@@ -13,7 +13,7 @@ export function Portfolio() {
       title: t.portfolio.project1Title,
       category: "Auto Repair",
       desc: t.portfolio.project1Desc,
-      gradient: "from-[#f971ff]/30 to-[#9945ff]/20",
+      gradient: "from-[#f971ff]/30 to-[#ff6b00]/20",
       accent: "text-[#f971ff]",
       accentBg: "bg-[#f971ff]/10 border-[#f971ff]/20",
       tags: ["SEO", "Schema.org", "Google Maps", "10+ Services"],
@@ -24,9 +24,9 @@ export function Portfolio() {
       title: t.portfolio.project2Title,
       category: "Auto Repair",
       desc: t.portfolio.project2Desc,
-      gradient: "from-[#9945ff]/30 to-[#00d1ff]/20",
-      accent: "text-[#9945ff]",
-      accentBg: "bg-[#9945ff]/10 border-[#9945ff]/20",
+      gradient: "from-[#ff6b00]/30 to-[#00d1ff]/20",
+      accent: "text-[#ff6b00]",
+      accentBg: "bg-[#ff6b00]/10 border-[#ff6b00]/20",
       tags: ["Reviews", "Animations", "Mobile-First"],
       liveUrl: "/preview-ihelp.html",
       isLive: true,
@@ -46,7 +46,7 @@ export function Portfolio() {
       title: t.portfolio.project4Title,
       category: "Caf\u00e9 & Restaurant",
       desc: t.portfolio.project4Desc,
-      gradient: "from-[#00d1ff]/30 to-[#9945ff]/20",
+      gradient: "from-[#00d1ff]/30 to-[#ff6b00]/20",
       accent: "text-[#00d1ff]",
       accentBg: "bg-[#00d1ff]/10 border-[#00d1ff]/20",
       tags: ["Gallery", "Menu", "Mobile-First"],
@@ -68,9 +68,9 @@ export function Portfolio() {
       title: t.portfolio.project6Title,
       category: "Japanese Restaurant",
       desc: t.portfolio.project6Desc,
-      gradient: "from-[#9945ff]/30 to-[#f971ff]/20",
-      accent: "text-[#9945ff]",
-      accentBg: "bg-[#9945ff]/10 border-[#9945ff]/20",
+      gradient: "from-[#ff6b00]/30 to-[#f971ff]/20",
+      accent: "text-[#ff6b00]",
+      accentBg: "bg-[#ff6b00]/10 border-[#ff6b00]/20",
       tags: ["Restaurant", "Menu", "Reservations"],
       liveUrl: null,
       isLive: false,
@@ -101,7 +101,7 @@ export function Portfolio() {
 
   return (
     <section id="portfolio" className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9945ff]/[0.015] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff6b00]/[0.015] to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.div

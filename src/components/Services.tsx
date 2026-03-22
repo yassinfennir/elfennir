@@ -14,7 +14,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { Card3D } from "@/components/Card3D";
 import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
 
-const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
 
 export function Services() {
   const { t } = useLanguage();
@@ -32,7 +32,7 @@ export function Services() {
 
   return (
     <section id="services" className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9945ff]/[0.015] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff6b00]/[0.015] to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
         <ScrollReveal3D className="text-center mb-16" rotateX={12}>
           <div className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4">
@@ -54,7 +54,7 @@ export function Services() {
             <motion.div key={s.title} variants={staggerItem} style={{ transformPerspective: 800 }}>
               <Card3D
                 className="h-full"
-                glowColor={s.color.replace("#", "").match(/.{2}/g)?.map(h => parseInt(h, 16)).join(",") || "153,69,255"}
+                glowColor={s.color.replace("#", "").match(/.{2}/g)?.map(h => parseInt(h, 16)).join(",") || "255,107,0"}
               >
                 <div className="sol-card group relative p-6 rounded-3xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 hover:bg-white/[0.04] overflow-hidden h-full">
                   <div className="relative">

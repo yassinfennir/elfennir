@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
 
 /* ─── SVG Logo Icons for the marquee ─── */
 const techLogosWithSvg = [
@@ -213,7 +213,7 @@ export function TrustBadges() {
 
   return (
     <section className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9945ff]/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff6b00]/[0.02] to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">

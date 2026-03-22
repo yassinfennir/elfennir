@@ -8,7 +8,7 @@ const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
 export function Card3D({
   children,
   className = "",
-  glowColor = "153,69,255",
+  glowColor = "255,107,0",
 }: {
   children: React.ReactNode;
   className?: string;

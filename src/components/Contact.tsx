@@ -10,10 +10,10 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9945ff]/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff6b00]/[0.02] to-transparent" />
 
       {/* Decorative orbs */}
-      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-[#9945ff]/[0.04] rounded-full blur-[120px] -translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-[#ff6b00]/[0.04] rounded-full blur-[120px] -translate-y-1/2" />
       <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-[#14f195]/[0.03] rounded-full blur-[100px] -translate-y-1/2" />
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -71,7 +71,7 @@ export function Contact() {
                 type="email"
                 placeholder="your@email.com"
                 required
-                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-2xl text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#9945ff]/40 focus:ring-2 focus:ring-[#9945ff]/10 focus:bg-white/[0.05] transition-all duration-300"
+                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-2xl text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#ff6b00]/40 focus:ring-2 focus:ring-[#ff6b00]/10 focus:bg-white/[0.05] transition-all duration-300"
               />
             </div>
 
@@ -85,7 +85,7 @@ export function Contact() {
                 type="tel"
                 placeholder="+358 40 123 4567"
                 required
-                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-2xl text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#9945ff]/40 focus:ring-2 focus:ring-[#9945ff]/10 focus:bg-white/[0.05] transition-all duration-300"
+                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-2xl text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#ff6b00]/40 focus:ring-2 focus:ring-[#ff6b00]/10 focus:bg-white/[0.05] transition-all duration-300"
               />
             </div>
 
@@ -96,7 +96,7 @@ export function Contact() {
               </label>
               <select
                 name="service"
-                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-xl text-slate-400 text-sm focus:outline-none focus:border-[#9945ff]/40 focus:bg-white/[0.05] transition-all duration-300 appearance-none"
+                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-xl text-slate-400 text-sm focus:outline-none focus:border-[#ff6b00]/40 focus:bg-white/[0.05] transition-all duration-300 appearance-none"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -120,7 +120,7 @@ export function Contact() {
                 name="message"
                 rows={3}
                 placeholder={t.contact.messagePlaceholder}
-                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-2xl text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#9945ff]/40 focus:ring-2 focus:ring-[#9945ff]/10 focus:bg-white/[0.05] transition-all duration-300 resize-none"
+                className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-2xl text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#ff6b00]/40 focus:ring-2 focus:ring-[#ff6b00]/10 focus:bg-white/[0.05] transition-all duration-300 resize-none"
               />
             </div>
 
@@ -164,10 +164,10 @@ export function Contact() {
                 </a>
                 <a
                   href="tel:+358466109064"
-                  className="flex items-center gap-3 text-sm text-slate-400 hover:text-[#9945ff] transition-colors group"
+                  className="flex items-center gap-3 text-sm text-slate-400 hover:text-[#ff6b00] transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-[#9945ff]/10 border border-[#9945ff]/20 flex items-center justify-center group-hover:bg-[#9945ff]/20 transition-colors">
-                    <Phone size={14} className="text-[#9945ff]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#ff6b00]/10 border border-[#ff6b00]/20 flex items-center justify-center group-hover:bg-[#ff6b00]/20 transition-colors">
+                    <Phone size={14} className="text-[#ff6b00]" />
                   </div>
                   +358 46 610 9064
                 </a>
@@ -189,12 +189,12 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-[#9945ff]/[0.08] to-[#14f195]/[0.04] border border-[#9945ff]/[0.12] overflow-hidden">
+            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-[#ff6b00]/[0.08] to-[#14f195]/[0.04] border border-[#ff6b00]/[0.12] overflow-hidden">
               {/* Glow */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#9945ff]/10 rounded-full blur-3xl" />
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#ff6b00]/10 rounded-full blur-3xl" />
               <div className="relative">
                 <div className="flex items-center gap-2 mb-3">
-                  <Sparkles size={14} className="text-[#9945ff]" />
+                  <Sparkles size={14} className="text-[#ff6b00]" />
                   <h3 className="font-[var(--font-heading)] text-white font-semibold">
                     {t.contact.whatsappChatTitle}
                   </h3>

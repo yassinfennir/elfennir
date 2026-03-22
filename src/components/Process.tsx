@@ -12,7 +12,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
 import { Card3D } from "@/components/Card3D";
 
-const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
 
 export function Process() {
   const { t } = useLanguage();
@@ -28,7 +28,7 @@ export function Process() {
 
   return (
     <section id="process" className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9945ff]/[0.015] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff6b00]/[0.015] to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.div

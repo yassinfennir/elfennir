@@ -40,7 +40,7 @@ function AnimatedNumber({ target, suffix = "" }: { target: string; suffix?: stri
   return <div ref={ref}>{value}{suffix}</div>;
 }
 
-const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
 
 export function Testimonials() {
   const { t } = useLanguage();

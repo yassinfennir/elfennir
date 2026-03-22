@@ -84,9 +84,9 @@ export function Problem() {
           {/* Right - Solution */}
           <ScrollReveal3D direction="right" rotateY={-8} rotateX={5} className="relative">
             {/* Glow behind card */}
-            <div className="absolute -inset-4 bg-[#9945ff]/[0.05] rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-[#ff6b00]/[0.05] rounded-3xl blur-2xl" />
 
-            <div className="relative p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#9945ff]/[0.06] via-[#00d1ff]/[0.03] to-[#14f195]/[0.06] border border-[#9945ff]/[0.12] backdrop-blur-sm">
+            <div className="relative p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#ff6b00]/[0.06] via-[#00d1ff]/[0.03] to-[#14f195]/[0.06] border border-[#ff6b00]/[0.12] backdrop-blur-sm">
               <div className="inline-flex items-center gap-2 text-sm text-[#14f195] mb-4">
                 <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#14f195]/60" />
                 {t.problem.solutionBadge}
