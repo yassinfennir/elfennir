@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
+import Image from "next/image";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 
@@ -50,12 +51,13 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
-          {/* Logo — Text only, clean */}
-          <a href="/" className="flex items-center gap-2 group relative z-[60]">
-            <span className="font-[var(--font-heading)] font-bold text-[1.3rem] tracking-tight leading-tight text-white">
+          {/* Logo — Orange Y logo + text */}
+          <a href="/" className="flex items-center gap-2.5 group relative z-[60]">
+            <Image src="/images/logo.png" alt="El Fennir" width={36} height={36} className="flex-shrink-0 rounded-lg" />
+            <span className="font-[var(--font-heading)] font-extrabold text-[1.3rem] tracking-tight leading-tight text-white">
               EL FENNIR
             </span>
-            <span className="hidden sm:inline-block text-[10px] font-mono text-[#ff6b00] bg-[#ff6b00]/10 border border-[#ff6b00]/20 px-2 py-0.5 rounded-full tracking-wider">
+            <span className="hidden sm:inline-block text-[10px] font-mono text-[#ff6b00] bg-[#ff6b00]/10 border border-[#ff6b00]/20 px-2 py-0.5 rounded-full tracking-wider font-bold">
               AI AGENCY
             </span>
           </a>
