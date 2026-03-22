@@ -21,7 +21,7 @@ export default function SuccessPage() {
           transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
           className="mx-auto mb-8 relative w-24 h-24"
         >
-          <Image src="/images/logo.png" alt="El Fennir" width={96} height={96} className="rounded-2xl shadow-[0_4px_30px_rgba(153,69,255,0.25)]" />
+          <Image src="/images/logo.png" alt="El Fennir" width={96} height={96} className="drop-shadow-[0_4px_30px_rgba(255,107,0,0.25)]" />
           <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-[#14f195] flex items-center justify-center shadow-lg">
             <CheckCircle size={18} className="text-[#08080f]" />
           </div>
