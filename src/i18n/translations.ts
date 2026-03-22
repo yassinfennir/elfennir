@@ -149,13 +149,17 @@ const fi = {
     titleHighlight: "läpinäkyvä",
     title2: "hinnoittelu.",
     subtitle:
-      "Yksi maksu, vuosien tuki. Jokaiseen pakettiin kuuluu jatkuva ylläpito, päivitykset ja oma kehittäjä, joka tuntee yrityksesi läpikotaisin.",
+      "Kertaluonteinen maksu verkkosivustosta + pieni kuukausimaksu ylläpidosta. Päivitykset, muutokset ja tuki — olen aina tavoitettavissa.",
     recommended: "SUOSITELTU",
     yearSupport: "vuoden tuki sisältyy",
     yearSupportIncluded: "vuoden tuki ja ylläpito sisältyy",
     customersBought: "asiakasta ostanut",
+    monthlyMaintenance: "Kuukausittainen ylläpito",
+    monthShort: "kk",
+    monthlyDesc: "Päivitykset, muutokset, tuki & optimointi — olen aina tavoitettavissa.",
+    alwaysHere: "Aina tavoitettavissa sinua varten",
     // Starter
-    starterMaintenance: "1 vuoden tuki ja ylläpito sisältyy",
+    starterMaintenance: "Kuukausittainen ylläpito 29€/kk",
     starterDesc:
       "Täydellinen pienille yrityksille, jotka tarvitsevat selkeän, ammattimaisen verkkonäkyvyyden perusautomaatiolla.",
     starterF1: "1–3 sivun räätälöity verkkosivusto",
@@ -172,7 +176,7 @@ const fi = {
     starterF12: "Rajattomat pienet päivitykset",
     starterCta: "Valitse Starter",
     // Business
-    businessMaintenance: "2 vuoden tuki ja ylläpito sisältyy",
+    businessMaintenance: "Kuukausittainen ylläpito 79€/kk",
     businessDesc:
       "Paras vastine kasvaville yrityksille. Täysi automaatio, joka säästää tunteja joka viikko.",
     businessF1: "Jopa 5 sivua",
@@ -191,7 +195,7 @@ const fi = {
     businessF14: "Kuukausittainen optimointi ja päivitykset",
     businessCta: "Valitse Business — Suosituin",
     // Premium
-    premiumMaintenance: "3 vuoden tuki ja ylläpito sisältyy",
+    premiumMaintenance: "Kuukausittainen ylläpito 129€/kk",
     premiumDesc:
       "Lopullinen paketti. Koko verkkoliiketoimintasi täysi automaatio — ajanvaraukset, viestit, laskut, seurannat. Sinä keskityt elämään.",
     premiumF1: "Täysin räätälöity suunnittelu ja brändi",
@@ -330,11 +334,11 @@ const fi = {
   about: {
     badge: "TIETOA",
     role: "Full-Stack-kehittäjä ja IT-ammattilainen",
-    locationLabel: "Espoo, Suomi",
+    locationLabel: "Zürich, Sveitsi",
     title1: "Ammattimainen IT-osaaminen",
     titleHighlight: "yrityksesi tueksi.",
     bio1: "Olen Yassin El Fennir — sertifioitu full-stack-kehittäjä, IT-ammattilainen ja tekoälyautomaation asiantuntija, jolla on syvällinen osaaminen koko teknologiapinosta. Käyttöliittymistä backend-arkkitehtuuriin, tietokantoihin, API-rajapintoihin, palvelinhallintaan ja tekoälyyn — rakennan kokonaisvaltaisia digitaalisia ratkaisuja, jotka toimivat moitteettomasti.",
-    bio2: "Syntynyt Espanjassa, kasvanut 9 vuotta Sveitsissä ja nyt kotoisin Espoosta, Suomesta. Kansainvälinen taustani antaa minulle ainutlaatuisen näkökulman eri markkinoiden yritysten ymmärtämiseen. Työskentelen suoraan yrittäjien kanssa pääkaupunkiseudulla rakentaen digitaalisia järjestelmiä, jotka houkuttelevat asiakkaita ja tuottavat todellista kasvua.",
+    bio2: "Syntynyt Espanjassa, kasvanut 9 vuotta Sveitsissä ja nyt kotoisin Zürichistä, Sveitsistä. Kansainvälinen taustani antaa minulle ainutlaatuisen näkökulman eri markkinoiden yritysten ymmärtämiseen. Työskentelen suoraan yrittäjien kanssa rakentaen digitaalisia järjestelmiä, jotka houkuttelevat asiakkaita ja tuottavat todellista kasvua.",
     bio3: "Kun työskentelet kanssani, saat omistautuneen IT-ammattilaisen, joka hoitaa kaiken — ensimmäisestä suunnittelusta julkaisuun, ylläpitoon ja sen jälkeen. Pysyn jokaisen asiakkaan rinnalla pitkäjänteisesti varmistaen, että verkkosivusto ja digitaaliset työkalut kehittyvät, paranevat ja tuottavat tuloksia kuukaudesta toiseen.",
     skillsTitle: "Tekninen osaaminen",
     cred1Label: "Full-Stack-kehittäjä",
@@ -615,13 +619,17 @@ const en: typeof fi = {
     titleHighlight: "transparent",
     title2: "pricing.",
     subtitle:
-      "One payment, years of support. Every package includes ongoing maintenance, updates, and a dedicated developer who knows your business inside out.",
+      "One-time payment for your website + small monthly fee for maintenance. Updates, changes, and support — I'm always here for whatever you need.",
     recommended: "RECOMMENDED",
     yearSupport: "year of support included",
     yearSupportIncluded: "year of support & maintenance included",
     customersBought: "customers purchased",
+    monthlyMaintenance: "Monthly maintenance",
+    monthShort: "mo",
+    monthlyDesc: "Updates, changes, support & optimization — I'm always here for you.",
+    alwaysHere: "Always here for you",
     // Starter
-    starterMaintenance: "1 year of support & maintenance included",
+    starterMaintenance: "Monthly maintenance 29€/mo",
     starterDesc:
       "Perfect for small businesses that need a clear, professional online presence with basic automation.",
     starterF1: "1\u20133 page custom website",
@@ -638,7 +646,7 @@ const en: typeof fi = {
     starterF12: "Unlimited minor updates",
     starterCta: "Choose Starter",
     // Business
-    businessMaintenance: "2 years of support & maintenance included",
+    businessMaintenance: "Monthly maintenance 79€/mo",
     businessDesc:
       "Best value for growing businesses. Full automation that saves you hours every week.",
     businessF1: "Up to 5 pages",
@@ -657,7 +665,7 @@ const en: typeof fi = {
     businessF14: "Monthly optimization & updates",
     businessCta: "Choose Business \u2014 Most Popular",
     // Premium
-    premiumMaintenance: "3 years of support & maintenance included",
+    premiumMaintenance: "Monthly maintenance 129€/mo",
     premiumDesc:
       "The ultimate package. Full automation for your entire online business \u2014 bookings, messages, invoices, follow-ups. You focus on living.",
     premiumF1: "Fully custom design & branding",
@@ -796,11 +804,11 @@ const en: typeof fi = {
   about: {
     badge: "ABOUT",
     role: "Full-Stack Developer & IT Professional",
-    locationLabel: "Espoo, Finland",
+    locationLabel: "Zurich, Switzerland",
     title1: "Professional IT expertise",
     titleHighlight: "to power your business.",
     bio1: "I\u2019m Yassin El Fennir \u2014 a certified full-stack developer, IT professional, and AI automation specialist with deep expertise across the entire technology stack. From frontend interfaces to backend architecture, databases, APIs, server management, and AI \u2014 I build end-to-end digital solutions that work flawlessly.",
-    bio2: "Born in Spain, raised 9 years in Switzerland, and now based in Espoo, Finland. My international background gives me a unique perspective in understanding businesses across different markets. I work directly with entrepreneurs in the Helsinki metropolitan area, building digital systems that attract customers and drive real growth.",
+    bio2: "Born in Spain, raised 9 years in Switzerland, and now based in Zurich, Switzerland. My international background gives me a unique perspective in understanding businesses across different markets. I work directly with entrepreneurs across Europe, building digital systems that attract customers and drive real growth.",
     bio3: "When you work with me, you get a dedicated IT professional who handles everything \u2014 from first design to launch, maintenance, and beyond. I stay by every client\u2019s side for the long term, ensuring your website and digital tools evolve, improve, and deliver results month after month.",
     skillsTitle: "Technical Expertise",
     cred1Label: "Full-Stack Developer",

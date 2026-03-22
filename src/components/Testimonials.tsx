@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Zap, Clock, Shield, Star, TrendingUp } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
+import { Card3D } from "@/components/Card3D";
 
 function AnimatedNumber({ target, suffix = "" }: { target: string; suffix?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -106,29 +108,26 @@ export function Testimonials() {
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
           {guarantees.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.1 * i, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="sol-card group relative text-center p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 overflow-hidden"
-            >
-              <div className="relative">
-                <div
-                  className="sol-icon w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300"
-                  style={{ color: item.color }}
-                >
-                  <item.icon size={20} />
+            <motion.div key={i} variants={staggerItem} style={{ transformPerspective: 800 }}>
+              <Card3D className="h-full">
+                <div className="sol-card group relative text-center p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 overflow-hidden h-full">
+                  <div className="relative">
+                    <div
+                      className="sol-icon w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300"
+                      style={{ color: item.color }}
+                    >
+                      <item.icon size={20} />
+                    </div>
+                    <div className="text-white font-bold text-xl font-[var(--font-heading)]">{item.label}</div>
+                    <div className="text-slate-500 text-xs mt-1">{item.sub}</div>
+                  </div>
                 </div>
-                <div className="text-white font-bold text-xl font-[var(--font-heading)]">{item.label}</div>
-                <div className="text-slate-500 text-xs mt-1">{item.sub}</div>
-              </div>
+              </Card3D>
             </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

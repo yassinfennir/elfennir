@@ -1,11 +1,10 @@
 "use client";
-/* v2-centered-buttons */
 import { motion, useMotionValue, useTransform, useScroll } from "framer-motion";
 import { ArrowRight, CheckCircle, Phone, Sparkles } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-
-const smoothEase = [0.22, 1, 0.36, 1] as const;
+import { Scene3D } from "@/components/Scene3D";
+import { MagneticButton } from "@/components/Card3D";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -39,38 +38,6 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   return <div ref={ref}>{count}{suffix}</div>;
 }
 
-function FloatingParticles() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {Array.from({ length: 12 }).map((_, i) => {
-        const colors = ["bg-[#9945ff]/30", "bg-[#00d1ff]/30", "bg-[#14f195]/30", "bg-[#f971ff]/20"];
-        return (
-          <motion.div
-            key={i}
-            className={`absolute w-1 h-1 rounded-full ${colors[i % colors.length]}`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              x: [0, Math.random() * 30 - 15, 0],
-              opacity: [0, 0.8, 0],
-              scale: [0, 1.5, 0],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 4,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut",
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 /* ─── Tool nodes for the constellation ─── */
 const techNodes = [
   { id: "center", label: "Your Business", logo: "", x: 50, y: 50, size: 76, color: "#9945ff", isCenter: true },
@@ -96,11 +63,9 @@ const techConnections = [
 function TechConnectionVisual() {
   return (
     <div className="relative w-full aspect-square max-w-[520px] mx-auto">
-      {/* Ambient glow */}
       <div className="absolute inset-[15%] bg-[#9945ff]/[0.06] rounded-full blur-[80px]" />
       <div className="absolute top-[20%] right-[20%] w-[40%] h-[40%] bg-[#00d1ff]/[0.04] rounded-full blur-[60px]" />
 
-      {/* SVG Connection Lines */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -133,7 +98,6 @@ function TechConnectionVisual() {
           />
         ))}
 
-        {/* Pulse dots */}
         {techConnections.slice(0, 10).map(([from, to], i) => (
           <motion.circle
             key={`pulse-${i}`}
@@ -150,7 +114,6 @@ function TechConnectionVisual() {
         ))}
       </svg>
 
-      {/* Tool nodes as HTML with real logos */}
       {techNodes.map((node, i) => (
         <motion.div
           key={node.id}
@@ -200,19 +163,14 @@ export function Hero() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const orbX = useTransform(mouseX, [0, 1000], [-15, 15]);
-  const orbY = useTransform(mouseY, [0, 800], [-15, 15]);
-
-  // Scroll-linked parallax for background orbs
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-  const orbParallax1 = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const orbParallax2 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const orbParallax3 = useTransform(scrollYProgress, [0, 1], [0, -160]);
   const contentParallax = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const scene3DScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
+  const scene3DOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const trust = [t.hero.trust1, t.hero.trust2, t.hero.trust3];
 
@@ -237,58 +195,33 @@ export function Hero() {
       {/* Dark base */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#05050a] via-[#08080f] to-[#08080f]" />
 
+      {/* 3D Scene Background */}
+      <motion.div style={{ scale: scene3DScale, opacity: scene3DOpacity }} className="absolute inset-0">
+        <Scene3D />
+      </motion.div>
+
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-overlay" />
 
-      {/* Solana gradient orbs — scroll-linked parallax */}
-      <motion.div
-        style={{ x: orbX, y: orbParallax1 }}
-        animate={{ scale: [1, 1.15, 1], rotate: [0, 5, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] animate-orb-morph"
-      >
-        <div className="w-full h-full bg-[#9945ff]/[0.12] animate-orb-morph" />
-      </motion.div>
-      <motion.div
-        style={{ y: orbParallax2 }}
-        animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-40 right-1/4 w-[500px] h-[500px] bg-[#00d1ff]/[0.07] rounded-full blur-[140px]"
-      />
-      <motion.div
-        style={{ y: orbParallax3 }}
-        animate={{ x: [0, 25, 0], y: [0, -25, 0], scale: [1, 1.1, 1] }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-[#14f195]/[0.06] rounded-full blur-[120px]"
-      />
-      <motion.div
-        style={{ y: orbParallax2 }}
-        animate={{ scale: [1, 1.3, 1], y: [0, 20, 0] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 right-[10%] w-[300px] h-[300px] bg-[#f971ff]/[0.04] rounded-full blur-[100px]"
-      />
-
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.015]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `linear-gradient(rgba(153,69,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(20,241,149,0.1) 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
         }}
       />
 
-      {/* Floating particles */}
-      <FloatingParticles />
-
-      <motion.div style={{ y: contentParallax, opacity: heroOpacity }} className="relative max-w-7xl mx-auto px-6 pt-32 pb-20 w-full">
+      <motion.div style={{ y: contentParallax, opacity: heroOpacity }} className="relative max-w-7xl mx-auto px-6 pt-32 pb-20 w-full z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left — Text Content */}
           <div>
             {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, rotateX: 15 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformPerspective: 800 }}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.05] border border-white/[0.1] rounded-full mb-8 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
             >
               <span className="relative flex h-2.5 w-2.5">
@@ -301,11 +234,12 @@ export function Hero() {
               <Sparkles size={12} className="text-[#9945ff]" />
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline with 3D entrance */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 40, rotateX: 20 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformPerspective: 1000 }}
               className="font-[var(--font-heading)] text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold text-white leading-[1.06] tracking-tight mb-6"
             >
               {t.hero.headline1}{" "}
@@ -362,23 +296,24 @@ export function Hero() {
               ))}
             </motion.div>
 
-            {/* CTA Buttons — Clean 2-button layout on mobile */}
+            {/* CTA Buttons with magnetic effect */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, rotateX: 10 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
+              style={{ transformPerspective: 800 }}
               className="flex flex-wrap gap-3"
             >
-              <a
+              <MagneticButton
+                as="a"
                 href="https://wa.me/358466109064"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group sol-btn-green inline-flex items-center justify-center gap-2 px-5 py-3.5 text-[13px] lg:text-[15px] lg:px-7 lg:py-4 font-semibold rounded-full"
-                style={{ whiteSpace: "nowrap", textAlign: "center" }}
               >
                 <Phone size={15} />
                 <span>{t.hero.ctaWhatsapp}</span>
-              </a>
+              </MagneticButton>
               <a
                 href="#pricing"
                 className="sol-btn-ghost inline-flex items-center justify-center gap-2 px-5 py-3.5 text-[13px] lg:text-[15px] lg:px-7 lg:py-4 rounded-full"
@@ -386,34 +321,36 @@ export function Hero() {
               >
                 {t.hero.ctaPricing}
               </a>
-              <a
+              <MagneticButton
+                as="a"
                 href="#contact"
                 className="hidden sm:inline-flex group sol-btn items-center justify-center gap-2 px-5 py-3.5 text-white font-semibold text-[13px] lg:text-[15px] lg:px-7 lg:py-4 transition-all duration-300"
-                style={{ whiteSpace: "nowrap", textAlign: "center" }}
               >
                 <span className="relative z-[2]">{t.hero.ctaBookCall}</span>
                 <ArrowRight size={16} className="relative z-[2] group-hover:translate-x-0.5 transition-transform" />
-              </a>
+              </MagneticButton>
             </motion.div>
           </div>
 
           {/* Right — Tech Connection Visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            initial={{ opacity: 0, scale: 0.85, rotateY: -15 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            style={{ transformPerspective: 1200 }}
             className="hidden lg:block"
           >
             <TechConnectionVisual />
           </motion.div>
         </div>
 
-        {/* Stats */}
+        {/* Stats with 3D entrance */}
         <div className="mt-20 mb-2 sol-divider" />
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, rotateX: 10 }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
+          style={{ transformPerspective: 1000 }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10"
         >
           {stats.map((s, i) => (
@@ -434,7 +371,7 @@ export function Hero() {
       </motion.div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#08080f] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#08080f] to-transparent z-20" />
     </section>
   );
 }

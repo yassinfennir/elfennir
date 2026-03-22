@@ -11,6 +11,8 @@ import {
   Headphones,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { Card3D } from "@/components/Card3D";
+import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
 
 const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
 
@@ -32,64 +34,46 @@ export function Services() {
     <section id="services" className="relative py-28 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#9945ff]/[0.015] to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4"
-          >
+        <ScrollReveal3D className="text-center mb-16" rotateX={12}>
+          <div className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4">
             <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
             {t.services.badge}
             <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white mb-5"
-          >
+          </div>
+          <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white mb-5">
             {t.services.title1}{" "}
             <span className="gradient-text">{t.services.titleHighlight}</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg"
-          >
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
             {t.services.subtitle}
-          </motion.p>
-        </div>
+          </p>
+        </ScrollReveal3D>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.06 * i, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="sol-card group relative p-6 rounded-3xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 hover:bg-white/[0.04] overflow-hidden"
-            >
-              <div className="relative">
-                <div
-                  className="sol-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300"
-                  style={{ color: s.color }}
-                >
-                  <s.icon size={20} className="group-hover:scale-110 transition-transform duration-300" />
+            <motion.div key={s.title} variants={staggerItem} style={{ transformPerspective: 800 }}>
+              <Card3D
+                className="h-full"
+                glowColor={s.color.replace("#", "").match(/.{2}/g)?.map(h => parseInt(h, 16)).join(",") || "153,69,255"}
+              >
+                <div className="sol-card group relative p-6 rounded-3xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 hover:bg-white/[0.04] overflow-hidden h-full">
+                  <div className="relative">
+                    <div
+                      className="sol-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300"
+                      style={{ color: s.color }}
+                    >
+                      <s.icon size={20} className="group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <h3 className="font-[var(--font-heading)] text-white font-semibold mb-2 text-[15px]">
+                      {s.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+                  </div>
                 </div>
-                <h3 className="font-[var(--font-heading)] text-white font-semibold mb-2 text-[15px]">
-                  {s.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-              </div>
+              </Card3D>
             </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

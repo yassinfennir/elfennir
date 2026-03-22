@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, TrendingDown, Clock, EyeOff, ArrowRight, CheckCircle2, Zap, Shield, Sparkles, Bot, Coffee } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ScrollReveal3D } from "@/components/ScrollReveal3D";
+import { Card3D } from "@/components/Card3D";
 
 export function Problem() {
   const { t } = useLanguage();
@@ -51,65 +53,36 @@ export function Problem() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Problem */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 text-sm text-[#f971ff] mb-4"
-            >
+          <ScrollReveal3D direction="left" rotateY={8} rotateX={5}>
+            <div className="inline-flex items-center gap-2 text-sm text-[#f971ff] mb-4">
               <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#f971ff]/60" />
               {t.problem.badge}
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-6"
-            >
+            </div>
+            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-6">
               {t.problem.title1}{" "}
               <span className="text-[#f971ff]">{t.problem.titleHighlight}</span>{" "}
               {t.problem.title2}
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-slate-400 leading-relaxed mb-8 text-lg"
-            >
+            </h2>
+            <p className="text-slate-400 leading-relaxed mb-8 text-lg">
               {t.problem.description}
-            </motion.p>
+            </p>
             <div className="grid sm:grid-cols-2 gap-4">
-              {problems.map((p, i) => (
-                <motion.div
-                  key={p.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ delay: 0.1 * i, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  className="sol-card group p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] transition-all duration-300"
-                >
-                  <div className={`w-9 h-9 rounded-lg ${p.bg} border flex items-center justify-center mb-3`}>
-                    <p.icon size={16} className={p.color} />
+              {problems.map((p) => (
+                <Card3D key={p.title} glowColor="249,113,255">
+                  <div className="sol-card group p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] transition-all duration-300">
+                    <div className={`w-9 h-9 rounded-lg ${p.bg} border flex items-center justify-center mb-3`}>
+                      <p.icon size={16} className={p.color} />
+                    </div>
+                    <h3 className="text-white font-medium text-sm mb-1">{p.title}</h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{p.desc}</p>
                   </div>
-                  <h3 className="text-white font-medium text-sm mb-1">{p.title}</h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">{p.desc}</p>
-                </motion.div>
+                </Card3D>
               ))}
             </div>
-          </div>
+          </ScrollReveal3D>
 
           {/* Right - Solution */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
-          >
+          <ScrollReveal3D direction="right" rotateY={-8} rotateX={5} className="relative">
             {/* Glow behind card */}
             <div className="absolute -inset-4 bg-[#9945ff]/[0.05] rounded-3xl blur-2xl" />
 
@@ -149,7 +122,7 @@ export function Problem() {
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-          </motion.div>
+          </ScrollReveal3D>
         </div>
       </div>
     </section>

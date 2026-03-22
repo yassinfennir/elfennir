@@ -51,7 +51,7 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
-          {/* Logo — More prominent */}
+          {/* Logo — Clean, no background shape */}
           <a href="/" className="flex items-center gap-3.5 group relative z-[60]">
             <div className="relative">
               <Image
@@ -59,12 +59,10 @@ export function Navbar() {
                 alt="El Fennir"
                 width={46}
                 height={46}
-                className="flex-shrink-0 rounded-xl shadow-[0_2px_16px_rgba(153,69,255,0.25)] bg-transparent"
+                className="flex-shrink-0"
                 style={{ background: 'transparent' }}
                 priority
               />
-              {/* Ambient glow behind logo */}
-              <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-br from-[#9945ff]/30 to-[#00d1ff]/20 blur-lg opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-white/50 font-[var(--font-heading)] font-medium text-[10px] tracking-[0.2em] uppercase">

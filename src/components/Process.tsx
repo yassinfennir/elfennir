@@ -9,6 +9,8 @@ import {
   HeadphonesIcon,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
+import { Card3D } from "@/components/Card3D";
 
 const solanaColors = ["#9945ff", "#00d1ff", "#14f195", "#f971ff"];
 
@@ -61,38 +63,35 @@ export function Process() {
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.08 * i, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="sol-card relative p-6 rounded-3xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 group overflow-hidden"
-            >
-              <div className="relative">
-                <div className="flex items-center gap-4 mb-4">
-                  <div
-                    className="sol-icon w-11 h-11 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300"
-                    style={{ color: step.color }}
-                  >
-                    <step.icon size={18} />
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {steps.map((step) => (
+            <motion.div key={step.num} variants={staggerItem} style={{ transformPerspective: 800 }}>
+              <Card3D className="h-full">
+                <div className="sol-card relative p-6 rounded-3xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 group overflow-hidden h-full">
+                  <div className="relative">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div
+                        className="sol-icon w-11 h-11 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300"
+                        style={{ color: step.color }}
+                      >
+                        <step.icon size={18} />
+                      </div>
+                      <span className="font-[var(--font-heading)] text-xs font-bold text-slate-600 tracking-wider">
+                        {t.process.step} {step.num}
+                      </span>
+                    </div>
+                    <h3 className="font-[var(--font-heading)] text-white font-semibold mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      {step.desc}
+                    </p>
                   </div>
-                  <span className="font-[var(--font-heading)] text-xs font-bold text-slate-600 tracking-wider">
-                    {t.process.step} {step.num}
-                  </span>
                 </div>
-                <h3 className="font-[var(--font-heading)] text-white font-semibold mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
+              </Card3D>
             </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -151,13 +151,17 @@ export const fr: Translations = {
     titleHighlight: "simples et transparents",
     title2: ".",
     subtitle:
-      "Un seul paiement, des années de support. Chaque forfait inclut la maintenance continue, les mises à jour et un développeur dédié qui connaît votre entreprise sur le bout des doigts.",
+      "Paiement unique pour votre site + petit abonnement mensuel de maintenance. Mises à jour, modifications et support — je suis toujours là pour vous.",
     recommended: "RECOMMANDÉ",
     yearSupport: "an de support inclus",
     yearSupportIncluded: "an de support et maintenance inclus",
     customersBought: "clients ont acheté",
+    monthlyMaintenance: "Maintenance mensuelle",
+    monthShort: "mois",
+    monthlyDesc: "Mises à jour, modifications, support & optimisation — toujours disponible.",
+    alwaysHere: "Toujours là pour vous",
     // Starter
-    starterMaintenance: "1 an de support et maintenance inclus",
+    starterMaintenance: "Maintenance mensuelle 29€/mois",
     starterDesc:
       "Parfait pour les petites entreprises qui ont besoin d'une présence en ligne claire et professionnelle avec une automatisation de base.",
     starterF1: "Site web sur mesure de 1 à 3 pages",
@@ -174,7 +178,7 @@ export const fr: Translations = {
     starterF12: "Mises à jour mineures illimitées",
     starterCta: "Choisir Starter",
     // Business
-    businessMaintenance: "2 ans de support et maintenance inclus",
+    businessMaintenance: "Maintenance mensuelle 79€/mois",
     businessDesc:
       "Le meilleur rapport qualité-prix pour les entreprises en croissance. Automatisation complète qui vous fait gagner des heures chaque semaine.",
     businessF1: "Jusqu'à 5 pages",
@@ -193,7 +197,7 @@ export const fr: Translations = {
     businessF14: "Optimisation et mises à jour mensuelles",
     businessCta: "Choisir Business — Le plus populaire",
     // Premium
-    premiumMaintenance: "3 ans de support et maintenance inclus",
+    premiumMaintenance: "Maintenance mensuelle 129€/mois",
     premiumDesc:
       "Le forfait ultime. Automatisation complète de toute votre activité en ligne — réservations, messages, factures, relances. Vous vous concentrez sur l'essentiel.",
     premiumF1: "Design et branding entièrement sur mesure",
@@ -332,11 +336,11 @@ export const fr: Translations = {
   about: {
     badge: "À PROPOS",
     role: "Développeur Full-Stack et professionnel IT",
-    locationLabel: "Espoo/Helsinki, Finlande",
+    locationLabel: "Zurich, Suisse",
     title1: "Une expertise IT professionnelle",
     titleHighlight: "au service de votre entreprise.",
     bio1: "Je suis Yassin El Fennir — développeur full-stack certifié, professionnel IT et spécialiste de l'automatisation IA avec une expertise approfondie sur l'ensemble de la pile technologique. Des interfaces frontend à l'architecture backend, bases de données, APIs, gestion de serveurs et IA — je construis des solutions digitales complètes qui fonctionnent parfaitement.",
-    bio2: "Né en Espagne, élevé 9 ans en Suisse et désormais installé à Espoo, en Finlande. Mon parcours international me donne une perspective unique pour comprendre les entreprises de différents marchés. Je travaille directement avec les entrepreneurs de la région métropolitaine d'Helsinki, en construisant des systèmes digitaux qui attirent les clients et génèrent une croissance réelle.",
+    bio2: "Né en Espagne, élevé 9 ans en Suisse et désormais installé à Zurich, en Suisse. Mon parcours international me donne une perspective unique pour comprendre les entreprises de différents marchés. Je travaille directement avec les entrepreneurs à travers l'Europe, en construisant des systèmes digitaux qui attirent les clients et génèrent une croissance réelle.",
     bio3: "Quand vous travaillez avec moi, vous bénéficiez d'un professionnel IT dédié qui gère tout — de la conception initiale au lancement, à la maintenance et au-delà. Je reste aux côtés de chaque client sur le long terme, en veillant à ce que votre site web et vos outils digitaux évoluent, s'améliorent et produisent des résultats mois après mois.",
     skillsTitle: "Expertise technique",
     cred1Label: "Développeur Full-Stack",
@@ -617,13 +621,17 @@ export const it: Translations = {
     titleHighlight: "semplici e trasparenti",
     title2: ".",
     subtitle:
-      "Un solo pagamento, anni di supporto. Ogni pacchetto include manutenzione continua, aggiornamenti e uno sviluppatore dedicato che conosce la tua azienda a fondo.",
+      "Pagamento unico per il sito + piccola quota mensile di manutenzione. Aggiornamenti, modifiche e supporto — sono sempre qui per te.",
     recommended: "CONSIGLIATO",
     yearSupport: "anno di supporto incluso",
     yearSupportIncluded: "anno di supporto e manutenzione incluso",
     customersBought: "clienti hanno acquistato",
+    monthlyMaintenance: "Manutenzione mensile",
+    monthShort: "mese",
+    monthlyDesc: "Aggiornamenti, modifiche, supporto & ottimizzazione — sempre disponibile.",
+    alwaysHere: "Sempre qui per te",
     // Starter
-    starterMaintenance: "1 anno di supporto e manutenzione incluso",
+    starterMaintenance: "Manutenzione mensile 29€/mese",
     starterDesc:
       "Perfetto per piccole aziende che necessitano di una presenza online chiara e professionale con automazione di base.",
     starterF1: "Sito web personalizzato da 1 a 3 pagine",
@@ -640,7 +648,7 @@ export const it: Translations = {
     starterF12: "Aggiornamenti minori illimitati",
     starterCta: "Scegli Starter",
     // Business
-    businessMaintenance: "2 anni di supporto e manutenzione inclusi",
+    businessMaintenance: "Manutenzione mensile 79€/mese",
     businessDesc:
       "Il miglior rapporto qualit\u00e0-prezzo per aziende in crescita. Automazione completa che ti fa risparmiare ore ogni settimana.",
     businessF1: "Fino a 5 pagine",
@@ -659,7 +667,7 @@ export const it: Translations = {
     businessF14: "Ottimizzazione e aggiornamenti mensili",
     businessCta: "Scegli Business \u2014 Il pi\u00f9 popolare",
     // Premium
-    premiumMaintenance: "3 anni di supporto e manutenzione inclusi",
+    premiumMaintenance: "Manutenzione mensile 129€/mese",
     premiumDesc:
       "Il pacchetto definitivo. Automazione completa per tutta la tua attivit\u00e0 online \u2014 prenotazioni, messaggi, fatture, follow-up. Tu ti concentri sulla vita.",
     premiumF1: "Design e branding completamente personalizzati",
@@ -798,11 +806,11 @@ export const it: Translations = {
   about: {
     badge: "CHI SIAMO",
     role: "Sviluppatore Full-Stack e professionista IT",
-    locationLabel: "Espoo/Helsinki, Finlandia",
+    locationLabel: "Zurigo, Svizzera",
     title1: "Competenza IT professionale",
     titleHighlight: "al servizio della tua azienda.",
     bio1: "Sono Yassin El Fennir \u2014 sviluppatore full-stack certificato, professionista IT e specialista in automazione IA con competenze approfondite sull'intero stack tecnologico. Dalle interfacce frontend all'architettura backend, database, API, gestione server e IA \u2014 costruisco soluzioni digitali complete che funzionano perfettamente.",
-    bio2: "Nato in Spagna, cresciuto 9 anni in Svizzera e ora residente a Espoo, in Finlandia. Il mio background internazionale mi offre una prospettiva unica nella comprensione delle aziende in diversi mercati. Lavoro direttamente con gli imprenditori dell'area metropolitana di Helsinki, costruendo sistemi digitali che attraggono clienti e generano una crescita reale.",
+    bio2: "Nato in Spagna, cresciuto 9 anni in Svizzera e ora residente a Zurigo, in Svizzera. Il mio background internazionale mi offre una prospettiva unica nella comprensione delle aziende in diversi mercati. Lavoro direttamente con gli imprenditori in tutta Europa, costruendo sistemi digitali che attraggono clienti e generano una crescita reale.",
     bio3: "Quando lavori con me, hai a disposizione un professionista IT dedicato che gestisce tutto \u2014 dal primo design al lancio, alla manutenzione e oltre. Resto al fianco di ogni cliente a lungo termine, assicurandomi che il tuo sito web e i tuoi strumenti digitali evolvano, migliorino e producano risultati mese dopo mese.",
     skillsTitle: "Competenze tecniche",
     cred1Label: "Sviluppatore Full-Stack",
@@ -1083,13 +1091,17 @@ export const pt: Translations = {
     titleHighlight: "simples e transparentes",
     title2: ".",
     subtitle:
-      "Um s\u00f3 pagamento, anos de suporte. Cada pacote inclui manuten\u00e7\u00e3o cont\u00ednua, atualiza\u00e7\u00f5es e um programador dedicado que conhece o seu neg\u00f3cio a fundo.",
+      "Pagamento \u00fanico pelo site + pequena mensalidade de manuten\u00e7\u00e3o. Atualiza\u00e7\u00f5es, altera\u00e7\u00f5es e suporte \u2014 estou sempre aqui para si.",
     recommended: "RECOMENDADO",
     yearSupport: "ano de suporte inclu\u00eddo",
     yearSupportIncluded: "ano de suporte e manuten\u00e7\u00e3o inclu\u00eddo",
     customersBought: "clientes compraram",
+    monthlyMaintenance: "Manuten\u00e7\u00e3o mensal",
+    monthShort: "m\u00eas",
+    monthlyDesc: "Atualiza\u00e7\u00f5es, altera\u00e7\u00f5es, suporte & otimiza\u00e7\u00e3o \u2014 sempre dispon\u00edvel.",
+    alwaysHere: "Sempre aqui para si",
     // Starter
-    starterMaintenance: "1 ano de suporte e manuten\u00e7\u00e3o inclu\u00eddo",
+    starterMaintenance: "Manuten\u00e7\u00e3o mensal 49\u20ac/m\u00eas",
     starterDesc:
       "Perfeito para pequenas empresas que precisam de uma presen\u00e7a online clara e profissional com automa\u00e7\u00e3o b\u00e1sica.",
     starterF1: "Site personalizado de 1 a 3 p\u00e1ginas",
@@ -1106,7 +1118,7 @@ export const pt: Translations = {
     starterF12: "Atualiza\u00e7\u00f5es menores ilimitadas",
     starterCta: "Escolher Starter",
     // Business
-    businessMaintenance: "2 anos de suporte e manuten\u00e7\u00e3o inclu\u00eddos",
+    businessMaintenance: "Manuten\u00e7\u00e3o mensal 79\u20ac/m\u00eas",
     businessDesc:
       "A melhor rela\u00e7\u00e3o qualidade-pre\u00e7o para empresas em crescimento. Automa\u00e7\u00e3o completa que lhe poupa horas todas as semanas.",
     businessF1: "At\u00e9 5 p\u00e1ginas",
@@ -1125,7 +1137,7 @@ export const pt: Translations = {
     businessF14: "Otimiza\u00e7\u00e3o e atualiza\u00e7\u00f5es mensais",
     businessCta: "Escolher Business \u2014 O mais popular",
     // Premium
-    premiumMaintenance: "3 anos de suporte e manuten\u00e7\u00e3o inclu\u00eddos",
+    premiumMaintenance: "Manuten\u00e7\u00e3o mensal 129\u20ac/m\u00eas",
     premiumDesc:
       "O pacote definitivo. Automa\u00e7\u00e3o completa de todo o seu neg\u00f3cio online \u2014 reservas, mensagens, faturas, acompanhamentos. Concentre-se na vida.",
     premiumF1: "Design e branding totalmente personalizados",
@@ -1264,11 +1276,11 @@ export const pt: Translations = {
   about: {
     badge: "SOBRE",
     role: "Programador Full-Stack e profissional de IT",
-    locationLabel: "Espoo/Helsinki, Finl\u00e2ndia",
+    locationLabel: "Zurique, Su\u00ed\u00e7a",
     title1: "Compet\u00eancia profissional em IT",
     titleHighlight: "ao servi\u00e7o do seu neg\u00f3cio.",
     bio1: "Sou o Yassin El Fennir \u2014 programador full-stack certificado, profissional de IT e especialista em automa\u00e7\u00e3o IA com conhecimento aprofundado em toda a stack tecnol\u00f3gica. Das interfaces frontend \u00e0 arquitetura backend, bases de dados, APIs, gest\u00e3o de servidores e IA \u2014 construo solu\u00e7\u00f5es digitais completas que funcionam na perfei\u00e7\u00e3o.",
-    bio2: "Nascido em Espanha, cresci 9 anos na Su\u00ed\u00e7a e agora vivo em Espoo, na Finl\u00e2ndia. O meu percurso internacional d\u00e1-me uma perspetiva \u00fanica na compreens\u00e3o de empresas em diferentes mercados. Trabalho diretamente com empreendedores na \u00e1rea metropolitana de Helsinki, construindo sistemas digitais que atraem clientes e geram crescimento real.",
+    bio2: "Nascido em Espanha, cresci 9 anos na Su\u00ed\u00e7a e agora vivo em Zurique, na Su\u00ed\u00e7a. O meu percurso internacional d\u00e1-me uma perspetiva \u00fanica na compreens\u00e3o de empresas em diferentes mercados. Trabalho diretamente com empreendedores em toda a Europa, construindo sistemas digitais que atraem clientes e geram crescimento real.",
     bio3: "Quando trabalha comigo, tem um profissional de IT dedicado que trata de tudo \u2014 desde o primeiro design ao lan\u00e7amento, manuten\u00e7\u00e3o e muito mais. Acompanho cada cliente a longo prazo, garantindo que o seu site e ferramentas digitais evoluem, melhoram e produzem resultados m\u00eas ap\u00f3s m\u00eas.",
     skillsTitle: "Compet\u00eancias t\u00e9cnicas",
     cred1Label: "Programador Full-Stack",

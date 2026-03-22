@@ -20,10 +20,11 @@ export function Pricing() {
     {
       name: "Starter",
       icon: Zap,
-      price: "399",
+      price: "299",
       cents: ",00",
-      originalPrice: "599",
+      originalPrice: "499",
       period: "one-time",
+      monthlyFee: "29",
       maintenance: t.pricing.starterMaintenance,
       desc: t.pricing.starterDesc,
       features: [
@@ -45,16 +46,16 @@ export function Pricing() {
       popular: false,
       gradient: "from-slate-500/5 to-slate-600/5",
       borderHover: "hover:border-slate-400/20",
-      supportYears: 1,
       paidCount: 0,
     },
     {
       name: "Business",
       icon: Star,
-      price: "859",
+      price: "499",
       cents: ",00",
-      originalPrice: "1.299",
+      originalPrice: "799",
       period: "one-time",
+      monthlyFee: "79",
       maintenance: t.pricing.businessMaintenance,
       desc: t.pricing.businessDesc,
       features: [
@@ -78,16 +79,16 @@ export function Pricing() {
       popular: true,
       gradient: "from-[#9945ff]/[0.12] to-[#9945ff]/[0.04]",
       borderHover: "",
-      supportYears: 2,
       paidCount: 0,
     },
     {
       name: "Premium",
       icon: Crown,
-      price: "1.499",
+      price: "999",
       cents: ",00",
-      originalPrice: "2.499",
+      originalPrice: "1.499",
       period: "one-time",
+      monthlyFee: "129",
       maintenance: t.pricing.premiumMaintenance,
       desc: t.pricing.premiumDesc,
       features: [
@@ -112,7 +113,6 @@ export function Pricing() {
       popular: false,
       gradient: "from-violet-500/5 to-purple-600/5",
       borderHover: "hover:border-violet-400/20",
-      supportYears: 3,
       paidCount: 0,
     },
   ];
@@ -185,6 +185,7 @@ export function Pricing() {
                   </h3>
                 </div>
                 <p className="text-slate-500 text-sm mb-5">{plan.desc}</p>
+                {/* One-time price */}
                 <div className="flex items-baseline gap-1 mb-1.5">
                   <span className="font-[var(--font-heading)] text-4xl font-bold text-white">
                     {plan.price}
@@ -194,13 +195,33 @@ export function Pricing() {
                   </span>
                   <span className="text-slate-500 text-lg ml-1">EUR</span>
                 </div>
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-3">
                   <span className="text-slate-600 text-sm line-through">
                     {plan.originalPrice},00 EUR
                   </span>
                   <span className="text-[11px] text-[#14f195] font-semibold px-2.5 py-0.5 bg-[#14f195]/10 border border-[#14f195]/20 rounded-full">
                     SAVE {parseInt(plan.originalPrice.replace(".", "")) - parseInt(plan.price.replace(".", ""))}€
                   </span>
+                </div>
+
+                {/* Monthly maintenance fee */}
+                <div className={`p-3 rounded-xl mb-3 ${
+                  plan.popular
+                    ? "bg-[#9945ff]/10 border border-[#9945ff]/20"
+                    : "bg-white/[0.03] border border-white/[0.08]"
+                }`}>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs text-slate-400">{t.pricing.monthlyMaintenance}</span>
+                    <div className="flex items-baseline gap-0.5">
+                      <span className={`font-[var(--font-heading)] text-lg font-bold ${plan.popular ? "text-[#9945ff]" : "text-white"}`}>
+                        {plan.monthlyFee}
+                      </span>
+                      <span className="text-slate-500 text-xs">€/{t.pricing.monthShort}</span>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-slate-500 leading-relaxed">
+                    {t.pricing.monthlyDesc}
+                  </p>
                 </div>
 
                 {/* PAID badge */}
@@ -216,16 +237,14 @@ export function Pricing() {
                 </div>
                 )}
 
-                {/* Maintenance badge */}
+                {/* Always here badge */}
                 <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold ${
                   plan.popular
                     ? "bg-[#9945ff]/15 text-[#9945ff] border border-[#9945ff]/20"
-                    : plan.supportYears === 3
-                    ? "bg-[#14f195]/10 text-[#14f195] border border-[#14f195]/20"
-                    : "bg-white/[0.04] text-slate-300 border border-white/[0.08]"
+                    : "bg-[#14f195]/10 text-[#14f195] border border-[#14f195]/20"
                 }`}>
-                  <Clock size={11} />
-                  {plan.supportYears} {t.pricing.yearSupport}
+                  <Headphones size={11} />
+                  {t.pricing.alwaysHere}
                 </div>
               </div>
 

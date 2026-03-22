@@ -122,6 +122,33 @@ body {
   100% { background-position: 200% 0%; }
 }
 
+/* ===== 3D UTILITY CLASSES ===== */
+
+.perspective-1000 { perspective: 1000px; }
+.perspective-1200 { perspective: 1200px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0) rotateX(0) rotateY(0) translateZ(0);
+  }
+  25% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(3deg) translateZ(10px);
+  }
+  50% {
+    transform: translateY(-15px) rotateX(-1deg) rotateY(-2deg) translateZ(20px);
+  }
+  75% {
+    transform: translateY(-8px) rotateX(1deg) rotateY(2deg) translateZ(10px);
+  }
+}
+
+.animate-float-3d {
+  animation: float-3d 8s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
 /* ===== UTILITY CLASSES ===== */
 
 .animate-shimmer { animation: shimmer 3s ease-in-out infinite; background-size: 200% 100%; }

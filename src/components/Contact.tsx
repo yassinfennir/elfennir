@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MessageCircle, MapPin, ArrowRight, Sparkles, Clock, Shield, Send } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ScrollReveal3D } from "@/components/ScrollReveal3D";
+import { Card3D } from "@/components/Card3D";
 
 export function Contact() {
   const { t } = useLanguage();
@@ -49,12 +51,9 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
           {/* Simple Contact Form */}
-          <motion.form
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-3 space-y-5"
+          <ScrollReveal3D direction="left" rotateY={5} rotateX={3} className="lg:col-span-3">
+          <form
+            className="space-y-5"
             action="https://formsubmit.co/yassinfennir@gmail.com"
             method="POST"
           >
@@ -142,16 +141,11 @@ export function Contact() {
                 </div>
               ))}
             </div>
-          </motion.form>
+          </form>
+          </ScrollReveal3D>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-2 space-y-5"
-          >
+          <ScrollReveal3D direction="right" rotateY={-5} rotateX={3} className="lg:col-span-2 space-y-5">
             <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
               <h3 className="font-[var(--font-heading)] text-white font-semibold mb-4">
                 {t.contact.directContactTitle}
@@ -190,7 +184,7 @@ export function Contact() {
                   <div className="w-8 h-8 rounded-lg bg-[#f971ff]/10 border border-[#f971ff]/20 flex items-center justify-center">
                     <MapPin size={14} className="text-[#f971ff]" />
                   </div>
-                  Espoo, Finland
+                  Zurich, Switzerland
                 </div>
               </div>
             </div>
@@ -238,7 +232,7 @@ export function Contact() {
                 <p className="text-slate-500 text-[10px]">{t.contact.responseTimeSub}</p>
               </div>
             </div>
-          </motion.div>
+          </ScrollReveal3D>
         </div>
       </div>
     </section>

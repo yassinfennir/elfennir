@@ -19,17 +19,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Yassin El Fennir — Verkkosivujen suunnittelu & tekoälyautomaatio | Espoo, Suomi",
+  title: "Yassin El Fennir — Verkkosivujen suunnittelu & tekoälyautomaatio | Zürich, Sveitsi",
   description:
-    "Ammattimainen verkkosivujen suunnittelu ja tekoälyautomaatiopalvelut Espoossa ja Helsingissä. Modernit verkkosivut, digitaaliset ratkaisut ja älykkäät automaatiojärjestelmät, jotka auttavat yrityksiä houkuttelemaan lisää asiakkaita ja kasvamaan nopeammin.",
+    "Ammattimainen verkkosivujen suunnittelu ja tekoälyautomaatiopalvelut Zürichissä. Modernit verkkosivut, digitaaliset ratkaisut ja älykkäät automaatiojärjestelmät, jotka auttavat yrityksiä houkuttelemaan lisää asiakkaita ja kasvamaan nopeammin.",
   icons: {
     icon: "/images/logo.png",
     apple: "/images/logo.png",
   },
   openGraph: {
-    title: "Yassin El Fennir — Verkkosivujen suunnittelu & tekoälyautomaatio | Espoo, Suomi",
+    title: "Yassin El Fennir — Verkkosivujen suunnittelu & tekoälyautomaatio | Zürich, Sveitsi",
     description:
-      "Ammattimainen verkkosivujen suunnittelu ja tekoälyautomaatio Espoossa ja Helsingissä. Modernit verkkosivut ja digitaaliset ratkaisut yrityksille.",
+      "Ammattimainen verkkosivujen suunnittelu ja tekoälyautomaatio Zürichissä. Modernit verkkosivut ja digitaaliset ratkaisut yrityksille.",
     type: "website",
     images: [
       {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Yassin El Fennir — Verkkosivujen suunnittelu & tekoälyautomaatio",
-    description: "Ammattimainen verkkosivujen suunnittelu ja tekoälyautomaatio Espoossa ja Helsingissä.",
+    description: "Ammattimainen verkkosivujen suunnittelu ja tekoälyautomaatio Zürichissä.",
     images: ["/images/logo.png"],
   },
 };
