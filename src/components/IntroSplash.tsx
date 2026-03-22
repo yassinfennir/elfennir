@@ -14,7 +14,7 @@ function LogoReveal() {
         transition={{ duration: 1.5, ease: "easeOut" }}
       />
       <motion.div
-        className="absolute w-28 h-28 rounded-full border border-[#00d1ff]/15"
+        className="absolute w-28 h-28 rounded-full border border-[#ff8c00]/15"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: [0, 1.8, 1.4], opacity: [0, 0.4, 0] }}
         transition={{ duration: 1.5, delay: 0.1, ease: "easeOut" }}
@@ -45,7 +45,7 @@ function LogoReveal() {
 }
 
 /* ─── Typing command line ─── */
-function TerminalLine({ text, delay, color = "#14f195" }: { text: string; delay: number; color?: string }) {
+function TerminalLine({ text, delay, color = "#ffaa00" }: { text: string; delay: number; color?: string }) {
   const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
 
@@ -89,7 +89,7 @@ function LoadingBar() {
       <motion.div
         className="h-full rounded-full"
         style={{
-          background: "linear-gradient(90deg, #ff6b00, #00d1ff, #14f195)",
+          background: "linear-gradient(90deg, #ff6b00, #ff8c00, #ffaa00)",
         }}
         initial={{ width: "0%" }}
         animate={{ width: "100%" }}
@@ -107,7 +107,7 @@ function ParticleBurst({ active }: { active: boolean }) {
     angle: (i / 30) * Math.PI * 2,
     distance: 100 + Math.random() * 200,
     size: 2 + Math.random() * 4,
-    color: ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
+    color: ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"][Math.floor(Math.random() * 4)],
     delay: Math.random() * 0.15,
   }));
 
@@ -226,7 +226,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
                 <div
                   className="font-[var(--font-heading)] text-3xl sm:text-4xl font-extrabold tracking-tight"
                   style={{
-                    background: "linear-gradient(135deg, #a78bfa, #818cf8, #06b6d4, #14f195)",
+                    background: "linear-gradient(135deg, #a78bfa, #818cf8, #06b6d4, #ffaa00)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundSize: "300% 300%",
@@ -240,9 +240,9 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
               {/* Terminal lines */}
               <div className="flex flex-col gap-1.5 mt-2">
                 <TerminalLine text="Initializing AI systems..." delay={300} color="#ff6b00" />
-                <TerminalLine text="Loading 3D environment..." delay={700} color="#00d1ff" />
-                <TerminalLine text="Connecting neural networks..." delay={1100} color="#14f195" />
-                <TerminalLine text="System ready ✓" delay={1600} color="#14f195" />
+                <TerminalLine text="Loading 3D environment..." delay={700} color="#ff8c00" />
+                <TerminalLine text="Connecting neural networks..." delay={1100} color="#ffaa00" />
+                <TerminalLine text="System ready ✓" delay={1600} color="#ffaa00" />
               </div>
 
               {/* Loading bar */}
@@ -256,7 +256,7 @@ export function IntroSplash({ children }: { children: React.ReactNode }) {
             <motion.div
               className="absolute bottom-0 left-0 right-0 h-[1px]"
               style={{
-                background: "linear-gradient(90deg, transparent, #ff6b00, #00d1ff, #14f195, transparent)",
+                background: "linear-gradient(90deg, transparent, #ff6b00, #ff8c00, #ffaa00, transparent)",
               }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}

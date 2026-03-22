@@ -34,14 +34,14 @@ export function TechStack() {
 
   const stats = [
     { value: "50+", label: t.techStack.stat1Label, color: "#ff6b00" },
-    { value: "100%", label: t.techStack.stat2Label, color: "#00d1ff" },
-    { value: "99.9%", label: t.techStack.stat3Label, color: "#14f195" },
-    { value: "A+", label: t.techStack.stat4Label, color: "#f971ff" },
+    { value: "100%", label: t.techStack.stat2Label, color: "#ff8c00" },
+    { value: "99.9%", label: t.techStack.stat3Label, color: "#ffaa00" },
+    { value: "A+", label: t.techStack.stat4Label, color: "#ff4500" },
   ];
 
   return (
     <section className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00d1ff]/[0.01] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff8c00]/[0.01] to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -51,11 +51,11 @@ export function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 text-sm text-[#14f195] mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#ffaa00] mb-4"
           >
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#14f195]/60" />
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ffaa00]/60" />
             {t.techStack.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#14f195]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ffaa00]/60" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

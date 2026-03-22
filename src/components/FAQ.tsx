@@ -18,7 +18,7 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className="text-white text-sm font-medium pr-4 group-hover:text-[#00d1ff]/80 transition-colors">
+        <span className="text-white text-sm font-medium pr-4 group-hover:text-[#ff8c00]/80 transition-colors">
           {q}
         </span>
         <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
@@ -72,11 +72,11 @@ export function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4"
           >
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
             {t.faq.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ff8c00]/60" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

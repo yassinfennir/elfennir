@@ -60,24 +60,24 @@ function getTimestamp(): string {
 
 function getTypeColor(type: LogType): string {
   switch (type) {
-    case "deploy": return "#14f195";
-    case "seo": return "#00d1ff";
+    case "deploy": return "#ffaa00";
+    case "seo": return "#ff8c00";
     case "ai": return "#ff6b00";
-    case "automation": return "#f971ff";
+    case "automation": return "#ff4500";
     case "security": return "#ff6b6b";
     case "speed": return "#ffd93d";
-    case "lead": return "#14f195";
-    case "system": return "#00d1ff";
-    default: return "#14f195";
+    case "lead": return "#ffaa00";
+    case "system": return "#ff8c00";
+    default: return "#ffaa00";
   }
 }
 
 function getStatusColor(status?: string): string {
   switch (status) {
-    case "success": return "#14f195";
+    case "success": return "#ffaa00";
     case "warning": return "#ffd93d";
-    case "info": return "#00d1ff";
-    default: return "#14f195";
+    case "info": return "#ff8c00";
+    default: return "#ffaa00";
   }
 }
 
@@ -133,7 +133,7 @@ export function LiveTerminal() {
 
   return (
     <section className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#14f195]/[0.01] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ffaa00]/[0.01] to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -141,11 +141,11 @@ export function LiveTerminal() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 text-sm text-[#14f195] mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#ffaa00] mb-4"
           >
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#14f195]/60" />
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ffaa00]/60" />
             LIVE-JÄRJESTELMÄT
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#14f195]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ffaa00]/60" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -176,27 +176,27 @@ export function LiveTerminal() {
           transition={{ delay: 0.2 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="rounded-2xl overflow-hidden border border-[#14f195]/20 shadow-[0_0_60px_rgba(20,241,149,0.08)]">
+          <div className="rounded-2xl overflow-hidden border border-[#ffaa00]/20 shadow-[0_0_60px_rgba(20,241,149,0.08)]">
             {/* Terminal Title Bar */}
-            <div className="flex items-center justify-between px-5 py-3 bg-[#0a0f0a] border-b border-[#14f195]/10">
+            <div className="flex items-center justify-between px-5 py-3 bg-[#0a0f0a] border-b border-[#ffaa00]/10">
               <div className="flex items-center gap-2">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
                   <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
                   <div className="w-3 h-3 rounded-full bg-[#28c840]" />
                 </div>
-                <span className="ml-3 text-[11px] text-[#14f195]/60 font-mono tracking-wider">
+                <span className="ml-3 text-[11px] text-[#ffaa00]/60 font-mono tracking-wider">
                   elfennir@cloud — automation_engine_v4.2
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
-                  <Wifi size={10} className="text-[#14f195]" />
-                  <span className="text-[10px] text-[#14f195]/80 font-mono">CONNECTED</span>
+                  <Wifi size={10} className="text-[#ffaa00]" />
+                  <span className="text-[10px] text-[#ffaa00]/80 font-mono">CONNECTED</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Activity size={10} className="text-[#14f195] animate-pulse" />
-                  <span className="text-[10px] text-[#14f195]/80 font-mono">LIVE</span>
+                  <Activity size={10} className="text-[#ffaa00] animate-pulse" />
+                  <span className="text-[10px] text-[#ffaa00]/80 font-mono">LIVE</span>
                 </div>
               </div>
             </div>
@@ -204,33 +204,33 @@ export function LiveTerminal() {
             {/* Terminal Body */}
             <div className="bg-[#0a0f0a] p-5 sm:p-6">
               {/* ASCII Logo */}
-              <pre className="text-[#14f195] text-[5px] sm:text-[7px] lg:text-[9px] leading-tight font-mono mb-4 opacity-80 overflow-hidden select-none">
+              <pre className="text-[#ffaa00] text-[5px] sm:text-[7px] lg:text-[9px] leading-tight font-mono mb-4 opacity-80 overflow-hidden select-none">
                 {ASCII_LOGO}
               </pre>
 
               {/* Subtitle */}
-              <div className="text-[#14f195]/50 text-[10px] sm:text-xs font-mono mb-4 tracking-[0.2em]">
+              <div className="text-[#ffaa00]/50 text-[10px] sm:text-xs font-mono mb-4 tracking-[0.2em]">
                 — AI AUTOMATION ENGINE — WEBSITES · SEO · LEADS · 24/7 —
               </div>
 
               {/* Stats Bar */}
-              <div className="flex flex-wrap gap-4 sm:gap-6 mb-5 pb-4 border-b border-[#14f195]/10">
+              <div className="flex flex-wrap gap-4 sm:gap-6 mb-5 pb-4 border-b border-[#ffaa00]/10">
                 <div className="font-mono">
-                  <span className="text-[#14f195]/50 text-[10px] sm:text-xs">SITES:</span>{" "}
+                  <span className="text-[#ffaa00]/50 text-[10px] sm:text-xs">SITES:</span>{" "}
                   <span className="text-white font-bold text-sm sm:text-base">{stats.sites}</span>
                 </div>
                 <div className="font-mono">
-                  <span className="text-[#14f195]/50 text-[10px] sm:text-xs">UPTIME:</span>{" "}
-                  <span className="text-[#14f195] font-bold text-sm sm:text-base">{stats.uptime}%</span>
+                  <span className="text-[#ffaa00]/50 text-[10px] sm:text-xs">UPTIME:</span>{" "}
+                  <span className="text-[#ffaa00] font-bold text-sm sm:text-base">{stats.uptime}%</span>
                 </div>
                 <div className="font-mono">
-                  <span className="text-[#14f195]/50 text-[10px] sm:text-xs">REVENUE:</span>{" "}
+                  <span className="text-[#ffaa00]/50 text-[10px] sm:text-xs">REVENUE:</span>{" "}
                   <span className="text-[#ffd93d] font-bold text-sm sm:text-base">€{stats.revenue.toLocaleString()}</span>{" "}
-                  <span className="text-[#14f195] text-[10px]">(+€{Math.floor(Math.random() * 100 + 20)})</span>
+                  <span className="text-[#ffaa00] text-[10px]">(+€{Math.floor(Math.random() * 100 + 20)})</span>
                 </div>
                 <div className="font-mono">
-                  <span className="text-[#14f195]/50 text-[10px] sm:text-xs">LEADS:</span>{" "}
-                  <span className="text-[#00d1ff] font-bold text-sm sm:text-base">{stats.leads}</span>
+                  <span className="text-[#ffaa00]/50 text-[10px] sm:text-xs">LEADS:</span>{" "}
+                  <span className="text-[#ff8c00] font-bold text-sm sm:text-base">{stats.leads}</span>
                 </div>
               </div>
 
@@ -240,7 +240,7 @@ export function LiveTerminal() {
                 className="h-[320px] sm:h-[380px] overflow-y-auto scrollbar-thin pr-2 space-y-1"
                 style={{
                   scrollbarWidth: "thin",
-                  scrollbarColor: "#14f195 #0a0f0a",
+                  scrollbarColor: "#ffaa00 #0a0f0a",
                 }}
               >
                 <AnimatePresence mode="popLayout">
@@ -253,14 +253,14 @@ export function LiveTerminal() {
                       className="font-mono text-[11px] sm:text-xs leading-relaxed"
                     >
                       {/* Colored left border */}
-                      <div className="flex items-start gap-2 py-1 px-2 rounded hover:bg-[#14f195]/[0.03] transition-colors">
+                      <div className="flex items-start gap-2 py-1 px-2 rounded hover:bg-[#ffaa00]/[0.03] transition-colors">
                         <div
                           className="w-0.5 h-full min-h-[16px] rounded-full flex-shrink-0 mt-0.5"
                           style={{ backgroundColor: getTypeColor(log.type) }}
                         />
                         <div className="flex-1 min-w-0">
                           {/* Timestamp */}
-                          <span className="text-[#14f195]/30 text-[9px] sm:text-[10px]">
+                          <span className="text-[#ffaa00]/30 text-[9px] sm:text-[10px]">
                             [{log.timestamp}]
                           </span>{" "}
                           {/* Zap icon for certain types */}
@@ -292,23 +292,23 @@ export function LiveTerminal() {
 
                 {/* Blinking cursor */}
                 <div className="flex items-center gap-2 py-1 px-2 font-mono text-[11px]">
-                  <span className="text-[#14f195]/50">{">"}</span>
-                  <span className="text-[#14f195] animate-pulse">▊</span>
+                  <span className="text-[#ffaa00]/50">{">"}</span>
+                  <span className="text-[#ffaa00] animate-pulse">▊</span>
                 </div>
               </div>
             </div>
 
             {/* Terminal Footer */}
-            <div className="flex items-center justify-between px-5 py-2.5 bg-[#0a0f0a] border-t border-[#14f195]/10">
+            <div className="flex items-center justify-between px-5 py-2.5 bg-[#0a0f0a] border-t border-[#ffaa00]/10">
               <div className="flex items-center gap-2">
-                <Terminal size={10} className="text-[#14f195]/40" />
-                <span className="text-[9px] sm:text-[10px] text-[#14f195]/40 font-mono">
+                <Terminal size={10} className="text-[#ffaa00]/40" />
+                <span className="text-[9px] sm:text-[10px] text-[#ffaa00]/40 font-mono">
                   elfennir automation v4.2 · powered by AI
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#14f195] animate-pulse" />
-                <span className="text-[9px] sm:text-[10px] text-[#14f195]/60 font-mono">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#ffaa00] animate-pulse" />
+                <span className="text-[9px] sm:text-[10px] text-[#ffaa00]/60 font-mono">
                   {logs.length} events
                 </span>
               </div>

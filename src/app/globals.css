@@ -7,10 +7,10 @@
   --color-navy-700: #18182a;
   --color-navy-600: #1e1e3a;
   --color-sol-violet: #ff6b00;
-  --color-sol-blue: #14f195;
-  --color-sol-cyan: #00d1ff;
-  --color-sol-green: #14f195;
-  --color-sol-pink: #f971ff;
+  --color-sol-blue: #ffaa00;
+  --color-sol-cyan: #ff8c00;
+  --color-sol-green: #ffaa00;
+  --color-sol-pink: #ff4500;
   --color-surface: rgba(255,255,255,0.03);
   --color-surface-hover: rgba(255,255,255,0.07);
   --color-border: rgba(255,255,255,0.06);
@@ -35,7 +35,7 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #08080f; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff6b00, #14f195);
+  background: linear-gradient(180deg, #ff6b00, #ffaa00);
   border-radius: 3px;
 }
 
@@ -179,7 +179,7 @@ body {
 .holo-gradient {
   background: linear-gradient(
     135deg,
-    #ff6b00 0%, #00d1ff 20%, #14f195 40%, #f971ff 60%, #ff6b00 80%, #00d1ff 100%
+    #ff6b00 0%, #ff8c00 20%, #ffaa00 40%, #ff4500 60%, #ff6b00 80%, #ff8c00 100%
   );
   background-size: 400% 400%;
   animation: holo-shift 8s ease infinite;
@@ -187,8 +187,8 @@ body {
 
 /* Glow text */
 .glow-text-purple { text-shadow: 0 0 10px #ff6b0080, 0 0 30px #ff6b0040, 0 0 60px #ff6b0020; }
-.glow-text-cyan { text-shadow: 0 0 10px #00d1ff80, 0 0 30px #00d1ff40, 0 0 60px #00d1ff20; }
-.glow-text-green { text-shadow: 0 0 10px #14f19580, 0 0 30px #14f19540, 0 0 60px #14f19520; }
+.glow-text-cyan { text-shadow: 0 0 10px #ff8c0080, 0 0 30px #ff8c0040, 0 0 60px #ff8c0020; }
+.glow-text-green { text-shadow: 0 0 10px #ffaa0080, 0 0 30px #ffaa0040, 0 0 60px #ffaa0020; }
 
 /* ===== 3D UTILITY CLASSES ===== */
 
@@ -235,8 +235,8 @@ body {
 .gradient-text {
   background: linear-gradient(
     270deg,
-    #ff6b00 0%, #b44dff 7%, #00d1ff 14%, #0ae8c0 21%, #14f195 28%, #a5c4ff 35%, #f971ff 42%, #d158ff 49%,
-    #ff6b00 57%, #b44dff 64%, #00d1ff 71%, #0ae8c0 78%, #14f195 85%, #a5c4ff 92%, #ff6b00 100%
+    #ff6b00 0%, #ff7b00 7%, #ff8c00 14%, #ffcc00 21%, #ffaa00 28%, #ffa040 35%, #ff4500 42%, #ff5500 49%,
+    #ff6b00 57%, #ff7b00 64%, #ff8c00 71%, #ffcc00 78%, #ffaa00 85%, #ffa040 92%, #ff6b00 100%
   );
   background-size: 300% 100%;
   animation: solana-flow 10s linear infinite;
@@ -354,7 +354,7 @@ body {
 /* Green CTA variant */
 .sol-btn-green {
   position: relative;
-  background: linear-gradient(180deg, #22d3a0 0%, #14f195 50%, #0ec98e 100%);
+  background: linear-gradient(180deg, #22d3a0 0%, #ffaa00 50%, #0ec98e 100%);
   color: #0a0a0f;
   font-weight: 600;
   border-radius: 980px;
@@ -461,8 +461,8 @@ body {
   border-radius: inherit;
   background: conic-gradient(
     from var(--rgb-angle),
-    #ff6b00, #b44dff, transparent 20%, #00d1ff, #0ae8c0, transparent 45%,
-    #14f195, #a5c4ff, transparent 70%, #f971ff, #d158ff, transparent 95%, #ff6b00
+    #ff6b00, #ff7b00, transparent 20%, #ff8c00, #ffcc00, transparent 45%,
+    #ffaa00, #ffa040, transparent 70%, #ff4500, #ff5500, transparent 95%, #ff6b00
   );
   animation: rgb-spin 6s linear infinite;
   transform: translateZ(0);
@@ -483,8 +483,8 @@ body {
   height: 2px;
   background: linear-gradient(
     90deg,
-    transparent 0%, #ff6b00 8%, #b44dff 16%, #00d1ff 24%, #0ae8c0 32%, #14f195 40%,
-    #a5c4ff 48%, #f971ff 56%, transparent 68%, transparent 100%
+    transparent 0%, #ff6b00 8%, #ff7b00 16%, #ff8c00 24%, #ffcc00 32%, #ffaa00 40%,
+    #ffa040 48%, #ff4500 56%, transparent 68%, transparent 100%
   );
   background-size: 200% 100%;
   animation: line-flow 4s linear infinite;
@@ -510,7 +510,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #ff6b00, #b44dff, #00d1ff, #0ae8c0, #14f195, #a5c4ff, #f971ff, #d158ff, #ff6b00);
+  background: linear-gradient(90deg, #ff6b00, #ff7b00, #ff8c00, #ffcc00, #ffaa00, #ffa040, #ff4500, #ff5500, #ff6b00);
   background-size: 300% 100%;
   animation: line-flow 4s linear infinite;
   transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -523,7 +523,7 @@ body {
   height: 2px;
   background: linear-gradient(
     90deg,
-    transparent, #ff6b00, #b44dff, #00d1ff, #0ae8c0, #14f195, #a5c4ff, #f971ff, #d158ff, transparent
+    transparent, #ff6b00, #ff7b00, #ff8c00, #ffcc00, #ffaa00, #ffa040, #ff4500, #ff5500, transparent
   );
   background-size: 300% 100%;
   animation: line-flow 5s linear infinite;
@@ -700,7 +700,7 @@ html.lenis, html.lenis body {
   right: 0;
   height: 4px;
   border-radius: 4px;
-  background: linear-gradient(90deg, #ff6b00, #00d1ff, #14f195);
+  background: linear-gradient(90deg, #ff6b00, #ff8c00, #ffaa00);
   background-size: 200% 100%;
   animation: line-flow 3s linear infinite;
 }

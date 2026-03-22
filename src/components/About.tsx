@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Award, ArrowRight, Code2, Server, Cpu, Database, ShieldCheck, Terminal } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
 export function About() {
   const { t } = useLanguage();
@@ -34,10 +34,10 @@ export function About() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4">
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+          <div className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4">
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
             {t.about.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ff8c00]/60" />
           </div>
           <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white mb-5">
             {t.about.title1}{" "}
@@ -55,10 +55,10 @@ export function About() {
             className="relative"
           >
             {/* Glow blob */}
-            <div className="absolute -inset-8 bg-gradient-to-br from-[#ff6b00]/15 via-[#00d1ff]/10 to-[#14f195]/15 rounded-[48px] blur-[50px]" />
+            <div className="absolute -inset-8 bg-gradient-to-br from-[#ff6b00]/15 via-[#ff8c00]/10 to-[#ffaa00]/15 rounded-[48px] blur-[50px]" />
 
             {/* Cartoon thick gradient border */}
-            <div className="relative rounded-[36px] p-[4px] bg-gradient-to-br from-[#ff6b00] via-[#00d1ff] to-[#14f195]">
+            <div className="relative rounded-[36px] p-[4px] bg-gradient-to-br from-[#ff6b00] via-[#ff8c00] to-[#ffaa00]">
               <div className="rounded-[33px] overflow-hidden bg-[#0a0a15]">
                 <Image
                   src="/images/yassin.jpg"
@@ -178,10 +178,10 @@ export function About() {
         {/* Values Section — Cartoon cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
           {[
-            { num: "01", title: t.about.value1Title, desc: t.about.value1Desc, emoji: "🚀", gradient: "from-[#ff6b00]/15 to-[#00d1ff]/15" },
-            { num: "02", title: t.about.value2Title, desc: t.about.value2Desc, emoji: "⚡", gradient: "from-[#14f195]/15 to-[#00d1ff]/15" },
-            { num: "03", title: t.about.value3Title, desc: t.about.value3Desc, emoji: "🎯", gradient: "from-[#ff6b00]/15 to-[#f971ff]/15" },
-            { num: "04", title: t.about.value4Title, desc: t.about.value4Desc, emoji: "🤝", gradient: "from-[#f971ff]/15 to-[#00d1ff]/15" },
+            { num: "01", title: t.about.value1Title, desc: t.about.value1Desc, emoji: "🚀", gradient: "from-[#ff6b00]/15 to-[#ff8c00]/15" },
+            { num: "02", title: t.about.value2Title, desc: t.about.value2Desc, emoji: "⚡", gradient: "from-[#ffaa00]/15 to-[#ff8c00]/15" },
+            { num: "03", title: t.about.value3Title, desc: t.about.value3Desc, emoji: "🎯", gradient: "from-[#ff6b00]/15 to-[#ff4500]/15" },
+            { num: "04", title: t.about.value4Title, desc: t.about.value4Desc, emoji: "🤝", gradient: "from-[#ff4500]/15 to-[#ff8c00]/15" },
           ].map((v, i) => (
             <motion.div
               key={v.num}

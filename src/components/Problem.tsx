@@ -54,13 +54,13 @@ export function Problem() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Problem */}
           <ScrollReveal3D direction="left" rotateY={8} rotateX={5}>
-            <div className="inline-flex items-center gap-2 text-sm text-[#f971ff] mb-4">
-              <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#f971ff]/60" />
+            <div className="inline-flex items-center gap-2 text-sm text-[#ff4500] mb-4">
+              <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff4500]/60" />
               {t.problem.badge}
             </div>
             <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-6">
               {t.problem.title1}{" "}
-              <span className="text-[#f971ff]">{t.problem.titleHighlight}</span>{" "}
+              <span className="text-[#ff4500]">{t.problem.titleHighlight}</span>{" "}
               {t.problem.title2}
             </h2>
             <p className="text-slate-400 leading-relaxed mb-8 text-lg">
@@ -86,9 +86,9 @@ export function Problem() {
             {/* Glow behind card */}
             <div className="absolute -inset-4 bg-[#ff6b00]/[0.05] rounded-3xl blur-2xl" />
 
-            <div className="relative p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#ff6b00]/[0.06] via-[#00d1ff]/[0.03] to-[#14f195]/[0.06] border border-[#ff6b00]/[0.12] backdrop-blur-sm">
-              <div className="inline-flex items-center gap-2 text-sm text-[#14f195] mb-4">
-                <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#14f195]/60" />
+            <div className="relative p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#ff6b00]/[0.06] via-[#ff8c00]/[0.03] to-[#ffaa00]/[0.06] border border-[#ff6b00]/[0.12] backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 text-sm text-[#ffaa00] mb-4">
+                <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ffaa00]/60" />
                 {t.problem.solutionBadge}
               </div>
               <h3 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-white mb-4">
@@ -107,8 +107,8 @@ export function Problem() {
                     transition={{ delay: 0.4 + 0.08 * i, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     className="flex items-start gap-3 text-sm"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#14f195]/10 border border-[#14f195]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <item.icon size={10} className="text-[#14f195]" />
+                    <div className="w-5 h-5 rounded-full bg-[#ffaa00]/10 border border-[#ffaa00]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <item.icon size={10} className="text-[#ffaa00]" />
                     </div>
                     <span className="text-slate-300">{item.text}</span>
                   </motion.li>
@@ -116,7 +116,7 @@ export function Problem() {
               </ul>
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 text-[#14f195] hover:text-[#00d1ff] text-sm font-medium transition-colors"
+                className="group inline-flex items-center gap-2 text-[#ffaa00] hover:text-[#ff8c00] text-sm font-medium transition-colors"
               >
                 {t.problem.solutionCta}
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

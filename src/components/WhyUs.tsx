@@ -13,7 +13,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
 import { Card3D } from "@/components/Card3D";
 
-const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
 export function WhyUs() {
   const { t } = useLanguage();
@@ -37,9 +37,9 @@ export function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4"
+              className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4"
             >
-              <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+              <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
               {t.whyUs.badge}
             </motion.div>
             <motion.h2

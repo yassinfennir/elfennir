@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
 /* ─── SVG Logo Icons for the marquee ─── */
 const techLogosWithSvg = [
@@ -222,11 +222,11 @@ export function TrustBadges() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4"
           >
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
             {t.trustBadges.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ff8c00]/60" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

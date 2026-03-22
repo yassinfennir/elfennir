@@ -48,7 +48,7 @@ export function Pricing() {
       gradient: "from-slate-500/5 to-slate-600/5",
       borderHover: "hover:border-slate-400/20",
       paidCount: 0,
-      glowColor: "#00d1ff",
+      glowColor: "#ff8c00",
     },
     {
       name: "Business",
@@ -117,7 +117,7 @@ export function Pricing() {
       gradient: "from-violet-500/5 to-purple-600/5",
       borderHover: "hover:border-violet-400/20",
       paidCount: 0,
-      glowColor: "#14f195",
+      glowColor: "#ffaa00",
     },
   ];
 
@@ -130,11 +130,11 @@ export function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4"
           >
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
             {t.pricing.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ff8c00]/60" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -205,7 +205,7 @@ export function Pricing() {
                   <span className="text-slate-600 text-sm line-through">
                     {plan.originalPrice},00 EUR
                   </span>
-                  <span className="text-[11px] text-[#14f195] font-semibold px-2.5 py-0.5 bg-[#14f195]/10 border border-[#14f195]/20 rounded-full">
+                  <span className="text-[11px] text-[#ffaa00] font-semibold px-2.5 py-0.5 bg-[#ffaa00]/10 border border-[#ffaa00]/20 rounded-full">
                     SAVE {parseInt(plan.originalPrice.replace(".", "")) - parseInt(plan.price.replace(".", ""))}€
                   </span>
                 </div>
@@ -232,12 +232,12 @@ export function Pricing() {
 
                 {/* PAID badge */}
                 {plan.paidCount > 0 && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#14f195]/10 border border-[#14f195]/20 mb-3">
-                  <BadgeCheck size={12} className="text-[#14f195]" />
-                  <span className="text-[11px] font-bold text-[#14f195] tracking-wide">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ffaa00]/10 border border-[#ffaa00]/20 mb-3">
+                  <BadgeCheck size={12} className="text-[#ffaa00]" />
+                  <span className="text-[11px] font-bold text-[#ffaa00] tracking-wide">
                     PAID
                   </span>
-                  <span className="text-[10px] text-[#14f195]/70">
+                  <span className="text-[10px] text-[#ffaa00]/70">
                     — {plan.paidCount} {t.pricing.customersBought}
                   </span>
                 </div>
@@ -247,7 +247,7 @@ export function Pricing() {
                 <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold ${
                   plan.popular
                     ? "bg-[#ff6b00]/15 text-[#ff6b00] border border-[#ff6b00]/20"
-                    : "bg-[#14f195]/10 text-[#14f195] border border-[#14f195]/20"
+                    : "bg-[#ffaa00]/10 text-[#ffaa00] border border-[#ffaa00]/20"
                 }`}>
                   <Headphones size={11} />
                   {t.pricing.alwaysHere}
@@ -311,9 +311,9 @@ export function Pricing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { icon: RefreshCw, title: t.pricing.maint1Title, desc: t.pricing.maint1Desc, color: "#ff6b00" },
-              { icon: Headphones, title: t.pricing.maint2Title, desc: t.pricing.maint2Desc, color: "#00d1ff" },
-              { icon: Rocket, title: t.pricing.maint3Title, desc: t.pricing.maint3Desc, color: "#14f195" },
-              { icon: ShieldCheck, title: t.pricing.maint4Title, desc: t.pricing.maint4Desc, color: "#f971ff" },
+              { icon: Headphones, title: t.pricing.maint2Title, desc: t.pricing.maint2Desc, color: "#ff8c00" },
+              { icon: Rocket, title: t.pricing.maint3Title, desc: t.pricing.maint3Desc, color: "#ffaa00" },
+              { icon: ShieldCheck, title: t.pricing.maint4Title, desc: t.pricing.maint4Desc, color: "#ff4500" },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -362,7 +362,7 @@ export function Pricing() {
             t.pricing.trust5,
           ].map((trustItem) => (
             <div key={trustItem} className="flex items-center gap-2">
-              <ShieldCheck size={14} className="text-[#14f195]" />
+              <ShieldCheck size={14} className="text-[#ffaa00]" />
               <span className="text-xs text-slate-400 font-medium">{trustItem}</span>
             </div>
           ))}

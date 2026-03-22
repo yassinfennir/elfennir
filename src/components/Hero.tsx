@@ -130,12 +130,12 @@ export function Hero() {
         <motion.div
           animate={{ x: [0, -30, 25, 0], y: [0, 30, -20, 0], scale: [1, 0.9, 1.1, 1] }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#00d1ff]/[0.06] rounded-full blur-[100px]"
+          className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#ff8c00]/[0.06] rounded-full blur-[100px]"
         />
         <motion.div
           animate={{ x: [0, 20, -15, 0], y: [0, -20, 30, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[40%] right-[30%] w-[300px] h-[300px] bg-[#14f195]/[0.04] rounded-full blur-[80px]"
+          className="absolute top-[40%] right-[30%] w-[300px] h-[300px] bg-[#ffaa00]/[0.04] rounded-full blur-[80px]"
         />
       </div>
 
@@ -171,8 +171,8 @@ export function Hero() {
                 {t.hero.badge}
               </span>
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14f195] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#14f195]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffaa00] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ffaa00]" />
               </span>
             </motion.div>
 
@@ -191,7 +191,7 @@ export function Hero() {
                 <span className="gradient-text font-black">{t.hero.headline3}</span>
                 <motion.span
                   className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
-                  style={{ background: "linear-gradient(90deg, #ff6b00, #00d1ff, #14f195)" }}
+                  style={{ background: "linear-gradient(90deg, #ff6b00, #ff8c00, #ffaa00)" }}
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
@@ -226,9 +226,9 @@ export function Hero() {
                 >
                   <motion.div
                     whileHover={{ scale: 1.3, rotate: 10 }}
-                    className="w-6 h-6 rounded-full bg-[#14f195]/15 border-2 border-[#14f195]/30 flex items-center justify-center flex-shrink-0"
+                    className="w-6 h-6 rounded-full bg-[#ffaa00]/15 border-2 border-[#ffaa00]/30 flex items-center justify-center flex-shrink-0"
                   >
-                    <CheckCircle size={13} className="text-[#14f195]" />
+                    <CheckCircle size={13} className="text-[#ffaa00]" />
                   </motion.div>
                   <span className="text-sm text-slate-300 font-medium">{item}</span>
                 </motion.div>
@@ -282,8 +282,8 @@ export function Hero() {
           >
             {/* Floating badges around photo */}
             <CartoonBadge icon={Code} label="AI Developer" color="#ff6b00" delay={0.8} className="top-[5%] -left-[5%] lg:-left-[15%]" />
-            <CartoonBadge icon={Zap} label="24h Delivery" color="#14f195" delay={1.1} className="top-[35%] -right-[2%] lg:-right-[12%]" />
-            <CartoonBadge icon={Bot} label="AI Chatbots" color="#00d1ff" delay={1.4} className="bottom-[15%] -left-[3%] lg:-left-[10%]" />
+            <CartoonBadge icon={Zap} label="24h Delivery" color="#ffaa00" delay={1.1} className="top-[35%] -right-[2%] lg:-right-[12%]" />
+            <CartoonBadge icon={Bot} label="AI Chatbots" color="#ff8c00" delay={1.4} className="bottom-[15%] -left-[3%] lg:-left-[10%]" />
 
             {/* Photo container with cartoon border */}
             <motion.div
@@ -291,10 +291,10 @@ export function Hero() {
               className="relative w-[280px] sm:w-[340px] lg:w-[420px]"
             >
               {/* Glow behind photo */}
-              <div className="absolute -inset-6 bg-gradient-to-br from-[#ff6b00]/20 via-[#00d1ff]/10 to-[#14f195]/20 rounded-[40px] blur-[40px]" />
+              <div className="absolute -inset-6 bg-gradient-to-br from-[#ff6b00]/20 via-[#ff8c00]/10 to-[#ffaa00]/20 rounded-[40px] blur-[40px]" />
 
               {/* Cartoon double border effect */}
-              <div className="relative rounded-[32px] p-[3px] bg-gradient-to-br from-[#ff6b00] via-[#00d1ff] to-[#14f195]">
+              <div className="relative rounded-[32px] p-[3px] bg-gradient-to-br from-[#ff6b00] via-[#ff8c00] to-[#ffaa00]">
                 <div className="rounded-[30px] p-[3px] bg-[#0a0a15]">
                   <div className="rounded-[28px] overflow-hidden relative">
                     <Image

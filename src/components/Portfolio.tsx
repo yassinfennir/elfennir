@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight, Sparkles, Globe, Eye } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
 export function Portfolio() {
   const { t } = useLanguage();
@@ -13,9 +13,9 @@ export function Portfolio() {
       title: t.portfolio.project1Title,
       category: "Auto Repair",
       desc: t.portfolio.project1Desc,
-      gradient: "from-[#f971ff]/30 to-[#ff6b00]/20",
-      accent: "text-[#f971ff]",
-      accentBg: "bg-[#f971ff]/10 border-[#f971ff]/20",
+      gradient: "from-[#ff4500]/30 to-[#ff6b00]/20",
+      accent: "text-[#ff4500]",
+      accentBg: "bg-[#ff4500]/10 border-[#ff4500]/20",
       tags: ["SEO", "Schema.org", "Google Maps", "10+ Services"],
       liveUrl: "/preview-carmaster.html",
       isLive: true,
@@ -24,7 +24,7 @@ export function Portfolio() {
       title: t.portfolio.project2Title,
       category: "Auto Repair",
       desc: t.portfolio.project2Desc,
-      gradient: "from-[#ff6b00]/30 to-[#00d1ff]/20",
+      gradient: "from-[#ff6b00]/30 to-[#ff8c00]/20",
       accent: "text-[#ff6b00]",
       accentBg: "bg-[#ff6b00]/10 border-[#ff6b00]/20",
       tags: ["Reviews", "Animations", "Mobile-First"],
@@ -35,9 +35,9 @@ export function Portfolio() {
       title: t.portfolio.project3Title,
       category: "Gym & Fitness",
       desc: t.portfolio.project3Desc,
-      gradient: "from-[#14f195]/30 to-[#00d1ff]/20",
-      accent: "text-[#14f195]",
-      accentBg: "bg-[#14f195]/10 border-[#14f195]/20",
+      gradient: "from-[#ffaa00]/30 to-[#ff8c00]/20",
+      accent: "text-[#ffaa00]",
+      accentBg: "bg-[#ffaa00]/10 border-[#ffaa00]/20",
       tags: ["Memberships", "Schedule", "Lead Gen"],
       liveUrl: "/preview-gymholvi.html",
       isLive: true,
@@ -46,9 +46,9 @@ export function Portfolio() {
       title: t.portfolio.project4Title,
       category: "Caf\u00e9 & Restaurant",
       desc: t.portfolio.project4Desc,
-      gradient: "from-[#00d1ff]/30 to-[#ff6b00]/20",
-      accent: "text-[#00d1ff]",
-      accentBg: "bg-[#00d1ff]/10 border-[#00d1ff]/20",
+      gradient: "from-[#ff8c00]/30 to-[#ff6b00]/20",
+      accent: "text-[#ff8c00]",
+      accentBg: "bg-[#ff8c00]/10 border-[#ff8c00]/20",
       tags: ["Gallery", "Menu", "Mobile-First"],
       liveUrl: null,
       isLive: false,
@@ -57,9 +57,9 @@ export function Portfolio() {
       title: t.portfolio.project5Title,
       category: "Moroccan-Finnish Cuisine",
       desc: t.portfolio.project5Desc,
-      gradient: "from-[#f971ff]/30 to-[#14f195]/20",
-      accent: "text-[#f971ff]",
-      accentBg: "bg-[#f971ff]/10 border-[#f971ff]/20",
+      gradient: "from-[#ff4500]/30 to-[#ffaa00]/20",
+      accent: "text-[#ff4500]",
+      accentBg: "bg-[#ff4500]/10 border-[#ff4500]/20",
       tags: ["Branding", "Multi-Location", "Responsive"],
       liveUrl: null,
       isLive: false,
@@ -68,7 +68,7 @@ export function Portfolio() {
       title: t.portfolio.project6Title,
       category: "Japanese Restaurant",
       desc: t.portfolio.project6Desc,
-      gradient: "from-[#ff6b00]/30 to-[#f971ff]/20",
+      gradient: "from-[#ff6b00]/30 to-[#ff4500]/20",
       accent: "text-[#ff6b00]",
       accentBg: "bg-[#ff6b00]/10 border-[#ff6b00]/20",
       tags: ["Restaurant", "Menu", "Reservations"],
@@ -79,9 +79,9 @@ export function Portfolio() {
       title: t.portfolio.project7Title,
       category: "Beauty & Wellness",
       desc: t.portfolio.project7Desc,
-      gradient: "from-[#14f195]/30 to-[#f971ff]/20",
-      accent: "text-[#14f195]",
-      accentBg: "bg-[#14f195]/10 border-[#14f195]/20",
+      gradient: "from-[#ffaa00]/30 to-[#ff4500]/20",
+      accent: "text-[#ffaa00]",
+      accentBg: "bg-[#ffaa00]/10 border-[#ffaa00]/20",
       tags: ["Multilingual", "Booking", "Beauty"],
       liveUrl: null,
       isLive: false,
@@ -90,9 +90,9 @@ export function Portfolio() {
       title: t.portfolio.project8Title,
       category: "E-Commerce",
       desc: t.portfolio.project8Desc,
-      gradient: "from-[#00d1ff]/30 to-[#14f195]/20",
-      accent: "text-[#00d1ff]",
-      accentBg: "bg-[#00d1ff]/10 border-[#00d1ff]/20",
+      gradient: "from-[#ff8c00]/30 to-[#ffaa00]/20",
+      accent: "text-[#ff8c00]",
+      accentBg: "bg-[#ff8c00]/10 border-[#ff8c00]/20",
       tags: ["E-Commerce", "Products", "Fast"],
       liveUrl: null,
       isLive: false,
@@ -109,11 +109,11 @@ export function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4"
           >
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
             {t.portfolio.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ff8c00]/60" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -227,7 +227,7 @@ function ProjectCard({ project: p, t }: { project: ProjectType; t: ReturnType<ty
           </span>
           <div className="flex items-center gap-2">
             {p.isLive && (
-              <span className="inline-flex items-center gap-1 text-[10px] text-[#14f195] font-semibold px-2 py-0.5 bg-[#14f195]/10 border border-[#14f195]/20 rounded-full">
+              <span className="inline-flex items-center gap-1 text-[10px] text-[#ffaa00] font-semibold px-2 py-0.5 bg-[#ffaa00]/10 border border-[#ffaa00]/20 rounded-full">
                 <Globe size={8} />
                 LIVE
               </span>
@@ -240,7 +240,7 @@ function ProjectCard({ project: p, t }: { project: ProjectType; t: ReturnType<ty
           </div>
         </div>
 
-        <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-2 group-hover:text-[#00d1ff]/90 transition-colors">
+        <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-2 group-hover:text-[#ff8c00]/90 transition-colors">
           {p.title}
         </h3>
         <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-grow">
@@ -259,7 +259,7 @@ function ProjectCard({ project: p, t }: { project: ProjectType; t: ReturnType<ty
         </div>
 
         {p.isLive && (
-          <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center gap-2 text-xs text-slate-500 group-hover:text-[#00d1ff] transition-colors">
+          <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center gap-2 text-xs text-slate-500 group-hover:text-[#ff8c00] transition-colors">
             <Eye size={12} />
             {t.portfolio.clickToView}
           </div>

@@ -30,7 +30,7 @@ export function MatrixRain({ opacity = 0.06, speed = 1, density = 30 }: { opacit
     resize();
     window.addEventListener("resize", resize);
 
-    const colors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
+    const colors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
     function draw() {
       ctx!.fillStyle = `rgba(8,8,15,${0.05 * speed})`;
@@ -92,7 +92,7 @@ export function GlitchText({
       <span
         className="absolute inset-0 z-0 opacity-80"
         style={{
-          color: "#00d1ff",
+          color: "#ff8c00",
           animation: `glitch-1 ${2 / intensity}s infinite linear alternate-reverse`,
           clipPath: "inset(0 0 65% 0)",
         }}
@@ -103,7 +103,7 @@ export function GlitchText({
       <span
         className="absolute inset-0 z-0 opacity-80"
         style={{
-          color: "#f971ff",
+          color: "#ff4500",
           animation: `glitch-2 ${3 / intensity}s infinite linear alternate-reverse`,
           clipPath: "inset(65% 0 0 0)",
         }}
@@ -262,7 +262,7 @@ export function HackerTerminal({
         {
           prefix: line.prefix || ">",
           text: "",
-          color: line.color || "#14f195",
+          color: line.color || "#ffaa00",
           typing: true,
         },
       ]);
@@ -320,7 +320,7 @@ export function HackerTerminal({
         {currentLine >= lines.length && (
           <div className="flex items-center gap-2 mt-2">
             <span className="text-slate-600">{">"}</span>
-            <span className="inline-block w-2 h-4 bg-[#14f195] animate-pulse" />
+            <span className="inline-block w-2 h-4 bg-[#ffaa00] animate-pulse" />
           </div>
         )}
       </div>
@@ -341,7 +341,7 @@ export function FloatingParticles({ count = 20, className = "" }: { count?: numb
         size: 2 + Math.random() * 4,
         duration: 15 + Math.random() * 20,
         delay: Math.random() * 10,
-        color: ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
+        color: ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"][Math.floor(Math.random() * 4)],
       })),
     [count]
   );
@@ -394,7 +394,7 @@ export function DataStream({ className = "" }: { className?: string }) {
       width: 20 + Math.random() * 80,
       height: 3 + Math.random() * 8,
       gap: 4 + Math.random() * 8,
-      color: ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"][Math.floor(Math.random() * 4)],
+      color: ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"][Math.floor(Math.random() * 4)],
       opacity: 0.1 + Math.random() * 0.4,
     })),
     []
@@ -435,7 +435,7 @@ export function ScrollProgress() {
           className="absolute top-0 left-0 right-0 origin-top rounded-full"
           style={{
             scaleY,
-            background: "linear-gradient(180deg, #ff6b00, #00d1ff, #14f195)",
+            background: "linear-gradient(180deg, #ff6b00, #ff8c00, #ffaa00)",
             height: "100%",
           }}
         />
@@ -504,7 +504,7 @@ export function MagneticCursor() {
             transition={{ type: "spring", stiffness: 500, damping: 28 }}
             style={{
               background: hovering
-                ? "radial-gradient(circle, #ff6b0088, #00d1ff44)"
+                ? "radial-gradient(circle, #ff6b0088, #ff8c0044)"
                 : "rgba(255,255,255,0.8)",
               border: hovering ? "1px solid rgba(255,107,0,0.5)" : "none",
             }}
@@ -593,7 +593,7 @@ export function HackerGrid({ className = "" }: { className?: string }) {
       <motion.div
         className="absolute left-0 right-0 h-[1px]"
         style={{
-          background: "linear-gradient(90deg, transparent, #ff6b0040, #00d1ff30, transparent)",
+          background: "linear-gradient(90deg, transparent, #ff6b0040, #ff8c0030, transparent)",
           boxShadow: "0 0 20px #ff6b0020",
         }}
         animate={{ top: ["0%", "100%"] }}

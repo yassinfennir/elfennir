@@ -104,7 +104,7 @@ export function Footer() {
               href="https://wa.me/358466109064"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-[#00d1ff] hover:text-[#14f195] transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-[#ff8c00] hover:text-[#ffaa00] transition-colors"
             >
               WhatsApp — +358 46 610 9064
               <ArrowUpRight size={12} />
@@ -119,7 +119,7 @@ export function Footer() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-slate-500 hover:text-[#00d1ff] text-sm transition-colors"
+                    className="text-slate-500 hover:text-[#ff8c00] text-sm transition-colors"
                   >
                     {l.label}
                   </a>
@@ -133,12 +133,12 @@ export function Footer() {
             <h4 className="text-white text-sm font-semibold mb-4">{t.footer.contactTitle}</h4>
             <ul className="space-y-3 text-sm text-slate-500">
               <li>
-                <a href="mailto:yassin@elfennir.com" className="hover:text-[#00d1ff] transition-colors">
+                <a href="mailto:yassin@elfennir.com" className="hover:text-[#ff8c00] transition-colors">
                   yassin@elfennir.com
                 </a>
               </li>
               <li>
-                <a href="tel:+358466109064" className="hover:text-[#00d1ff] transition-colors">
+                <a href="tel:+358466109064" className="hover:text-[#ff8c00] transition-colors">
                   +358 46 610 9064
                 </a>
               </li>

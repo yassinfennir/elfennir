@@ -14,7 +14,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { Card3D } from "@/components/Card3D";
 import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
 
-const solanaColors = ["#ff6b00", "#00d1ff", "#14f195", "#f971ff"];
+const solanaColors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
 export function Services() {
   const { t } = useLanguage();
@@ -35,10 +35,10 @@ export function Services() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff6b00]/[0.015] to-transparent" />
       <div className="relative max-w-7xl mx-auto px-6">
         <ScrollReveal3D className="text-center mb-16" rotateX={12}>
-          <div className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4">
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+          <div className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4">
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
             {t.services.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ff8c00]/60" />
           </div>
           <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white mb-5">
             {t.services.title1}{" "}

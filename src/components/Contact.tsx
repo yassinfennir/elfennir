@@ -14,7 +14,7 @@ export function Contact() {
 
       {/* Decorative orbs */}
       <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-[#ff6b00]/[0.04] rounded-full blur-[120px] -translate-y-1/2" />
-      <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-[#14f195]/[0.03] rounded-full blur-[100px] -translate-y-1/2" />
+      <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-[#ffaa00]/[0.03] rounded-full blur-[100px] -translate-y-1/2" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
@@ -23,11 +23,11 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 text-sm text-[#00d1ff] mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#ff8c00] mb-4"
           >
-            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-r from-transparent to-[#ff8c00]/60" />
             {t.contact.badge}
-            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#00d1ff]/60" />
+            <span className="w-10 h-px bg-gradient-to-l from-transparent to-[#ff8c00]/60" />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -64,7 +64,7 @@ export function Contact() {
             {/* Email - Required */}
             <div>
               <label className="block text-xs text-slate-500 mb-2 font-medium uppercase tracking-wider">
-                {t.contact.emailLabel} <span className="text-[#f971ff]">*</span>
+                {t.contact.emailLabel} <span className="text-[#ff4500]">*</span>
               </label>
               <input
                 name="email"
@@ -78,7 +78,7 @@ export function Contact() {
             {/* Phone - Required */}
             <div>
               <label className="block text-xs text-slate-500 mb-2 font-medium uppercase tracking-wider">
-                {t.contact.phoneLabel} <span className="text-[#f971ff]">*</span>
+                {t.contact.phoneLabel} <span className="text-[#ff4500]">*</span>
               </label>
               <input
                 name="phone"
@@ -136,7 +136,7 @@ export function Contact() {
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               {[t.contact.trustFree, t.contact.trustNoCommitment, t.contact.trustFastResponse].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
-                  <Shield size={10} className="text-[#14f195]" />
+                  <Shield size={10} className="text-[#ffaa00]" />
                   <span className="text-[10px] text-slate-500 font-medium">{item}</span>
                 </div>
               ))}
@@ -155,10 +155,10 @@ export function Contact() {
                   href="https://wa.me/358466109064"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-slate-400 hover:text-[#14f195] transition-colors group"
+                  className="flex items-center gap-3 text-sm text-slate-400 hover:text-[#ffaa00] transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-[#14f195]/10 border border-[#14f195]/20 flex items-center justify-center group-hover:bg-[#14f195]/20 transition-colors">
-                    <MessageCircle size={14} className="text-[#14f195]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#ffaa00]/10 border border-[#ffaa00]/20 flex items-center justify-center group-hover:bg-[#ffaa00]/20 transition-colors">
+                    <MessageCircle size={14} className="text-[#ffaa00]" />
                   </div>
                   WhatsApp — +358 46 610 9064
                 </a>
@@ -173,23 +173,23 @@ export function Contact() {
                 </a>
                 <a
                   href="mailto:yassinfennir@gmail.com"
-                  className="flex items-center gap-3 text-sm text-slate-400 hover:text-[#00d1ff] transition-colors group"
+                  className="flex items-center gap-3 text-sm text-slate-400 hover:text-[#ff8c00] transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-[#00d1ff]/10 border border-[#00d1ff]/20 flex items-center justify-center group-hover:bg-[#00d1ff]/20 transition-colors">
-                    <Mail size={14} className="text-[#00d1ff]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#ff8c00]/10 border border-[#ff8c00]/20 flex items-center justify-center group-hover:bg-[#ff8c00]/20 transition-colors">
+                    <Mail size={14} className="text-[#ff8c00]" />
                   </div>
                   yassinfennir@gmail.com
                 </a>
                 <div className="flex items-center gap-3 text-sm text-slate-400">
-                  <div className="w-8 h-8 rounded-lg bg-[#f971ff]/10 border border-[#f971ff]/20 flex items-center justify-center">
-                    <MapPin size={14} className="text-[#f971ff]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#ff4500]/10 border border-[#ff4500]/20 flex items-center justify-center">
+                    <MapPin size={14} className="text-[#ff4500]" />
                   </div>
                   Zurich, Switzerland
                 </div>
               </div>
             </div>
 
-            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-[#ff6b00]/[0.08] to-[#14f195]/[0.04] border border-[#ff6b00]/[0.12] overflow-hidden">
+            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-[#ff6b00]/[0.08] to-[#ffaa00]/[0.04] border border-[#ff6b00]/[0.12] overflow-hidden">
               {/* Glow */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#ff6b00]/10 rounded-full blur-3xl" />
               <div className="relative">
@@ -224,8 +224,8 @@ export function Contact() {
 
             {/* Response time badge */}
             <div className="flex items-center gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-              <div className="w-8 h-8 rounded-lg bg-[#14f195]/10 border border-[#14f195]/20 flex items-center justify-center">
-                <Clock size={14} className="text-[#14f195]" />
+              <div className="w-8 h-8 rounded-lg bg-[#ffaa00]/10 border border-[#ffaa00]/20 flex items-center justify-center">
+                <Clock size={14} className="text-[#ffaa00]" />
               </div>
               <div>
                 <p className="text-white text-xs font-medium">{t.contact.responseTimeTitle}</p>

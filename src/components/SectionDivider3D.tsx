@@ -21,18 +21,18 @@ export function SectionDivider3D({ text = "" }: { text?: string }) {
         <div className="flex items-center gap-4 justify-center">
           <motion.div
             style={{ x: x1 }}
-            className="h-px w-[30%] bg-gradient-to-r from-transparent via-[#ff6b00]/40 to-[#00d1ff]/20"
+            className="h-px w-[30%] bg-gradient-to-r from-transparent via-[#ff6b00]/40 to-[#ff8c00]/20"
           />
           {text ? (
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600 whitespace-nowrap">
               {text}
             </span>
           ) : (
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#ff6b00] to-[#00d1ff] animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#ff6b00] to-[#ff8c00] animate-pulse" />
           )}
           <motion.div
             style={{ x: x2 }}
-            className="h-px w-[30%] bg-gradient-to-l from-transparent via-[#14f195]/40 to-[#f971ff]/20"
+            className="h-px w-[30%] bg-gradient-to-l from-transparent via-[#ffaa00]/40 to-[#ff4500]/20"
           />
         </div>
       </motion.div>
