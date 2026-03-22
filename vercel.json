@@ -1,1 +1,1 @@
-{ "installCommand": "npm install --legacy-peer-deps" }
+{"installCommand":"npm install --force","framework":"nextjs"}
