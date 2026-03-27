@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
+import { ArrowRight, Phone } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 
@@ -53,7 +53,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
           {/* Logo — Orange Y logo + text */}
           <a href="/" className="flex items-center gap-2.5 group relative z-[60]">
-            <Image src="/images/logo.png" alt="El Fennir" width={36} height={36} className="flex-shrink-0" />
+            <Image src="/images/logo.png" alt="El Fennir" width={36} height={36} className="flex-shrink-0 rounded-lg" />
             <span className="font-[var(--font-heading)] font-extrabold text-[1.3rem] tracking-tight leading-tight text-white">
               EL FENNIR
             </span>
@@ -148,7 +148,7 @@ export function Navbar() {
                     }}
                     className="group flex items-center justify-between py-[14px] border-b border-white/[0.04] transition-colors duration-300"
                   >
-                    <span className="text-[1.6rem] font-[var(--font-heading)] font-semibold text-white/90 group-hover:text-white group-active:text-[#ff6b00] transition-colors duration-300">
+                    <span className="text-[1.6rem] font-[var(--font-heading)] font-semibold text-white/90 group-hover:text-white group-active:text-[#9945ff] transition-colors duration-300">
                       {l.label}
                     </span>
                     <ArrowRight

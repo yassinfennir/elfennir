@@ -9,9 +9,9 @@ import { CyberCard } from "@/components/HackerEffects";
   after creating products in Stripe Dashboard → Payment Links
 */
 const STRIPE_LINKS = {
-  starter: "https://buy.stripe.com/3cI00i66753k40VcZCcQU03",
-  business: "https://buy.stripe.com/5kQcN49ij7bs54Z1gUcQU02",
-  premium: "https://buy.stripe.com/5kQ8wO5230N47d7bVycQU04",
+  starter: "https://buy.stripe.com/eVq6oG9ij8fw7d79NqcQU09",
+  business: "https://buy.stripe.com/14A14m8ef0N454Ze3GcQU08",
+  premium: "https://buy.stripe.com/eVq4gy0LNeDUeFz2kYcQU0a",
 };
 
 export function Pricing() {
@@ -21,7 +21,7 @@ export function Pricing() {
     {
       name: "Starter",
       icon: Zap,
-      price: "299",
+      price: "270",
       cents: ",00",
       originalPrice: "499",
       period: "one-time",
@@ -53,7 +53,7 @@ export function Pricing() {
     {
       name: "Business",
       icon: Star,
-      price: "499",
+      price: "540",
       cents: ",00",
       originalPrice: "799",
       period: "one-time",
@@ -87,7 +87,7 @@ export function Pricing() {
     {
       name: "Premium",
       icon: Crown,
-      price: "999",
+      price: "830",
       cents: ",00",
       originalPrice: "1.499",
       period: "one-time",
