@@ -7,7 +7,7 @@ import {
   Target,
   CalendarCheck,
   Search,
-  Smartphone,
+  AppWindow,
   Headphones,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -26,7 +26,7 @@ export function Services() {
     { icon: Target, title: t.services.service4Title, desc: t.services.service4Desc, color: solanaColors[3] },
     { icon: CalendarCheck, title: t.services.service5Title, desc: t.services.service5Desc, color: solanaColors[0] },
     { icon: Search, title: t.services.service6Title, desc: t.services.service6Desc, color: solanaColors[1] },
-    { icon: Smartphone, title: t.services.service7Title, desc: t.services.service7Desc, color: solanaColors[2] },
+    { icon: AppWindow, title: t.services.service7Title, desc: t.services.service7Desc, color: solanaColors[2] },
     { icon: Headphones, title: t.services.service8Title, desc: t.services.service8Desc, color: solanaColors[3] },
   ];
 

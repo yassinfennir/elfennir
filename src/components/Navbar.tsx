@@ -58,7 +58,7 @@ export function Navbar() {
               EL FENNIR
             </span>
             <span className="hidden sm:inline-block text-[10px] font-mono text-[#ff6b00] bg-[#ff6b00]/10 border border-[#ff6b00]/20 px-2 py-0.5 rounded-full tracking-wider font-bold">
-              AI AGENCY
+              AGENCY
             </span>
           </a>
 

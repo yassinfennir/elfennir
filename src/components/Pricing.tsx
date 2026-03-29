@@ -21,11 +21,11 @@ export function Pricing() {
     {
       name: "Starter",
       icon: Zap,
-      price: "270",
+      price: "990",
       cents: ",00",
-      originalPrice: "499",
+      originalPrice: "1.490",
       period: "one-time",
-      monthlyFee: "29",
+      monthlyFee: "49",
       maintenance: t.pricing.starterMaintenance,
       desc: t.pricing.starterDesc,
       features: [
@@ -53,11 +53,11 @@ export function Pricing() {
     {
       name: "Business",
       icon: Star,
-      price: "540",
+      price: "2.490",
       cents: ",00",
-      originalPrice: "799",
+      originalPrice: "3.990",
       period: "one-time",
-      monthlyFee: "79",
+      monthlyFee: "149",
       maintenance: t.pricing.businessMaintenance,
       desc: t.pricing.businessDesc,
       features: [
@@ -87,11 +87,11 @@ export function Pricing() {
     {
       name: "Premium",
       icon: Crown,
-      price: "830",
+      price: "4.990",
       cents: ",00",
-      originalPrice: "1.499",
+      originalPrice: "7.990",
       period: "one-time",
-      monthlyFee: "129",
+      monthlyFee: "299",
       maintenance: t.pricing.premiumMaintenance,
       desc: t.pricing.premiumDesc,
       features: [

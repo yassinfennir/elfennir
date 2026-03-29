@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparacion Entrevista UDIA — Yassin El Fennir</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --border-color: #1e1e1e;
+            --border-accent: #222222;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-cyan: #00D1FF;
+            --accent-purple: #a855f7;
+            --accent-pink: #ec4899;
+            --accent-green: #22c55e;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --gradient-main: linear-gradient(135deg, #00D1FF, #a855f7, #ec4899);
+            --gradient-cyan-purple: linear-gradient(135deg, #00D1FF, #a855f7);
+            --gradient-purple-pink: linear-gradient(135deg, #a855f7, #ec4899);
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --shadow-glow-cyan: 0 0 20px rgba(0, 209, 255, 0.15);
+            --shadow-glow-purple: 0 0 20px rgba(168, 85, 247, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ============================================
+           SCROLLBAR
+           ============================================ */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 24px;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: var(--gradient-cyan-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 4px 0;
+        }
+        .nav-links::-webkit-scrollbar { display: none; }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            color: var(--accent-cyan);
+            background: rgba(0, 209, 255, 0.08);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            color: var(--bg-primary);
+            background: var(--gradient-cyan-purple);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-print:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glow-cyan);
+        }
+
+        .btn-collapse-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-collapse-all:hover {
+            color: var(--text-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        /* ============================================
+           HERO / PORTADA
+           ============================================ */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 209, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.04) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(0, 209, 255, 0.08);
+            border: 1px solid rgba(0, 209, 255, 0.2);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-cyan);
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .hero-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-main);
+            border-radius: 3px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+        /* ============================================
+           SECTION STYLING
+           ============================================ */
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient-main);
+            border-radius: 3px 0 0 3px;
+        }
+
+        .section-header:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header.active {
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            border-bottom-color: transparent;
+        }
+
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-cyan-purple);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--bg-primary);
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-toggle {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .section-toggle svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .section-header.active .section-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            display: none;
+            padding: 28px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            animation: slideDown 0.3s ease;
+        }
+
+        .section-content.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           CONTENT ELEMENTS
+           ============================================ */
+        .content-block {
+            margin-bottom: 28px;
+        }
+        .content-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-block h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content-block h4 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .content-block p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .content-block ul, .content-block ol {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .content-block li {
+            margin-bottom: 6px;
+            line-height: 1.7;
+        }
+
+        .content-block li strong {
+            color: var(--text-primary);
+        }
+
+        /* Question-Answer Cards */
+        .qa-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .qa-card:hover {
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .qa-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(0, 209, 255, 0.1);
+            border: 1px solid rgba(0, 209, 255, 0.2);
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+        }
+
+        .qa-question {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .qa-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: 10px;
+        }
+
+        .qa-label.respuesta {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .qa-label.pregunta {
+            background: rgba(0, 209, 255, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 209, 255, 0.2);
+        }
+
+        .qa-label.objecion {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .qa-label.rebatimiento {
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--accent-purple);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .qa-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding-left: 16px;
+            border-left: 2px solid rgba(0, 209, 255, 0.2);
+        }
+
+        .qa-answer p {
+            margin-bottom: 8px;
+        }
+        .qa-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: rgba(0, 209, 255, 0.04);
+            border: 1px solid rgba(0, 209, 255, 0.12);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin-bottom: 16px;
+        }
+
+        .highlight-box.purple {
+            background: rgba(168, 85, 247, 0.04);
+            border-color: rgba(168, 85, 247, 0.12);
+        }
+
+        .highlight-box.green {
+            background: rgba(34, 197, 94, 0.04);
+            border-color: rgba(34, 197, 94, 0.12);
+        }
+
+        .highlight-box.orange {
+            background: rgba(245, 158, 11, 0.04);
+            border-color: rgba(245, 158, 11, 0.12);
+        }
+
+        .highlight-box.pink {
+            background: rgba(236, 72, 153, 0.04);
+            border-color: rgba(236, 72, 153, 0.12);
+        }
+
+        /* Pitch block */
+        .pitch-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pitch-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-main);
+        }
+
+        .pitch-block .pitch-text {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-secondary);
+        }
+
+        .pitch-block .pitch-text em {
+            color: var(--accent-cyan);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .checklist-item.checked {
+            opacity: 0.5;
+        }
+
+        .checklist-item.checked .checklist-text {
+            text-decoration: line-through;
+        }
+
+        .checklist-checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--border-accent);
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            margin-top: 2px;
+        }
+
+        .checklist-item.checked .checklist-checkbox {
+            background: var(--gradient-cyan-purple);
+            border-color: transparent;
+        }
+
+        .checklist-checkbox svg {
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 3;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .checklist-item.checked .checklist-checkbox svg {
+            opacity: 1;
+        }
+
+        .checklist-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Keyword tags */
+        .keyword-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .keyword-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background: rgba(0, 209, 255, 0.06);
+            border: 1px solid rgba(0, 209, 255, 0.15);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--accent-cyan);
+            transition: all 0.2s ease;
+        }
+
+        .keyword-tag.purple {
+            background: rgba(168, 85, 247, 0.06);
+            border-color: rgba(168, 85, 247, 0.15);
+            color: var(--accent-purple);
+        }
+
+        .keyword-tag.pink {
+            background: rgba(236, 72, 153, 0.06);
+            border-color: rgba(236, 72, 153, 0.15);
+            color: var(--accent-pink);
+        }
+
+        .keyword-tag.green {
+            background: rgba(34, 197, 94, 0.06);
+            border-color: rgba(34, 197, 94, 0.15);
+            color: var(--accent-green);
+        }
+
+        .keyword-tag.orange {
+            background: rgba(245, 158, 11, 0.06);
+            border-color: rgba(245, 158, 11, 0.15);
+            color: var(--accent-orange);
+        }
+
+        /* Strength cards */
+        .strength-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .strength-card:hover {
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .strength-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            background: rgba(0, 209, 255, 0.08);
+        }
+
+        .strength-content h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .strength-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Money cards */
+        .money-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .money-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-cyan-purple);
+        }
+
+        .money-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .money-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .money-card .money-est {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-top: 4px;
+        }
+
+        /* Phrase card */
+        .phrase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin-bottom: 10px;
+        }
+
+        .phrase-card .phrase-es {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        .phrase-card .phrase-context {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Separator */
+        .section-sep {
+            height: 1px;
+            background: var(--border-color);
+            margin: 24px 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 48px 24px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 48px;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer .footer-brand {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .container { padding: 70px 16px 40px; }
+            .hero { padding: 50px 10px 40px; }
+            .section-header { padding: 16px 18px; }
+            .section-title { font-size: 1rem; }
+            .section-content { padding: 20px 16px; }
+            .qa-card { padding: 18px; }
+            .pitch-block { padding: 24px 18px; }
+            .strength-card { flex-direction: column; }
+            .nav-actions { gap: 4px; }
+            .btn-print, .btn-collapse-all { padding: 6px 12px; font-size: 0.75rem; }
+        }
+
+        /* ============================================
+           PRINT STYLES
+           ============================================ */
+        @media print {
+            .nav-bar { display: none !important; }
+            .section-content { display: block !important; }
+            .section-header .section-toggle { display: none !important; }
+            .section-header { cursor: default; break-after: avoid; }
+            .qa-card { break-inside: avoid; }
+            .strength-card { break-inside: avoid; }
+            body { background: white; color: #111; font-size: 11pt; }
+            .hero h1 .gradient-text { -webkit-text-fill-color: #0a0a0a; color: #0a0a0a; }
+            .section-number { background: #333; }
+            .section-header::before { background: #333; }
+            .qa-answer { border-left-color: #ccc; }
+            .container { padding: 0; max-width: 100%; }
+            .hero { padding: 20px 0; }
+            .section { break-inside: avoid-page; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVIGATION BAR
+         ============================================ -->
+    <nav class="nav-bar">
+        <div class="nav-inner">
+            <div class="nav-logo">UDIA Interview Prep</div>
+            <div class="nav-links">
+                <a href="#section-1" class="nav-link">Que es UDIA</a>
+                <a href="#section-2" class="nav-link">Preguntas</a>
+                <a href="#section-3" class="nav-link">Mis Preguntas</a>
+                <a href="#section-4" class="nav-link">Pitch</a>
+                <a href="#section-5" class="nav-link">Dinero</a>
+                <a href="#section-6" class="nav-link">Puntos Fuertes</a>
+                <a href="#section-7" class="nav-link">Objeciones</a>
+                <a href="#section-8" class="nav-link">Checklist</a>
+                <a href="#section-9" class="nav-link">Keywords</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-collapse-all" onclick="toggleAll()">
+                    <span id="collapse-label">Expandir</span>
+                </button>
+                <button class="btn-print" onclick="window.print()">
+                    Imprimir / PDF
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ============================================
+             PORTADA / HERO
+             ============================================ -->
+        <header class="hero" id="portada">
+            <div class="hero-badge">📋 Documento de Preparacion Estrategica</div>
+            <h1>
+                <span class="gradient-text">Preparacion Entrevista</span><br>
+                UDIA
+            </h1>
+            <p class="hero-subtitle">Yassin El Fennir — Candidato Estrategico</p>
+            <p class="hero-meta">29 de marzo de 2026 &nbsp;·&nbsp; elfennir.com &nbsp;·&nbsp; Espoo, Finlandia</p>
+            <div class="hero-divider"></div>
+        </header>
+
+
+        <!-- ============================================
+             SECCION 1: QUE ES UDIA
+             ============================================ -->
+        <div class="section" id="section-1">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">01</span>
+                    <span class="section-title">🏢 Que es UDIA — Analisis Estrategico</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <h3>🎯 Propuesta de valor</h3>
+                    <p>UDIA es una empresa espanola de formacion en inteligencia artificial fundada por <strong>Anas Andaloussi</strong>. Ofrece un programa integral de 18 modulos que cubre desde los fundamentos de IA generativa hasta la creacion de agencias de IA y productos SaaS. Es una de las formaciones mas completas del mercado hispanohablante.</p>
+                    <div class="highlight-box">
+                        <p><strong>Posicionamiento clave:</strong> UDIA no es un curso suelto — es un <em>ecosistema formativo</em> con comunidad activa en Discord, clases en directo de por vida, soporte 1:1 durante 12 meses y acceso vitalicio al contenido. Esto los diferencia radicalmente de Udemy, Coursera o cualquier curso grabado.</p>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>📚 Los 18 Modulos del Programa</h3>
+                    <ol>
+                        <li><strong>ChatGPT a fondo</strong> — Uso avanzado, prompts, plugins, GPT-4/4o</li>
+                        <li><strong>Creacion de GPTs personalizados</strong> — GPT Builder, instrucciones, acciones</li>
+                        <li><strong>Prompt Engineering</strong> — Tecnicas avanzadas: chain-of-thought, few-shot, role-prompting</li>
+                        <li><strong>Make (Integromat)</strong> — Automatizaciones sin codigo, integraciones complejas</li>
+                        <li><strong>N8n</strong> — Automatizaciones self-hosted, workflows avanzados</li>
+                        <li><strong>Power BI</strong> — Analisis de datos, dashboards, IA en business intelligence</li>
+                        <li><strong>LangChain</strong> — Framework para aplicaciones LLM, cadenas, agentes</li>
+                        <li><strong>Langflow</strong> — Interfaz visual para construir flujos de LangChain</li>
+                        <li><strong>Flowise</strong> — Herramienta no-code para crear chatbots con LLMs</li>
+                        <li><strong>Botpress</strong> — Plataforma de chatbots empresariales con IA</li>
+                        <li><strong>Landbot</strong> — Chatbots conversacionales (impartido por Fran Conejos, fundador)</li>
+                        <li><strong>AutoGen</strong> — Framework multi-agente de Microsoft</li>
+                        <li><strong>CrewAI</strong> — Orquestacion de agentes IA colaborativos</li>
+                        <li><strong>Bases de datos vectoriales</strong> — Pinecone, Chroma, embeddings, RAG</li>
+                        <li><strong>Generacion de imagenes</strong> — DALL-E, Midjourney, Stable Diffusion</li>
+                        <li><strong>Generacion de video con IA</strong> — Runway, Pika, Sora, herramientas emergentes</li>
+                        <li><strong>Creacion de agencia de IA</strong> — Modelo de negocio, captacion, entrega</li>
+                        <li><strong>Creacion de SaaS con IA</strong> — Producto, tech stack, monetizacion</li>
+                    </ol>
+                </div>
+
+                <div class="content-block">
+                    <h3>👥 Publico Objetivo</h3>
+                    <ul>
+                        <li><strong>Buscadores de empleo</strong> — Personas que quieren entrar al mercado tech/IA</li>
+                        <li><strong>Profesionales</strong> — Que quieren actualizar sus habilidades con IA</li>
+                        <li><strong>Emprendedores</strong> — Que quieren crear negocios basados en IA</li>
+                        <li><strong>Duenos de negocio</strong> — Que buscan automatizar e implementar IA en sus empresas</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>🌟 Profesores Destacados</h3>
+                    <ul>
+                        <li><strong>Anas Andaloussi</strong> — Fundador y director. Referente en IA en espanol</li>
+                        <li><strong>Fran Conejos</strong> — Fundador de Landbot, modulo de chatbots conversacionales</li>
+                        <li><strong>Laura Migallon</strong> — Experta en automatizacion y herramientas IA</li>
+                        <li><strong>Salvador Ramos</strong> — Microsoft MVP, Power BI y analisis de datos</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>💰 Modelo de Negocio y Revenue</h3>
+                    <div class="highlight-box purple">
+                        <p><strong>Revenue streams probables:</strong></p>
+                        <ul>
+                            <li><strong>Venta directa del programa:</strong> Precio premium (estimado 1.500-3.000 EUR) con opciones de pago fraccionado</li>
+                            <li><strong>Upsells:</strong> Mentorias premium, workshops especializados, certificaciones</li>
+                            <li><strong>Afiliados:</strong> Programa de referidos para alumnos y partners</li>
+                            <li><strong>Eventos:</strong> Webinars, masterclasses y eventos presenciales</li>
+                            <li><strong>B2B:</strong> Formacion corporativa para empresas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>📈 Presencia Digital y Traccion</h3>
+                    <ul>
+                        <li><strong>Instagram @udia.es</strong> — 37K seguidores, contenido educativo sobre IA</li>
+                        <li><strong>Discord</strong> — Comunidad activa de alumnos y networking</li>
+                        <li><strong>YouTube / Redes</strong> — Contenido de captacion y autoridad</li>
+                        <li><strong>Posicion en el mercado:</strong> De las formaciones mas completas en espanol para IA aplicada</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>🔑 Datos Clave para Memorizar</h3>
+                    <div class="highlight-box green">
+                        <ul>
+                            <li>Fundador: <strong>Anas Andaloussi</strong></li>
+                            <li>18 modulos que cubren el ecosistema completo de IA</li>
+                            <li>Incluye acceso de por vida y clases en directo perpetuas</li>
+                            <li>12 meses de soporte 1:1</li>
+                            <li>Comunidad Discord activa</li>
+                            <li>Profesores expertos de la industria real (Fran Conejos - Landbot, Salvador Ramos - Microsoft MVP)</li>
+                            <li>Enfoque practico: no solo teoria, sino creacion de agencias y SaaS</li>
+                            <li>Mercado hispanohablante global (Espana + LATAM)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 2: PREGUNTAS QUE ME PUEDEN HACER
+             ============================================ -->
+        <div class="section" id="section-2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">02</span>
+                    <span class="section-title">❓ Preguntas que me pueden hacer (20+)</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <!-- P1 -->
+                <div class="qa-card">
+                    <div class="qa-number">1</div>
+                    <div class="qa-question">🎯 Cuentanos sobre ti y tu trayectoria profesional.</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Soy Yassin El Fennir, desarrollador web freelance y especialista en automatizacion con IA. Opero desde Espoo, Finlandia, bajo mi marca <strong>elfennir.com</strong>, donde ofrezco desarrollo web, automatizaciones con IA, chatbots y consultoria digital.</p>
+                        <p>He entregado mas de <strong>30 proyectos reales</strong> para clientes de diferentes sectores: restaurantes, salones de belleza, inmobiliarias, coaches, agencias... Trabajo con React, Next.js, Vite, y en el lado de automatizacion con N8n, Make, APIs de ChatGPT y Claude.</p>
+                        <p>Ademas, estoy construyendo <strong>InfluAI</strong> (influai.co), una plataforma de prompt packs para creadores e influencers. Soy multicultural: naci en Espana, me crie en Suiza durante 9 anos, y actualmente vivo en Finlandia. Hablo espanol, ingles, frances, fines y arabe.</p>
+                    </div>
+                </div>
+
+                <!-- P2 -->
+                <div class="qa-card">
+                    <div class="qa-number">2</div>
+                    <div class="qa-question">🎯 ¿Por que te interesa UDIA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Me interesa UDIA porque es exactamente la interseccion de lo que hago a diario y lo que creo que necesita el mercado. Yo ya implemento IA en proyectos reales — chatbots, automatizaciones, generacion de contenido — y UDIA esta formando a la proxima generacion de profesionales que haran exactamente esto.</p>
+                        <p>Ademas, valoro mucho que UDIA no sea solo un curso grabado, sino un ecosistema completo con comunidad, clases en directo y soporte real. Eso demuestra un compromiso con el alumno que pocos tienen. Quiero ser parte de esa mision porque creo que <strong>democratizar la IA aplicada</strong> es una de las oportunidades mas grandes de esta decada.</p>
+                    </div>
+                </div>
+
+                <!-- P3 -->
+                <div class="qa-card">
+                    <div class="qa-number">3</div>
+                    <div class="qa-question">🛠️ ¿Que experiencia real tienes con herramientas de IA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Tengo experiencia directa y de produccion con multiples herramientas del stack de UDIA:</p>
+                        <ul>
+                            <li><strong>N8n:</strong> He construido workflows de outreach automatizado, scraping de leads, procesamiento con GPT y envio de emails personalizados en secuencias</li>
+                            <li><strong>Make:</strong> Integraciones entre CRMs, Google Sheets, Stripe, y herramientas de IA para automatizar flujos de negocio completos</li>
+                            <li><strong>ChatGPT / Claude API:</strong> Integrados en chatbots, generadores de contenido, y sistemas de analisis de datos para clientes</li>
+                            <li><strong>Stripe:</strong> Pasarela de pago integrada en varios proyectos web y SaaS</li>
+                            <li><strong>Supabase:</strong> Backend completo con auth, base de datos y real-time para proyectos de produccion</li>
+                            <li><strong>WhatsApp bots:</strong> Automatizacion de atencion al cliente y reservas via WhatsApp Business API</li>
+                        </ul>
+                        <p>No hablo de estas herramientas de forma teorica — las uso <strong>cada semana</strong> en proyectos de pago para clientes reales.</p>
+                    </div>
+                </div>
+
+                <!-- P4 -->
+                <div class="qa-card">
+                    <div class="qa-number">4</div>
+                    <div class="qa-question">💡 ¿Que valor anadido puedes aportar a UDIA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Puedo aportar valor en multiples dimensiones:</p>
+                        <ul>
+                            <li><strong>Experiencia practica real:</strong> Puedo enriquecer los modulos con casos de uso reales de mis 30+ proyectos entregados</li>
+                            <li><strong>Perspectiva internacional:</strong> Al hablar 5 idiomas y haber vivido en 3 paises, puedo ayudar a expandir UDIA al mercado nordico, frances y global</li>
+                            <li><strong>Contenido tecnico de calidad:</strong> Se crear contenido educativo, tutoriales y material que conecta con la audiencia joven y emprendedora</li>
+                            <li><strong>Implementacion tecnica:</strong> Puedo crear demos, templates y recursos practicos que los alumnos puedan usar directamente</li>
+                            <li><strong>InfluAI como caso de estudio:</strong> Mi propio SaaS es un ejemplo vivo de como aplicar lo que UDIA ensena</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- P5 -->
+                <div class="qa-card">
+                    <div class="qa-number">5</div>
+                    <div class="qa-question">🛠️ ¿Conoces N8n y Make en profundidad? Danos un ejemplo de un workflow que hayas construido.</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Si, ambas son herramientas centrales en mi trabajo diario.</p>
+                        <p><strong>Ejemplo con N8n:</strong> Construi un sistema de outreach automatizado para un cliente de servicios B2B. El workflow funciona asi: un trigger detecta nuevos leads en una Google Sheet (que se alimenta de un scraper), N8n envia cada lead al API de GPT-4 para generar un email de primer contacto personalizado basado en el perfil de LinkedIn del lead, luego programa el envio por SMTP con seguimientos automaticos a los 3 y 7 dias si no hay respuesta. Todo con logica condicional y manejo de errores.</p>
+                        <p><strong>Ejemplo con Make:</strong> Para un salon de belleza, cree un flujo que conecta su sistema de reservas con Google Calendar, envia confirmaciones por WhatsApp, genera un resumen semanal automatico en Google Sheets con metricas de ocupacion, y alerta al propietario cuando hay cancelaciones para poder reasignar huecos.</p>
+                    </div>
+                </div>
+
+                <!-- P6 -->
+                <div class="qa-card">
+                    <div class="qa-number">6</div>
+                    <div class="qa-question">🤖 ¿Que sabes sobre LangChain, Langflow y agentes autonomos?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p><strong>LangChain</strong> es el framework principal para construir aplicaciones basadas en LLMs. Permite crear cadenas (chains) de procesamiento, integrar herramientas externas, implementar memoria conversacional y construir agentes que pueden tomar decisiones sobre que herramientas usar. Conozco los conceptos de chains, agents, tools, retrievers y memory.</p>
+                        <p><strong>Langflow</strong> es la interfaz visual que permite construir flujos de LangChain arrastrando y soltando componentes, haciendolo accesible para personas sin experiencia de programacion avanzada.</p>
+                        <p>Sobre <strong>agentes autonomos</strong>, conozco AutoGen de Microsoft y CrewAI para orquestar multiples agentes que colaboran entre si. Es un campo que me fascina porque permite crear equipos virtuales de IA donde cada agente tiene un rol especializado — investigador, redactor, revisor — y trabajan en conjunto para resolver tareas complejas.</p>
+                    </div>
+                </div>
+
+                <!-- P7 -->
+                <div class="qa-card">
+                    <div class="qa-number">7</div>
+                    <div class="qa-question">📋 ¿Como explicarias prompt engineering a alguien sin experiencia tecnica?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Imaginate que la IA es un empleado super listo pero que acaba de llegar a tu empresa. Si le dices "haz un informe", te hara algo generico. Pero si le dices "necesito un informe de ventas del ultimo trimestre, con graficas comparativas respecto al ano anterior, en formato ejecutivo de maximo 2 paginas, enfocado en los 3 productos que mas han crecido", el resultado sera incomparablemente mejor.</p>
+                        <p><strong>Prompt engineering</strong> es el arte de comunicarte con la IA de forma precisa para obtener resultados excelentes. Incluye tecnicas como darle un rol ("actua como experto en marketing digital"), darle ejemplos de lo que quieres (few-shot), pedirle que razone paso a paso (chain-of-thought), y estructurar tus instrucciones de forma clara.</p>
+                        <p>Es literalmente <strong>la habilidad mas rentable de 2026</strong> porque aplica a cualquier profesion y multiplica la productividad de cualquier persona.</p>
+                    </div>
+                </div>
+
+                <!-- P8 -->
+                <div class="qa-card">
+                    <div class="qa-number">8</div>
+                    <div class="qa-question">🌍 Vives en Finlandia. ¿No es un problema la distancia?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Al contrario, lo veo como una ventaja. En el mundo de la IA y la formacion online, la ubicacion fisica es irrelevante — lo que importa es la calidad del trabajo y la capacidad de entrega.</p>
+                        <p>Trabajo 100% en remoto con clientes de multiples paises y zonas horarias. Tengo los sistemas, las herramientas y la disciplina para trabajar de forma asincrona y cumplir plazos sin excepcion. Ademas, vivir en el ecosistema nordico me da acceso a una perspectiva tecnologica de vanguardia que puede enriquecer a UDIA.</p>
+                        <p>Y si se necesita presencia fisica para eventos o reuniones en Espana, tengo la flexibilidad para desplazarme. Naci ahi, mi familia esta ahi, y volver no es ningun problema.</p>
+                    </div>
+                </div>
+
+                <!-- P9 -->
+                <div class="qa-card">
+                    <div class="qa-number">9</div>
+                    <div class="qa-question">💼 ¿Tienes experiencia ensenando o formando a otros?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Si. En mi trabajo de consultoria, una gran parte es <strong>formar al cliente</strong> para que pueda mantener y escalar lo que le construyo. He hecho sesiones de formacion 1:1 sobre como usar sus automatizaciones, como gestionar sus chatbots, y como interpretar dashboards.</p>
+                        <p>Ademas, creo contenido educativo para mi marca personal y para InfluAI, donde explico conceptos de IA de forma accesible. Tengo la capacidad de <strong>traducir lo tecnico a lenguaje humano</strong>, que es probablemente la habilidad mas importante en educacion tecnologica.</p>
+                        <p>Mi estilo de ensenanza es muy practico: menos teoria, mas "vamos a construir esto juntos paso a paso". Creo que la gente aprende haciendo, no escuchando.</p>
+                    </div>
+                </div>
+
+                <!-- P10 -->
+                <div class="qa-card">
+                    <div class="qa-number">10</div>
+                    <div class="qa-question">🚀 ¿Que es InfluAI y como se relaciona con lo que hacemos en UDIA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p><strong>InfluAI</strong> (influai.co) es una plataforma que vende packs de prompts optimizados para creadores e influencers. Basicamente, estoy productizando el conocimiento de prompt engineering en paquetes listos para usar que ayudan a crear contenido, planificar estrategias y automatizar tareas.</p>
+                        <p>La relacion con UDIA es directa: InfluAI es un <strong>caso de estudio vivo</strong> de como aplicar IA para crear un producto digital rentable. Cubre varios modulos de UDIA: prompt engineering, SaaS building, uso de APIs de IA, monetizacion digital... Es exactamente el tipo de proyecto que los alumnos de UDIA aspirarian a construir.</p>
+                    </div>
+                </div>
+
+                <!-- P11 -->
+                <div class="qa-card">
+                    <div class="qa-number">11</div>
+                    <div class="qa-question">🔧 ¿Con que stack tecnologico trabajas?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Mi stack principal es:</p>
+                        <ul>
+                            <li><strong>Frontend:</strong> React, Next.js, Vite, HTML/CSS/JS puro. Despliegue en Netlify y Vercel</li>
+                            <li><strong>Backend:</strong> Supabase (auth, DB, storage, edge functions), APIs REST</li>
+                            <li><strong>Automatizacion:</strong> N8n (self-hosted y cloud), Make, Zapier puntualmente</li>
+                            <li><strong>IA:</strong> OpenAI API (GPT-4), Claude API, integraciones con Whisper, DALL-E</li>
+                            <li><strong>Pagos:</strong> Stripe (checkout, subscriptions, webhooks)</li>
+                            <li><strong>Mensajeria:</strong> WhatsApp Business API, Twilio, bots de Telegram</li>
+                            <li><strong>DevOps:</strong> GitHub, CI/CD automatizado, dominios y DNS</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- P12 -->
+                <div class="qa-card">
+                    <div class="qa-number">12</div>
+                    <div class="qa-question">📊 Danos un ejemplo de un proyecto de cliente real donde hayas usado IA.</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Para una agencia inmobiliaria, construi un sistema completo de automatizacion:</p>
+                        <ul>
+                            <li>Un <strong>chatbot de WhatsApp</strong> que atiende consultas iniciales 24/7, responde preguntas sobre propiedades usando un knowledge base con GPT-4, y cualifica leads preguntando presupuesto, zona y tipo de propiedad</li>
+                            <li>Los leads cualificados se envian automaticamente al CRM con toda la informacion recopilada</li>
+                            <li>Un <strong>workflow de N8n</strong> genera descripciones de propiedades optimizadas para SEO a partir de datos basicos (metros, habitaciones, zona)</li>
+                            <li>Un <strong>email de seguimiento automatico</strong> se envia con propiedades recomendadas basadas en los criterios del lead</li>
+                        </ul>
+                        <p>Resultado: el agente inmobiliario ahorra <strong>15 horas semanales</strong> y convierte un 25% mas de leads porque responde al instante en lugar de al dia siguiente.</p>
+                    </div>
+                </div>
+
+                <!-- P13 -->
+                <div class="qa-card">
+                    <div class="qa-number">13</div>
+                    <div class="qa-question">🎓 ¿Como ves el futuro de la formacion en IA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Creo que estamos en un momento historico comparable al inicio de internet. En los proximos 2-3 anos, la IA va a transformar <strong>cada profesion</strong>, no solo el sector tech. Contables, abogados, medicos, marketeros, disenadores — todos van a necesitar formacion en IA aplicada a su campo.</p>
+                        <p>Esto significa que el mercado de formacion en IA va a crecer exponencialmente, y las empresas que esten bien posicionadas ahora — como UDIA — van a capturar una parte enorme de ese mercado. La clave es <strong>mantenerse actualizado</strong>, porque las herramientas cambian cada mes, y ofrecer formacion practica, no solo teorica.</p>
+                        <p>Veo un futuro donde la formacion en IA es tan esencial como aprender Excel lo fue en los 2000. Y UDIA esta perfectamente posicionada para liderar eso en el mercado hispanohablante.</p>
+                    </div>
+                </div>
+
+                <!-- P14 -->
+                <div class="qa-card">
+                    <div class="qa-number">14</div>
+                    <div class="qa-question">💰 ¿Que experiencia tienes con chatbots comerciales (Botpress, Landbot, Flowise)?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>He trabajado directamente con chatbots comerciales para clientes reales. Mi enfoque ha sido principalmente con integraciones custom usando WhatsApp Business API y APIs de LLMs, pero conozco el ecosistema:</p>
+                        <ul>
+                            <li><strong>Botpress:</strong> Conozco su arquitectura de nodos y su reciente pivot hacia integracion nativa con LLMs. Es potente para chatbots empresariales con logica compleja</li>
+                            <li><strong>Landbot:</strong> He explorado su enfoque visual y conversacional. El hecho de que Fran Conejos, su fundador, imparta el modulo en UDIA dice mucho de la calidad</li>
+                            <li><strong>Flowise:</strong> Me parece brillante como herramienta no-code para crear chatbots RAG con LangChain. La he probado para prototipar rapidamente asistentes con knowledge bases</li>
+                        </ul>
+                        <p>Mi ventaja es que entiendo tanto el lado <strong>no-code</strong> (estas plataformas) como el lado <strong>code</strong> (integraciones custom), lo que me permite elegir la mejor herramienta segun el caso de uso.</p>
+                    </div>
+                </div>
+
+                <!-- P15 -->
+                <div class="qa-card">
+                    <div class="qa-number">15</div>
+                    <div class="qa-question">👥 ¿Como gestionas la relacion con clientes?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Tengo un proceso claro que he refinado con mas de 30 proyectos:</p>
+                        <ul>
+                            <li><strong>Descubrimiento:</strong> Llamada o reunion para entender el problema real, no solo lo que el cliente cree que necesita</li>
+                            <li><strong>Propuesta clara:</strong> Scope definido, timeline, entregables concretos, precio transparente</li>
+                            <li><strong>Comunicacion constante:</strong> Updates semanales, demos intermedias, feedback loops cortos</li>
+                            <li><strong>Entrega + formacion:</strong> No solo entrego el proyecto, sino que formo al cliente para que lo pueda mantener</li>
+                            <li><strong>Seguimiento post-entrega:</strong> Soporte durante 2-4 semanas despues del lanzamiento</li>
+                        </ul>
+                        <p>La clave es <strong>gestionar expectativas desde el dia 1</strong> y sobrepasar esas expectativas en la entrega. Eso genera referidos, que son mi principal fuente de nuevos clientes.</p>
+                    </div>
+                </div>
+
+                <!-- P16 -->
+                <div class="qa-card">
+                    <div class="qa-number">16</div>
+                    <div class="qa-question">📈 ¿Que propuesta concreta harias para mejorar UDIA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Sin pretender conocer UDIA por dentro, algunas ideas basadas en lo que veo desde fuera:</p>
+                        <ul>
+                            <li><strong>Templates y recursos descargables:</strong> Crear un repositorio de workflows de N8n, escenarios de Make, y prompts optimizados que los alumnos puedan importar y adaptar a sus proyectos</li>
+                            <li><strong>Casos de estudio reales por industria:</strong> "Como implementar IA en un restaurante", "IA para inmobiliarias", "IA para coaches" — contenido vertical que conecta con segmentos especificos</li>
+                            <li><strong>Programa de certificacion:</strong> Un sello UDIA que los alumnos puedan mostrar en LinkedIn y que las empresas reconozcan</li>
+                            <li><strong>Expansion internacional:</strong> Con mi perfil multicultural y multilingue, podria ayudar a adaptar contenido al mercado nordico, frances o anglosajon</li>
+                            <li><strong>Retos mensuales:</strong> Desafios practicos en la comunidad Discord donde los alumnos apliquen lo aprendido y reciban feedback</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- P17 -->
+                <div class="qa-card">
+                    <div class="qa-number">17</div>
+                    <div class="qa-question">🔐 ¿Que sabes sobre bases de datos vectoriales y RAG?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p><strong>RAG (Retrieval-Augmented Generation)</strong> es la tecnica de enriquecer las respuestas de un LLM con informacion externa especifica. En lugar de depender solo del conocimiento entrenado del modelo, le das acceso a tus propios documentos, datos o knowledge base.</p>
+                        <p>El flujo es: los documentos se dividen en chunks, se generan <strong>embeddings</strong> (representaciones vectoriales del significado), se almacenan en una <strong>base de datos vectorial</strong> como Pinecone o Chroma. Cuando el usuario hace una pregunta, se buscan los chunks mas relevantes semanticamente y se pasan como contexto al LLM junto con la pregunta.</p>
+                        <p>He aplicado esto en chatbots donde el bot necesita responder sobre el catalogo de productos de un cliente o sobre su documentacion interna. Es la diferencia entre un chatbot generico y un <strong>asistente experto en tu negocio</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- P18 -->
+                <div class="qa-card">
+                    <div class="qa-number">18</div>
+                    <div class="qa-question">🏆 ¿Por que deberiamos elegirte a ti sobre otros candidatos?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Porque no soy un perfil teorico. Soy alguien que <strong>vive de implementar IA a diario</strong>. Puedo hablar de herramientas no porque he visto un tutorial, sino porque las he usado para resolver problemas reales de clientes que pagan.</p>
+                        <p>Ademas, tengo una combinacion rara de habilidades:</p>
+                        <ul>
+                            <li>Se programar Y se usar herramientas no-code</li>
+                            <li>Se vender Y se construir</li>
+                            <li>Se ensensar Y se implementar</li>
+                            <li>Hablo 5 idiomas y he vivido en 3 paises</li>
+                            <li>Tengo mi propio SaaS como prueba de concepto viviente</li>
+                        </ul>
+                        <p>Sobre todo: estoy <strong>hambriento</strong>. No busco un trabajo comodo — busco una oportunidad donde pueda aportar valor real y crecer junto con el proyecto.</p>
+                    </div>
+                </div>
+
+                <!-- P19 -->
+                <div class="qa-card">
+                    <div class="qa-number">19</div>
+                    <div class="qa-question">⏱️ ¿Como te mantienes actualizado en un campo que cambia tan rapido?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Tengo un sistema activo:</p>
+                        <ul>
+                            <li><strong>Feeds diarios:</strong> Sigo a los principales creadores de IA en Twitter/X, LinkedIn y YouTube (fireship, Matt Wolfe, AI Explained, Two Minute Papers)</li>
+                            <li><strong>Newsletters:</strong> The Rundown AI, Ben's Bites, TLDR AI</li>
+                            <li><strong>Practica constante:</strong> Cada nueva herramienta que sale, la pruebo esa misma semana. No solo leo sobre ella — la instalo, la configuro y construyo algo con ella</li>
+                            <li><strong>Comunidades:</strong> Participo en comunidades de Discord y foros de desarrolladores de IA</li>
+                            <li><strong>Proyectos de clientes:</strong> Mis clientes me fuerzan a estar actualizado porque necesitan las mejores soluciones disponibles</li>
+                        </ul>
+                        <p>La clave es que no es esfuerzo para mi — es <strong>pasion genuina</strong>. Me encanta este campo.</p>
+                    </div>
+                </div>
+
+                <!-- P20 -->
+                <div class="qa-card">
+                    <div class="qa-number">20</div>
+                    <div class="qa-question">🌐 ¿Como puede beneficiar tu perfil multicultural a UDIA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>De muchas formas concretas:</p>
+                        <ul>
+                            <li><strong>Expansion a nuevos mercados:</strong> Puedo crear contenido o adaptar modulos en frances (mercado francoafricano enorme), ingles (mercado global) o para el mercado nordico</li>
+                            <li><strong>Perspectiva diversa:</strong> Entiendo como se usan las herramientas de IA en diferentes contextos culturales y empresariales europeos</li>
+                            <li><strong>Conexion con audiencia diversa:</strong> El publico de UDIA es hispanoamericano y diverso. Mi background conecta con muchas personas de ese publico</li>
+                            <li><strong>Networking internacional:</strong> Tengo contactos en el ecosistema tech de Finlandia, Suiza, Espana y Francia</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- P21 -->
+                <div class="qa-card">
+                    <div class="qa-number">21</div>
+                    <div class="qa-question">💻 ¿Que opinas sobre la generacion de imagenes y video con IA?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Es uno de los campos que mas esta avanzando. Herramientas como <strong>Midjourney</strong>, <strong>DALL-E 3</strong> y <strong>Stable Diffusion</strong> han democratizado la creacion visual. Para video, <strong>Runway Gen-3</strong>, <strong>Pika</strong> y <strong>Sora</strong> estan abriendo posibilidades que hace un ano eran ciencia ficcion.</p>
+                        <p>En mi trabajo, uso generacion de imagenes para crear assets para webs de clientes, mockups rapidos y contenido para redes sociales. Es una herramienta brutal para prototipar visualmente antes de invertir en disenno profesional.</p>
+                        <p>Creo que en 2026-2027, la capacidad de generar contenido visual con IA sera tan basica como saber usar Photoshop. Y los que se formen ahora tendran una ventaja enorme.</p>
+                    </div>
+                </div>
+
+                <!-- P22 -->
+                <div class="qa-card">
+                    <div class="qa-number">22</div>
+                    <div class="qa-question">📱 ¿Que experiencia tienes con sistemas de outreach automatizado?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>He construido varios sistemas completos de outreach automatizado:</p>
+                        <ul>
+                            <li><strong>Sistema de cold email con IA:</strong> Scraping de leads, enriquecimiento de datos, generacion de emails hiperpersonalizados con GPT-4 (basados en el perfil de LinkedIn de cada lead), secuencias de seguimiento automaticas, y tracking de aperturas y respuestas</li>
+                            <li><strong>Outreach por WhatsApp:</strong> Mensajes iniciales personalizados, seguimientos automaticos, derivacion a humano cuando el lead muestra interes alto</li>
+                            <li><strong>Content-based outreach:</strong> Sistemas que generan contenido personalizado (articulos, infografias) para leads especificos como parte de una estrategia de nurturing</li>
+                        </ul>
+                        <p>He aprendido que la clave del outreach con IA no es enviar mas mensajes, sino enviar <strong>mensajes mejores y mas relevantes</strong>. La personalizacion real es lo que marca la diferencia.</p>
+                    </div>
+                </div>
+
+                <!-- P23 -->
+                <div class="qa-card">
+                    <div class="qa-number">23</div>
+                    <div class="qa-question">🤝 ¿Estarias dispuesto a empezar con un rol flexible o parcial?</div>
+                    <div class="qa-label respuesta">Respuesta modelo</div>
+                    <div class="qa-answer">
+                        <p>Absolutamente. Creo que lo mas inteligente para ambas partes es empezar con un periodo de prueba o colaboracion parcial. Asi UDIA puede evaluar mi trabajo real sin un compromiso grande, y yo puedo demostrar valor antes de pedir nada.</p>
+                        <p>Podria empezar con un proyecto concreto — crear un workshop, mejorar un modulo, construir templates de automatizacion — y a partir de ahi escalar segun los resultados. Soy <strong>flexible</strong> y estoy orientado a resultados, no a titulos ni horarios fijos.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 3: PREGUNTAS QUE YO DEBO HACER
+             ============================================ -->
+        <div class="section" id="section-3">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">03</span>
+                    <span class="section-title">🎙️ Preguntas que yo debo hacer a UDIA</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <p>Hacer preguntas inteligentes demuestra <strong>preparacion, interes estrategico y mentalidad de partner</strong>, no de empleado. Estas 10 preguntas estan disenadas para impresionar y para darte informacion valiosa.</p>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">1</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">🎯 ¿Cual es la vision de UDIA a 2-3 anos vista? ¿Hacia donde quereis evolucionar el producto formativo?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Muestra que piensas a largo plazo y que quieres alinearte con la estrategia. Te permite posicionarte como pieza clave de esa vision.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">2</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">📊 ¿Cual es el perfil mas comun de vuestros alumnos actuales? ¿Y cual es el perfil que mas os gustaria atraer?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Te ayuda a entender el mercado real y a proponer como puedes ayudar a atraer los segmentos que les faltan.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">3</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">🛠️ ¿Que modulos o areas del programa sentis que necesitan mas refuerzo o actualizacion?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Identifica directamente donde puedes aportar valor inmediato. Si mencionan un area que dominas, es tu oportunidad de ofrecerte.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">4</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">🌍 ¿Teneis planes de expansion internacional o de crear versiones en otros idiomas?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Abre la puerta para posicionarte como el puente hacia mercados internacionales gracias a tus idiomas y experiencia multicultural.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">5</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">🤝 ¿Como es el dia a dia del equipo? ¿Como se estructura la colaboracion interna?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Muestra interes genuino en integrarte. Ademas, te da informacion practica sobre como funciona la empresa.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">6</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">📈 ¿Cual es vuestro mayor reto ahora mismo como empresa?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Es la pregunta de oro. Cualquier reto que mencionen, tu puedes proponer como ayudar a resolverlo. Demuestra mentalidad de resolver problemas.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">7</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">💡 ¿Como medis el exito de un nuevo miembro del equipo en los primeros 90 dias?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Muestra que eres orientado a resultados y que quieres tener metricas claras de exito desde el principio.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">8</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">🎓 ¿Que feedback recibis mas frecuentemente de los alumnos? ¿Tanto positivo como de mejora?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Te da insight real sobre la experiencia del alumno y areas de oportunidad donde tu puedes contribuir.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">9</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">💰 ¿Estais explorando el modelo B2B de formacion corporativa?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> El B2B es una fuente de revenue enorme que muchas empresas educativas no explotan bien. Si no lo estan haciendo, tu puedes proponerte para liderarlo.</p>
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="qa-number">10</div>
+                    <div class="qa-label pregunta">Pregunta estrategica</div>
+                    <div class="qa-question">🚀 ¿Que tipo de rol o colaboracion encajaria mejor con lo que necesitais ahora mismo?</div>
+                    <div class="qa-answer">
+                        <p><em>Por que preguntar esto:</em> Es directa y muestra interes real. Te permite adaptar tu propuesta final a lo que ellos realmente necesitan en este momento.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 4: MI PITCH DE 2 MINUTOS
+             ============================================ -->
+        <div class="section" id="section-4">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">04</span>
+                    <span class="section-title">🎤 Mi Pitch de 2 Minutos</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <h3>📋 Instrucciones</h3>
+                    <p>Este pitch esta disenado para los primeros 2 minutos de la entrevista cuando te digan <strong>"Cuentanos sobre ti"</strong>. Praticalo hasta que suene natural, no memorizado. El tono debe ser <strong>confiado, entusiasta y concreto</strong>.</p>
+                </div>
+
+                <div class="pitch-block">
+                    <div class="pitch-text">
+                        <p>"Soy <em>Yassin El Fennir</em>, desarrollador web y especialista en automatizacion con IA. Trabajo desde <em>Espoo, Finlandia</em>, bajo mi marca <em>elfennir.com</em>, donde ofrezco desarrollo web, automatizaciones con IA, chatbots y consultoria digital a emprendedores y PYMEs.</p>
+
+                        <p>Llevo entregados <em>mas de 30 proyectos reales</em> para clientes de sectores muy variados — restaurantes, salones, inmobiliarias, coaches — y trabajo a diario con herramientas como <em>N8n, Make, la API de ChatGPT y Claude, React, Next.js, Supabase y Stripe</em>.</p>
+
+                        <p>Ademas, estoy construyendo <em>InfluAI</em>, una plataforma de prompt packs para creadores, que es basicamente un caso de estudio vivo de como aplicar IA para crear un producto digital rentable.</p>
+
+                        <p>Mi perfil tiene algo un poco unico: naci en <em>Espana</em>, me crie en <em>Suiza</em>, y vivo en <em>Finlandia</em>. Hablo <em>espanol, ingles, frances, fines y arabe</em>. Esto me da una perspectiva internacional y multicultural que creo que puede ser muy valiosa para un proyecto como UDIA.</p>
+
+                        <p>Lo que me atrae de UDIA es que no es un curso grabado mas — es un <em>ecosistema formativo completo</em> que esta democratizando la IA aplicada en espanol. Y yo quiero ser parte de esa mision, aportando experiencia practica real, capacidad tecnica, y una vision internacional que ayude a UDIA a escalar."</p>
+                    </div>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="content-block">
+                    <h3>⏱️ Notas del Pitch</h3>
+                    <ul>
+                        <li><strong>Duracion:</strong> ~1 minuto 45 segundos leido a ritmo natural</li>
+                        <li><strong>Tono:</strong> Profesional pero cercano. No robotico</li>
+                        <li><strong>Contacto visual:</strong> Mira a camara (si es por video) o al interlocutor</li>
+                        <li><strong>Cierre:</strong> Termina mirando al entrevistador, sonriendo levemente, esperando su respuesta</li>
+                        <li><strong>No memorizar palabra por palabra:</strong> Memoriza los bloques: (1) quien soy, (2) que hago, (3) InfluAI, (4) perfil multicultural, (5) por que UDIA</li>
+                        <li><strong>Practica:</strong> Grabate en video al menos 3 veces. Escucha tu ritmo y corrige</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>🔄 Version Corta (30 segundos)</h3>
+                    <div class="highlight-box purple">
+                        <p>"Soy Yassin, desarrollador web y especialista en IA desde Finlandia. Llevo mas de 30 proyectos entregados usando N8n, Make y APIs de IA para automatizar negocios. Hablo 5 idiomas, tengo mi propio SaaS de IA, y me interesa UDIA porque quiero aportar experiencia practica real a la formacion en IA en espanol."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 5: COMO PUEDO GENERAR DINERO CON UDIA
+             ============================================ -->
+        <div class="section" id="section-5">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">05</span>
+                    <span class="section-title">💰 Como Puedo Generar Dinero con UDIA</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <p>Mas alla del rol basico que te ofrezcan, estas son las vias de monetizacion que puedes explorar dentro del ecosistema UDIA. Tener esta vision te posiciona como alguien que piensa en <strong>generar revenue</strong>, no solo en cobrar un sueldo.</p>
+                </div>
+
+                <div class="money-card">
+                    <h4>🎓 1. Instructor / Profesor de Modulos</h4>
+                    <p>Crear e impartir modulos completos o sesiones especializadas dentro del programa de UDIA. Con tu experiencia en N8n, Make, chatbots y automatizacion, podrias liderar modulos o crear contenido complementario de alta calidad.</p>
+                    <p><strong>Propuesta concreta:</strong> Ofrecer un modulo de "Automatizacion de Negocios Reales con N8n" o "Chatbots Comerciales de WhatsApp con IA" con casos de estudio de tus 30+ proyectos.</p>
+                    <span class="money-est">Estimacion: 1.000 - 3.000 EUR/mes (fee fijo o revenue share)</span>
+                </div>
+
+                <div class="money-card">
+                    <h4>🔗 2. Programa de Afiliados / Referidos</h4>
+                    <p>Promocionar UDIA entre tu audiencia y red de contactos. Cada alumno que llegue por ti genera una comision. Con tu presencia en multiples paises e idiomas, el potencial de referidos es alto.</p>
+                    <p><strong>Propuesta concreta:</strong> Crear contenido educativo gratuito en tus canales que muestre el valor de UDIA y dirija trafico cualificado con tu link de afiliado.</p>
+                    <span class="money-est">Estimacion: 200 - 500 EUR por alumno referido</span>
+                </div>
+
+                <div class="money-card">
+                    <h4>🛠️ 3. Implementador de Herramientas para Alumnos</h4>
+                    <p>Los alumnos de UDIA aprenden las herramientas pero muchos necesitan ayuda para implementarlas en sus negocios reales. Tu puedes ofrecer servicios de implementacion como partner recomendado de UDIA.</p>
+                    <p><strong>Propuesta concreta:</strong> Crear un paquete de "Implementacion IA para tu negocio" que UDIA recomiende a sus alumnos empresarios. Revenue split con UDIA.</p>
+                    <span class="money-est">Estimacion: 500 - 5.000 EUR por proyecto (segun complejidad)</span>
+                </div>
+
+                <div class="money-card">
+                    <h4>🎪 4. Workshops y Masterclasses Premium</h4>
+                    <p>Crear workshops intensivos de 2-4 horas sobre temas especificos que complementen el programa principal. Estos workshops pueden ser gratuitos (captacion) o de pago (monetizacion directa).</p>
+                    <p><strong>Propuesta concreta:</strong> Workshop trimestral de "Construye tu primer chatbot de WhatsApp con IA en 3 horas" o "De 0 a outreach automatizado en una tarde".</p>
+                    <span class="money-est">Estimacion: 500 - 2.000 EUR por workshop</span>
+                </div>
+
+                <div class="money-card">
+                    <h4>📱 5. Creador de Contenido para UDIA</h4>
+                    <p>Crear contenido para las redes sociales, blog y canales de UDIA. Tutoriales, reels, threads, articulos que atraigan nuevos alumnos y refuercen la autoridad de la marca.</p>
+                    <p><strong>Propuesta concreta:</strong> Producir 8-12 piezas de contenido mensuales (reels, posts educativos, hilos) basados en tus casos de uso reales.</p>
+                    <span class="money-est">Estimacion: 800 - 2.000 EUR/mes (retainer)</span>
+                </div>
+
+                <div class="money-card">
+                    <h4>🌍 6. Expansion Internacional</h4>
+                    <p>Liderar la expansion de UDIA a nuevos mercados: adaptar contenido al frances, ingles o nordico. Esto incluye localizacion, marketing adaptado, y potencialmente impartir modulos en esos idiomas.</p>
+                    <p><strong>Propuesta concreta:</strong> Proyecto piloto de UDIA en frances para el mercado francoafricano (400M+ francofonos). Tu lideras la adaptacion y la captacion.</p>
+                    <span class="money-est">Estimacion: Equity o revenue share de las ventas internacionales</span>
+                </div>
+
+                <div class="money-card">
+                    <h4>🧰 7. Creacion de Templates y Recursos Premium</h4>
+                    <p>Desarrollar un marketplace de templates de N8n, escenarios de Make, prompts optimizados y frameworks que los alumnos puedan comprar o que se incluyan como valor anadido del programa.</p>
+                    <p><strong>Propuesta concreta:</strong> Biblioteca de 50+ templates clasificados por industria y caso de uso, con documentacion y video tutorial de cada uno.</p>
+                    <span class="money-est">Estimacion: 500 - 1.500 EUR/mes (ventas de templates o fee por creacion)</span>
+                </div>
+
+                <div class="money-card">
+                    <h4>🏢 8. Formacion Corporativa B2B</h4>
+                    <p>Ayudar a UDIA a entrar en el mercado de formacion corporativa. Las empresas pagan significativamente mas que individuos por formacion en IA para sus equipos.</p>
+                    <p><strong>Propuesta concreta:</strong> Disennnar un paquete "UDIA for Business" adaptado a equipos de marketing, ventas y operaciones. Tu lo impartes y gestionas la relacion con la empresa.</p>
+                    <span class="money-est">Estimacion: 3.000 - 15.000 EUR por contrato corporativo</span>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="highlight-box green">
+                    <h3>📊 Resumen de Potencial de Ingresos</h3>
+                    <p>Combinando 2-3 de estas vias, el potencial realista es de <strong>3.000 - 8.000 EUR/mes</strong> en los primeros 6 meses, escalando a <strong>10.000+ EUR/mes</strong> cuando las vias esten maduras. Esto sin contar que sigues manteniendo tu negocio freelance en paralelo.</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 6: MIS PUNTOS FUERTES
+             ============================================ -->
+        <div class="section" id="section-6">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">06</span>
+                    <span class="section-title">💪 Mis Puntos Fuertes vs Candidatos Genericos</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <p>Estos son tus diferenciales objetivos frente a un candidato generico que sabe de IA pero no tiene tu combinacion de habilidades.</p>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">🛠️</div>
+                    <div class="strength-content">
+                        <h4>Experiencia Practica Real (No Teorica)</h4>
+                        <p>30+ proyectos entregados a clientes que pagan. No eres alguien que ha visto tutoriales — eres alguien que resuelve problemas reales de negocio con IA cada semana. Puedes traer casos de estudio autenticos a cada clase, no ejemplos inventados.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">🌍</div>
+                    <div class="strength-content">
+                        <h4>Perfil Multicultural y Multilingue (5 idiomas)</h4>
+                        <p>Espanol nativo, ingles fluido, frances (Suiza), fines (Finlandia), arabe. Has vivido en 3 paises y entiendes diferentes mercados y culturas empresariales. Ningun candidato generico tiene esta versatilidad linguistica y cultural.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">💻</div>
+                    <div class="strength-content">
+                        <h4>Doble Competencia: Code + No-Code</h4>
+                        <p>Sabes programar (React, Next.js, APIs) Y sabes usar herramientas no-code (N8n, Make). Esto te permite elegir la mejor herramienta para cada situacion y ensenar ambas perspectivas. La mayoria de candidatos solo dominan uno de los dos mundos.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">🚀</div>
+                    <div class="strength-content">
+                        <h4>Emprendedor Activo (InfluAI + elfennir.com)</h4>
+                        <p>No eres un empleado buscando trabajo — eres un emprendedor que quiere aportar valor. InfluAI demuestra que sabes crear productos, vender, y escalar. elfennir.com demuestra que sabes gestionar clientes y entregar resultados.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">🤖</div>
+                    <div class="strength-content">
+                        <h4>Stack Alineado con el Programa UDIA</h4>
+                        <p>Tu stack diario (N8n, Make, ChatGPT API, Claude, Supabase, Stripe, React) coincide directamente con lo que UDIA ensenna. No necesitas formacion previa — ya usas las herramientas en produccion.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">🎯</div>
+                    <div class="strength-content">
+                        <h4>Capacidad de Traducir lo Tecnico a Lenguaje Humano</h4>
+                        <p>Trabajar con clientes no tecnicos (restaurantes, salones, coaches) te ha obligado a explicar conceptos complejos de forma simple. Esta habilidad es oro en educacion — saber y saber ensenar son cosas muy diferentes.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">📊</div>
+                    <div class="strength-content">
+                        <h4>Vision Comercial + Tecnica</h4>
+                        <p>Entiendes el negocio (ventas, marketing, pricing, clientes) Y la tecnologia. Puedes hablar tanto con el CEO como con el desarrollador. En UDIA, esto significa que puedes crear contenido que vende y contenido que ensenna.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">⚡</div>
+                    <div class="strength-content">
+                        <h4>Velocidad de Adaptacion</h4>
+                        <p>El mundo de la IA cambia cada semana. Tu ya tienes el musculo de aprender herramientas nuevas rapidamente porque lo haces constantemente para tus clientes. Un candidato que viene de un entorno corporativo estable no tiene esta agilidad.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">🏗️</div>
+                    <div class="strength-content">
+                        <h4>Ecosistema Nordico de Innovacion</h4>
+                        <p>Vivir en Finlandia te da acceso al ecosistema tech mas avanzado de Europa. Puedes traer tendencias, herramientas y enfoques que aun no han llegado al mercado hispanohablante.</p>
+                    </div>
+                </div>
+
+                <div class="strength-card">
+                    <div class="strength-icon">🔥</div>
+                    <div class="strength-content">
+                        <h4>Hambre y Mentalidad de Crecimiento</h4>
+                        <p>No buscas comodidad — buscas una oportunidad para demostrar y crecer. Esta mentalidad es mucho mas valiosa que cualquier titulo o certificacion. Las empresas en crecimiento necesitan gente hambrienta, no gente comoda.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 7: POSIBLES OBJECIONES Y RESPUESTAS
+             ============================================ -->
+        <div class="section" id="section-7">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">07</span>
+                    <span class="section-title">🛡️ Posibles Objeciones y Respuestas</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <p>Anticipa cualquier duda que puedan tener y ten la respuesta preparada. No se trata de ser defensivo, sino de convertir cada objecion en una <strong>oportunidad para demostrar valor</strong>.</p>
+                </div>
+
+                <!-- Objecion 1 -->
+                <div class="qa-card">
+                    <div class="qa-number">1</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"Vives en Finlandia, muy lejos de Espana. ¿Podras estar disponible y comprometido?"</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"Llevo anos trabajando en remoto con clientes de diferentes paises y zonas horarias. Mi disciplina y sistemas de trabajo estan probados — entrego siempre en plazo y con la calidad acordada. Ademas, la diferencia horaria con Espana es de solo 1 hora, asi que la disponibilidad es completa.</p>
+                        <p>Y algo importante: naci en Espana, mi familia esta ahi. Puedo viajar siempre que se necesite para eventos, reuniones o grabaciones. La distancia fisica no ha sido nunca un obstaculo en ninguno de mis 30+ proyectos."</p>
+                    </div>
+                </div>
+
+                <!-- Objecion 2 -->
+                <div class="qa-card">
+                    <div class="qa-number">2</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"No tienes experiencia formal como profesor o formador."</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"Es cierto que no tengo un titulo de docencia, pero llevo anos formando a clientes no tecnicos para que usen herramientas de IA y automatizacion. Cada proyecto que entrego incluye una fase de formacion donde el cliente aprende a gestionar lo que le he construido.</p>
+                        <p>Ademas, creo contenido educativo para mis plataformas. Mi estilo es muy practico y accesible — me especializo en traducir conceptos tecnicos a lenguaje que cualquiera pueda entender. Y si miramos a vuestros profesores actuales, como Fran Conejos, son expertos de la industria, no pedagogos tradicionales. Creo que eso es exactamente lo que funciona en formacion tech."</p>
+                    </div>
+                </div>
+
+                <!-- Objecion 3 -->
+                <div class="qa-card">
+                    <div class="qa-number">3</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"Eres muy joven / no tienes suficientes anos de experiencia."</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"En el mundo de la IA, la experiencia no se mide en anos sino en proyectos y adaptabilidad. Este campo tiene 2-3 anos de existencia practica. Los que mas saben son los que mas han construido, no los que llevan mas tiempo en una empresa.</p>
+                        <p>Tengo 30+ proyectos entregados, un SaaS propio, y trabajo diario con las herramientas del programa. Mi energia, mi velocidad de aprendizaje y mi hambre son ventajas, no desventajas. El publico de UDIA es en gran parte joven y emprendedor — conectar con ellos desde una posicion cercana es un activo."</p>
+                    </div>
+                </div>
+
+                <!-- Objecion 4 -->
+                <div class="qa-card">
+                    <div class="qa-number">4</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"Ya tenemos un equipo completo. ¿Que necesidad cubririas?"</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"Entiendo. No vengo a sustituir a nadie sino a complementar. Mi perfil cubre areas que son dificiles de encontrar en un solo candidato: implementacion tecnica real + capacidad de ensennanza + vision comercial + perspectiva internacional + 5 idiomas.</p>
+                        <p>Podria aportar valor en muchas areas sin pisar a nadie: crear templates y recursos practicos, liderar workshops especializados, producir contenido para redes, explorar expansion internacional, o incluso abrir la via B2B. Estoy dispuesto a empezar con un proyecto concreto para demostrar valor antes de comprometer nada mas."</p>
+                    </div>
+                </div>
+
+                <!-- Objecion 5 -->
+                <div class="qa-card">
+                    <div class="qa-number">5</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"Tienes tu propio negocio. ¿No habra conflicto de intereses?"</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"No hay conflicto sino sinergia. Mi negocio freelance (elfennir.com) se enfoca en implementacion para clientes finales, mientras que UDIA se enfoca en formacion. Son complementarios, no competidores.</p>
+                        <p>De hecho, mi actividad freelance es una ventaja para UDIA: me mantiene actualizado con las ultimas herramientas, me da casos de estudio frescos constantemente, y demuestra que lo que UDIA enseña funciona en el mundo real. Es como tener un profesor de medicina que ademas ejerce — sus alumnos aprenden mejor porque el profesor vive la realidad de la profesion."</p>
+                    </div>
+                </div>
+
+                <!-- Objecion 6 -->
+                <div class="qa-card">
+                    <div class="qa-number">6</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"No conoces todas las herramientas de nuestro programa (LangChain, CrewAI, Botpress, Power BI...)"</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"Es verdad que no tengo experiencia profunda de produccion con todas las 18 herramientas del programa. Pero conozco los fundamentos de la mayoria y he trabajado en produccion con las mas importantes: N8n, Make, ChatGPT API, Claude API, Supabase.</p>
+                        <p>Ademas, mi principal fortaleza es la velocidad de aprendizaje. He demostrado consistentemente la capacidad de dominar nuevas herramientas en dias, no meses, porque entiendo los fundamentos subyacentes. Dame una semana con LangChain y tendre un proyecto funcionando. Eso es mucho mas valioso que alguien que 'conoce' 18 herramientas superficialmente pero no ha construido nada real con ninguna."</p>
+                    </div>
+                </div>
+
+                <!-- Objecion 7 -->
+                <div class="qa-card">
+                    <div class="qa-number">7</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"Nuestro presupuesto es limitado para nuevas incorporaciones."</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"Lo entiendo perfectamente. Por eso soy flexible con el formato de colaboracion. Podemos empezar con un modelo basado en resultados: revenue share por alumnos que yo traiga, fee por workshop impartido, comision por contenido que genere leads.</p>
+                        <p>Asi UDIA no asume riesgo fijo, y yo estoy incentivado a generar resultados porque mi compensacion depende de ello. Si en 3 meses demuestro que genero mas valor del que cuesto, podemos hablar de un acuerdo mas estable. ¿Les parece razonable?"</p>
+                    </div>
+                </div>
+
+                <!-- Objecion 8 -->
+                <div class="qa-card">
+                    <div class="qa-number">8</div>
+                    <div class="qa-label objecion">Objecion</div>
+                    <div class="qa-question">"¿Como sabemos que te comprometerás a largo plazo?"</div>
+                    <div class="qa-label rebatimiento">Rebatimiento</div>
+                    <div class="qa-answer">
+                        <p>"Mi compromiso se demuestra con hechos, no con promesas. Pero puedo decir esto: no estoy buscando un trabajo temporal. Estoy buscando una plataforma donde pueda crecer y aportar durante años.</p>
+                        <p>UDIA es exactamente la interseccion de mis pasiones: IA, educacion, emprendimiento e internacionalizacion. No es un trabajo aleatorio que he encontrado en un portal — es algo que conecta directamente con mi vision profesional. Ademas, mis propios proyectos (InfluAI, elfennir.com) se benefician de mi relacion con UDIA, asi que estoy incentivado de forma natural a mantener esta relacion a largo plazo."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 8: CHECKLIST PRE-ENTREVISTA
+             ============================================ -->
+        <div class="section" id="section-8">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">08</span>
+                    <span class="section-title">✅ Checklist Pre-Entrevista</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <h3>📋 Preparacion Tecnica</h3>
+                </div>
+
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Revisar la web de UDIA a fondo — todos los modulos, precios, FAQ, testimonios</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Estudiar el Instagram de @udia.es — ultimos 20-30 posts, tipo de contenido, engagement, tono</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Ver videos o contenido de Anas Andaloussi en YouTube/redes — conocer su estilo y forma de comunicar</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Investigar el perfil de LinkedIn de Anas Andaloussi y otros profesores clave</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Revisar las ultimas noticias de las herramientas del programa (N8n, Make, LangChain, etc.)</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Tener lista una demo rapida de un workflow de N8n o Make por si la piden</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Tener abiertos elfennir.com e influai.co para poder mostrar si preguntan</div>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="content-block">
+                    <h3>🎤 Preparacion del Pitch</h3>
+                </div>
+
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Practicar el pitch de 2 minutos al menos 5 veces en voz alta</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Grabarte en video practicando y revisar — lenguaje corporal, ritmo, contacto visual</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Memorizar los 5 bloques del pitch (no palabra por palabra, sino la estructura)</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Preparar la version corta de 30 segundos por si no hay tiempo</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Tener 3 anecdotas concretas de proyectos listas para contar de forma natural</div>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="content-block">
+                    <h3>💻 Preparacion Logistica</h3>
+                </div>
+
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Verificar conexion a internet estable (test de velocidad)</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Probar camara y microfono — buena iluminacion, fondo limpio y profesional</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Vestimenta: smart casual, cuidada pero no forzada — camiseta oscura o polo</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Cerrar todas las apps innecesarias y notificaciones del movil</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Tener un vaso de agua cerca</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Conectarte 5 minutos antes de la hora</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Tener este documento abierto en otra pestana como referencia rapida</div>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="content-block">
+                    <h3>🧠 Preparacion Mental</h3>
+                </div>
+
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Recordar: tu aportas valor — no estas pidiendo un favor. Es una conversacion entre iguales</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Sonreir y ser genuino — la autenticidad es mas poderosa que la perfeccion</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Si no sabes algo, di "no lo se, pero lo puedo aprender rapidamente" — honestidad > bullshit</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Escuchar mas que hablar — deja que ellos hablen el 40% del tiempo</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Cierra con: "Gracias por vuestro tiempo. Estoy entusiasmado con la posibilidad de aportar valor a UDIA"</div>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="content-block">
+                    <h3>📧 Post-Entrevista</h3>
+                </div>
+
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Enviar un email de agradecimiento dentro de las 2 horas siguientes</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">En el email, mencionar algo especifico que se hablo — demuestra que escuchabas</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Si prometiste enviar algo (demo, portfolio, etc.), envialo el mismo dia</div>
+                </div>
+                <div class="checklist-item" onclick="toggleCheck(this)">
+                    <div class="checklist-checkbox"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="currentColor" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                    <div class="checklist-text">Apuntar todo lo que aprendiste sobre UDIA en la entrevista para referencia futura</div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             SECCION 9: FRASES Y KEYWORDS CLAVE
+             ============================================ -->
+        <div class="section" id="section-9">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-header-left">
+                    <span class="section-number">09</span>
+                    <span class="section-title">🗝️ Frases y Keywords Clave</span>
+                </div>
+                <div class="section-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+            <div class="section-content">
+
+                <div class="content-block">
+                    <h3>🤖 Vocabulario Tecnico de IA</h3>
+                    <p>Usa estos terminos de forma natural durante la conversacion para demostrar dominio del campo:</p>
+                    <div class="keyword-grid">
+                        <span class="keyword-tag">Prompt Engineering</span>
+                        <span class="keyword-tag">Chain-of-Thought</span>
+                        <span class="keyword-tag">Few-Shot Learning</span>
+                        <span class="keyword-tag">RAG (Retrieval-Augmented Generation)</span>
+                        <span class="keyword-tag">Embeddings</span>
+                        <span class="keyword-tag">Vector Database</span>
+                        <span class="keyword-tag">Fine-tuning</span>
+                        <span class="keyword-tag">LLM (Large Language Model)</span>
+                        <span class="keyword-tag">Multi-Agent Systems</span>
+                        <span class="keyword-tag">Agentic AI</span>
+                        <span class="keyword-tag">Tokens / Context Window</span>
+                        <span class="keyword-tag">Temperatura / Top-p</span>
+                        <span class="keyword-tag">Knowledge Base</span>
+                        <span class="keyword-tag">Hallucinations</span>
+                        <span class="keyword-tag">Grounding</span>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>🛠️ Herramientas del Ecosistema UDIA</h3>
+                    <div class="keyword-grid">
+                        <span class="keyword-tag purple">N8n</span>
+                        <span class="keyword-tag purple">Make (Integromat)</span>
+                        <span class="keyword-tag purple">LangChain</span>
+                        <span class="keyword-tag purple">Langflow</span>
+                        <span class="keyword-tag purple">Flowise</span>
+                        <span class="keyword-tag purple">Botpress</span>
+                        <span class="keyword-tag purple">Landbot</span>
+                        <span class="keyword-tag purple">AutoGen</span>
+                        <span class="keyword-tag purple">CrewAI</span>
+                        <span class="keyword-tag purple">Power BI</span>
+                        <span class="keyword-tag purple">Pinecone</span>
+                        <span class="keyword-tag purple">Chroma</span>
+                        <span class="keyword-tag purple">Midjourney</span>
+                        <span class="keyword-tag purple">Stable Diffusion</span>
+                        <span class="keyword-tag purple">Runway</span>
+                        <span class="keyword-tag purple">Sora</span>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>💼 Vocabulario de Negocio y Educacion</h3>
+                    <div class="keyword-grid">
+                        <span class="keyword-tag green">Ecosistema formativo</span>
+                        <span class="keyword-tag green">Formacion aplicada</span>
+                        <span class="keyword-tag green">Aprendizaje basado en proyectos</span>
+                        <span class="keyword-tag green">Revenue share</span>
+                        <span class="keyword-tag green">Escalabilidad</span>
+                        <span class="keyword-tag green">Product-market fit</span>
+                        <span class="keyword-tag green">Conversion funnel</span>
+                        <span class="keyword-tag green">Customer lifetime value</span>
+                        <span class="keyword-tag green">Retention rate</span>
+                        <span class="keyword-tag green">Community-led growth</span>
+                        <span class="keyword-tag green">B2B formacion corporativa</span>
+                        <span class="keyword-tag green">Upsell / Cross-sell</span>
+                    </div>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="content-block">
+                    <h3>💬 Frases Clave para Usar en la Entrevista</h3>
+                    <p>Estas frases estan disenadas para sonar natural y transmitir los mensajes correctos:</p>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"No hablo de estas herramientas desde la teoria — las uso cada semana en proyectos de pago para clientes reales."</div>
+                    <div class="phrase-context">Usar cuando hablen de tu experiencia con herramientas</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"Creo que democratizar la IA aplicada es una de las oportunidades mas grandes de esta decada, y UDIA esta liderando eso en espanol."</div>
+                    <div class="phrase-context">Usar cuando hablen de la mision de UDIA</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"Mi ventaja es que entiendo tanto el mundo code como el no-code, lo que me permite elegir la mejor herramienta para cada situacion."</div>
+                    <div class="phrase-context">Usar cuando hablen de tu perfil tecnico</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"InfluAI es un caso de estudio vivo de como aplicar lo que UDIA ensena."</div>
+                    <div class="phrase-context">Usar cuando hablen de tu SaaS</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"La gente aprende haciendo, no escuchando. Mi estilo es: menos teoria, mas 'vamos a construir esto juntos paso a paso'."</div>
+                    <div class="phrase-context">Usar cuando hablen de tu enfoque de ensenanza</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"Estoy dispuesto a empezar con un proyecto concreto para demostrar valor antes de pedir nada."</div>
+                    <div class="phrase-context">Usar al final de la entrevista o cuando hablen de roles</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"Mi perfil multicultural y multilingue es una puerta directa a la expansion internacional."</div>
+                    <div class="phrase-context">Usar cuando hablen de tu ubicacion o internacionalizacion</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"No busco un trabajo comodo — busco una oportunidad donde pueda aportar valor real y crecer junto con el proyecto."</div>
+                    <div class="phrase-context">Usar cuando hablen de motivacion o compromiso</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"El resultado fue que el cliente ahorra 15 horas semanales y convierte un 25% mas."</div>
+                    <div class="phrase-context">Usar cuando des ejemplos de proyectos — siempre menciona resultados con numeros</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"¿Cual es vuestro mayor reto ahora mismo? Quiero entender donde puedo aportar mas."</div>
+                    <div class="phrase-context">Usar cuando te den la oportunidad de preguntar</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"La clave no es enviar mas mensajes con IA, sino enviar mensajes mejores y mas relevantes."</div>
+                    <div class="phrase-context">Usar cuando hablen de automatizacion — demuestra madurez y comprension del valor real</div>
+                </div>
+
+                <div class="phrase-card">
+                    <div class="phrase-es">"En el mundo de la IA, la experiencia no se mide en anos sino en proyectos y adaptabilidad."</div>
+                    <div class="phrase-context">Usar si cuestionan tu experiencia o juventud</div>
+                </div>
+
+                <div class="section-sep"></div>
+
+                <div class="content-block">
+                    <h3>🚫 Frases a EVITAR</h3>
+                    <div class="highlight-box orange">
+                        <ul>
+                            <li><strong>Evitar:</strong> "Necesito este trabajo" — Transmite desesperacion. Di: "Quiero aportar valor a este proyecto"</li>
+                            <li><strong>Evitar:</strong> "Se un poco de todo" — Suena vago. Di: "Mi especialidad es X, Y y Z, con experiencia practica en..."</li>
+                            <li><strong>Evitar:</strong> "No tengo experiencia formal en educacion" — Reconvertirlo: "Mi experiencia formando clientes me ha dado un estilo muy practico"</li>
+                            <li><strong>Evitar:</strong> "Soy autodidacta" como disculpa — Reencuadrarlo: "Todo mi conocimiento viene de la practica real con clientes"</li>
+                            <li><strong>Evitar:</strong> "Puedo hacer cualquier cosa" — Suena poco creible. Se especifico sobre donde aportas mas valor</li>
+                            <li><strong>Evitar:</strong> Hablar mal de otras plataformas de formacion — Se positivo sobre UDIA sin comparar negativamente</li>
+                            <li><strong>Evitar:</strong> Dar respuestas de mas de 2 minutos — Se conciso. Si quieren mas detalle, preguntaran</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>🎯 Datos y Numeros para Usar</h3>
+                    <div class="highlight-box pink">
+                        <p>Siempre que sea posible, respalda tus afirmaciones con numeros concretos:</p>
+                        <ul>
+                            <li><strong>30+</strong> proyectos entregados a clientes reales</li>
+                            <li><strong>5</strong> idiomas hablados (espanol, ingles, frances, fines, arabe)</li>
+                            <li><strong>3</strong> paises vividos (Espana, Suiza, Finlandia)</li>
+                            <li><strong>18</strong> modulos en el programa UDIA (demuestra que lo has estudiado)</li>
+                            <li><strong>37K</strong> seguidores en Instagram de UDIA (demuestra investigacion)</li>
+                            <li><strong>15 horas/semana</strong> ahorradas por un cliente con tu automatizacion</li>
+                            <li><strong>25%</strong> mas de conversion para un cliente con chatbot IA</li>
+                            <li><strong>2</strong> productos propios (elfennir.com + influai.co)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             FOOTER
+             ============================================ -->
+        <footer class="footer">
+            <p>Documento preparado para <span class="footer-brand">Yassin El Fennir</span></p>
+            <p style="margin-top: 8px;">Entrevista UDIA — 29 de marzo de 2026</p>
+            <p style="margin-top: 4px; font-size: 0.8rem;">elfennir.com &nbsp;·&nbsp; influai.co</p>
+        </footer>
+
+    </div>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // Toggle individual section
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+
+            if (isActive) {
+                header.classList.remove('active');
+                content.classList.remove('show');
+            } else {
+                header.classList.add('active');
+                content.classList.add('show');
+            }
+        }
+
+        // Toggle all sections
+        let allExpanded = false;
+        function toggleAll() {
+            allExpanded = !allExpanded;
+            const headers = document.querySelectorAll('.section-header');
+            const contents = document.querySelectorAll('.section-content');
+            const label = document.getElementById('collapse-label');
+
+            headers.forEach(h => {
+                if (allExpanded) {
+                    h.classList.add('active');
+                } else {
+                    h.classList.remove('active');
+                }
+            });
+
+            contents.forEach(c => {
+                if (allExpanded) {
+                    c.classList.add('show');
+                } else {
+                    c.classList.remove('show');
+                }
+            });
+
+            label.textContent = allExpanded ? 'Colapsar' : 'Expandir';
+        }
+
+        // Toggle checklist items
+        function toggleCheck(item) {
+            item.classList.toggle('checked');
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+
+                    // Auto-expand the section
+                    const header = target.querySelector('.section-header');
+                    const content = target.querySelector('.section-content');
+                    if (header && content && !header.classList.contains('active')) {
+                        header.classList.add('active');
+                        content.classList.add('show');
+                    }
+                }
+            });
+        });
+
+        // Keyboard shortcut: Escape to collapse all
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && allExpanded) {
+                toggleAll();
+            }
+        });
+    </script>
+
+</body>
+</html>

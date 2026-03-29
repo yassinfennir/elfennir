@@ -1,50 +1,49 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, DM_Sans } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { LanguageProvider } from "@/i18n/LanguageContext";
-import { IntroSplash } from "@/components/IntroSplash";
 
-const spaceGrotesk = Space_Grotesk({
+const poppins = Poppins({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Yassin El Fennir — #1 AI Web Agency | Websites & Automation in 24h",
+  title: "El Fennir — Verkkosivut, tekoäly & automaatio yrityksille | Espoo, Finland",
   description:
-    "Professional AI-powered web agency. Custom websites, chatbots, and n8n automations delivered in 24-72 hours. From €299. Based in Finland, serving globally.",
+    "Ammattimaiset verkkosivut ja tekoälyautomaatio yrityksille Espoossa. Modernit verkkosivut, digitaaliset ratkaisut ja älykkäät automaatiojärjestelmät, jotka auttavat yrityksiä houkuttelemaan lisää asiakkaita ja kasvamaan nopeammin.",
   icons: {
     icon: "/images/logo.png",
     apple: "/images/logo.png",
   },
   openGraph: {
-    title: "Yassin El Fennir — #1 AI Web Agency | Websites & Automation in 24h",
+    title: "El Fennir — Verkkosivut, tekoäly & automaatio yrityksille | Espoo, Finland",
     description:
-      "Professional AI-powered web agency. Custom websites, chatbots, and n8n automations. From €299.",
+      "Ammattimaiset verkkosivut ja tekoälyautomaatio yrityksille Espoossa. Modernit verkkosivut ja digitaaliset ratkaisut.",
     type: "website",
     images: [
       {
         url: "/images/logo.png",
         width: 512,
         height: 512,
-        alt: "Yassin El Fennir — El Fennir",
+        alt: "El Fennir",
       },
     ],
   },
   twitter: {
     card: "summary",
-    title: "Yassin El Fennir — #1 AI Web Agency",
-    description: "Custom websites, AI chatbots & automations from €299. Delivered in 24h.",
+    title: "El Fennir — Verkkosivut, tekoäly & automaatio yrityksille",
+    description: "Ammattimaiset verkkosivut ja tekoälyautomaatio yrityksille Espoossa.",
     images: ["/images/logo.png"],
   },
 };
@@ -55,16 +54,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${spaceGrotesk.variable} ${dmSans.variable} antialiased`}>
+    <html lang="fi" className="dark">
+      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         <LanguageProvider>
-          <IntroSplash>
-            <SmoothScroll>
-              <Navbar />
-              {children}
-              <Footer />
-            </SmoothScroll>
-          </IntroSplash>
+          <SmoothScroll>
+            <Navbar />
+            {children}
+            <Footer />
+          </SmoothScroll>
         </LanguageProvider>
       </body>
     </html>

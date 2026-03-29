@@ -12,7 +12,7 @@ export const fr: Translations = {
     contact: "Contact",
     bookCall: "Réserver un appel",
     whatsappMessage: "Message WhatsApp",
-    location: "Helsinki, Finlande",
+    location: "Espoo, Finlande",
   },
 
   // === HERO ===
@@ -93,9 +93,9 @@ export const fr: Translations = {
     service6Title: "Optimisation SEO",
     service6Desc:
       "Soyez visible sur Google. Nous optimisons la structure, la vitesse, le contenu et les métadonnées pour un meilleur référencement.",
-    service7Title: "Optimisation mobile",
+    service7Title: "Développement d'apps",
     service7Desc:
-      "Chaque site que nous créons fonctionne parfaitement sur tous les appareils — téléphones, tablettes et ordinateurs.",
+      "Applications mobiles et web sur mesure qui mettent votre entreprise directement dans la poche de vos clients.",
     service8Title: "Maintenance et support",
     service8Desc:
       "Mises à jour régulières, corrections et améliorations pour garder votre site rapide, sécurisé et performant.",
@@ -336,11 +336,11 @@ export const fr: Translations = {
   about: {
     badge: "À PROPOS",
     role: "Développeur Full-Stack et professionnel IT",
-    locationLabel: "Zurich, Suisse",
+    locationLabel: "Espoo, Finlande",
     title1: "Une expertise IT professionnelle",
     titleHighlight: "au service de votre entreprise.",
     bio1: "Je suis Yassin El Fennir — développeur full-stack certifié, professionnel IT et spécialiste de l'automatisation IA avec une expertise approfondie sur l'ensemble de la pile technologique. Des interfaces frontend à l'architecture backend, bases de données, APIs, gestion de serveurs et IA — je construis des solutions digitales complètes qui fonctionnent parfaitement.",
-    bio2: "Né en Espagne, élevé 9 ans en Suisse et désormais installé à Zurich, en Suisse. Mon parcours international me donne une perspective unique pour comprendre les entreprises de différents marchés. Je travaille directement avec les entrepreneurs à travers l'Europe, en construisant des systèmes digitaux qui attirent les clients et génèrent une croissance réelle.",
+    bio2: "Né en Espagne, élevé 9 ans en Suisse et désormais installé à Espoo, en Finlande. Mon parcours international me donne une perspective unique pour comprendre les entreprises de différents marchés. Je travaille directement avec les entrepreneurs à travers l'Europe, en construisant des systèmes digitaux qui attirent les clients et génèrent une croissance réelle.",
     bio3: "Quand vous travaillez avec moi, vous bénéficiez d'un professionnel IT dédié qui gère tout — de la conception initiale au lancement, à la maintenance et au-delà. Je reste aux côtés de chaque client sur le long terme, en veillant à ce que votre site web et vos outils digitaux évoluent, s'améliorent et produisent des résultats mois après mois.",
     skillsTitle: "Expertise technique",
     cred1Label: "Développeur Full-Stack",
@@ -482,7 +482,7 @@ export const it: Translations = {
     contact: "Contatti",
     bookCall: "Prenota una chiamata",
     whatsappMessage: "Messaggio WhatsApp",
-    location: "Helsinki, Finlandia",
+    location: "Espoo, Finlandia",
   },
 
   // === HERO ===
@@ -563,9 +563,9 @@ export const it: Translations = {
     service6Title: "Ottimizzazione SEO",
     service6Desc:
       "Fatti trovare su Google. Ottimizziamo struttura, velocit\u00e0, contenuti e metadati per un miglior posizionamento.",
-    service7Title: "Ottimizzazione mobile",
+    service7Title: "Sviluppo app",
     service7Desc:
-      "Ogni sito che creiamo funziona perfettamente su tutti i dispositivi \u2014 telefoni, tablet e computer.",
+      "Applicazioni mobili e web personalizzate che mettono la tua attivit\u00e0 direttamente nelle tasche dei tuoi clienti.",
     service8Title: "Manutenzione e supporto",
     service8Desc:
       "Aggiornamenti continui, correzioni e miglioramenti per mantenere il tuo sito veloce, sicuro e performante.",
@@ -952,7 +952,7 @@ export const pt: Translations = {
     contact: "Contacto",
     bookCall: "Agendar chamada",
     whatsappMessage: "Mensagem WhatsApp",
-    location: "Helsinki, Finl\u00e2ndia",
+    location: "Espoo, Finlândia",
   },
 
   // === HERO ===
@@ -1033,9 +1033,9 @@ export const pt: Translations = {
     service6Title: "Otimiza\u00e7\u00e3o SEO",
     service6Desc:
       "Seja encontrado no Google. Otimizamos estrutura, velocidade, conte\u00fado e metadados para um melhor posicionamento.",
-    service7Title: "Otimiza\u00e7\u00e3o mobile",
+    service7Title: "Desenvolvimento de apps",
     service7Desc:
-      "Cada site que criamos funciona perfeitamente em todos os dispositivos \u2014 telem\u00f3veis, tablets e computadores.",
+      "Aplica\u00e7\u00f5es m\u00f3veis e web personalizadas que colocam o seu neg\u00f3cio diretamente no bolso dos seus clientes.",
     service8Title: "Manuten\u00e7\u00e3o e suporte",
     service8Desc:
       "Atualiza\u00e7\u00f5es cont\u00ednuas, corre\u00e7\u00f5es e melhorias para manter o seu site r\u00e1pido, seguro e com o melhor desempenho.",

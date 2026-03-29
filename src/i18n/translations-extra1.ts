@@ -13,7 +13,7 @@ export const sv: Translations = {
     contact: "Kontakt",
     bookCall: "Boka ett samtal",
     whatsappMessage: "WhatsApp-meddelande",
-    location: "Helsingfors, Finland",
+    location: "Espoo, Finland",
   },
 
   // === HERO ===
@@ -94,9 +94,9 @@ export const sv: Translations = {
     service6Title: "SEO-optimering",
     service6Desc:
       "Bli hittad pa Google. Vi optimerar struktur, hastighet, innehall och metadata for battre placeringar.",
-    service7Title: "Mobiloptimering",
+    service7Title: "Apputveckling",
     service7Desc:
-      "Varje webbplats vi bygger fungerar felfritt pa alla enheter \u2014 telefoner, surfplattor och datorer.",
+      "Skraddarsydda mobil- och webbapplikationer som satter ditt foretag direkt i kundernas fickor.",
     service8Title: "Underhall och support",
     service8Desc:
       "Lopande uppdateringar, korrigeringar och forbattringar for att halla din webbplats snabb, saker och presterande.",
@@ -337,11 +337,11 @@ export const sv: Translations = {
   about: {
     badge: "OM OSS",
     role: "Full-Stack-utvecklare och IT-specialist",
-    locationLabel: "Zürich, Schweiz",
+    locationLabel: "Espoo, Finland",
     title1: "Professionell IT-expertis",
     titleHighlight: "som driver ditt foretag.",
     bio1: "Jag ar Yassin El Fennir \u2014 certifierad full-stack-utvecklare, IT-specialist och AI-automationsexpert med djup kompetens inom hela teknikstacken. Fran frontendgranssnitt till backendarkitektur, databaser, API:er, serverhantering och AI \u2014 jag bygger helhetslösningar som fungerar felfritt.",
-    bio2: "Fodd i Spanien, uppvuxen 9 ar i Schweiz och nu baserad i Zürich, Schweiz. Min internationella bakgrund ger mig ett unikt perspektiv for att forsta foretag pa olika marknader. Jag arbetar direkt med foretagare i hela Europa och bygger digitala system som attraherar kunder och driver verklig tillvaxt.",
+    bio2: "Fodd i Spanien, uppvuxen 9 ar i Schweiz och nu baserad i Espoo, Finland. Min internationella bakgrund ger mig ett unikt perspektiv for att forsta foretag pa olika marknader. Jag arbetar direkt med foretagare i hela Europa och bygger digitala system som attraherar kunder och driver verklig tillvaxt.",
     bio3: "Nar du arbetar med mig far du en dedikerad IT-specialist som hanterar allt \u2014 fran forsta designen till lansering, underhall och darutover. Jag star vid varje kunds sida pa lang sikt och ser till att din webbplats och dina digitala verktyg utvecklas, forbattras och levererar resultat manad efter manad.",
     skillsTitle: "Teknisk expertis",
     cred1Label: "Full-Stack-utvecklare",
@@ -484,7 +484,7 @@ export const es: Translations = {
     contact: "Contacto",
     bookCall: "Reservar llamada",
     whatsappMessage: "Mensaje de WhatsApp",
-    location: "Helsinki, Finlandia",
+    location: "Espoo, Finlandia",
   },
 
   // === HERO ===
@@ -565,9 +565,9 @@ export const es: Translations = {
     service6Title: "Optimizacion SEO",
     service6Desc:
       "Aparece en Google. Optimizamos estructura, velocidad, contenido y metadatos para mejorar tu posicionamiento.",
-    service7Title: "Optimizacion movil",
+    service7Title: "Desarrollo de apps",
     service7Desc:
-      "Cada sitio que creamos funciona perfectamente en todos los dispositivos \u2014 telefonos, tablets y ordenadores.",
+      "Aplicaciones moviles y web a medida que ponen tu negocio directamente en el bolsillo de tus clientes.",
     service8Title: "Mantenimiento y soporte",
     service8Desc:
       "Actualizaciones continuas, correcciones y mejoras para que tu sitio web sea siempre rapido, seguro y eficiente.",
@@ -955,7 +955,7 @@ export const de: Translations = {
     contact: "Kontakt",
     bookCall: "Gesprach buchen",
     whatsappMessage: "WhatsApp-Nachricht",
-    location: "Helsinki, Finnland",
+    location: "Espoo, Finland",
   },
 
   // === HERO ===
@@ -1036,9 +1036,9 @@ export const de: Translations = {
     service6Title: "SEO-Optimierung",
     service6Desc:
       "Werden Sie bei Google gefunden. Wir optimieren Struktur, Geschwindigkeit, Inhalte und Metadaten fur bessere Rankings.",
-    service7Title: "Mobile Optimierung",
+    service7Title: "App-Entwicklung",
     service7Desc:
-      "Jede Website, die wir erstellen, funktioniert einwandfrei auf allen Geraten \u2014 Smartphones, Tablets und Desktops.",
+      "Massgeschneiderte Mobil- und Web-Apps, die Ihr Unternehmen direkt in die Taschen Ihrer Kunden bringen.",
     service8Title: "Wartung und Support",
     service8Desc:
       "Laufende Updates, Korrekturen und Verbesserungen, damit Ihre Website schnell, sicher und leistungsstark bleibt.",
@@ -1279,11 +1279,11 @@ export const de: Translations = {
   about: {
     badge: "UBER UNS",
     role: "Full-Stack-Entwickler und IT-Experte",
-    locationLabel: "Zürich, Schweiz",
+    locationLabel: "Espoo, Finland",
     title1: "Professionelle IT-Expertise",
     titleHighlight: "fur Ihr Unternehmen.",
     bio1: "Ich bin Yassin El Fennir \u2014 zertifizierter Full-Stack-Entwickler, IT-Experte und Spezialist fur KI-Automatisierung mit fundierter Expertise uber den gesamten Technologie-Stack. Von Frontend-Oberflachen bis hin zu Backend-Architektur, Datenbanken, APIs, Serververwaltung und KI \u2014 ich entwickle ganzheitliche digitale Losungen, die reibungslos funktionieren.",
-    bio2: "Geboren in Spanien, 9 Jahre in der Schweiz aufgewachsen und jetzt in Zürich, Schweiz zuhause. Mein internationaler Hintergrund gibt mir eine einzigartige Perspektive, um Unternehmen in verschiedenen Markten zu verstehen. Ich arbeite direkt mit Unternehmern in ganz Europa und entwickle digitale Systeme, die Kunden anziehen und echtes Wachstum fordern.",
+    bio2: "Geboren in Spanien, 9 Jahre in der Schweiz aufgewachsen und jetzt in Espoo, Finland zuhause. Mein internationaler Hintergrund gibt mir eine einzigartige Perspektive, um Unternehmen in verschiedenen Markten zu verstehen. Ich arbeite direkt mit Unternehmern in ganz Europa und entwickle digitale Systeme, die Kunden anziehen und echtes Wachstum fordern.",
     bio3: "Wenn Sie mit mir arbeiten, erhalten Sie einen engagierten IT-Experten, der sich um alles kummert \u2014 vom ersten Design bis zum Launch, zur Wartung und daruber hinaus. Ich stehe jedem Kunden langfristig zur Seite und stelle sicher, dass Ihre Website und digitalen Tools sich weiterentwickeln, verbessern und Monat fur Monat Ergebnisse liefern.",
     skillsTitle: "Technische Expertise",
     cred1Label: "Full-Stack-Entwickler",
