@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 import { Award, Globe2, Lightbulb, ArrowRight, GraduationCap, ShieldCheck, BadgeCheck, Code2, Server, Cpu, Database, Braces, Terminal } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -43,14 +43,12 @@ export function About() {
           >
             <div className="absolute -inset-4 bg-[#9945ff]/[0.08] rounded-3xl blur-3xl" />
             <div className="relative overflow-hidden rounded-3xl border border-white/[0.08]">
-              <Image
+              <img
                 src="/images/yassin-v2.png"
                 alt="Yassin El Fennir"
                 width={600}
                 height={750}
                 className="w-full h-auto object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
               />
               <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#08080f] to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">

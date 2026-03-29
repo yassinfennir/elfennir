@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -53,7 +53,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/images/logo.png" alt="El Fennir" width={32} height={32} className="flex-shrink-0" />
+              <img src="/images/logo.png" alt="El Fennir" width={32} height={32} className="flex-shrink-0" />
               <span className="text-white font-semibold">Yassin El Fennir</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed max-w-sm mb-6">
