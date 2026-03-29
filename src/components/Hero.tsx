@@ -315,7 +315,7 @@ export function Hero() {
                 href="https://wa.me/358466109064"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group sol-btn-green inline-flex items-center justify-center gap-2 px-5 py-3.5 text-[13px] lg:text-[15px] lg:px-7 lg:py-4 font-semibold rounded-full"
+                className="group sol-btn inline-flex items-center justify-center gap-2 px-5 py-3.5 text-white text-[13px] lg:text-[15px] lg:px-7 lg:py-4 font-semibold rounded-full"
               >
                 <Phone size={15} />
                 <span>{t.hero.ctaWhatsapp}</span>

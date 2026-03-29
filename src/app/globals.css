@@ -251,7 +251,7 @@ body {
    ========================================================= */
 .sol-btn {
   position: relative;
-  background: linear-gradient(180deg, #a855f7 0%, #ff6b00 50%, #7c3aed 100%);
+  background: linear-gradient(180deg, #ff8c00 0%, #ff6b00 50%, #e55d00 100%);
   color: white;
   font-weight: 600;
   border-radius: 980px;
@@ -286,15 +286,13 @@ body {
   border-radius: inherit;
   background: conic-gradient(
     from var(--rgb-angle),
+    rgba(255,140,0,0.5),
     rgba(255,107,0,0.5),
-    rgba(120,80,255,0.4),
-    rgba(0,209,255,0.35),
-    rgba(10,232,192,0.3),
-    rgba(20,241,149,0.35),
-    rgba(165,196,255,0.3),
-    rgba(249,113,255,0.35),
-    rgba(209,88,255,0.4),
-    rgba(255,107,0,0.5)
+    rgba(229,93,0,0.4),
+    rgba(255,140,0,0.5),
+    rgba(255,107,0,0.5),
+    rgba(229,93,0,0.4),
+    rgba(255,140,0,0.5)
   );
   animation: rgb-spin 6s linear infinite;
   z-index: -1;

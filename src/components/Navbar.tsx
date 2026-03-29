@@ -172,7 +172,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="sol-btn-green inline-flex items-center justify-center gap-2.5 px-6 py-4 text-[15px] font-semibold rounded-2xl"
+                  className="sol-btn inline-flex items-center justify-center gap-2.5 px-6 py-4 text-white text-[15px] font-semibold rounded-2xl"
                 >
                   <Phone size={16} />
                   <span>{t.nav.whatsappMessage}</span>
