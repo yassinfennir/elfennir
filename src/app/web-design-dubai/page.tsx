@@ -175,7 +175,7 @@ export default function WebDesignDubaiPage() {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: "European Design Quality", desc: "Finnish engineering meets Dubai luxury. We build with Next.js, React, and Tailwind CSS — the same stack used by world-class brands.", color: "#9945ff" },
+                { title: "European Design Quality", desc: "Swiss precision meets Dubai luxury. We build with Next.js, React, and Tailwind CSS — the same stack used by world-class brands.", color: "#9945ff" },
                 { title: "48-72 Hour Delivery", desc: "No weeks of waiting. We deliver professional websites in 2-3 days so you can start attracting customers immediately.", color: "#00d1ff" },
                 { title: "Competitive Pricing", desc: "Premium quality at a fraction of Dubai agency rates. Starting from just 270 EUR (~1,100 AED) with no hidden fees.", color: "#14f195" },
                 { title: "AI-Powered Features", desc: "Intelligent chatbots that answer customer queries in English and Arabic, book appointments, and qualify leads 24/7.", color: "#f971ff" },
@@ -417,7 +417,7 @@ export default function WebDesignDubaiPage() {
             <div className="space-y-6">
               {[
                 {
-                  q: "Do I need to be in Finland to work with El Fennir?",
+                  q: "Do I need to be in Switzerland to work with El Fennir?",
                   a: "No. We work 100% remotely via WhatsApp and email. Many of our clients are based in Dubai and across the UAE. Communication is seamless regardless of location.",
                 },
                 {
@@ -479,7 +479,7 @@ export default function WebDesignDubaiPage() {
           <div className="max-w-5xl mx-auto px-6">
             <div className="grid sm:grid-cols-3 gap-4">
               {[
-                { href: "/website-espoo", label: "Website Design Espoo", desc: "Our Finland-based services" },
+                { href: "/website-espoo", label: "Website Design Espoo", desc: "Our services for Espoo businesses" },
                 { href: "/verkkosivut-yritykselle", label: "Verkkosivut yritykselle", desc: "Websites for Finnish businesses" },
                 { href: "/tekoaly-automaatio", label: "AI Automation", desc: "AI chatbots & n8n automation" },
               ].map((link, i) => (

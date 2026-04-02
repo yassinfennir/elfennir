@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Professional Website Design in Espoo — Your Local Web Partner | El Fennir",
   description:
-    "Professional website design and development in Espoo, Finland. Modern, fast, SEO-optimized websites for local businesses. Starting from 990 EUR. Ready in 7 days.",
+    "Professional website design and development for businesses in Espoo. Modern, fast, SEO-optimized websites for local businesses. Based in Zürich, Switzerland. Starting from 990 EUR. Ready in 7 days.",
   keywords: [
     "website design espoo",
     "web design espoo",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "Modern, fast, SEO-optimized websites for businesses in Espoo. Starting from 990 EUR. Ready in 7 days.",
     type: "website",
     url: "https://elfennir.com/website-espoo",
-    locale: "en_FI",
+    locale: "en_US",
     images: [{ url: "/images/logo.png", width: 512, height: 512, alt: "El Fennir" }],
   },
   alternates: { canonical: "https://elfennir.com/website-espoo" },
@@ -32,19 +32,19 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "El Fennir — Web Design Espoo",
   description:
-    "Professional website design and development in Espoo, Finland. Modern, fast, SEO-optimized websites for local and international businesses.",
+    "Professional website design and development for businesses in Espoo. Modern, fast, SEO-optimized websites for local and international businesses. Based in Zürich, Switzerland.",
   url: "https://elfennir.com",
   telephone: "+358466109064",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Espoo",
-    addressRegion: "Uusimaa",
-    addressCountry: "FI",
+    addressLocality: "Zürich",
+    addressRegion: "Zürich",
+    addressCountry: "CH",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 60.2055,
-    longitude: 24.6559,
+    latitude: 47.3769,
+    longitude: 8.5417,
   },
   priceRange: "€€",
   areaServed: [
@@ -106,7 +106,7 @@ export default function WebsiteEspooPage() {
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-              Based in Espoo, we build modern, lightning-fast websites that help local businesses
+              Based in Zürich, Switzerland, we build modern, lightning-fast websites that help businesses in Espoo
               and international companies attract more customers and grow online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -139,7 +139,7 @@ export default function WebsiteEspooPage() {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: "Local Expertise", desc: "Based in Espoo, we understand Finnish business culture and the Greater Helsinki market inside out.", color: "#9945ff" },
+                { title: "Local Expertise", desc: "Based in Zürich, Switzerland, we understand Finnish business culture and the Greater Helsinki market inside out.", color: "#9945ff" },
                 { title: "Bilingual Service", desc: "We communicate fluently in Finnish and English. Perfect for international businesses operating in Finland.", color: "#00d1ff" },
                 { title: "Lightning Fast Delivery", desc: "Your website is ready within 7 days. No months of waiting — we move at startup speed.", color: "#14f195" },
                 { title: "SEO That Ranks", desc: "We optimize for local searches like 'restaurant Espoo' or 'consultant Espoo' to bring you organic traffic.", color: "#f971ff" },

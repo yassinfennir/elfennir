@@ -9,6 +9,7 @@ import {
   Search,
   AppWindow,
   Headphones,
+  ShieldCheck,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Card3D } from "@/components/Card3D";
@@ -28,6 +29,7 @@ export function Services() {
     { icon: Search, title: t.services.service6Title, desc: t.services.service6Desc, color: solanaColors[1] },
     { icon: AppWindow, title: t.services.service7Title, desc: t.services.service7Desc, color: solanaColors[2] },
     { icon: Headphones, title: t.services.service8Title, desc: t.services.service8Desc, color: solanaColors[3] },
+    { icon: ShieldCheck, title: t.services.service9Title, desc: t.services.service9Desc, color: solanaColors[0] },
   ];
 
   return (

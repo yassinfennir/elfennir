@@ -51,14 +51,14 @@ const jsonLd = [
     founder: { "@type": "Person", name: "Yassin El Fennir" },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Espoo",
-      addressCountry: "FI",
+      addressLocality: "Zürich",
+      addressCountry: "CH",
     },
     priceRange: "EUR EUR",
     areaServed: [
       { "@type": "Country", name: "Spain" },
-      { "@type": "Country", name: "Finland" },
       { "@type": "Country", name: "Switzerland" },
+      { "@type": "Country", name: "Finland" },
     ],
     sameAs: [
       "https://wa.me/358466109064",
@@ -182,7 +182,7 @@ export default function DisenoWebEspanaPage() {
                 {
                   icon: "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418",
                   title: "Servicio en toda Europa",
-                  desc: "Operamos desde Finlandia y servimos clientes en Espana, Suiza, Dubai y toda Europa.",
+                  desc: "Operamos desde Zürich, Suiza y servimos clientes en Espana, Finlandia, Dubai y toda Europa.",
                   color: "#f971ff",
                 },
               ].map((item, i) => (
@@ -337,7 +337,7 @@ export default function DisenoWebEspanaPage() {
                 },
                 {
                   q: "Trabajais con empresas de toda Espana?",
-                  a: "Si. Trabajamos de forma remota con empresas en Madrid, Barcelona, Valencia, Sevilla, Bilbao y toda Espana. Tambien servimos clientes en Finlandia, Suiza y Dubai.",
+                  a: "Si. Trabajamos de forma remota con empresas en Madrid, Barcelona, Valencia, Sevilla, Bilbao y toda Espana. Tambien servimos clientes en Suiza, Finlandia y Dubai.",
                 },
                 {
                   q: "Que incluye el servicio de chatbot con IA?",

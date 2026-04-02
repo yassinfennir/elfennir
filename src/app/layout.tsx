@@ -21,17 +21,17 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://elfennir.com"),
   title: {
-    default: "El Fennir — Websites, AI & Automation for Businesses | Finland, Spain, Switzerland, Dubai",
+    default: "El Fennir — Websites, AI & Automation for Businesses | Switzerland, Spain, Dubai",
     template: "%s | El Fennir",
   },
   description:
-    "Professional websites, AI chatbots & automation for businesses. Based in Finland, serving Spain, Switzerland, Dubai & worldwide. Premium digital solutions that drive growth.",
+    "Professional websites, AI chatbots & automation for businesses. Based in Zürich, Switzerland, serving Spain, Dubai & worldwide. Premium digital solutions that drive growth.",
   keywords: [
     "web design", "AI automation", "website development", "business website",
     "verkkosivut yritykselle", "kotisivut", "tekoäly", "automaatio",
     "diseño web", "páginas web", "automatización IA",
     "Webdesign", "Webseite erstellen", "KI Automatisierung",
-    "web design Dubai", "website agency Finland", "El Fennir",
+    "web design Dubai", "website agency Switzerland", "website agency Zürich", "El Fennir",
   ],
   authors: [{ name: "Yassin El Fennir", url: "https://elfennir.com" }],
   creator: "Yassin El Fennir",
@@ -59,11 +59,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "El Fennir — Websites, AI & Automation for Businesses",
     description:
-      "Professional websites, AI chatbots & automation. Finland, Spain, Switzerland, Dubai & worldwide.",
+      "Professional websites, AI chatbots & automation. Zürich, Switzerland — serving Spain, Dubai & worldwide.",
     type: "website",
     url: "https://elfennir.com",
     siteName: "El Fennir",
-    locale: "fi_FI",
+    locale: "de_CH",
     alternateLocale: ["en_US", "es_ES", "de_CH", "fr_FR", "sv_SE", "it_IT", "pt_PT"],
     images: [
       {
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "El Fennir — Websites, AI & Automation for Businesses",
-    description: "Professional websites & AI automation. Finland, Spain, Switzerland, Dubai & worldwide.",
+    description: "Professional websites & AI automation. Zürich, Switzerland — serving Spain, Dubai & worldwide.",
     images: ["/images/logo.png"],
   },
   robots: {
@@ -109,22 +109,24 @@ const organizationSchema = {
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Espoo",
-    addressCountry: "FI",
+    streetAddress: "Üsterwest 10",
+    addressLocality: "Zürich",
+    postalCode: "8610",
+    addressRegion: "Zürich",
+    addressCountry: "CH",
   },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+358-46-6109064",
     contactType: "sales",
-    availableLanguage: ["Finnish", "English", "Spanish", "German", "French", "Swedish", "Italian", "Portuguese"],
+    availableLanguage: ["German", "English", "Spanish", "French", "Swedish", "Italian", "Portuguese"],
   },
   sameAs: [
     "https://www.linkedin.com/in/yassinfennir/",
   ],
   areaServed: [
-    { "@type": "Country", name: "Finland" },
-    { "@type": "Country", name: "Spain" },
     { "@type": "Country", name: "Switzerland" },
+    { "@type": "Country", name: "Spain" },
     { "@type": "Country", name: "United Arab Emirates" },
     { "@type": "Country", name: "Sweden" },
     { "@type": "Country", name: "Germany" },
@@ -159,14 +161,16 @@ const professionalServiceSchema = {
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Espoo",
-    addressRegion: "Uusimaa",
-    addressCountry: "FI",
+    streetAddress: "Üsterwest 10",
+    addressLocality: "Uster",
+    postalCode: "8610",
+    addressRegion: "Zürich",
+    addressCountry: "CH",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 60.2055,
-    longitude: 24.6559,
+    latitude: 47.3769,
+    longitude: 8.5417,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -206,7 +210,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fi" className="dark">
+    <html lang="en" className="dark">
       <head>
         <script
           type="application/ld+json"

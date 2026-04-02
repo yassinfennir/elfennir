@@ -36,8 +36,8 @@ const jsonLd = {
   telephone: "+358466109064",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Espoo",
-    addressCountry: "FI",
+    addressLocality: "Zürich",
+    addressCountry: "CH",
   },
   priceRange: "€€",
   areaServed: { "@type": "Country", name: "Finland" },

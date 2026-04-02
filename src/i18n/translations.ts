@@ -10,7 +10,7 @@ const fi = {
     contact: "Yhteystiedot",
     bookCall: "Varaa puhelu",
     whatsappMessage: "WhatsApp-viesti",
-    location: "Espoo, Finland",
+    location: "Zürich, Switzerland",
   },
 
   // === HERO ===
@@ -97,6 +97,9 @@ const fi = {
     service8Title: "Henkilökohtainen IT-tiimi",
     service8Desc:
       "Kuin sinulla olisi oma teknologiatiimi. Soita, viesti tai lähetä sähköpostia — me hoidamme kaiken.",
+    service9Title: "Kyberturvallisuus",
+    service9Desc:
+      "Tietoturva-auditoinnit, SSL/HTTPS, DDoS-suojaus, GDPR-vaatimustenmukaisuus, haittaohjelmien poisto ja palomuurien konfigurointi — pidämme yrityksesi turvassa.",
   },
 
   // === TECHSTACK ===
@@ -334,11 +337,11 @@ const fi = {
   about: {
     badge: "TIETOA",
     role: "Full-Stack-kehittäjä ja IT-ammattilainen",
-    locationLabel: "Espoo, Finland",
+    locationLabel: "Zürich, Switzerland",
     title1: "Ammattimainen IT-osaaminen",
     titleHighlight: "yrityksesi tueksi.",
     bio1: "Olen Yassin El Fennir — sertifioitu full-stack-kehittäjä, IT-ammattilainen ja tekoälyautomaation asiantuntija, jolla on syvällinen osaaminen koko teknologiapinosta. Käyttöliittymistä backend-arkkitehtuuriin, tietokantoihin, API-rajapintoihin, palvelinhallintaan ja tekoälyyn — rakennan kokonaisvaltaisia digitaalisia ratkaisuja, jotka toimivat moitteettomasti.",
-    bio2: "Syntynyt Espanjassa, kasvanut 9 vuotta Sveitsissä ja nyt kotoisin Espoosta, Suomesta. Kansainvälinen taustani antaa minulle ainutlaatuisen näkökulman eri markkinoiden yritysten ymmärtämiseen. Työskentelen suoraan yrittäjien kanssa rakentaen digitaalisia järjestelmiä, jotka houkuttelevat asiakkaita ja tuottavat todellista kasvua.",
+    bio2: "Syntynyt Espanjassa, kasvanut Sveitsissä (Zürich) ja nyt kotoisin Zürichistä, Sveitsistä. Kansainvälinen taustani antaa minulle ainutlaatuisen näkökulman eri markkinoiden yritysten ymmärtämiseen. Työskentelen suoraan yrittäjien kanssa rakentaen digitaalisia järjestelmiä, jotka houkuttelevat asiakkaita ja tuottavat todellista kasvua.",
     bio3: "Kun työskentelet kanssani, saat omistautuneen IT-ammattilaisen, joka hoitaa kaiken — ensimmäisestä suunnittelusta julkaisuun, ylläpitoon ja sen jälkeen. Pysyn jokaisen asiakkaan rinnalla pitkäjänteisesti varmistaen, että verkkosivusto ja digitaaliset työkalut kehittyvät, paranevat ja tuottavat tuloksia kuukaudesta toiseen.",
     skillsTitle: "Tekninen osaaminen",
     cred1Label: "Full-Stack-kehittäjä",
@@ -391,8 +394,8 @@ const fi = {
     titleHighlight: "kysymykset.",
     q1: "Kuinka kauan verkkosivuston rakentaminen kestää?",
     a1: "Useimmat projektit toimitetaan 3–5 arkipäivässä. Monimutkaiset projektit räätälöidyillä ominaisuuksilla voivat kestää 1–2 viikkoa. Kommunikoimme aina selkeät aikataulut ennen aloitusta.",
-    q2: "Työskenteletkö suomalaisten yritysten kanssa?",
-    a2: "Kyllä. Olemme erikoistuneet työskentelyyn suomalaisten yritysten kanssa kaikilla toimialoilla — ravintolat, kampaamot, autopalvelut, rakentaminen, terveydenhuolto ja muut. Työskentelemme myös kansainvälisesti.",
+    q2: "Työskenteletkö sveitsiläisten yritysten kanssa?",
+    a2: "Kyllä. Olemme erikoistuneet työskentelyyn sveitsiläisten yritysten kanssa kaikilla toimialoilla — ravintolat, kampaamot, autopalvelut, rakentaminen, terveydenhuolto ja muut. Työskentelemme myös kansainvälisesti.",
     q3: "Voitko uudistaa nykyiset verkkosivuni?",
     a3: "Ehdottomasti. Voimme ottaa nykyisen verkkosivustosi ja muuttaa sen moderniksi, nopeaksi ja konversioon keskittyväksi sivustoksi säilyttäen nykyisen sisältösi ja brändi-identiteettisi.",
     q4: "Tarjoatteko tekoälyautomaatiopalveluja?",
@@ -480,7 +483,7 @@ const en: typeof fi = {
     contact: "Contact",
     bookCall: "Book a Call",
     whatsappMessage: "WhatsApp Message",
-    location: "Espoo, Finland",
+    location: "Zürich, Switzerland",
   },
 
   // === HERO ===
@@ -567,6 +570,9 @@ const en: typeof fi = {
     service8Title: "Your Personal IT Team",
     service8Desc:
       "Like having your own technology team. Call, message, or email \u2014 we handle everything.",
+    service9Title: "Cyber Security",
+    service9Desc:
+      "Security audits, SSL/HTTPS implementation, DDoS protection, GDPR compliance, malware scanning & removal, and firewall configuration \u2014 we keep your business safe.",
   },
 
   // === TECHSTACK ===
@@ -804,11 +810,11 @@ const en: typeof fi = {
   about: {
     badge: "ABOUT",
     role: "Full-Stack Developer & IT Professional",
-    locationLabel: "Espoo, Finland",
+    locationLabel: "Zürich, Switzerland",
     title1: "Professional IT expertise",
     titleHighlight: "to power your business.",
     bio1: "I\u2019m Yassin El Fennir \u2014 a certified full-stack developer, IT professional, and AI automation specialist with deep expertise across the entire technology stack. From frontend interfaces to backend architecture, databases, APIs, server management, and AI \u2014 I build end-to-end digital solutions that work flawlessly.",
-    bio2: "Born in Spain, raised 9 years in Switzerland, and now based in Espoo, Finland. My international background gives me a unique perspective in understanding businesses across different markets. I work directly with entrepreneurs, building digital systems that attract customers and drive real growth.",
+    bio2: "Born in Spain, grew up in Switzerland (Zürich), and now based in Zürich, Switzerland. My international background gives me a unique perspective in understanding businesses across different markets. I work directly with entrepreneurs, building digital systems that attract customers and drive real growth.",
     bio3: "When you work with me, you get a dedicated IT professional who handles everything \u2014 from first design to launch, maintenance, and beyond. I stay by every client\u2019s side for the long term, ensuring your website and digital tools evolve, improve, and deliver results month after month.",
     skillsTitle: "Technical Expertise",
     cred1Label: "Full-Stack Developer",
@@ -861,8 +867,8 @@ const en: typeof fi = {
     titleHighlight: "questions.",
     q1: "How long does it take to build a website?",
     a1: "Most projects are delivered in 3\u20135 business days. Complex projects with custom features may take 1\u20132 weeks. We always communicate clear timelines before starting.",
-    q2: "Do you work with Finnish businesses?",
-    a2: "Yes. We specialize in working with Finnish businesses across all industries \u2014 restaurants, salons, auto services, construction, healthcare, and more. We also work internationally.",
+    q2: "Do you work with Swiss businesses?",
+    a2: "Yes. We specialize in working with Swiss businesses across all industries \u2014 restaurants, salons, auto services, construction, healthcare, and more. We also work internationally.",
     q3: "Can you redesign my existing website?",
     a3: "Absolutely. We can take your current website and transform it into a modern, fast, and conversion-focused site while preserving your existing content and brand identity.",
     q4: "Do you offer AI automation services?",

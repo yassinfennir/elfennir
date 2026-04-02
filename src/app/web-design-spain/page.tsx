@@ -51,14 +51,14 @@ const jsonLd = [
     founder: { "@type": "Person", name: "Yassin El Fennir" },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Espoo",
-      addressCountry: "FI",
+      addressLocality: "Zürich",
+      addressCountry: "CH",
     },
     priceRange: "$$",
     areaServed: [
       { "@type": "Country", name: "Spain" },
-      { "@type": "Country", name: "Finland" },
       { "@type": "Country", name: "Switzerland" },
+      { "@type": "Country", name: "Finland" },
       { "@type": "Country", name: "United Arab Emirates" },
     ],
     sameAs: [
@@ -182,7 +182,7 @@ export default function WebDesignSpainPage() {
                 {
                   icon: "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418",
                   title: "Serving All of Europe",
-                  desc: "Based in Finland, serving clients in Spain, Switzerland, Dubai and across Europe with the same quality.",
+                  desc: "Based in Zürich, Switzerland, serving clients in Spain, Finland, Dubai and across Europe with the same quality.",
                   color: "#f971ff",
                 },
               ].map((item, i) => (
@@ -337,7 +337,7 @@ export default function WebDesignSpainPage() {
                 },
                 {
                   q: "Do you work with businesses across all of Spain?",
-                  a: "Yes. We work remotely with businesses in Madrid, Barcelona, Valencia, Seville, Bilbao and all of Spain. We also serve clients in Finland, Switzerland and Dubai.",
+                  a: "Yes. We work remotely with businesses in Madrid, Barcelona, Valencia, Seville, Bilbao and all of Spain. We also serve clients in Switzerland, Finland and Dubai.",
                 },
                 {
                   q: "What does the AI chatbot service include?",

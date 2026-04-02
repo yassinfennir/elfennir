@@ -55,7 +55,7 @@ export function Portfolio() {
     },
     {
       title: t.portfolio.project5Title,
-      category: "Moroccan-Finnish Cuisine",
+      category: "Moroccan Fusion Cuisine",
       desc: t.portfolio.project5Desc,
       gradient: "from-[#ff4500]/30 to-[#ffaa00]/20",
       accent: "text-[#ff4500]",
@@ -165,15 +165,9 @@ export function Portfolio() {
               transition={{ delay: 0.06 * i, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="sol-card group relative rounded-3xl overflow-hidden"
             >
-              {p.isLive ? (
-                <a href={p.liveUrl!} target="_blank" rel="noopener noreferrer" className="block h-full">
-                  <ProjectCard project={p} t={t} />
-                </a>
-              ) : (
-                <div className="h-full cursor-default">
-                  <ProjectCard project={p} t={t} />
-                </div>
-              )}
+              <div className="h-full cursor-default">
+                <ProjectCard project={p} t={t} />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -258,12 +252,7 @@ function ProjectCard({ project: p, t }: { project: ProjectType; t: ReturnType<ty
           ))}
         </div>
 
-        {p.isLive && (
-          <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center gap-2 text-xs text-slate-500 group-hover:text-[#ff8c00] transition-colors">
-            <Eye size={12} />
-            {t.portfolio.clickToView}
-          </div>
-        )}
+        {/* View project links hidden until all projects are 100% complete */}
       </div>
 
       {/* Border */}

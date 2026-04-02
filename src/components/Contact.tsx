@@ -184,7 +184,7 @@ export function Contact() {
                   <div className="w-8 h-8 rounded-lg bg-[#ff4500]/10 border border-[#ff4500]/20 flex items-center justify-center">
                     <MapPin size={14} className="text-[#ff4500]" />
                   </div>
-                  Espoo, Finland
+                  Zürich, Switzerland
                 </div>
               </div>
             </div>

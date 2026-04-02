@@ -338,14 +338,65 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Tech Connection Visual */}
+          {/* Right — Yassin Photo + Tech Connection Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85, rotateY: -15 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
             transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             style={{ transformPerspective: 1200 }}
-            className="hidden lg:block"
+            className="hidden lg:flex flex-col items-center gap-8"
           >
+            {/* Yassin Tuxedo Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              {/* Outer glow rings */}
+              <motion.div
+                className="absolute -inset-3 rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, #9945ff, #00d1ff, #14f195, #9945ff)",
+                  opacity: 0.15,
+                  filter: "blur(20px)",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute -inset-1 rounded-full"
+                style={{
+                  background: "conic-gradient(from 180deg, #9945ff, #00d1ff, #14f195, #9945ff)",
+                }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              />
+              {/* Photo container */}
+              <div className="relative w-52 h-52 xl:w-60 xl:h-60 rounded-full overflow-hidden border-2 border-[#0c0c14]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/yassin.png"
+                  alt="Yassin El Fennir"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              {/* Status badge */}
+              <motion.div
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-4 py-1.5 bg-[#0c0c14]/90 border border-[#14f195]/30 rounded-full backdrop-blur-sm"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.5 }}
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14f195] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#14f195]" />
+                </span>
+                <span className="text-[11px] text-slate-300 font-mono whitespace-nowrap">Available for projects</span>
+              </motion.div>
+            </motion.div>
+
+            {/* Tech Connection Visual below photo */}
             <TechConnectionVisual />
           </motion.div>
         </div>

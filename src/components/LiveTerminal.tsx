@@ -46,8 +46,8 @@ const LOG_TEMPLATES: Array<() => Omit<LogEntry, "id" | "timestamp">> = [
 ];
 
 const clients = ["CarMaster", "iHelp Auto", "GymHolvi", "Fluffy Bites", "Kazumi", "PerfectBrows", "Saana Store", "AutoSky", "CarHelp"];
-const cities = ["Espoo", "Helsinki", "Vantaa", "Tampere", "Turku", "Oulu", "Jyväskylä"];
-const domains = ["carmaster.fi", "gymholvi.fi", "fluffybites.fi", "kazumi.fi", "autosky.fi", "carhelp.fi"];
+const cities = ["Zürich", "Bern", "Basel", "Lausanne", "Geneva", "Lucerne", "Winterthur"];
+const domains = ["carmaster.ch", "gymholvi.ch", "fluffybites.ch", "kazumi.ch", "autosky.ch", "carhelp.ch"];
 
 function randomClient() { return clients[Math.floor(Math.random() * clients.length)]; }
 function randomCity() { return cities[Math.floor(Math.random() * cities.length)]; }

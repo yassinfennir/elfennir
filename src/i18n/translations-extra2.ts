@@ -12,7 +12,7 @@ export const fr: Translations = {
     contact: "Contact",
     bookCall: "Réserver un appel",
     whatsappMessage: "Message WhatsApp",
-    location: "Espoo, Finlande",
+    location: "Zürich, Suisse",
   },
 
   // === HERO ===
@@ -99,6 +99,9 @@ export const fr: Translations = {
     service8Title: "Maintenance et support",
     service8Desc:
       "Mises à jour régulières, corrections et améliorations pour garder votre site rapide, sécurisé et performant.",
+    service9Title: "Cybersécurité",
+    service9Desc:
+      "Audits de sécurité, implémentation SSL/HTTPS, protection DDoS, conformité RGPD, analyse et suppression de malwares, et configuration de pare-feu \u2014 nous protégeons votre entreprise.",
   },
 
   // === TECHSTACK ===
@@ -336,11 +339,11 @@ export const fr: Translations = {
   about: {
     badge: "À PROPOS",
     role: "Développeur Full-Stack et professionnel IT",
-    locationLabel: "Espoo, Finlande",
+    locationLabel: "Zürich, Suisse",
     title1: "Une expertise IT professionnelle",
     titleHighlight: "au service de votre entreprise.",
     bio1: "Je suis Yassin El Fennir — développeur full-stack certifié, professionnel IT et spécialiste de l'automatisation IA avec une expertise approfondie sur l'ensemble de la pile technologique. Des interfaces frontend à l'architecture backend, bases de données, APIs, gestion de serveurs et IA — je construis des solutions digitales complètes qui fonctionnent parfaitement.",
-    bio2: "Né en Espagne, élevé 9 ans en Suisse et désormais installé à Espoo, en Finlande. Mon parcours international me donne une perspective unique pour comprendre les entreprises de différents marchés. Je travaille directement avec les entrepreneurs à travers l'Europe, en construisant des systèmes digitaux qui attirent les clients et génèrent une croissance réelle.",
+    bio2: "Basé à Zürich, en Suisse. Né en Espagne, élevé en Suisse, avec un parcours international. Cette perspective unique me permet de comprendre les entreprises de différents marchés. Je travaille directement avec les entrepreneurs à travers l'Europe, en construisant des systèmes digitaux qui attirent les clients et génèrent une croissance réelle.",
     bio3: "Quand vous travaillez avec moi, vous bénéficiez d'un professionnel IT dédié qui gère tout — de la conception initiale au lancement, à la maintenance et au-delà. Je reste aux côtés de chaque client sur le long terme, en veillant à ce que votre site web et vos outils digitaux évoluent, s'améliorent et produisent des résultats mois après mois.",
     skillsTitle: "Expertise technique",
     cred1Label: "Développeur Full-Stack",
@@ -393,8 +396,8 @@ export const fr: Translations = {
     titleHighlight: "fréquentes.",
     q1: "Combien de temps faut-il pour créer un site web ?",
     a1: "La plupart des projets sont livrés en 3 à 5 jours ouvrés. Les projets complexes avec des fonctionnalités sur mesure peuvent prendre 1 à 2 semaines. Nous communiquons toujours des délais clairs avant de commencer.",
-    q2: "Travaillez-vous avec des entreprises finlandaises ?",
-    a2: "Oui. Nous sommes spécialisés dans le travail avec les entreprises finlandaises de tous secteurs — restaurants, salons, services automobiles, construction, santé et plus encore. Nous travaillons également à l'international.",
+    q2: "Travaillez-vous avec des entreprises suisses ?",
+    a2: "Oui. Nous sommes spécialisés dans le travail avec les entreprises suisses de tous secteurs — restaurants, salons, services automobiles, construction, santé et plus encore. Nous travaillons également à l'international.",
     q3: "Pouvez-vous refondre mon site web existant ?",
     a3: "Absolument. Nous pouvons prendre votre site actuel et le transformer en un site moderne, rapide et axé sur la conversion tout en préservant votre contenu existant et votre identité de marque.",
     q4: "Proposez-vous des services d'automatisation IA ?",
@@ -482,7 +485,7 @@ export const it: Translations = {
     contact: "Contatti",
     bookCall: "Prenota una chiamata",
     whatsappMessage: "Messaggio WhatsApp",
-    location: "Espoo, Finlandia",
+    location: "Zurigo, Svizzera",
   },
 
   // === HERO ===
@@ -569,6 +572,9 @@ export const it: Translations = {
     service8Title: "Manutenzione e supporto",
     service8Desc:
       "Aggiornamenti continui, correzioni e miglioramenti per mantenere il tuo sito veloce, sicuro e performante.",
+    service9Title: "Sicurezza informatica",
+    service9Desc:
+      "Audit di sicurezza, implementazione SSL/HTTPS, protezione DDoS, conformità GDPR, scansione e rimozione malware e configurazione firewall \u2014 manteniamo la tua azienda al sicuro.",
   },
 
   // === TECHSTACK ===
@@ -863,8 +869,8 @@ export const it: Translations = {
     titleHighlight: "frequenti.",
     q1: "Quanto tempo ci vuole per creare un sito web?",
     a1: "La maggior parte dei progetti viene consegnata in 3\u20135 giorni lavorativi. Progetti complessi con funzionalit\u00e0 personalizzate possono richiedere 1\u20132 settimane. Comunichiamo sempre tempistiche chiare prima di iniziare.",
-    q2: "Lavorate con aziende finlandesi?",
-    a2: "S\u00ec. Siamo specializzati nel lavorare con aziende finlandesi di tutti i settori \u2014 ristoranti, saloni, servizi auto, edilizia, sanit\u00e0 e altro. Lavoriamo anche a livello internazionale.",
+    q2: "Lavorate con aziende svizzere?",
+    a2: "S\u00ec. Siamo specializzati nel lavorare con aziende svizzere di tutti i settori \u2014 ristoranti, saloni, servizi auto, edilizia, sanit\u00e0 e altro. Lavoriamo anche a livello internazionale.",
     q3: "Potete rinnovare il mio sito web esistente?",
     a3: "Assolutamente. Possiamo prendere il tuo sito attuale e trasformarlo in un sito moderno, veloce e orientato alla conversione, preservando i tuoi contenuti esistenti e la tua identit\u00e0 di brand.",
     q4: "Offrite servizi di automazione IA?",
@@ -952,7 +958,7 @@ export const pt: Translations = {
     contact: "Contacto",
     bookCall: "Agendar chamada",
     whatsappMessage: "Mensagem WhatsApp",
-    location: "Espoo, Finlândia",
+    location: "Zurique, Suíça",
   },
 
   // === HERO ===
@@ -1039,6 +1045,9 @@ export const pt: Translations = {
     service8Title: "Manuten\u00e7\u00e3o e suporte",
     service8Desc:
       "Atualiza\u00e7\u00f5es cont\u00ednuas, corre\u00e7\u00f5es e melhorias para manter o seu site r\u00e1pido, seguro e com o melhor desempenho.",
+    service9Title: "Ciberseguran\u00e7a",
+    service9Desc:
+      "Auditorias de seguran\u00e7a, implementa\u00e7\u00e3o SSL/HTTPS, prote\u00e7\u00e3o DDoS, conformidade RGPD, an\u00e1lise e remo\u00e7\u00e3o de malware e configura\u00e7\u00e3o de firewalls \u2014 mantemos o seu neg\u00f3cio seguro.",
   },
 
   // === TECHSTACK ===
@@ -1333,8 +1342,8 @@ export const pt: Translations = {
     titleHighlight: "frequentes.",
     q1: "Quanto tempo demora a criar um site?",
     a1: "A maioria dos projetos \u00e9 entregue em 3 a 5 dias \u00fateis. Projetos complexos com funcionalidades personalizadas podem demorar 1 a 2 semanas. Comunicamos sempre prazos claros antes de come\u00e7ar.",
-    q2: "Trabalham com empresas finlandesas?",
-    a2: "Sim. Somos especializados em trabalhar com empresas finlandesas de todos os setores \u2014 restaurantes, sal\u00f5es, servi\u00e7os auto, constru\u00e7\u00e3o, sa\u00fade e muito mais. Tamb\u00e9m trabalhamos internacionalmente.",
+    q2: "Trabalham com empresas suíças?",
+    a2: "Sim. Somos especializados em trabalhar com empresas suíças de todos os setores \u2014 restaurantes, sal\u00f5es, servi\u00e7os auto, constru\u00e7\u00e3o, sa\u00fade e muito mais. Tamb\u00e9m trabalhamos internacionalmente.",
     q3: "Podem redesenhar o meu site existente?",
     a3: "Absolutamente. Podemos pegar no seu site atual e transform\u00e1-lo num site moderno, r\u00e1pido e orientado para a convers\u00e3o, preservando o seu conte\u00fado existente e a identidade da marca.",
     q4: "Oferecem servi\u00e7os de automa\u00e7\u00e3o IA?",

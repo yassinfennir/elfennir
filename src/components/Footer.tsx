@@ -134,7 +134,7 @@ export function Footer() {
                   +358 46 610 9064
                 </a>
               </li>
-              <li>Espoo, Finland</li>
+              <li>Zürich, Switzerland</li>
             </ul>
           </div>
         </div>

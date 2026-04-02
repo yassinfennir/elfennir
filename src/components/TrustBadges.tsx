@@ -12,6 +12,62 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const solanaColors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
+/* ─── Professional Badge SVG Icons ─── */
+const PlatinumBadgeSvg = () => (
+  <svg viewBox="0 0 40 40" className="w-9 h-9" fill="none">
+    <circle cx="20" cy="20" r="18" stroke="#FFD700" strokeWidth="2" fill="#FFD700" fillOpacity="0.1" />
+    <circle cx="20" cy="20" r="14" stroke="#FFD700" strokeWidth="1" fill="none" />
+    <path d="M20 8l3.09 6.26L30 15.27l-5 4.87L26.18 27 20 23.77 13.82 27 15 20.14l-5-4.87 6.91-1.01L20 8z" fill="#FFD700" />
+    <text x="20" y="35" textAnchor="middle" fill="#FFD700" fontSize="5" fontWeight="bold" fontFamily="system-ui">AAA</text>
+  </svg>
+);
+
+const ISOBadgeSvg = () => (
+  <svg viewBox="0 0 40 40" className="w-9 h-9" fill="none">
+    <rect x="3" y="3" width="34" height="34" rx="6" stroke="#00D1FF" strokeWidth="2" fill="#00D1FF" fillOpacity="0.08" />
+    <path d="M12 14h16M12 20h16M12 26h10" stroke="#00D1FF" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="30" cy="26" r="4" fill="#00D1FF" fillOpacity="0.3" stroke="#00D1FF" strokeWidth="1.5" />
+    <path d="M28.5 26l1 1 2-2" stroke="#00D1FF" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+    <text x="20" y="11" textAnchor="middle" fill="#00D1FF" fontSize="5" fontWeight="bold" fontFamily="system-ui">ISO</text>
+  </svg>
+);
+
+const GDPRBadgeSvg = () => (
+  <svg viewBox="0 0 40 40" className="w-9 h-9" fill="none">
+    <path d="M20 4l14 6v10c0 8-6 14-14 16C12 34 6 28 6 20V10l14-6z" stroke="#14F195" strokeWidth="2" fill="#14F195" fillOpacity="0.08" />
+    <path d="M16 20l3 3 6-6" stroke="#14F195" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const SSLBadgeSvg = () => (
+  <svg viewBox="0 0 40 40" className="w-9 h-9" fill="none">
+    <rect x="10" y="16" width="20" height="16" rx="3" stroke="#ff8c00" strokeWidth="2" fill="#ff8c00" fillOpacity="0.08" />
+    <path d="M14 16v-4a6 6 0 0112 0v4" stroke="#ff8c00" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="20" cy="25" r="2.5" fill="#ff8c00" />
+    <path d="M20 27.5v3" stroke="#ff8c00" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+const PerformanceBadgeSvg = () => (
+  <svg viewBox="0 0 40 40" className="w-9 h-9" fill="none">
+    <circle cx="20" cy="22" r="14" stroke="#9945FF" strokeWidth="2" fill="#9945FF" fillOpacity="0.08" />
+    <path d="M13 22a7 7 0 0114 0" stroke="#9945FF" strokeWidth="2" strokeLinecap="round" />
+    <path d="M20 22l4-6" stroke="#9945FF" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="20" cy="22" r="2" fill="#9945FF" />
+    <text x="20" y="32" textAnchor="middle" fill="#9945FF" fontSize="4.5" fontWeight="bold" fontFamily="system-ui">100/100</text>
+  </svg>
+);
+
+const SatisfactionBadgeSvg = () => (
+  <svg viewBox="0 0 40 40" className="w-9 h-9" fill="none">
+    <circle cx="20" cy="20" r="16" stroke="#ff4500" strokeWidth="2" fill="#ff4500" fillOpacity="0.08" />
+    <path d="M14 16l2 2 4-4" stroke="#ff4500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M14 24l2 2 4-4" stroke="#ff4500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M26 16h4M26 20h4M26 24h4" stroke="#ff4500" strokeWidth="1.5" strokeLinecap="round" />
+    <text x="20" y="36" textAnchor="middle" fill="#ff4500" fontSize="4" fontWeight="bold" fontFamily="system-ui">5★</text>
+  </svg>
+);
+
 /* ─── SVG Logo Icons for the marquee ─── */
 const techLogosWithSvg = [
   {
@@ -174,40 +230,52 @@ export function TrustBadges() {
 
   const badges = [
     {
-      icon: Award,
-      title: "AI Academy University",
+      svgIcon: <PlatinumBadgeSvg />,
+      title: "Platinum AAA Certified",
       desc: t.trustBadges.badge1Desc,
-      color: solanaColors[3],
+      color: "#FFD700",
+      borderColor: "border-yellow-500/20",
+      bgGlow: "bg-yellow-500/5",
     },
     {
-      icon: ShieldCheck,
-      title: "SSL & GDPR Compliant",
+      svgIcon: <ISOBadgeSvg />,
+      title: "ISO 9001 Quality",
       desc: t.trustBadges.badge2Desc,
-      color: solanaColors[2],
+      color: "#00D1FF",
+      borderColor: "border-cyan-500/20",
+      bgGlow: "bg-cyan-500/5",
     },
     {
-      icon: Lock,
-      title: "Secure Development",
+      svgIcon: <GDPRBadgeSvg />,
+      title: "GDPR & Data Protection",
       desc: t.trustBadges.badge3Desc,
-      color: solanaColors[1],
+      color: "#14F195",
+      borderColor: "border-green-500/20",
+      bgGlow: "bg-green-500/5",
     },
     {
-      icon: Cpu,
-      title: "Google Certified",
+      svgIcon: <SSLBadgeSvg />,
+      title: "SSL & Secure Development",
       desc: t.trustBadges.badge4Desc,
-      color: solanaColors[0],
+      color: "#ff8c00",
+      borderColor: "border-orange-500/20",
+      bgGlow: "bg-orange-500/5",
     },
     {
-      icon: Globe2,
-      title: "Netlify Partner",
+      svgIcon: <PerformanceBadgeSvg />,
+      title: "100/100 Performance",
       desc: t.trustBadges.badge5Desc,
-      color: solanaColors[1],
+      color: "#9945FF",
+      borderColor: "border-purple-500/20",
+      bgGlow: "bg-purple-500/5",
     },
     {
-      icon: BadgeCheck,
-      title: "Satisfaction Guarantee",
+      svgIcon: <SatisfactionBadgeSvg />,
+      title: "5-Star Satisfaction",
       desc: t.trustBadges.badge6Desc,
-      color: solanaColors[3],
+      color: "#ff4500",
+      borderColor: "border-red-500/20",
+      bgGlow: "bg-red-500/5",
     },
   ];
 
@@ -258,17 +326,14 @@ export function TrustBadges() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: 0.06 * i, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="sol-card group relative p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 overflow-hidden"
+              className={`sol-card group relative p-6 rounded-2xl bg-white/[0.02] border ${b.borderColor} hover:${b.bgGlow} transition-all duration-500 overflow-hidden`}
             >
-              <div className="relative flex items-start gap-4">
-                <div
-                  className="sol-icon w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-all duration-300"
-                  style={{ color: b.color }}
-                >
-                  <b.icon size={18} />
+              <div className="relative flex flex-col items-center text-center gap-3">
+                <div className="flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                  {b.svgIcon}
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-sm mb-1">
+                  <h3 className="text-white font-bold text-sm mb-1.5" style={{ color: b.color }}>
                     {b.title}
                   </h3>
                   <p className="text-slate-500 text-xs leading-relaxed">

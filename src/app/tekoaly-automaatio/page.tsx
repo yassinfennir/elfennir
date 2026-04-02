@@ -35,7 +35,7 @@ const jsonLd = {
     name: "El Fennir",
     url: "https://elfennir.com",
     telephone: "+358466109064",
-    address: { "@type": "PostalAddress", addressLocality: "Espoo", addressCountry: "FI" },
+    address: { "@type": "PostalAddress", addressLocality: "Zürich", addressCountry: "CH" },
   },
   areaServed: { "@type": "Country", name: "Finland" },
   description: "Tekoäly- ja automaatioratkaisut yrityksille. AI-chatbotit, N8N-työnkulut ja älykkäät järjestelmät.",

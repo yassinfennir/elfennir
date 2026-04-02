@@ -13,7 +13,7 @@ export const sv: Translations = {
     contact: "Kontakt",
     bookCall: "Boka ett samtal",
     whatsappMessage: "WhatsApp-meddelande",
-    location: "Espoo, Finland",
+    location: "Zürich, Switzerland",
   },
 
   // === HERO ===
@@ -100,6 +100,9 @@ export const sv: Translations = {
     service8Title: "Underhall och support",
     service8Desc:
       "Lopande uppdateringar, korrigeringar och forbattringar for att halla din webbplats snabb, saker och presterande.",
+    service9Title: "Cybersakerhet",
+    service9Desc:
+      "Sakerhetsrevisioner, SSL/HTTPS-implementering, DDoS-skydd, GDPR-efterlevnad, skanning och borttagning av skadlig programvara samt brandvaggskonfiguration \u2014 vi haller ditt foretag sakert.",
   },
 
   // === TECHSTACK ===
@@ -337,11 +340,11 @@ export const sv: Translations = {
   about: {
     badge: "OM OSS",
     role: "Full-Stack-utvecklare och IT-specialist",
-    locationLabel: "Espoo, Finland",
+    locationLabel: "Zürich, Switzerland",
     title1: "Professionell IT-expertis",
     titleHighlight: "som driver ditt foretag.",
     bio1: "Jag ar Yassin El Fennir \u2014 certifierad full-stack-utvecklare, IT-specialist och AI-automationsexpert med djup kompetens inom hela teknikstacken. Fran frontendgranssnitt till backendarkitektur, databaser, API:er, serverhantering och AI \u2014 jag bygger helhetslösningar som fungerar felfritt.",
-    bio2: "Fodd i Spanien, uppvuxen 9 ar i Schweiz och nu baserad i Espoo, Finland. Min internationella bakgrund ger mig ett unikt perspektiv for att forsta foretag pa olika marknader. Jag arbetar direkt med foretagare i hela Europa och bygger digitala system som attraherar kunder och driver verklig tillvaxt.",
+    bio2: "Baserad i Zürich, Schweiz. Fodd i Spanien, uppvuxen i Schweiz, med internationell bakgrund som hjalper foretag over hela varlden. Jag arbetar direkt med foretagare i hela Europa och bygger digitala system som attraherar kunder och driver verklig tillvaxt.",
     bio3: "Nar du arbetar med mig far du en dedikerad IT-specialist som hanterar allt \u2014 fran forsta designen till lansering, underhall och darutover. Jag star vid varje kunds sida pa lang sikt och ser till att din webbplats och dina digitala verktyg utvecklas, forbattras och levererar resultat manad efter manad.",
     skillsTitle: "Teknisk expertis",
     cred1Label: "Full-Stack-utvecklare",
@@ -394,8 +397,8 @@ export const sv: Translations = {
     titleHighlight: "fragor.",
     q1: "Hur lang tid tar det att bygga en webbplats?",
     a1: "De flesta projekt levereras inom 3\u20135 arbetsdagar. Komplexa projekt med anpassade funktioner kan ta 1\u20132 veckor. Vi kommunicerar alltid tydliga tidsramar innan vi borjar.",
-    q2: "Arbetar ni med finska foretag?",
-    a2: "Ja. Vi ar specialiserade pa att arbeta med finska foretag inom alla branscher \u2014 restauranger, salonger, bilverkstader, bygg, halso- och sjukvard och mer. Vi arbetar aven internationellt.",
+    q2: "Arbetar ni med schweiziska foretag?",
+    a2: "Ja. Vi ar specialiserade pa att arbeta med schweiziska foretag inom alla branscher \u2014 restauranger, salonger, bilverkstader, bygg, halso- och sjukvard och mer. Vi arbetar aven internationellt.",
     q3: "Kan ni gora om min befintliga webbplats?",
     a3: "Absolut. Vi kan ta din nuvarande webbplats och forvandla den till en modern, snabb och konverteringsfokuserad sajt samtidigt som vi bevarar ditt befintliga innehall och din varumarkesidentitet.",
     q4: "Erbjuder ni AI-automationstjanster?",
@@ -484,7 +487,7 @@ export const es: Translations = {
     contact: "Contacto",
     bookCall: "Reservar llamada",
     whatsappMessage: "Mensaje de WhatsApp",
-    location: "Espoo, Finlandia",
+    location: "Zürich, Suiza",
   },
 
   // === HERO ===
@@ -571,6 +574,9 @@ export const es: Translations = {
     service8Title: "Mantenimiento y soporte",
     service8Desc:
       "Actualizaciones continuas, correcciones y mejoras para que tu sitio web sea siempre rapido, seguro y eficiente.",
+    service9Title: "Ciberseguridad",
+    service9Desc:
+      "Auditorias de seguridad, implementacion SSL/HTTPS, proteccion DDoS, cumplimiento GDPR, escaneo y eliminacion de malware, y configuracion de firewalls \u2014 mantenemos tu negocio seguro.",
   },
 
   // === TECHSTACK ===
@@ -812,7 +818,7 @@ export const es: Translations = {
     title1: "Experiencia profesional en IT",
     titleHighlight: "para impulsar tu negocio.",
     bio1: "Soy Yassin El Fennir \u2014 desarrollador full-stack certificado, profesional IT y especialista en automatizacion con IA, con profunda experiencia en toda la pila tecnologica. Desde interfaces frontend hasta arquitectura backend, bases de datos, APIs, gestion de servidores e IA \u2014 construyo soluciones digitales integrales que funcionan a la perfeccion.",
-    bio2: "Nacido en Espana, criado 9 anos en Suiza y ahora radicado en Zúrich, Suiza. Mi formacion internacional me da una perspectiva unica para entender negocios en diferentes mercados. Trabajo directamente con emprendedores en toda Europa, creando sistemas digitales que atraen clientes y generan crecimiento real.",
+    bio2: "Basado en Zúrich, Suiza. Nacido en Espana, criado en Suiza, con formacion internacional que me permite ayudar a negocios en todo el mundo. Trabajo directamente con emprendedores en toda Europa, creando sistemas digitales que atraen clientes y generan crecimiento real.",
     bio3: "Cuando trabajas conmigo, obtienes un profesional IT dedicado que se encarga de todo \u2014 desde el primer diseno hasta el lanzamiento, el mantenimiento y mas alla. Permanezco al lado de cada cliente a largo plazo, asegurandome de que tu sitio web y herramientas digitales evolucionen, mejoren y entreguen resultados mes tras mes.",
     skillsTitle: "Experiencia tecnica",
     cred1Label: "Desarrollador Full-Stack",
@@ -865,8 +871,8 @@ export const es: Translations = {
     titleHighlight: "frecuentes.",
     q1: "Cuanto tiempo tarda en construirse un sitio web?",
     a1: "La mayoria de los proyectos se entregan en 3\u20135 dias habiles. Los proyectos complejos con funciones personalizadas pueden tardar 1\u20132 semanas. Siempre comunicamos plazos claros antes de empezar.",
-    q2: "Trabajais con empresas finlandesas?",
-    a2: "Si. Estamos especializados en trabajar con empresas finlandesas de todos los sectores \u2014 restaurantes, peluquerias, talleres mecanicos, construccion, salud y mas. Tambien trabajamos a nivel internacional.",
+    q2: "Trabajais con empresas suizas?",
+    a2: "Si. Estamos especializados en trabajar con empresas suizas de todos los sectores \u2014 restaurantes, peluquerias, talleres mecanicos, construccion, salud y mas. Tambien trabajamos a nivel internacional.",
     q3: "Podeis redisenar mi sitio web actual?",
     a3: "Por supuesto. Podemos coger tu sitio web actual y transformarlo en uno moderno, rapido y enfocado en conversion, conservando tu contenido y tu identidad de marca.",
     q4: "Ofreceis servicios de automatizacion con IA?",
@@ -955,7 +961,7 @@ export const de: Translations = {
     contact: "Kontakt",
     bookCall: "Gesprach buchen",
     whatsappMessage: "WhatsApp-Nachricht",
-    location: "Espoo, Finland",
+    location: "Zürich, Switzerland",
   },
 
   // === HERO ===
@@ -1042,6 +1048,9 @@ export const de: Translations = {
     service8Title: "Wartung und Support",
     service8Desc:
       "Laufende Updates, Korrekturen und Verbesserungen, damit Ihre Website schnell, sicher und leistungsstark bleibt.",
+    service9Title: "Cybersicherheit",
+    service9Desc:
+      "Sicherheitsaudits, SSL/HTTPS-Implementierung, DDoS-Schutz, DSGVO-Konformitat, Malware-Scanning und -Entfernung sowie Firewall-Konfiguration \u2014 wir halten Ihr Unternehmen sicher.",
   },
 
   // === TECHSTACK ===
@@ -1279,11 +1288,11 @@ export const de: Translations = {
   about: {
     badge: "UBER UNS",
     role: "Full-Stack-Entwickler und IT-Experte",
-    locationLabel: "Espoo, Finland",
+    locationLabel: "Zürich, Switzerland",
     title1: "Professionelle IT-Expertise",
     titleHighlight: "fur Ihr Unternehmen.",
     bio1: "Ich bin Yassin El Fennir \u2014 zertifizierter Full-Stack-Entwickler, IT-Experte und Spezialist fur KI-Automatisierung mit fundierter Expertise uber den gesamten Technologie-Stack. Von Frontend-Oberflachen bis hin zu Backend-Architektur, Datenbanken, APIs, Serververwaltung und KI \u2014 ich entwickle ganzheitliche digitale Losungen, die reibungslos funktionieren.",
-    bio2: "Geboren in Spanien, 9 Jahre in der Schweiz aufgewachsen und jetzt in Espoo, Finland zuhause. Mein internationaler Hintergrund gibt mir eine einzigartige Perspektive, um Unternehmen in verschiedenen Markten zu verstehen. Ich arbeite direkt mit Unternehmern in ganz Europa und entwickle digitale Systeme, die Kunden anziehen und echtes Wachstum fordern.",
+    bio2: "Ansassig in Zürich, Schweiz. Geboren in Spanien, aufgewachsen in der Schweiz, mit internationalem Hintergrund, der Unternehmen weltweit unterstutzt. Ich arbeite direkt mit Unternehmern in ganz Europa und entwickle digitale Systeme, die Kunden anziehen und echtes Wachstum fordern.",
     bio3: "Wenn Sie mit mir arbeiten, erhalten Sie einen engagierten IT-Experten, der sich um alles kummert \u2014 vom ersten Design bis zum Launch, zur Wartung und daruber hinaus. Ich stehe jedem Kunden langfristig zur Seite und stelle sicher, dass Ihre Website und digitalen Tools sich weiterentwickeln, verbessern und Monat fur Monat Ergebnisse liefern.",
     skillsTitle: "Technische Expertise",
     cred1Label: "Full-Stack-Entwickler",
@@ -1336,8 +1345,8 @@ export const de: Translations = {
     titleHighlight: "Fragen.",
     q1: "Wie lange dauert es, eine Website zu erstellen?",
     a1: "Die meisten Projekte werden in 3\u20135 Werktagen geliefert. Komplexe Projekte mit individuellen Funktionen konnen 1\u20132 Wochen dauern. Wir kommunizieren immer klare Zeitrahmen, bevor wir beginnen.",
-    q2: "Arbeiten Sie mit finnischen Unternehmen?",
-    a2: "Ja. Wir sind auf die Zusammenarbeit mit finnischen Unternehmen aller Branchen spezialisiert \u2014 Restaurants, Salons, Autowerkstatten, Bau, Gesundheitswesen und mehr. Wir arbeiten auch international.",
+    q2: "Arbeiten Sie mit Schweizer Unternehmen?",
+    a2: "Ja. Wir sind auf die Zusammenarbeit mit Schweizer Unternehmen aller Branchen spezialisiert \u2014 Restaurants, Salons, Autowerkstatten, Bau, Gesundheitswesen und mehr. Wir arbeiten auch international.",
     q3: "Konnen Sie meine bestehende Website neugestalten?",
     a3: "Auf jeden Fall. Wir konnen Ihre aktuelle Website in eine moderne, schnelle und konversionsorientierte Seite verwandeln und dabei Ihre bestehenden Inhalte und Ihre Markenidentitat bewahren.",
     q4: "Bieten Sie KI-Automatisierungsdienste an?",

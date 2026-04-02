@@ -58,8 +58,8 @@ const jsonLd = [
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Espoo",
-      addressCountry: "FI",
+      addressLocality: "Zürich",
+      addressCountry: "CH",
     },
     priceRange: "€€",
     areaServed: [
@@ -386,7 +386,7 @@ export default function WebDesignSwitzerlandPage() {
               From Zurich <span className="text-[#00d1ff]">to the World</span>
             </h2>
             <p className="text-slate-400 mb-4">
-              Yassin El Fennir was born in Spain, raised in Zurich, and now lives in Finland.
+              Yassin El Fennir was born in Spain, raised in Zurich, and is now based in Zürich, Switzerland.
               This international experience flows into every project: we understand Swiss quality
               expectations, know the local business culture, and work with the latest technologies.
             </p>
