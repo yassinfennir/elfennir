@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahnarztpraxis Dr. Müller – Uster | Moderne Zahnmedizin</title>
+<meta name="description" content="Zahnarztpraxis Dr. Müller in Uster – moderne Zahnmedizin, Implantate, Dentalhygiene und ästhetische Zahnheilkunde. Termin vereinbaren!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'DM Sans',sans-serif;color:#c8d6e5;background:#070b14;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#070b14}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#00b4d8,#0077b6);border-radius:10px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.accent{color:#00b4d8}
+.preview-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;background:linear-gradient(90deg,#00b4d8,#0077b6,#00b4d8);background-size:200% 100%;animation:grad 4s ease infinite;padding:10px 20px;text-align:center;font-size:13px;color:#fff;letter-spacing:.3px;box-shadow:0 2px 20px rgba(0,180,216,.3)}
+.preview-banner a{color:#fff;text-decoration:none;font-weight:600}
+.preview-banner a:hover{text-decoration:underline}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.navbar{position:fixed;top:38px;left:0;width:100%;z-index:999;padding:16px 0;transition:all .4s}
+.navbar.scrolled{background:rgba(7,11,20,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,180,216,.1);padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 24px}
+.nav-logo{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:#fff;text-decoration:none}
+.nav-logo span{color:#00b4d8}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:#00b4d8}
+.nav-cta{background:linear-gradient(135deg,#00b4d8,#0077b6);color:#fff!important;padding:10px 24px;border-radius:50px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 20px rgba(0,180,216,.3);transition:all .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(0,180,216,.5)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:4px}
+.hamburger span{display:block;width:26px;height:2.5px;background:#fff;border-radius:3px;transition:all .3s}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:160px 0 100px;background:linear-gradient(to bottom,rgba(7,11,20,.4),rgba(7,11,20,.92)),url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1400') center/cover no-repeat}
+.hero h1{font-family:'Poppins',sans-serif;font-size:clamp(32px,5vw,58px);font-weight:800;color:#fff;line-height:1.12;margin-bottom:20px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);color:#00b4d8;padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase}
+.hero p{font-size:18px;color:rgba(255,255,255,.7);max-width:560px;margin-bottom:32px;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00b4d8,#0077b6);color:#fff;padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s;box-shadow:0 4px 24px rgba(0,180,216,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,180,216,.5)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,180,216,.4);color:#00b4d8;padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s}
+.btn-outline:hover{background:rgba(0,180,216,.1);border-color:#00b4d8}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+
+.section-padding{padding:100px 0}
+.section-label{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;color:#00b4d8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.section-label .line{width:30px;height:2px;background:#00b4d8}
+.section-title{font-family:'Poppins',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:#fff;margin-bottom:16px}
+.section-desc{font-size:16px;color:rgba(255,255,255,.6);max-width:600px;line-height:1.7;margin-bottom:48px}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.service-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;transition:all .4s}
+.service-card:hover{border-color:rgba(0,180,216,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,180,216,.08)}
+.service-icon{width:52px;height:52px;background:rgba(0,180,216,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.service-card h3{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.service-card p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-img{width:100%;border-radius:16px;object-fit:cover;max-height:420px;border:1px solid rgba(255,255,255,.06)}
+.about-text h3{font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:16px}
+.about-text p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:16px}
+.stat-row{display:flex;gap:32px;margin-top:24px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Poppins',sans-serif;font-size:32px;font-weight:800;color:#00b4d8}
+.stat-label{font-size:12px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-icon{width:44px;height:44px;background:rgba(0,180,216,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.contact-item h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:4px}
+.contact-item p{font-size:14px;color:rgba(255,255,255,.55)}
+.map-wrapper{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.06);height:320px}
+.map-wrapper iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
+
+.footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+.footer p{font-size:13px;color:rgba(255,255,255,.35)}
+.footer a{color:#00b4d8;text-decoration:none}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .stat-row{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  Dies ist eine <strong>kostenlose Vorschau</strong> Ihrer neuen Website — erstellt von <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Dr. <span>Müller</span></a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#kontakt" class="nav-cta">Termin buchen</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Ihre Zahnarztpraxis in Uster</div>
+    <h1>Moderne <span class="accent">Zahnmedizin</span> für die ganze Familie</h1>
+    <p>Schonende Behandlungen, modernste Technik und ein einfühlsames Team — damit Sie sich bei uns rundum wohlfühlen.</p>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn-primary">Termin vereinbaren</a>
+      <a href="#leistungen" class="btn-outline">Unsere Leistungen</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="leistungen">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Leistungen</div>
+    <h2 class="section-title reveal">Umfassende <span class="accent">Zahnmedizin</span></h2>
+    <p class="section-desc reveal">Von der Vorsorge bis zur Implantologie — wir bieten Ihnen das gesamte Spektrum moderner Zahnheilkunde.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">&#129463;</div>
+        <h3>Dentalhygiene</h3>
+        <p>Professionelle Zahnreinigung und individuelle Prophylaxe für gesunde Zähne und gesundes Zahnfleisch — ein Leben lang.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#129656;</div>
+        <h3>Implantate</h3>
+        <p>Festsitzender Zahnersatz mit modernsten Implantatsystemen. Natürliches Aussehen und volle Funktion — wie eigene Zähne.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#10024;</div>
+        <h3>Ästhetische Zahnmedizin</h3>
+        <p>Bleaching, Veneers und unsichtbare Korrekturen für Ihr schönstes Lächeln. Diskret, schonend und langanhaltend.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#128737;</div>
+        <h3>Angstpatienten</h3>
+        <p>Einfühlsame Betreuung und schonende Methoden für Patienten mit Zahnarztangst. Lachgas und Sedierung möglich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="ueber-uns" style="background:rgba(0,180,216,.02);border-top:1px solid rgba(255,255,255,.04)">
+  <div class="container">
+    <div class="about-grid">
+      <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600" alt="Moderne Zahnarztpraxis" class="about-img reveal" loading="lazy">
+      <div class="about-text reveal">
+        <div class="section-label"><span class="line"></span>Über uns</div>
+        <h3>Ihr Lächeln ist unsere <span class="accent">Leidenschaft</span></h3>
+        <p>Dr. Thomas Müller und sein Team betreuen Sie seit über 15 Jahren in Uster. Unsere Praxis verbindet modernste Technologie mit persönlicher Betreuung.</p>
+        <p>Wir nehmen uns Zeit für Sie, erklären jeden Schritt und finden gemeinsam die beste Lösung für Ihre Zahngesundheit — transparent und fair.</p>
+        <div class="stat-row">
+          <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Jahre</div></div>
+          <div class="stat-item"><div class="stat-num">4.9</div><div class="stat-label">Google</div></div>
+          <div class="stat-item"><div class="stat-num">3000+</div><div class="stat-label">Patienten</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="kontakt">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Kontakt</div>
+    <h2 class="section-title reveal">Termin <span class="accent">vereinbaren</span></h2>
+    <p class="section-desc reveal">Rufen Sie uns an oder schreiben Sie uns — wir finden schnell einen passenden Termin für Sie.</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon">&#128205;</div>
+          <div><h4>Adresse</h4><p>Bankstrasse 18, 8610 Uster</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128222;</div>
+          <div><h4>Telefon</h4><p>+41 44 940 22 33</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9993;</div>
+          <div><h4>E-Mail</h4><p>praxis@zahnarzt-mueller-uster.ch</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128336;</div>
+          <div><h4>Öffnungszeiten</h4><p>Mo – Fr: 08:00 – 18:00<br>Sa: 09:00 – 13:00 (nach Vereinbarung)<br>So: Geschlossen</p></div>
+        </div>
+      </div>
+      <div class="map-wrapper reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.5!2d8.7215!3d47.3477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDIwJzUxLjciTiA4wrA0Myc0Mi42IkU!5e0!3m2!1sde!2sch!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 Zahnarztpraxis Dr. Müller — Uster | Website von <a href="https://elfennir.com" target="_blank">elfennir.com</a></p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.getElementById('hamburger')?.addEventListener('click',function(){
+  this.classList.toggle('active');
+});
+</script>
+<script src="/preview-bubble.js"></script>
+</body>
+</html>

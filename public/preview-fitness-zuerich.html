@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitZone Zürich – Fitnessstudio | Training & Wellness</title>
+<meta name="description" content="FitZone Zürich – modernes Fitnessstudio mit Personal Training, Gruppenkursen, Wellness und Top-Geräten. Probetraining buchen!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'DM Sans',sans-serif;color:#c8d6e5;background:#0a0d0a;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#0a0d0a}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#00e676,#00a152);border-radius:10px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.accent{color:#00e676}
+.preview-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;background:linear-gradient(90deg,#00e676,#00a152,#00e676);background-size:200% 100%;animation:grad 4s ease infinite;padding:10px 20px;text-align:center;font-size:13px;color:#fff;letter-spacing:.3px;box-shadow:0 2px 20px rgba(0,230,118,.3)}
+.preview-banner a{color:#fff;text-decoration:none;font-weight:600}
+.preview-banner a:hover{text-decoration:underline}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.navbar{position:fixed;top:38px;left:0;width:100%;z-index:999;padding:16px 0;transition:all .4s}
+.navbar.scrolled{background:rgba(10,13,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,230,118,.1);padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 24px}
+.nav-logo{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:#fff;text-decoration:none}
+.nav-logo span{color:#00e676}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:#00e676}
+.nav-cta{background:linear-gradient(135deg,#00e676,#00a152);color:#fff!important;padding:10px 24px;border-radius:50px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 20px rgba(0,230,118,.3);transition:all .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(0,230,118,.5)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:4px}
+.hamburger span{display:block;width:26px;height:2.5px;background:#fff;border-radius:3px;transition:all .3s}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:160px 0 100px;background:linear-gradient(to bottom,rgba(10,13,10,.3),rgba(10,13,10,.92)),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400') center/cover no-repeat}
+.hero h1{font-family:'Poppins',sans-serif;font-size:clamp(32px,5vw,58px);font-weight:800;color:#fff;line-height:1.12;margin-bottom:20px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.25);color:#00e676;padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase}
+.hero p{font-size:18px;color:rgba(255,255,255,.7);max-width:560px;margin-bottom:32px;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00e676,#00a152);color:#fff;padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s;box-shadow:0 4px 24px rgba(0,230,118,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,230,118,.5)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,230,118,.4);color:#00e676;padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s}
+.btn-outline:hover{background:rgba(0,230,118,.1);border-color:#00e676}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+
+.section-padding{padding:100px 0}
+.section-label{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;color:#00e676;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.section-label .line{width:30px;height:2px;background:#00e676}
+.section-title{font-family:'Poppins',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:#fff;margin-bottom:16px}
+.section-desc{font-size:16px;color:rgba(255,255,255,.6);max-width:600px;line-height:1.7;margin-bottom:48px}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.service-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;transition:all .4s}
+.service-card:hover{border-color:rgba(0,230,118,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,230,118,.08)}
+.service-icon{width:52px;height:52px;background:rgba(0,230,118,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.service-card h3{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px}
+.service-card p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-img{width:100%;border-radius:16px;object-fit:cover;max-height:420px;border:1px solid rgba(255,255,255,.06)}
+.about-text h3{font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:16px}
+.about-text p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:16px}
+.stat-row{display:flex;gap:32px;margin-top:24px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Poppins',sans-serif;font-size:32px;font-weight:800;color:#00e676}
+.stat-label{font-size:12px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.pricing-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;text-align:center;transition:all .4s}
+.pricing-card.featured{border-color:rgba(0,230,118,.3);background:rgba(0,230,118,.04)}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,230,118,.08)}
+.pricing-card h3{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:8px}
+.pricing-price{font-family:'Poppins',sans-serif;font-size:36px;font-weight:800;color:#00e676;margin:16px 0 8px}
+.pricing-price small{font-size:14px;font-weight:400;color:rgba(255,255,255,.5)}
+.pricing-list{list-style:none;margin:20px 0;text-align:left}
+.pricing-list li{font-size:14px;color:rgba(255,255,255,.6);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-icon{width:44px;height:44px;background:rgba(0,230,118,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.contact-item h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:4px}
+.contact-item p{font-size:14px;color:rgba(255,255,255,.55)}
+.map-wrapper{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.06);height:320px}
+.map-wrapper iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
+
+.footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+.footer p{font-size:13px;color:rgba(255,255,255,.35)}
+.footer a{color:#00e676;text-decoration:none}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .stat-row{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  Dies ist eine <strong>kostenlose Vorschau</strong> Ihrer neuen Website — erstellt von <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Fit<span>Zone</span></a>
+    <ul class="nav-links">
+      <li><a href="#angebot">Angebot</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#preise">Preise</a></li>
+      <li><a href="#kontakt" class="nav-cta">Probetraining</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Fitnessstudio in Zürich</div>
+    <h1>Dein Körper. <span class="accent">Dein Ziel.</span> Dein Studio.</h1>
+    <p>Modernste Geräte, motivierende Gruppenkurse und erfahrene Personal Trainer — alles unter einem Dach in Zürich.</p>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn-primary">Gratis Probetraining</a>
+      <a href="#angebot" class="btn-outline">Unser Angebot</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="angebot">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Angebot</div>
+    <h2 class="section-title reveal">Training auf <span class="accent">höchstem Niveau</span></h2>
+    <p class="section-desc reveal">Ob Anfänger oder Profi — wir haben das passende Training für dich.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">&#127947;</div>
+        <h3>Krafttraining</h3>
+        <p>Über 80 Geräte und ein grosser Freihantelbereich. Von Technogym und Life Fitness — für effektives Training auf jedem Level.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#128131;</div>
+        <h3>Gruppenkurse</h3>
+        <p>Yoga, HIIT, Spinning, Pilates, BoxFit und mehr. Über 40 Kurse pro Woche — motivierend, schweissreibend und für jedes Fitness-Level.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#127941;</div>
+        <h3>Personal Training</h3>
+        <p>Individuelle Trainings- und Ernährungspläne von zertifizierten Trainern. Maximale Resultate in kürzester Zeit.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">&#128167;</div>
+        <h3>Wellness & Sauna</h3>
+        <p>Nach dem Training entspannen: Finnische Sauna, Dampfbad und Ruhebereich. Regeneration ist der Schlüssel zum Erfolg.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="ueber-uns" style="background:rgba(0,230,118,.02);border-top:1px solid rgba(255,255,255,.04)">
+  <div class="container">
+    <div class="about-grid">
+      <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600" alt="FitZone Trainingsbereich" class="about-img reveal" loading="lazy">
+      <div class="about-text reveal">
+        <div class="section-label"><span class="line"></span>Über uns</div>
+        <h3>Mehr als ein <span class="accent">Gym</span></h3>
+        <p>FitZone Zürich wurde 2018 mit einer klaren Vision gegründet: Ein Fitnessstudio, das sich anfühlt wie zu Hause — aber mit den besten Geräten, dem besten Team und der besten Atmosphäre.</p>
+        <p>Auf über 800m2 bieten wir dir alles, was du für dein Training brauchst. Sauber, modern, klimatisiert — und 7 Tage die Woche geöffnet.</p>
+        <div class="stat-row">
+          <div class="stat-item"><div class="stat-num">800+</div><div class="stat-label">m2</div></div>
+          <div class="stat-item"><div class="stat-num">4.8</div><div class="stat-label">Google</div></div>
+          <div class="stat-item"><div class="stat-num">1200+</div><div class="stat-label">Mitglieder</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="preise">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Mitgliedschaft</div>
+    <h2 class="section-title reveal">Faire <span class="accent">Preise</span></h2>
+    <p class="section-desc reveal">Keine versteckten Kosten. Keine langen Vertragslaufzeiten. Einfach trainieren.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <h3>Basic</h3>
+        <div class="pricing-price">CHF 59 <small>/Mt.</small></div>
+        <ul class="pricing-list">
+          <li>Zugang Kraftbereich</li>
+          <li>Cardio-Geräte</li>
+          <li>Umkleiden & Duschen</li>
+          <li>Gratis WLAN</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured reveal">
+        <h3>Premium</h3>
+        <div class="pricing-price">CHF 89 <small>/Mt.</small></div>
+        <ul class="pricing-list">
+          <li>Alles aus Basic</li>
+          <li>Alle Gruppenkurse</li>
+          <li>Sauna & Wellness</li>
+          <li>1x Körperanalyse/Mt.</li>
+        </ul>
+      </div>
+      <div class="pricing-card reveal">
+        <h3>VIP</h3>
+        <div class="pricing-price">CHF 149 <small>/Mt.</small></div>
+        <ul class="pricing-list">
+          <li>Alles aus Premium</li>
+          <li>4x Personal Training/Mt.</li>
+          <li>Ernährungsplan</li>
+          <li>Gäste-Pass inklusive</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="kontakt">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Kontakt</div>
+    <h2 class="section-title reveal">Komm <span class="accent">vorbei</span></h2>
+    <p class="section-desc reveal">Buche dein kostenloses Probetraining oder komm einfach vorbei — keine Verpflichtung.</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon">&#128205;</div>
+          <div><h4>Adresse</h4><p>Hardstrasse 120, 8005 Zürich</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128222;</div>
+          <div><h4>Telefon</h4><p>+41 44 271 88 99</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9993;</div>
+          <div><h4>E-Mail</h4><p>hello@fitzone-zuerich.ch</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128336;</div>
+          <div><h4>Öffnungszeiten</h4><p>Mo – Fr: 06:00 – 22:00<br>Sa – So: 08:00 – 20:00<br>Feiertage: 09:00 – 18:00</p></div>
+        </div>
+      </div>
+      <div class="map-wrapper reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.1!2d8.5200!3d47.3780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDIyJzQwLjgiTiA4wrAzMScxMi4wIkU!5e0!3m2!1sde!2sch!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 FitZone Zürich | Website von <a href="https://elfennir.com" target="_blank">elfennir.com</a></p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.getElementById('hamburger')?.addEventListener('click',function(){
+  this.classList.toggle('active');
+});
+</script>
+<script src="/preview-bubble.js"></script>
+</body>
+</html>
