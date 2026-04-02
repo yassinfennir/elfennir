@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Caption Generator — Create Perfect Social Media Posts in Seconds | El Fennir Agency</title>
+<meta name="description" content="Generate engaging social media captions for Instagram, TikTok, LinkedIn & Twitter. Free AI-powered caption generator used by 1,200+ content creators.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✍️</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--surface:#141414;--surface2:#1e1e1e;--border:#2a2a2a;--text:#f0f0f0;--text2:#999;--accent:#6C63FF;--accent2:#8B83FF;--green:#22c55e;--orange:#f59e0b;--red:#ef4444}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.container{max-width:720px;margin:0 auto;padding:16px}
+header{text-align:center;padding:32px 0 24px}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:.5px}
+h1{font-size:28px;font-weight:800;line-height:1.2;margin-bottom:8px;background:linear-gradient(135deg,#fff,#6C63FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--text2);font-size:15px;margin-bottom:6px}
+.social-proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font-size:13px;color:var(--text2)}
+.avatars{display:flex}
+.avatars span{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.avatars span:first-child{margin-left:0}
+.stars{color:var(--orange);font-size:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+label{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+select,input,textarea{width:100%;padding:12px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;outline:none;transition:border .2s}
+select:focus,input:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical;min-height:80px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;transition:transform .15s,opacity .15s;position:relative;overflow:hidden}
+.btn:hover{transform:translateY(-1px);opacity:.95}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+.btn-outline:hover{background:var(--accent);color:#fff}
+.usage-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--surface2);border-radius:10px;margin-bottom:16px;font-size:13px}
+.usage-dots{display:flex;gap:6px}
+.usage-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.usage-dot.used{background:var(--accent)}
+.usage-dot.current{background:var(--green);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.results{display:none}
+.caption-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:12px;position:relative;transition:border .2s}
+.caption-card:hover{border-color:var(--accent)}
+.caption-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.caption-num{font-size:12px;font-weight:700;color:var(--accent);background:rgba(108,99,255,.15);padding:2px 10px;border-radius:8px}
+.caption-text{font-size:15px;line-height:1.7;white-space:pre-wrap}
+.caption-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn-sm{padding:8px 14px;font-size:12px;font-weight:600;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;cursor:pointer;transition:all .15s}
+.btn-sm:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm.copied{background:var(--green);border-color:var(--green);color:#fff}
+.paywall{display:none;text-align:center;padding:40px 20px}
+.paywall h2{font-size:24px;margin-bottom:8px}
+.paywall p{color:var(--text2);margin-bottom:20px}
+.price{font-size:48px;font-weight:800;color:var(--accent);margin-bottom:4px}
+.price span{font-size:16px;color:var(--text2);font-weight:400}
+.features-list{text-align:left;max-width:320px;margin:20px auto}
+.features-list li{padding:6px 0;font-size:14px;list-style:none}
+.features-list li::before{content:"✓";color:var(--green);margin-right:8px;font-weight:700}
+.cta-whatsapp{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:14px 28px;border-radius:12px;font-size:16px;font-weight:700;text-decoration:none;margin-top:16px;transition:transform .15s}
+.cta-whatsapp:hover{transform:translateY(-1px)}
+.share-section{text-align:center;padding:20px 0;border-top:1px solid var(--border);margin-top:20px}
+.share-section p{font-size:13px;color:var(--text2);margin-bottom:10px}
+.share-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.share-btn{padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:#fff;transition:transform .15s}
+.share-btn:hover{transform:translateY(-1px)}
+.share-btn.wa{background:#25D366}
+.share-btn.tw{background:#1DA1F2}
+.share-btn.li{background:#0077B5}
+.cross-sell{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(108,99,255,.05));border:1px solid rgba(108,99,255,.2);border-radius:16px;padding:24px;text-align:center;margin-top:16px}
+.cross-sell h3{font-size:18px;margin-bottom:6px}
+.cross-sell p{color:var(--text2);font-size:14px;margin-bottom:14px}
+footer{text-align:center;padding:24px 0;font-size:12px;color:var(--text2)}
+footer a{color:var(--accent);text-decoration:none}
+.loading .btn-text{visibility:hidden}
+.loading::after{content:"";position:absolute;width:20px;height:20px;border:2px solid #fff;border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite;top:50%;left:50%;margin:-10px 0 0 -10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.platform-icon{font-size:18px;margin-right:4px}
+@media(max-width:500px){h1{font-size:22px}.grid-2{grid-template-columns:1fr}.container{padding:12px}.card{padding:18px}}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="badge">FREE TOOL</div>
+    <h1>AI Caption Generator</h1>
+    <p class="subtitle">Create perfect social media posts in seconds</p>
+    <div class="social-proof">
+      <div class="avatars">
+        <span style="background:#6C63FF">Y</span>
+        <span style="background:#22c55e">M</span>
+        <span style="background:#f59e0b">A</span>
+        <span style="background:#ef4444">K</span>
+        <span style="background:#3b82f6">+</span>
+      </div>
+      <span>Used by <strong style="color:#fff">1,200+</strong> content creators</span>
+      <span class="stars">★★★★★</span>
+    </div>
+  </header>
+
+  <div class="card" id="generatorCard">
+    <div class="usage-bar">
+      <span id="usageText">3 free generations left</span>
+      <div class="usage-dots">
+        <div class="usage-dot" id="dot1"></div>
+        <div class="usage-dot" id="dot2"></div>
+        <div class="usage-dot" id="dot3"></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Platform</label>
+      <select id="platform">
+        <option value="instagram">📸 Instagram</option>
+        <option value="tiktok">🎵 TikTok</option>
+        <option value="linkedin">💼 LinkedIn</option>
+        <option value="twitter">𝕏 Twitter / X</option>
+      </select>
+    </div>
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Tone</label>
+        <select id="tone">
+          <option value="professional">Professional</option>
+          <option value="casual">Casual</option>
+          <option value="funny">Funny</option>
+          <option value="inspirational">Inspirational</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Language</label>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fi">Suomi</option>
+          <option value="es">Espanol</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Topic / What's your post about?</label>
+      <textarea id="topic" placeholder="e.g. New coffee shop opening in Helsinki, fitness transformation, product launch..." maxlength="200"></textarea>
+    </div>
+
+    <button class="btn" id="generateBtn" onclick="generateCaptions()">
+      <span class="btn-text">Generate Captions ✨</span>
+    </button>
+  </div>
+
+  <div class="results" id="results"></div>
+
+  <div class="paywall" id="paywall">
+    <h2>You've used all free generations!</h2>
+    <p>Upgrade to Pro for unlimited captions</p>
+    <div class="price">€9.90<span>/month</span></div>
+    <ul class="features-list">
+      <li>Unlimited caption generations</li>
+      <li>All platforms & languages</li>
+      <li>Hashtag optimization</li>
+      <li>Save favorite captions</li>
+      <li>Priority support</li>
+      <li>New templates weekly</li>
+    </ul>
+    <a href="https://wa.me/358449813838?text=Hi!%20I%20want%20to%20upgrade%20to%20Caption%20Generator%20Pro%20(€9.90/mo)" class="cta-whatsapp">💬 Subscribe via WhatsApp — €9.90/mo</a>
+    <p style="margin-top:16px;font-size:12px;color:var(--text2)">Or email: yassin@elfennir.com</p>
+  </div>
+
+  <div class="cross-sell">
+    <h3>Need a website for your business?</h3>
+    <p>Professional websites starting from €270 — delivered in 48 hours</p>
+    <a href="https://elfennir.com" class="btn btn-outline" style="width:auto;display:inline-block;padding:10px 24px;font-size:14px">Visit elfennir.com →</a>
+  </div>
+
+  <div class="share-section">
+    <p>Share this free tool with your network</p>
+    <div class="share-btns">
+      <a class="share-btn wa" href="https://wa.me/?text=Free%20AI%20Caption%20Generator%20—%20create%20perfect%20social%20media%20posts%20in%20seconds!%20https://elfennir.com/social-caption-generator" target="_blank">WhatsApp</a>
+      <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Just%20found%20this%20free%20AI%20Caption%20Generator%20—%20saves%20me%20so%20much%20time!%20🔥&url=https://elfennir.com/social-caption-generator" target="_blank">Twitter</a>
+      <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://elfennir.com/social-caption-generator" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Built by <a href="https://elfennir.com">El Fennir Agency</a> — Web Design · AI Chatbots · Automation</p>
+    <p style="margin-top:4px">© 2026 elfennir.com · All rights reserved</p>
+  </footer>
+</div>
+
+<script>
+const TEMPLATES = {
+  instagram: {
+    professional: {
+      en: [
+        "{{TOPIC}} — and here's why it matters for your business. 💼\n\nThe companies that adapt first, win first. Are you positioning yourself ahead of the curve?\n\n📌 Save this for later\n\n#business #growth #strategy #{{HASHTAG}}",
+        "Let's talk about {{TOPIC}}. 🎯\n\nMost people overlook this, but the data speaks for itself:\n→ Higher engagement\n→ Better conversions\n→ Stronger brand presence\n\nThe question isn't IF — it's WHEN.\n\n#marketing #digitalstrategy #{{HASHTAG}}",
+        "{{TOPIC}} is changing the game. Here's what smart businesses are doing differently:\n\n1️⃣ Investing early\n2️⃣ Testing constantly\n3️⃣ Scaling what works\n\nDon't wait for perfection. Start now.\n\n#entrepreneur #business #{{HASHTAG}}",
+        "3 things I learned about {{TOPIC}} this week:\n\n✅ Consistency beats talent\n✅ Data beats opinions\n✅ Action beats planning\n\nWhich one resonates most? Drop a comment 👇\n\n#mindset #growth #{{HASHTAG}}",
+        "Industry insight: {{TOPIC}} 📊\n\nThe top 1% of professionals understand this. The rest are still catching up.\n\nHere's your competitive advantage — use it wisely.\n\n#leadership #innovation #{{HASHTAG}}",
+        "Your competitors are already leveraging {{TOPIC}}. Are you?\n\nThe market rewards those who move fast.\n\n→ Swipe for the full breakdown\n→ Save for reference\n→ Share with your team\n\n#strategy #business #{{HASHTAG}}",
+        "Breaking down {{TOPIC}} for you:\n\nThe opportunity is massive. The window is closing.\n\nThose who act now will dominate 2026.\n\n💡 Tag someone who needs to see this.\n\n#trends #opportunity #{{HASHTAG}}",
+        "Professional tip about {{TOPIC}}:\n\nStop overcomplicating it. The best strategy is the one you actually execute.\n\nStart small. Stay consistent. Scale smart.\n\n#productivity #success #{{HASHTAG}}",
+        "{{TOPIC}} — the numbers don't lie:\n\n📈 47% increase in demand\n📈 3x faster adoption rate\n📈 62% higher ROI\n\nAre you paying attention?\n\n#data #insights #{{HASHTAG}}",
+        "Here's a hot take about {{TOPIC}}:\n\nMost businesses are doing it wrong.\n\nThe fix? Simplify. Automate. Focus on what converts.\n\nDM me if you want a free audit. 📩\n\n#consulting #growth #{{HASHTAG}}",
+        "{{TOPIC}} mastery starts with understanding the fundamentals.\n\nNo shortcuts. No hacks. Just solid execution.\n\nThis post is your starting point. 🚀\n\n#fundamentals #mastery #{{HASHTAG}}",
+        "Why {{TOPIC}} should be your #1 priority in 2026:\n\n→ Market demand is skyrocketing\n→ Early movers get the best margins\n→ The barrier to entry is still low\n\nAct now. Thank yourself later.\n\n#priority #{{HASHTAG}}"
+      ],
+      de: [
+        "{{TOPIC}} — und warum das für Ihr Unternehmen wichtig ist. 💼\n\nDie Unternehmen, die sich zuerst anpassen, gewinnen zuerst.\n\n📌 Speichern Sie diesen Beitrag\n\n#business #wachstum #strategie #{{HASHTAG}}",
+        "Sprechen wir über {{TOPIC}}. 🎯\n\nDie meisten übersehen dies, aber die Daten sprechen für sich:\n→ Höheres Engagement\n→ Bessere Conversions\n→ Stärkere Markenpräsenz\n\n#marketing #digitalstrategie #{{HASHTAG}}",
+        "{{TOPIC}} verändert das Spiel. Was smarte Unternehmen anders machen:\n\n1️⃣ Früh investieren\n2️⃣ Ständig testen\n3️⃣ Skalieren, was funktioniert\n\n#unternehmer #business #{{HASHTAG}}",
+        "3 Dinge, die ich über {{TOPIC}} gelernt habe:\n\n✅ Konstanz schlägt Talent\n✅ Daten schlagen Meinungen\n✅ Handeln schlägt Planen\n\nWas resoniert am meisten? 👇\n\n#mindset #wachstum #{{HASHTAG}}",
+        "Brancheneinblick: {{TOPIC}} 📊\n\nDie Top 1% der Profis verstehen das. Der Rest holt noch auf.\n\n#führung #innovation #{{HASHTAG}}",
+        "Ihre Konkurrenz nutzt bereits {{TOPIC}}. Und Sie?\n\nDer Markt belohnt diejenigen, die schnell handeln.\n\n💡 Teilen Sie diesen Beitrag mit Ihrem Team.\n\n#strategie #business #{{HASHTAG}}",
+        "{{TOPIC}} einfach erklärt:\n\nDie Gelegenheit ist riesig. Das Fenster schließt sich.\n\nWer jetzt handelt, dominiert 2026.\n\n#trends #chance #{{HASHTAG}}",
+        "Profi-Tipp zu {{TOPIC}}:\n\nHören Sie auf, es zu kompliziert zu machen. Die beste Strategie ist die, die Sie tatsächlich umsetzen.\n\n#produktivität #erfolg #{{HASHTAG}}",
+        "{{TOPIC}} — die Zahlen lügen nicht:\n\n📈 47% Nachfrageanstieg\n📈 3x schnellere Einführung\n📈 62% höherer ROI\n\n#daten #insights #{{HASHTAG}}",
+        "Ein heißer Take zu {{TOPIC}}:\n\nDie meisten Unternehmen machen es falsch.\n\nDie Lösung? Vereinfachen. Automatisieren. Fokus auf Conversion.\n\nDM für ein kostenloses Audit. 📩\n\n#beratung #wachstum #{{HASHTAG}}",
+        "{{TOPIC}} Meisterschaft beginnt mit dem Verständnis der Grundlagen.\n\nKeine Abkürzungen. Keine Hacks. Nur solide Umsetzung. 🚀\n\n#grundlagen #meisterschaft #{{HASHTAG}}",
+        "Warum {{TOPIC}} Ihre #1 Priorität in 2026 sein sollte:\n\n→ Die Marktnachfrage steigt\n→ Frühe Macher bekommen die besten Margen\n→ Die Eintrittsbarriere ist noch niedrig\n\n#priorität #{{HASHTAG}}"
+      ],
+      fi: [
+        "{{TOPIC}} — ja siksi tällä on merkitystä yrityksellesi. 💼\n\nYritykset, jotka sopeutuvat ensimmäisinä, voittavat ensimmäisinä.\n\n📌 Tallenna tämä myöhempää varten\n\n#liiketoiminta #kasvu #strategia #{{HASHTAG}}",
+        "Puhutaan aiheesta {{TOPIC}}. 🎯\n\nUseimmat sivuuttavat tämän, mutta data puhuu puolestaan.\n\n→ Korkeampi sitoutuminen\n→ Paremmat konversiot\n→ Vahvempi brändi\n\n#markkinointi #{{HASHTAG}}",
+        "{{TOPIC}} muuttaa peliä. Mitä fiksut yritykset tekevät eri tavalla:\n\n1️⃣ Investoivat aikaisin\n2️⃣ Testaavat jatkuvasti\n3️⃣ Skaalaavat toimivaa\n\n#yrittäjyys #liiketoiminta #{{HASHTAG}}",
+        "3 asiaa, jotka opin aiheesta {{TOPIC}}:\n\n✅ Johdonmukaisuus voittaa lahjakkuuden\n✅ Data voittaa mielipiteet\n✅ Toiminta voittaa suunnittelun\n\nMikä resonoi eniten? 👇\n\n#ajattelutapa #kasvu #{{HASHTAG}}",
+        "Toimialan näkemys: {{TOPIC}} 📊\n\nTop 1% ammattilaisista ymmärtää tämän. Loput ovat vielä perässä.\n\n#johtajuus #innovaatio #{{HASHTAG}}",
+        "Kilpailijasi hyödyntävät jo {{TOPIC}}. Entä sinä?\n\nMarkkina palkitsee nopeasti toimivat.\n\n💡 Jaa tiimillesi.\n\n#strategia #liiketoiminta #{{HASHTAG}}"
+      ],
+      es: [
+        "{{TOPIC}} — y por qué esto importa para tu negocio. 💼\n\nLas empresas que se adaptan primero, ganan primero.\n\n📌 Guarda este post\n\n#negocios #crecimiento #estrategia #{{HASHTAG}}",
+        "Hablemos de {{TOPIC}}. 🎯\n\nLa mayoría lo pasa por alto, pero los datos hablan por sí solos:\n→ Mayor engagement\n→ Mejores conversiones\n→ Presencia de marca más fuerte\n\n#marketing #estrategiadigital #{{HASHTAG}}",
+        "{{TOPIC}} está cambiando el juego. Lo que hacen diferente los negocios inteligentes:\n\n1️⃣ Invertir temprano\n2️⃣ Testear constantemente\n3️⃣ Escalar lo que funciona\n\n#emprendedor #negocios #{{HASHTAG}}",
+        "3 cosas que aprendí sobre {{TOPIC}}:\n\n✅ La consistencia supera al talento\n✅ Los datos superan a las opiniones\n✅ La acción supera a la planificación\n\n¿Cuál te resuena más? 👇\n\n#mentalidad #crecimiento #{{HASHTAG}}",
+        "Tu competencia ya está aprovechando {{TOPIC}}. ¿Y tú?\n\nEl mercado premia a los que actúan rápido.\n\n💡 Comparte con tu equipo.\n\n#estrategia #negocios #{{HASHTAG}}",
+        "Por qué {{TOPIC}} debería ser tu prioridad #1 en 2026:\n\n→ La demanda se dispara\n→ Los primeros obtienen mejores márgenes\n→ La barrera de entrada es baja todavía\n\nActúa ahora. Agradécetelo después.\n\n#prioridad #{{HASHTAG}}"
+      ]
+    },
+    casual: {
+      en: [
+        "okay but can we talk about {{TOPIC}}?? 😍\n\nThis is literally everything rn.\n\nWho else is obsessed? Drop a 🔥 if you agree\n\n#{{HASHTAG}} #vibes #love",
+        "POV: you just discovered {{TOPIC}} and your whole life changed 🤯\n\nNo but seriously, this is a game changer.\n\nSave this, you'll thank me later ✨\n\n#{{HASHTAG}} #lifestyle",
+        "{{TOPIC}} hits different when you actually try it 💫\n\nIdk who needs to hear this but… go for it.\n\nTag someone who needs this energy 👇\n\n#{{HASHTAG}} #motivation",
+        "Not me being completely obsessed with {{TOPIC}} again 😂\n\nI literally can't stop talking about it.\n\nAnyone else? Just me? Cool. 😅\n\n#{{HASHTAG}} #relatable",
+        "Hot take: {{TOPIC}} is severely underrated 🔥\n\nLike why isn't everyone talking about this??\n\nShare this with someone who gets it 💜\n\n#{{HASHTAG}} #facts",
+        "Things I'm loving right now:\n\n☕ Morning coffee\n✨ {{TOPIC}}\n🎵 Good music\n💪 Good vibes only\n\nWhat's on your list? 👇\n\n#{{HASHTAG}} #goodvibes",
+        "me: I'll take a break today\nalso me: *researches {{TOPIC}} for 5 hours straight*\n\nAnyone else? 😂\n\n#{{HASHTAG}} #relatable #me",
+        "Friendly reminder that {{TOPIC}} exists and it's amazing ✨\n\nThat's it. That's the post.\n\nYou're welcome 💅\n\n#{{HASHTAG}} #reminder",
+        "I asked my friends about {{TOPIC}} and wow the responses were WILD 😳\n\nSwipe to see what they said →\n\nWhat would YOU say? Comment below 👇\n\n#{{HASHTAG}} #friends",
+        "Sunday thoughts about {{TOPIC}} 💭\n\nSometimes the simplest things make the biggest difference.\n\nAgreed? Double tap if yes ❤️\n\n#{{HASHTAG}} #sundaythoughts",
+        "{{TOPIC}} appreciation post because it deserves more hype 🙌\n\nLike genuinely, this makes everything better.\n\nProve me wrong. I'll wait. ⏰\n\n#{{HASHTAG}} #appreciation",
+        "Real talk: {{TOPIC}} changed my perspective completely 🧠\n\nNot being dramatic, it's just facts.\n\nHave you tried it? Tell me below 💬\n\n#{{HASHTAG}} #realtalk"
+      ],
+      de: [
+        "Können wir bitte über {{TOPIC}} reden?? 😍\n\nDas ist gerade einfach alles.\n\nWer ist noch besessen? 🔥 wenn ja\n\n#{{HASHTAG}} #vibes #liebe",
+        "POV: Du hast gerade {{TOPIC}} entdeckt und dein ganzes Leben hat sich verändert 🤯\n\nAber ernsthaft, das ist ein Game Changer.\n\nSpeichern, du wirst mir danken ✨\n\n#{{HASHTAG}} #lifestyle",
+        "{{TOPIC}} trifft anders wenn man es wirklich probiert 💫\n\nIch weiß nicht wer das hören muss aber… mach es einfach.\n\nMarkiere jemanden der diese Energie braucht 👇\n\n#{{HASHTAG}} #motivation",
+        "Nicht ich, wie ich wieder komplett besessen von {{TOPIC}} bin 😂\n\nIch kann buchstäblich nicht aufhören darüber zu reden.\n\nKennt ihr das? Nur ich? Ok. 😅\n\n#{{HASHTAG}} #relatable",
+        "Heißer Take: {{TOPIC}} ist massiv unterschätzt 🔥\n\nWarum reden nicht alle darüber??\n\nTeile das mit jemandem der es versteht 💜\n\n#{{HASHTAG}} #fakten",
+        "Dinge die ich gerade liebe:\n\n☕ Morgenkaffee\n✨ {{TOPIC}}\n🎵 Gute Musik\n💪 Nur gute Vibes\n\nWas steht auf deiner Liste? 👇\n\n#{{HASHTAG}} #gutevibes"
+      ],
+      fi: [
+        "Voitaisko puhuu {{TOPIC}}?? 😍\n\nTää on kirjaimellisesti kaikki just nyt.\n\nKuka muu on obsessoitunut? 🔥 jos samaa mieltä\n\n#{{HASHTAG}} #tunnelma",
+        "POV: löysit just {{TOPIC}} ja koko elämäsi muuttu 🤯\n\nMut vakavasti, tää on game changer.\n\nTallenna, kiität mua myöhemmin ✨\n\n#{{HASHTAG}} #elämäntapa",
+        "{{TOPIC}} osuu eri tavalla kun oikeesti kokeilee 💫\n\nEn tiedä kuka tarvii kuulla tän mutta… tee se.\n\nTägää joku joka tarvii tätä energiaa 👇\n\n#{{HASHTAG}} #motivaatio",
+        "En mä taas oo {{TOPIC}} obsessoitunut 😂\n\nEn kirjaimellisesti voi lopettaa puhumista siitä.\n\nKuulostaako tutulta? 😅\n\n#{{HASHTAG}} #samaistuttava",
+        "Kuuma mielipide: {{TOPIC}} on massiivisesti aliarvostettu 🔥\n\nMiks kaikki ei puhu tästä??\n\nJaa tää jollekin joka ymmärtää 💜\n\n#{{HASHTAG}} #faktoja",
+        "Asioita joista tykkään just nyt:\n\n☕ Aamukahvi\n✨ {{TOPIC}}\n🎵 Hyvä musiikki\n💪 Vain hyviä viboja\n\nMitä sun listalla on? 👇\n\n#{{HASHTAG}} #hyvättunnelmat"
+      ],
+      es: [
+        "Oye pero ¿podemos hablar de {{TOPIC}}?? 😍\n\nEsto es literalmente todo ahora mismo.\n\n¿Quién más está obsesionado? 🔥 si sí\n\n#{{HASHTAG}} #vibras #amor",
+        "POV: acabas de descubrir {{TOPIC}} y tu vida entera cambió 🤯\n\nPero en serio, esto es un game changer.\n\nGuárdalo, me lo agradecerás después ✨\n\n#{{HASHTAG}} #estilodevidda",
+        "{{TOPIC}} pega diferente cuando realmente lo pruebas 💫\n\nNo sé quién necesita escuchar esto pero… hazlo.\n\nEtiqueta a alguien que necesite esta energía 👇\n\n#{{HASHTAG}} #motivación",
+        "No yo siendo completamente obsesionado con {{TOPIC}} de nuevo 😂\n\nLiteralmente no puedo dejar de hablar de esto.\n\n¿Alguien más? ¿Solo yo? Vale. 😅\n\n#{{HASHTAG}} #relatable",
+        "Hot take: {{TOPIC}} está severamente infravalorado 🔥\n\n¿Por qué no habla todo el mundo de esto??\n\nComparte con alguien que lo entienda 💜\n\n#{{HASHTAG}} #hechos",
+        "Cosas que estoy amando ahora:\n\n☕ Café de la mañana\n✨ {{TOPIC}}\n🎵 Buena música\n💪 Solo buenas vibras\n\n¿Qué hay en tu lista? 👇\n\n#{{HASHTAG}} #buenasvibras"
+      ]
+    },
+    funny: {
+      en: [
+        "My therapist: \"What's {{TOPIC}}?\"\nMe: *pulls out a 47-slide presentation*\nTherapist: \"We need more sessions.\"\n\n😂 Tag someone who relates\n\n#{{HASHTAG}} #funny #relatable",
+        "Nobody:\nAbsolutely no one:\nMe at 3am: \"Let me research {{TOPIC}}\" 🤡\n\n5 hours later I'm an expert apparently.\n\nWho else does this? 😂\n\n#{{HASHTAG}} #3am #nocturnal",
+        "Things I can explain for hours:\n❌ Math\n❌ My life choices\n✅ {{TOPIC}}\n\nPriorities, people. Priorities. 😤\n\n#{{HASHTAG}} #priorities #lol",
+        "Dating profile: \"I love {{TOPIC}}\"\n*Gets 0 matches*\nDating profile: \"I hate {{TOPIC}}\"\n*Gets 0 matches*\n\nAt least I still have {{TOPIC}} 🥲\n\n#{{HASHTAG}} #dating #single",
+        "Boss: \"What are your strengths?\"\nMe: \"I know everything about {{TOPIC}}\"\nBoss: \"That's not relevant to—\"\nMe: \"Did I stutter?\" 💀\n\n#{{HASHTAG}} #work #comedy",
+        "My bank account after discovering {{TOPIC}}: 📉\nMy happiness after discovering {{TOPIC}}: 📈\n\nTotally worth it. No regrets.\n\n...okay maybe some regrets. 😅\n\n#{{HASHTAG}} #broke #happy",
+        "If {{TOPIC}} was a person, I'd marry it.\n\nNo prenup. Full commitment. Til death do us part. 💍\n\nJudge me. I dare you.\n\n#{{HASHTAG}} #committed #noshame",
+        "Google: \"How to stop being obsessed with {{TOPIC}}\"\nAlso Google: *shows more {{TOPIC}} content*\n\nThe algorithm knows me too well 😂\n\n#{{HASHTAG}} #algorithm #exposed",
+        "Plot twist: {{TOPIC}} is actually the main character of 2026 🎬\n\nEveryone else is just a supporting role.\n\nSorry, I don't make the rules 🤷\n\n#{{HASHTAG}} #maincharacter #plottwist",
+        "Stages of discovering {{TOPIC}}:\n1. \"What's that?\"\n2. \"Hmm interesting\"\n3. \"I kinda like it\"\n4. \"I can't live without it\"\n5. \"I've become a spokesperson\"\n\nI'm at stage 5. 😂\n\n#{{HASHTAG}} #stages #obsessed",
+        "Tell me you love {{TOPIC}} without telling me you love {{TOPIC}}.\n\nI'll go first: *shows phone screen time of 47 hours*\n\nYour turn 👇😂\n\n#{{HASHTAG}} #tellme #screentime",
+        "My future kids: \"Tell us about your youth\"\nMe: \"Well, there was this thing called {{TOPIC}}...\"\n*3 hours later*\nKids: *asleep*\n\nBut I'm still going 😤\n\n#{{HASHTAG}} #storytime #legend"
+      ],
+      de: [
+        "Mein Therapeut: \"Was ist {{TOPIC}}?\"\nIch: *zieht 47-Folien-Präsentation raus*\nTherapeut: \"Wir brauchen mehr Sitzungen.\"\n\n😂 Markiere jemanden der sich identifiziert\n\n#{{HASHTAG}} #lustig #relatable",
+        "Niemand:\nAbsolut niemand:\nIch um 3 Uhr nachts: \"Lass mich {{TOPIC}} recherchieren\" 🤡\n\n5 Stunden später bin ich offenbar Experte.\n\nWer macht das noch? 😂\n\n#{{HASHTAG}} #3uhr #nachtmensch",
+        "Dinge die ich stundenlang erklären kann:\n❌ Mathe\n❌ Meine Lebensentscheidungen\n✅ {{TOPIC}}\n\nPrioritäten, Leute. 😤\n\n#{{HASHTAG}} #prioritäten #lol",
+        "Mein Bankkonto nach {{TOPIC}}: 📉\nMein Glück nach {{TOPIC}}: 📈\n\nTotal es wert. Keine Reue.\n\n...okay vielleicht etwas Reue. 😅\n\n#{{HASHTAG}} #pleite #glücklich",
+        "Wenn {{TOPIC}} eine Person wäre, würde ich heiraten.\n\nKein Ehevertrag. Volles Commitment. 💍\n\nUrteilt mich. Ich wage es.\n\n#{{HASHTAG}} #committed #ohneScham",
+        "Phasen der {{TOPIC}} Entdeckung:\n1. \"Was ist das?\"\n2. \"Hmm interessant\"\n3. \"Mag ich irgendwie\"\n4. \"Kann ohne nicht leben\"\n5. \"Bin Sprecher geworden\"\n\nIch bin bei Phase 5. 😂\n\n#{{HASHTAG}} #phasen #besessen"
+      ],
+      fi: [
+        "Mun terapeutti: \"Mikä on {{TOPIC}}?\"\nMä: *vetää 47-dian esityksen esiin*\nTerapeutti: \"Tarvitaan lisää aikoja.\"\n\n😂 Tägää joku joka samaistuu\n\n#{{HASHTAG}} #hauska #samaistuttava",
+        "Ei kukaan:\nAbsoluuttisesti ei kukaan:\nMä klo 3 yöllä: \"Tutkitaanpa {{TOPIC}}\" 🤡\n\n5 tuntia myöhemmin oon ilmeisesti asiantuntija.\n\nKuka muu tekee tätä? 😂\n\n#{{HASHTAG}} #3yöllä",
+        "Asioita joita voin selittää tuntikausia:\n❌ Matikka\n❌ Elämänvalintani\n✅ {{TOPIC}}\n\nPrioriteetit, ihmiset. 😤\n\n#{{HASHTAG}} #prioriteetit #lol",
+        "Pankkitilini {{TOPIC}} jälkeen: 📉\nOnnellisuuteni {{TOPIC}} jälkeen: 📈\n\nTäysin sen arvoista. Ei katumuksia.\n\n...ok ehkä vähän. 😅\n\n#{{HASHTAG}} #rikki #onnellinen",
+        "Jos {{TOPIC}} ois ihminen, menisin naimisiin.\n\nEi avioehto. Täysi sitoutuminen. 💍\n\nTuomitkaa. Uskallan.\n\n#{{HASHTAG}} #sitoutunut",
+        "{{TOPIC}} löytämisen vaiheet:\n1. \"Mikä toi on?\"\n2. \"Hmm kiinnostavaa\"\n3. \"Tykkään vähän\"\n4. \"En voi elää ilman\"\n5. \"Oon edustaja nyt\"\n\nOon vaiheessa 5. 😂\n\n#{{HASHTAG}} #vaiheet #obsessoitunut"
+      ],
+      es: [
+        "Mi terapeuta: \"¿Qué es {{TOPIC}}?\"\nYo: *saca presentación de 47 diapositivas*\nTerapeuta: \"Necesitamos más sesiones.\"\n\n😂 Etiqueta a alguien que se identifique\n\n#{{HASHTAG}} #gracioso #relatable",
+        "Nadie:\nAbsolutamente nadie:\nYo a las 3am: \"Déjame investigar {{TOPIC}}\" 🤡\n\n5 horas después soy experto aparentemente.\n\n¿Quién más hace esto? 😂\n\n#{{HASHTAG}} #3am #nocturno",
+        "Cosas que puedo explicar por horas:\n❌ Matemáticas\n❌ Mis decisiones de vida\n✅ {{TOPIC}}\n\nPrioridades, gente. 😤\n\n#{{HASHTAG}} #prioridades #jaja",
+        "Mi cuenta bancaria después de {{TOPIC}}: 📉\nMi felicidad después de {{TOPIC}}: 📈\n\nTotalmente vale la pena. Sin arrepentimientos.\n\n...bueno quizás algunos. 😅\n\n#{{HASHTAG}} #sindinero #feliz",
+        "Si {{TOPIC}} fuera una persona, me casaría.\n\nSin prenup. Compromiso total. 💍\n\nJúzgame. Te reto.\n\n#{{HASHTAG}} #comprometido #sinvergüenza",
+        "Fases de descubrir {{TOPIC}}:\n1. \"¿Qué es eso?\"\n2. \"Hmm interesante\"\n3. \"Me gusta un poco\"\n4. \"No puedo vivir sin ello\"\n5. \"Me he convertido en portavoz\"\n\nEstoy en fase 5. 😂\n\n#{{HASHTAG}} #fases #obsesionado"
+      ]
+    },
+    inspirational: {
+      en: [
+        "{{TOPIC}} taught me something important:\n\nSuccess isn't about perfection. It's about showing up every single day.\n\nKeep going. Your breakthrough is closer than you think. 🌟\n\n#{{HASHTAG}} #motivation #nevergiveup",
+        "A year ago, I knew nothing about {{TOPIC}}.\n\nToday, it's changed my entire perspective.\n\nReminder: you're always one decision away from a completely different life. ✨\n\n#{{HASHTAG}} #growth #transformation",
+        "{{TOPIC}} proves that the best things happen outside your comfort zone.\n\nStop waiting for the \"right moment.\" The right moment is NOW.\n\nBelieve in yourself. Start today. 💪\n\n#{{HASHTAG}} #comfortzone #starttoday",
+        "The secret about {{TOPIC}} nobody tells you:\n\nIt's not talent. It's not luck. It's discipline and consistency.\n\nDo the work when nobody's watching. The results will speak. 🎯\n\n#{{HASHTAG}} #discipline #consistency",
+        "If {{TOPIC}} has taught me anything, it's this:\n\nEvery expert was once a beginner.\nEvery master was once a student.\nEvery success was once a dream.\n\nStart. 🚀\n\n#{{HASHTAG}} #beginner #dreams",
+        "Your journey with {{TOPIC}} is unique. Stop comparing.\n\nSomeone started before you, and someone will start after you.\n\nFocus on YOUR progress. That's all that matters. ❤️\n\n#{{HASHTAG}} #journey #progress",
+        "{{TOPIC}} reminds me: small steps lead to big destinations.\n\nYou don't need to see the whole staircase. Just take the first step.\n\n— Martin Luther King Jr. (adapted) 🌍\n\n#{{HASHTAG}} #smallsteps #believe",
+        "Don't let anyone tell you {{TOPIC}} isn't worth pursuing.\n\nThe people who laugh at your dreams are usually the ones afraid to chase theirs.\n\nKeep building. 🔥\n\n#{{HASHTAG}} #dreams #builders",
+        "{{TOPIC}} will test your patience. It will challenge you. It will make you question everything.\n\nBut on the other side? Growth you never imagined. 🦋\n\n#{{HASHTAG}} #patience #growth",
+        "365 days from now, you'll wish you started {{TOPIC}} today.\n\nSo start. Imperfectly. Messily. But start.\n\nFuture you is counting on present you. ⏰\n\n#{{HASHTAG}} #startnow #futureyou",
+        "The world needs more people passionate about {{TOPIC}}.\n\nDon't dim your light to make others comfortable.\n\nShine. Share. Inspire. 💡\n\n#{{HASHTAG}} #passion #shine",
+        "{{TOPIC}} is proof that when you combine passion with purpose, magic happens.\n\nFind what sets your soul on fire and chase it with everything you've got. 🔥\n\n#{{HASHTAG}} #passion #purpose"
+      ],
+      de: [
+        "{{TOPIC}} hat mir etwas Wichtiges beigebracht:\n\nErfolg geht nicht um Perfektion. Es geht darum, jeden Tag aufzutauchen.\n\nMach weiter. Dein Durchbruch ist näher als du denkst. 🌟\n\n#{{HASHTAG}} #motivation #nieaufgeben",
+        "Vor einem Jahr wusste ich nichts über {{TOPIC}}.\n\nHeute hat es meine gesamte Perspektive verändert.\n\nErinnerung: Du bist immer eine Entscheidung von einem komplett anderen Leben entfernt. ✨\n\n#{{HASHTAG}} #wachstum #veränderung",
+        "{{TOPIC}} beweist, dass die besten Dinge außerhalb deiner Komfortzone passieren.\n\nHör auf, auf den \"richtigen Moment\" zu warten. Der richtige Moment ist JETZT.\n\nGlaub an dich. Starte heute. 💪\n\n#{{HASHTAG}} #komfortzone #starteheute",
+        "Das Geheimnis über {{TOPIC}} das niemand erzählt:\n\nEs ist nicht Talent. Es ist nicht Glück. Es ist Disziplin und Konstanz.\n\nMach die Arbeit wenn niemand zuschaut. 🎯\n\n#{{HASHTAG}} #disziplin #konstanz",
+        "Wenn {{TOPIC}} mir etwas beigebracht hat:\n\nJeder Experte war einmal Anfänger.\nJeder Meister war einmal Schüler.\nJeder Erfolg war einmal ein Traum.\n\nFang an. 🚀\n\n#{{HASHTAG}} #anfänger #träume",
+        "365 Tage ab jetzt wünschst du dir, du hättest heute mit {{TOPIC}} angefangen.\n\nAlso fang an. Unperfekt. Chaotisch. Aber fang an.\n\nDein zukünftiges Ich zählt auf dich. ⏰\n\n#{{HASHTAG}} #jetztanfangen #zukunft"
+      ],
+      fi: [
+        "{{TOPIC}} opetti minulle jotain tärkeää:\n\nMenestys ei ole täydellisyyttä. Se on sitä, että ilmestyt joka päivä.\n\nJatka eteenpäin. Läpimurtosi on lähempänä kuin luulet. 🌟\n\n#{{HASHTAG}} #motivaatio #äläluovuta",
+        "Vuosi sitten en tiennyt mitään {{TOPIC}}.\n\nTänään se on muuttanut koko näkökulmani.\n\nMuistutus: olet aina yhden päätöksen päässä täysin erilaisesta elämästä. ✨\n\n#{{HASHTAG}} #kasvu #muutos",
+        "{{TOPIC}} todistaa, että parhaat asiat tapahtuvat mukavuusalueen ulkopuolella.\n\nLopeta \"oikean hetken\" odottaminen. Oikea hetki on NYT.\n\nUsko itseesi. Aloita tänään. 💪\n\n#{{HASHTAG}} #mukavuusalue #aloitatänään",
+        "Salaisuus {{TOPIC}}:sta jota kukaan ei kerro:\n\nEi ole lahjakkuutta. Ei ole onnea. Se on kurinalaisuutta ja johdonmukaisuutta.\n\nTee työ kun kukaan ei katso. 🎯\n\n#{{HASHTAG}} #kurinalaisuus #johdonmukaisuus",
+        "Jos {{TOPIC}} on opettanut minulle mitään:\n\nJokainen asiantuntija oli kerran aloittelija.\nJokainen mestari oli kerran oppilas.\nJokainen menestys oli kerran unelma.\n\nAloita. 🚀\n\n#{{HASHTAG}} #aloittelija #unelmat",
+        "365 päivän päästä toivot aloittaneesi {{TOPIC}} tänään.\n\nJoten aloita. Epätäydellisesti. Sotkuisesti. Mutta aloita.\n\nTuleva sinä luottaa nykyiseen sinuun. ⏰\n\n#{{HASHTAG}} #aloitanyt #tulevaisuus"
+      ],
+      es: [
+        "{{TOPIC}} me enseñó algo importante:\n\nEl éxito no es perfección. Es presentarse cada día.\n\nSigue adelante. Tu avance está más cerca de lo que piensas. 🌟\n\n#{{HASHTAG}} #motivación #nuncarendirse",
+        "Hace un año, no sabía nada sobre {{TOPIC}}.\n\nHoy, ha cambiado toda mi perspectiva.\n\nRecuerda: siempre estás a una decisión de una vida completamente diferente. ✨\n\n#{{HASHTAG}} #crecimiento #transformación",
+        "{{TOPIC}} demuestra que las mejores cosas pasan fuera de tu zona de confort.\n\nDeja de esperar el \"momento perfecto\". El momento perfecto es AHORA.\n\nCree en ti. Empieza hoy. 💪\n\n#{{HASHTAG}} #zonadeconfort #empiezahoy",
+        "El secreto sobre {{TOPIC}} que nadie te cuenta:\n\nNo es talento. No es suerte. Es disciplina y consistencia.\n\nHaz el trabajo cuando nadie mira. Los resultados hablarán. 🎯\n\n#{{HASHTAG}} #disciplina #consistencia",
+        "Si {{TOPIC}} me ha enseñado algo es esto:\n\nCada experto fue una vez principiante.\nCada maestro fue una vez alumno.\nCada éxito fue una vez un sueño.\n\nEmpieza. 🚀\n\n#{{HASHTAG}} #principiante #sueños",
+        "365 días a partir de ahora, desearás haber empezado {{TOPIC}} hoy.\n\nAsí que empieza. Imperfectamente. Desordenadamente. Pero empieza.\n\nTu yo futuro cuenta contigo. ⏰\n\n#{{HASHTAG}} #empiezaahora #tufuturo"
+      ]
+    }
+  },
+  tiktok: {
+    professional: {
+      en: [
+        "Here's what nobody tells you about {{TOPIC}} 👀\n\nThe truth might surprise you.\n\nFollow for more business insights 📈\n\n#{{HASHTAG}} #business #tips #fyp",
+        "{{TOPIC}} explained in 60 seconds ⏱️\n\nThis is the breakdown you've been waiting for.\n\nSave this — you'll need it.\n\n#{{HASHTAG}} #explained #knowledge #fyp",
+        "Stop scrolling. {{TOPIC}} is about to change your perspective 🎯\n\nMost people miss this. Don't be most people.\n\n#{{HASHTAG}} #mindset #success #fyp",
+        "3 reasons {{TOPIC}} will dominate 2026:\n\n1. Market demand is exploding\n2. Early movers are winning BIG\n3. The barrier to entry is shrinking\n\nGet in now. 🚀\n\n#{{HASHTAG}} #trends #2026 #fyp",
+        "I tried {{TOPIC}} for 30 days. Here's what happened:\n\nDay 1: Confused\nDay 15: Getting it\nDay 30: Changed my life\n\nWorth every minute. ✨\n\n#{{HASHTAG}} #30daychallenge #results #fyp",
+        "The #1 mistake people make with {{TOPIC}}? 🤔\n\nThey overcomplicate it.\n\nThe best approach is always the simplest one.\n\n#{{HASHTAG}} #mistakes #simple #fyp",
+        "{{TOPIC}} cheat code that pros won't share 🔑\n\nI'm giving it away for free.\n\nYou're welcome. Follow for more.\n\n#{{HASHTAG}} #cheatcode #free #fyp",
+        "POV: you finally understand {{TOPIC}} 🧠\n\nAnd everything starts making sense.\n\nThis is your sign to start.\n\n#{{HASHTAG}} #understanding #start #fyp",
+        "{{TOPIC}} in 2024: Niche\n{{TOPIC}} in 2025: Growing\n{{TOPIC}} in 2026: EVERYWHERE 📈\n\nAre you ready?\n\n#{{HASHTAG}} #evolution #future #fyp",
+        "5 things about {{TOPIC}} I wish I knew sooner:\n\n1. Start before you're ready\n2. Consistency > perfection\n3. Network is net worth\n4. Data beats opinions\n5. Just start\n\n#{{HASHTAG}} #wishlknew #advice #fyp",
+        "If you're not paying attention to {{TOPIC}}, you're falling behind. 💯\n\nHere's your wake-up call.\n\nFollow for daily insights.\n\n#{{HASHTAG}} #wakeupcall #daily #fyp",
+        "Unpopular opinion: {{TOPIC}} is easier than people think 🤷\n\nStop overthinking. Start doing.\n\nComment if you agree 👇\n\n#{{HASHTAG}} #unpopularopinion #easy #fyp"
+      ],
+      de: [
+        "Was dir niemand über {{TOPIC}} erzählt 👀\n\nDie Wahrheit könnte dich überraschen.\n\nFolge für mehr Business-Insights 📈\n\n#{{HASHTAG}} #business #tipps #fyp",
+        "{{TOPIC}} in 60 Sekunden erklärt ⏱️\n\nDas ist die Erklärung, auf die du gewartet hast.\n\nSpeichern — du wirst es brauchen.\n\n#{{HASHTAG}} #erklärt #wissen #fyp",
+        "Hör auf zu scrollen. {{TOPIC}} wird deine Perspektive verändern 🎯\n\nDie meisten verpassen das. Sei nicht die meisten.\n\n#{{HASHTAG}} #mindset #erfolg #fyp",
+        "3 Gründe warum {{TOPIC}} 2026 dominieren wird:\n\n1. Die Nachfrage explodiert\n2. First Mover gewinnen GROSS\n3. Die Eintrittsbarriere sinkt\n\nSteig jetzt ein. 🚀\n\n#{{HASHTAG}} #trends #2026 #fyp",
+        "Der #1 Fehler bei {{TOPIC}}? 🤔\n\nMenschen verkomplizieren es.\n\nDer beste Ansatz ist immer der einfachste.\n\n#{{HASHTAG}} #fehler #einfach #fyp",
+        "{{TOPIC}} Cheat Code den Profis nicht teilen 🔑\n\nIch gebe ihn kostenlos.\n\nBitte schön. Folge für mehr.\n\n#{{HASHTAG}} #cheatcode #kostenlos #fyp"
+      ],
+      fi: [
+        "Tässä mitä kukaan ei kerro {{TOPIC}} 👀\n\nTotuus voi yllättää.\n\nSeuraa lisää business-oivalluksia 📈\n\n#{{HASHTAG}} #business #vinkit #fyp",
+        "{{TOPIC}} selitettynä 60 sekunnissa ⏱️\n\nTämä on se erittely mitä olet odottanut.\n\nTallenna — tarvitset tätä.\n\n#{{HASHTAG}} #selitetty #tieto #fyp",
+        "Lopeta skrollaaminen. {{TOPIC}} muuttaa näkökulmaasi 🎯\n\nUseimmat missaavat tämän. Älä ole useimmat.\n\n#{{HASHTAG}} #ajattelutapa #menestys #fyp",
+        "3 syytä miksi {{TOPIC}} dominoi 2026:\n\n1. Kysyntä räjähtää\n2. Ensimmäiset liikkujat voittavat\n3. Aloituskynnys madaltuu\n\nHyppää mukaan nyt. 🚀\n\n#{{HASHTAG}} #trendit #2026 #fyp",
+        "#1 virhe {{TOPIC}}: 🤔\n\nIhmiset monimutkaistavat sen.\n\nParas lähestymistapa on aina yksinkertaisin.\n\n#{{HASHTAG}} #virheet #yksinkertainen #fyp",
+        "{{TOPIC}} huijauskoodi jota ammattilaiset ei jaa 🔑\n\nAnnan sen ilmaiseksi.\n\nOle hyvä. Seuraa lisää.\n\n#{{HASHTAG}} #huijauskoodi #ilmainen #fyp"
+      ],
+      es: [
+        "Lo que nadie te dice sobre {{TOPIC}} 👀\n\nLa verdad podría sorprenderte.\n\nSigue para más insights de negocios 📈\n\n#{{HASHTAG}} #negocios #tips #fyp",
+        "{{TOPIC}} explicado en 60 segundos ⏱️\n\nEsta es la explicación que estabas esperando.\n\nGuárdalo — lo vas a necesitar.\n\n#{{HASHTAG}} #explicado #conocimiento #fyp",
+        "Deja de scrollear. {{TOPIC}} va a cambiar tu perspectiva 🎯\n\nLa mayoría se lo pierde. No seas la mayoría.\n\n#{{HASHTAG}} #mentalidad #éxito #fyp",
+        "3 razones por las que {{TOPIC}} dominará 2026:\n\n1. La demanda está explotando\n2. Los primeros en moverse ganan EN GRANDE\n3. La barrera de entrada se reduce\n\nEntra ahora. 🚀\n\n#{{HASHTAG}} #tendencias #2026 #fyp",
+        "El error #1 con {{TOPIC}}? 🤔\n\nLo complican demasiado.\n\nEl mejor enfoque es siempre el más simple.\n\n#{{HASHTAG}} #errores #simple #fyp",
+        "Cheat code de {{TOPIC}} que los pros no comparten 🔑\n\nLo doy gratis.\n\nDe nada. Sígueme para más.\n\n#{{HASHTAG}} #cheatcode #gratis #fyp"
+      ]
+    },
+    casual: {
+      en: [
+        "wait wait wait… {{TOPIC}} is actually a thing?? 🤯\n\nI'm today years old finding this out\n\n#{{HASHTAG}} #todayyearsold #fyp #mindblown",
+        "me discovering {{TOPIC}} vs me 5 minutes later 😂\n\n*completely obsessed*\n\nwho else? 🙋\n\n#{{HASHTAG}} #relatable #fyp #lol",
+        "things that live rent free in my head:\n\n1. {{TOPIC}}\n2. {{TOPIC}}\n3. also {{TOPIC}}\n\nyeah i have a type 😅\n\n#{{HASHTAG}} #rentfree #fyp #obsessed",
+        "bestie you NEED to know about {{TOPIC}} 💅\n\nthis is the sign you've been waiting for\n\ntrust me on this one\n\n#{{HASHTAG}} #bestie #fyp #trustme",
+        "{{TOPIC}} check ✨\n\nif you know, you know\nif you don't… what are you doing with your life??\n\n#{{HASHTAG}} #ifyouknow #fyp #check",
+        "3am thoughts about {{TOPIC}} hit different 🌙\n\njust me staring at the ceiling thinking about possibilities\n\n#{{HASHTAG}} #3amthoughts #fyp #vibes",
+        "that feeling when {{TOPIC}} just CLICKS 🤩\n\nnobody prepared me for this level of excitement\n\n#{{HASHTAG}} #thatfeeling #fyp #excited",
+        "telling my mom about {{TOPIC}} like I'm presenting a thesis 😂\n\n*pulls out charts and graphs*\n\n#{{HASHTAG}} #mom #fyp #presentation",
+        "{{TOPIC}} era has officially begun 👑\n\neveryone else is behind\n\nsorry not sorry\n\n#{{HASHTAG}} #era #fyp #ahead",
+        "the way {{TOPIC}} just makes everything better 🥹\n\nno notes. perfect vibes.\n\n#{{HASHTAG}} #perfect #fyp #vibes",
+        "asked my cat about {{TOPIC}} and honestly the response was valid 🐱\n\n*stares judgmentally*\n\nfair enough\n\n#{{HASHTAG}} #cat #fyp #valid",
+        "{{TOPIC}} supremacy and i will not be taking questions 💁\n\nthis is a hill i will die on\n\n#{{HASHTAG}} #supremacy #fyp #facts"
+      ],
+      de: [
+        "warte warte warte… {{TOPIC}} ist echt ein Ding?? 🤯\n\nIch bin heute Jahre alt und finde das raus\n\n#{{HASHTAG}} #heuteJahrealt #fyp #mindblown",
+        "ich entdecke {{TOPIC}} vs ich 5 Minuten später 😂\n\n*komplett besessen*\n\nwer noch? 🙋\n\n#{{HASHTAG}} #relatable #fyp #lol",
+        "Dinge die mietfrei in meinem Kopf leben:\n\n1. {{TOPIC}}\n2. {{TOPIC}}\n3. auch {{TOPIC}}\n\nja ich hab einen Typ 😅\n\n#{{HASHTAG}} #mietfrei #fyp #besessen",
+        "bestie du MUSST von {{TOPIC}} wissen 💅\n\ndas ist das Zeichen auf das du gewartet hast\n\nvertrau mir\n\n#{{HASHTAG}} #bestie #fyp #vertraummir",
+        "{{TOPIC}} check ✨\n\nwenn du weißt, weißt du\nwenn nicht… was machst du mit deinem Leben??\n\n#{{HASHTAG}} #wennduweisst #fyp #check",
+        "3 Uhr Gedanken über {{TOPIC}} treffen anders 🌙\n\nnur ich an die Decke starrend und an Möglichkeiten denkend\n\n#{{HASHTAG}} #3uhrgedanken #fyp #vibes"
+      ],
+      fi: [
+        "odota odota… {{TOPIC}} on oikeesti juttu?? 🤯\n\nOon tänään vuotias kun saan tietää tän\n\n#{{HASHTAG}} #tänäänvuotias #fyp #mindblown",
+        "mä löydän {{TOPIC}} vs mä 5 minuuttia myöhemmin 😂\n\n*täysin obsessoitunut*\n\nkuka muu? 🙋\n\n#{{HASHTAG}} #samaistuttava #fyp #lol",
+        "asioita jotka asuu vuokravapaasti mun päässä:\n\n1. {{TOPIC}}\n2. {{TOPIC}}\n3. myös {{TOPIC}}\n\njoo mulla on tyyppi 😅\n\n#{{HASHTAG}} #vuokravapaa #fyp #obsessoitunut",
+        "bestis sun PITÄÄ tietää {{TOPIC}} 💅\n\ntää on se merkki mitä oot odottanut\n\nluota muhun\n\n#{{HASHTAG}} #bestis #fyp #luotamuhun",
+        "{{TOPIC}} check ✨\n\njos tiedät niin tiedät\njos et… mitä sä teet sun elämällä??\n\n#{{HASHTAG}} #jostiedät #fyp #check",
+        "3 yön ajatukset {{TOPIC}} osuu eri tavalla 🌙\n\nvaan mä tuijottamassa kattoa miettien mahdollisuuksia\n\n#{{HASHTAG}} #3yönajatukset #fyp #vibat"
+      ],
+      es: [
+        "espera espera… ¿{{TOPIC}} es real?? 🤯\n\nHoy tengo años y me acabo de enterar\n\n#{{HASHTAG}} #hoymeentero #fyp #mindblown",
+        "yo descubriendo {{TOPIC}} vs yo 5 minutos después 😂\n\n*completamente obsesionado*\n\n¿quién más? 🙋\n\n#{{HASHTAG}} #relatable #fyp #jaja",
+        "cosas que viven gratis en mi cabeza:\n\n1. {{TOPIC}}\n2. {{TOPIC}}\n3. también {{TOPIC}}\n\nsí tengo un tipo 😅\n\n#{{HASHTAG}} #rentfree #fyp #obsesionado",
+        "bestie TIENES que saber sobre {{TOPIC}} 💅\n\nesta es la señal que estabas esperando\n\nconfía en mí\n\n#{{HASHTAG}} #bestie #fyp #confíaenmí",
+        "{{TOPIC}} check ✨\n\nsi sabes, sabes\nsi no… ¿qué estás haciendo con tu vida??\n\n#{{HASHTAG}} #sisabes #fyp #check",
+        "pensamientos de las 3am sobre {{TOPIC}} pegan diferente 🌙\n\nsolo yo mirando el techo pensando en posibilidades\n\n#{{HASHTAG}} #pensamientos3am #fyp #vibras"
+      ]
+    },
+    funny: {
+      en: [
+        "me explaining {{TOPIC}} to absolutely nobody: 🗣️🗣️🗣️\n\nthe wall is a great listener tbh\n\n#{{HASHTAG}} #explaining #fyp #comedy",
+        "{{TOPIC}} really said \"bet you can't stop thinking about me\" and was RIGHT 😂\n\n#{{HASHTAG}} #cantstop #fyp #facts",
+        "my search history is just {{TOPIC}} in 47 different ways 🤡\n\nI'm not ashamed\n\nok maybe a little\n\n#{{HASHTAG}} #searchhistory #fyp #exposed",
+        "if {{TOPIC}} was a person they'd have a restraining order against me by now 😂\n\njust a LITTLE too invested\n\n#{{HASHTAG}} #invested #fyp #comedy",
+        "CEO of making {{TOPIC}} my entire personality 💀\n\nwhere's my award?\n\n#{{HASHTAG}} #ceo #fyp #personality",
+        "teacher: what did you learn today?\nme: {{TOPIC}}\nteacher: that's not in the curriculum\nme: then fix the curriculum 😤\n\n#{{HASHTAG}} #teacher #fyp #school",
+        "speedrun: how fast can I bring up {{TOPIC}} in any conversation\n\ncurrent record: 3.2 seconds 🏆\n\n#{{HASHTAG}} #speedrun #fyp #record",
+        "the group chat when I start talking about {{TOPIC}} again:\n\n*everyone leaves*\n\nmore room for me then 😂\n\n#{{HASHTAG}} #groupchat #fyp #alone",
+        "{{TOPIC}} really out here being more reliable than most people I know 💀\n\nat least IT doesn't cancel plans\n\n#{{HASHTAG}} #reliable #fyp #truth",
+        "my resume:\n- Expert in {{TOPIC}}\n- Also expert in {{TOPIC}}\n- Did I mention {{TOPIC}}?\n\nhired? 🥺\n\n#{{HASHTAG}} #resume #fyp #hired",
+        "dating app bio: \"I love {{TOPIC}} more than I'll ever love you\"\n\nhonesty is the best policy 🤷\n\n#{{HASHTAG}} #dating #fyp #honest",
+        "alarm: time to wake up\nme: *checks phone for {{TOPIC}} updates first*\n\npriorities 😤\n\n#{{HASHTAG}} #morning #fyp #priorities"
+      ],
+      de: [
+        "ich erkläre {{TOPIC}} absolutem niemand: 🗣️🗣️🗣️\n\ndie Wand ist ehrlich ein guter Zuhörer\n\n#{{HASHTAG}} #erklären #fyp #comedy",
+        "{{TOPIC}} hat echt gesagt \"du kannst nicht aufhören an mich zu denken\" und hatte RECHT 😂\n\n#{{HASHTAG}} #kannnichtstoppen #fyp #fakten",
+        "mein Suchverlauf ist nur {{TOPIC}} auf 47 verschiedene Arten 🤡\n\nich schäme mich nicht\n\nok vielleicht ein bisschen\n\n#{{HASHTAG}} #suchverlauf #fyp #erwischt",
+        "CEO davon {{TOPIC}} zu meiner gesamten Persönlichkeit zu machen 💀\n\nwo ist mein Preis?\n\n#{{HASHTAG}} #ceo #fyp #persönlichkeit",
+        "Lehrer: was hast du heute gelernt?\nich: {{TOPIC}}\nLehrer: das steht nicht im Lehrplan\nich: dann fix den Lehrplan 😤\n\n#{{HASHTAG}} #lehrer #fyp #schule",
+        "der Gruppenchat wenn ich wieder über {{TOPIC}} rede:\n\n*alle verlassen*\n\nmehr Platz für mich dann 😂\n\n#{{HASHTAG}} #gruppenchat #fyp #allein"
+      ],
+      fi: [
+        "mä selitän {{TOPIC}} ei kellekään: 🗣️🗣️🗣️\n\nseinä on rehellisesti hyvä kuuntelija\n\n#{{HASHTAG}} #selitän #fyp #komedia",
+        "{{TOPIC}} oikeesti sano \"et voi lopettaa ajattelemasta mua\" ja oli OIKEESSA 😂\n\n#{{HASHTAG}} #eivoilopettaa #fyp #faktoja",
+        "mun hakuhistoria on vaan {{TOPIC}} 47 eri tavalla 🤡\n\nen häpeä\n\nok ehkä vähän\n\n#{{HASHTAG}} #hakuhistoria #fyp #paljastunut",
+        "CEO siitä että {{TOPIC}} on mun koko persoonallisuus 💀\n\nmissä mun palkinto?\n\n#{{HASHTAG}} #ceo #fyp #persoonallisuus",
+        "opettaja: mitä opit tänään?\nmä: {{TOPIC}}\nopettaja: se ei oo opetussuunnitelmassa\nmä: sit korjaa opetussuunnitelma 😤\n\n#{{HASHTAG}} #opettaja #fyp #koulu",
+        "ryhmächätti kun alan taas puhumaan {{TOPIC}}:\n\n*kaikki lähtee*\n\nenemmän tilaa mulle sit 😂\n\n#{{HASHTAG}} #ryhmächätti #fyp #yksin"
+      ],
+      es: [
+        "yo explicando {{TOPIC}} a absolutamente nadie: 🗣️🗣️🗣️\n\nla pared es buen oyente la verdad\n\n#{{HASHTAG}} #explicando #fyp #comedia",
+        "{{TOPIC}} dijo \"apuesto a que no puedes dejar de pensar en mí\" y tenía RAZÓN 😂\n\n#{{HASHTAG}} #nopuedoparar #fyp #hechos",
+        "mi historial de búsqueda es solo {{TOPIC}} de 47 formas diferentes 🤡\n\nno me avergüenzo\n\nbueno quizás un poco\n\n#{{HASHTAG}} #historial #fyp #expuesto",
+        "CEO de hacer {{TOPIC}} toda mi personalidad 💀\n\n¿dónde está mi premio?\n\n#{{HASHTAG}} #ceo #fyp #personalidad",
+        "profe: ¿qué aprendiste hoy?\nyo: {{TOPIC}}\nprofe: eso no está en el plan de estudios\nyo: entonces arregla el plan 😤\n\n#{{HASHTAG}} #profe #fyp #escuela",
+        "el grupo cuando empiezo a hablar de {{TOPIC}} otra vez:\n\n*todos se van*\n\nmás espacio para mí entonces 😂\n\n#{{HASHTAG}} #grupo #fyp #solito"
+      ]
+    },
+    inspirational: {
+      en: [
+        "{{TOPIC}} taught me that you don't need permission to start 🚀\n\nJust begin. The path reveals itself.\n\n#{{HASHTAG}} #inspiration #fyp #start",
+        "I was scared to try {{TOPIC}}. Now it's changed everything.\n\nYour comfort zone is not your friend. Break free. 💪\n\n#{{HASHTAG}} #comfortzone #fyp #change",
+        "{{TOPIC}} proof that ordinary people can do extraordinary things ✨\n\nDon't count yourself out.\n\n#{{HASHTAG}} #extraordinary #fyp #believe",
+        "The moment I stopped doubting and started with {{TOPIC}}?\n\nEverything shifted.\n\nYour sign to START is this video. Go. 🎯\n\n#{{HASHTAG}} #stoptdoubting #fyp #go",
+        "{{TOPIC}} is not just a topic — it's a movement.\n\nAnd movements need people brave enough to join.\n\nWill you? 🌟\n\n#{{HASHTAG}} #movement #fyp #brave",
+        "Everyone said {{TOPIC}} was impossible.\n\nThey were wrong.\n\nNever let someone else's fear become your limit. 🔥\n\n#{{HASHTAG}} #impossible #fyp #nolimits",
+        "Reminder: your journey with {{TOPIC}} is valid, no matter where you are.\n\nDay 1 or Day 1000 — you're making progress. ❤️\n\n#{{HASHTAG}} #valid #fyp #progress",
+        "{{TOPIC}} mindset: fail forward, learn fast, never stop.\n\nThat's the formula.\n\n#{{HASHTAG}} #mindset #fyp #formula",
+        "Stop waiting for the \"perfect time\" to explore {{TOPIC}}.\n\nThe perfect time was yesterday. The next best time is NOW.\n\n⏰ Go.\n\n#{{HASHTAG}} #perfecttime #fyp #now",
+        "What if I told you {{TOPIC}} is the missing piece you've been searching for?\n\nOpen your mind. Try it.\n\nYou have nothing to lose. 💡\n\n#{{HASHTAG}} #missingpiece #fyp #try",
+        "{{TOPIC}} is proof: small daily actions create massive results.\n\nDay by day. Step by step.\n\nTrust the process. 🌱\n\n#{{HASHTAG}} #dailyactions #fyp #process",
+        "You're one {{TOPIC}} decision away from a completely different life.\n\nChoose growth. Choose courage.\n\nChoose YOU. 💜\n\n#{{HASHTAG}} #decision #fyp #chooseyou"
+      ],
+      de: [
+        "{{TOPIC}} hat mir beigebracht, dass du keine Erlaubnis brauchst um anzufangen 🚀\n\nFang einfach an. Der Weg zeigt sich.\n\n#{{HASHTAG}} #inspiration #fyp #anfangen",
+        "Ich hatte Angst {{TOPIC}} zu versuchen. Jetzt hat es alles verändert.\n\nDeine Komfortzone ist nicht dein Freund. Brich aus. 💪\n\n#{{HASHTAG}} #komfortzone #fyp #veränderung",
+        "{{TOPIC}} Beweis dass gewöhnliche Menschen außergewöhnliche Dinge tun können ✨\n\nZähle dich nicht aus.\n\n#{{HASHTAG}} #außergewöhnlich #fyp #glaube",
+        "Erinnerung: deine Reise mit {{TOPIC}} ist gültig, egal wo du bist.\n\nTag 1 oder Tag 1000 — du machst Fortschritte. ❤️\n\n#{{HASHTAG}} #gültig #fyp #fortschritt",
+        "Hör auf auf die \"perfekte Zeit\" für {{TOPIC}} zu warten.\n\nDie perfekte Zeit war gestern. Die nächstbeste ist JETZT.\n\n⏰ Los.\n\n#{{HASHTAG}} #perfektezeit #fyp #jetzt",
+        "Du bist eine {{TOPIC}} Entscheidung von einem komplett anderen Leben entfernt.\n\nWähle Wachstum. Wähle Mut.\n\nWähle DICH. 💜\n\n#{{HASHTAG}} #entscheidung #fyp #wähledich"
+      ],
+      fi: [
+        "{{TOPIC}} opetti ettei tarvii lupaa aloittaa 🚀\n\nAloita vaan. Polku paljastuu.\n\n#{{HASHTAG}} #inspiraatio #fyp #aloita",
+        "Mua pelotti kokeilla {{TOPIC}}. Nyt se on muuttanut kaiken.\n\nMukavuusalueesi ei ole ystäväsi. Vapaudu. 💪\n\n#{{HASHTAG}} #mukavuusalue #fyp #muutos",
+        "{{TOPIC}} todiste että tavalliset ihmiset voi tehdä epätavallisia asioita ✨\n\nÄlä jätä itseäsi ulkopuolelle.\n\n#{{HASHTAG}} #epätavallinen #fyp #usko",
+        "Muistutus: sun matka {{TOPIC}} kanssa on validi, missä tahansa ootkin.\n\nPäivä 1 tai päivä 1000 — edistyt. ❤️\n\n#{{HASHTAG}} #validi #fyp #edistys",
+        "Lopeta \"täydellisen ajan\" odottaminen {{TOPIC}}.\n\nTäydellinen aika oli eilen. Seuraava paras on NYT.\n\n⏰ Mene.\n\n#{{HASHTAG}} #täydellinenaika #fyp #nyt",
+        "Olet yhden {{TOPIC}} päätöksen päässä täysin erilaisesta elämästä.\n\nValitse kasvu. Valitse rohkeus.\n\nValitse SINÄ. 💜\n\n#{{HASHTAG}} #päätös #fyp #valitsesinä"
+      ],
+      es: [
+        "{{TOPIC}} me enseñó que no necesitas permiso para empezar 🚀\n\nSolo empieza. El camino se revela solo.\n\n#{{HASHTAG}} #inspiración #fyp #empieza",
+        "Tenía miedo de probar {{TOPIC}}. Ahora ha cambiado todo.\n\nTu zona de confort no es tu amiga. Libérate. 💪\n\n#{{HASHTAG}} #zonadeconfort #fyp #cambio",
+        "{{TOPIC}} prueba de que personas ordinarias pueden hacer cosas extraordinarias ✨\n\nNo te descartes.\n\n#{{HASHTAG}} #extraordinario #fyp #cree",
+        "Recordatorio: tu viaje con {{TOPIC}} es válido, sin importar dónde estés.\n\nDía 1 o día 1000 — estás progresando. ❤️\n\n#{{HASHTAG}} #válido #fyp #progreso",
+        "Deja de esperar el \"momento perfecto\" para {{TOPIC}}.\n\nEl momento perfecto fue ayer. El siguiente mejor es AHORA.\n\n⏰ Ve.\n\n#{{HASHTAG}} #momentoperfecto #fyp #ahora",
+        "Estás a una decisión de {{TOPIC}} de una vida completamente diferente.\n\nElige crecer. Elige coraje.\n\nElígete a TI. 💜\n\n#{{HASHTAG}} #decisión #fyp #elígete"
+      ]
+    }
+  },
+  linkedin: {
+    professional: {
+      en: [
+        "I've been studying {{TOPIC}} for months. Here's what I've learned:\n\nThe companies that embrace it early are seeing 3x the results of those who wait.\n\nKey takeaways:\n→ Start small, but start NOW\n→ Data-driven decisions win\n→ Consistency compounds over time\n\nThe question isn't whether {{TOPIC}} matters. It's whether you'll act before your competitors do.\n\nWhat's your experience? I'd love to hear your thoughts. 👇\n\n#{{HASHTAG}} #business #leadership",
+        "Unpopular opinion about {{TOPIC}}:\n\nMost businesses are approaching it completely wrong.\n\nThey focus on:\n❌ Chasing trends\n❌ Copying competitors\n❌ Overcomplicating strategy\n\nInstead, they should focus on:\n✅ Understanding fundamentals\n✅ Building systems\n✅ Measuring what matters\n\nSimplicity wins. Every time.\n\nAgree or disagree? Let me know below.\n\n#{{HASHTAG}} #strategy #growth",
+        "{{TOPIC}} — a thread on why this matters more than ever:\n\n1/ The market is shifting\n2/ Early adopters are winning\n3/ The cost of inaction is rising\n4/ Your competitors are already moving\n5/ The ROI speaks for itself\n\nIf you're a business leader reading this: the time to act is now.\n\nBookmark this post. Share it with your team. Start the conversation.\n\n#{{HASHTAG}} #leadership #innovation",
+        "5 lessons from {{TOPIC}} that every professional should know:\n\n1. Start before you're ready\n2. Imperfect action beats perfect inaction\n3. The best time to start was yesterday\n4. Compound growth is real\n5. Consistency is the real competitive advantage\n\nWhich lesson resonates most with you?\n\n#{{HASHTAG}} #professionaldevelopment #lessons",
+        "I asked 50 professionals about {{TOPIC}}.\n\nThe results surprised me:\n\n→ 78% said it's their top priority for 2026\n→ 62% wish they'd started sooner\n→ 91% believe it will transform their industry\n\nThe data is clear. The opportunity is NOW.\n\nDon't be the 22% who wait too long.\n\n#{{HASHTAG}} #data #opportunity",
+        "Hot take: {{TOPIC}} isn't about technology. It's about people.\n\nThe most successful implementations I've seen share one thing:\n\nThey put humans at the center.\n\n→ Understanding user needs\n→ Building for real problems\n→ Measuring human impact\n\nTechnology is the enabler. People are the purpose.\n\n#{{HASHTAG}} #humanfirst #purpose",
+        "The ROI of {{TOPIC}} in 3 numbers:\n\n📈 47% increase in efficiency\n💰 3.2x return on investment\n⏱️ 60% time saved on repetitive tasks\n\nThese aren't projections. These are real results from real businesses.\n\nIf you're not investing in {{TOPIC}}, you're leaving money on the table.\n\nDM me if you want to learn how to get started.\n\n#{{HASHTAG}} #ROI #results",
+        "I made a mistake with {{TOPIC}} last year.\n\nI overthought it. I waited for the \"perfect moment.\" I let analysis paralysis win.\n\nHere's what I'd tell my past self:\n\n→ Done is better than perfect\n→ Start with one small experiment\n→ Learn from the data, not from fear\n\nLesson learned. Now I'm all in.\n\n#{{HASHTAG}} #lessonslearned #growth"
+      ],
+      de: [
+        "Ich habe {{TOPIC}} monatelang studiert. Hier ist was ich gelernt habe:\n\nUnternehmen die es früh nutzen, sehen 3x bessere Ergebnisse.\n\nWichtigste Erkenntnisse:\n→ Fang klein an, aber fang JETZT an\n→ Datengetriebene Entscheidungen gewinnen\n→ Konstanz potenziert sich über Zeit\n\nWas ist Ihre Erfahrung? Ich würde gerne Ihre Meinung hören. 👇\n\n#{{HASHTAG}} #business #führung",
+        "Kontroverse Meinung über {{TOPIC}}:\n\nDie meisten Unternehmen gehen es völlig falsch an.\n\nSie fokussieren sich auf:\n❌ Trends nachjagen\n❌ Wettbewerber kopieren\n❌ Strategie verkomplizieren\n\nStattdessen sollten sie:\n✅ Grundlagen verstehen\n✅ Systeme aufbauen\n✅ Messbare Ergebnisse verfolgen\n\nEinfachheit gewinnt. Jedes Mal.\n\n#{{HASHTAG}} #strategie #wachstum",
+        "5 Lektionen von {{TOPIC}} die jeder Professional kennen sollte:\n\n1. Starte bevor du bereit bist\n2. Unperfektes Handeln schlägt perfektes Nichtstun\n3. Die beste Zeit zu starten war gestern\n4. Zinseszinseffekt ist real\n5. Konstanz ist der wahre Wettbewerbsvorteil\n\nWelche Lektion resoniert am meisten?\n\n#{{HASHTAG}} #professionelleentwicklung #lektionen",
+        "Der ROI von {{TOPIC}} in 3 Zahlen:\n\n📈 47% Effizienzsteigerung\n💰 3.2x Return on Investment\n⏱️ 60% Zeitersparnis bei repetitiven Aufgaben\n\nDas sind keine Prognosen. Das sind echte Ergebnisse.\n\nWenn Sie nicht in {{TOPIC}} investieren, verschenken Sie Geld.\n\n#{{HASHTAG}} #ROI #ergebnisse"
+      ],
+      fi: [
+        "Olen tutkinut {{TOPIC}} kuukausia. Tässä mitä opin:\n\nYritykset jotka omaksuvat sen aikaisin näkevät 3x tulokset.\n\nKeskeiset oivallukset:\n→ Aloita pienestä, mutta aloita NYT\n→ Dataohjatut päätökset voittavat\n→ Johdonmukaisuus kumuloituu ajan myötä\n\nMikä on kokemuksesi? Kuulisin mielelläni. 👇\n\n#{{HASHTAG}} #liiketoiminta #johtajuus",
+        "Eriävä mielipide {{TOPIC}}:\n\nUseimmat yritykset lähestyvät sitä täysin väärin.\n\nNe keskittyvät:\n❌ Trendien perässä juoksemiseen\n❌ Kilpailijoiden kopiointiin\n❌ Strategian monimutkistamiseen\n\nSen sijaan pitäisi:\n✅ Ymmärtää perusteet\n✅ Rakentaa järjestelmiä\n✅ Mitata oikeita asioita\n\nYksinkertaisuus voittaa.\n\n#{{HASHTAG}} #strategia #kasvu",
+        "5 oppia {{TOPIC}} jotka jokaisen ammattilaisen tulisi tietää:\n\n1. Aloita ennen kuin olet valmis\n2. Epätäydellinen toiminta voittaa täydellisen toimettomuuden\n3. Paras aika aloittaa oli eilen\n4. Kumulatiivinen kasvu on todellista\n5. Johdonmukaisuus on todellinen kilpailuetu\n\nMikä oppi resonoi eniten?\n\n#{{HASHTAG}} #ammatillinenkehitys #opit",
+        "{{TOPIC}} ROI kolmessa numerossa:\n\n📈 47% tehokkuuden kasvu\n💰 3.2x sijoitetun pääoman tuotto\n⏱️ 60% aikasäästö toistuvissa tehtävissä\n\nNämä eivät ole ennusteita. Nämä ovat todellisia tuloksia.\n\n#{{HASHTAG}} #ROI #tulokset"
+      ],
+      es: [
+        "He estado estudiando {{TOPIC}} durante meses. Esto es lo que aprendí:\n\nLas empresas que lo adoptan temprano ven 3x mejores resultados.\n\nConclusiones clave:\n→ Empieza pequeño, pero empieza AHORA\n→ Las decisiones basadas en datos ganan\n→ La consistencia se compone con el tiempo\n\n¿Cuál es tu experiencia? Me encantaría escuchar. 👇\n\n#{{HASHTAG}} #negocios #liderazgo",
+        "Opinión impopular sobre {{TOPIC}}:\n\nLa mayoría de empresas lo están haciendo completamente mal.\n\nSe enfocan en:\n❌ Perseguir tendencias\n❌ Copiar competidores\n❌ Sobrecomplicar la estrategia\n\nEn cambio, deberían:\n✅ Entender los fundamentos\n✅ Construir sistemas\n✅ Medir lo que importa\n\nLa simplicidad gana. Siempre.\n\n#{{HASHTAG}} #estrategia #crecimiento",
+        "5 lecciones de {{TOPIC}} que todo profesional debería saber:\n\n1. Empieza antes de estar listo\n2. La acción imperfecta supera la inacción perfecta\n3. El mejor momento para empezar fue ayer\n4. El crecimiento compuesto es real\n5. La consistencia es la verdadera ventaja competitiva\n\n¿Cuál te resuena más?\n\n#{{HASHTAG}} #desarrolloprofesional #lecciones",
+        "El ROI de {{TOPIC}} en 3 números:\n\n📈 47% aumento en eficiencia\n💰 3.2x retorno de inversión\n⏱️ 60% ahorro de tiempo en tareas repetitivas\n\nNo son proyecciones. Son resultados reales de negocios reales.\n\n#{{HASHTAG}} #ROI #resultados"
+      ]
+    },
+    casual: {
+      en: [
+        "Can we normalize talking about {{TOPIC}} more openly?\n\nI feel like everyone's thinking about it but nobody's saying it.\n\nSo here goes: I'm all in on {{TOPIC}} and I'm not ashamed.\n\nWho's with me? 🙋\n\n#{{HASHTAG}} #openconversation",
+        "Real talk: I've been diving deep into {{TOPIC}} lately.\n\nNot because it's trendy. Because it genuinely excites me.\n\nAnd you know what? That excitement is everything.\n\nWhen was the last time something in your career genuinely excited you?\n\n#{{HASHTAG}} #passion #career",
+        "My LinkedIn feed is full of hot takes on {{TOPIC}}.\n\nHere's my lukewarm take:\n\nIt works when you stop overthinking it and just start doing.\n\nThat's it. That's the post.\n\n#{{HASHTAG}} #simplicity #action",
+        "{{TOPIC}} update from the trenches:\n\nWeek 1: What am I doing?\nWeek 4: Starting to see patterns\nWeek 8: Okay this is actually working\nWeek 12: Why didn't I start sooner?!\n\nThe learning curve is real but so are the results.\n\n#{{HASHTAG}} #journey #realresults"
+      ],
+      de: [
+        "Können wir normalisieren über {{TOPIC}} offener zu sprechen?\n\nIch habe das Gefühl alle denken darüber nach aber niemand sagt es.\n\nAlso: Ich bin all-in bei {{TOPIC}} und ich schäme mich nicht.\n\nWer ist dabei? 🙋\n\n#{{HASHTAG}} #offenesGespräch",
+        "Ehrlich gesagt: Ich tauche gerade tief in {{TOPIC}} ein.\n\nNicht weil es trendy ist. Weil es mich wirklich begeistert.\n\nUnd wissen Sie was? Diese Begeisterung ist alles.\n\n#{{HASHTAG}} #leidenschaft #karriere",
+        "{{TOPIC}} Update aus den Schützengräben:\n\nWoche 1: Was mache ich?\nWoche 4: Sehe Muster\nWoche 8: Okay das funktioniert\nWoche 12: Warum nicht früher?!\n\nDie Lernkurve ist echt, die Ergebnisse aber auch.\n\n#{{HASHTAG}} #reise #ergebnisse"
+      ],
+      fi: [
+        "Voitaisiinko normalisoida puhuminen {{TOPIC}} avoimemmin?\n\nTuntuu että kaikki miettii sitä mutta kukaan ei sano.\n\nJoten: olen all-in {{TOPIC}} enkä häpeä.\n\nKuka on mukana? 🙋\n\n#{{HASHTAG}} #avoinKeskustelu",
+        "Ihan rehellisesti: olen sukeltanut syvälle {{TOPIC}} viime aikoina.\n\nEi siksi että se on trendikästä. Koska se oikeasti innostaa.\n\nJa tiedätkö? Se innostus on kaikki kaikessa.\n\n#{{HASHTAG}} #intohimo #ura",
+        "{{TOPIC}} päivitys rintamalta:\n\nViikko 1: Mitä mä teen?\nViikko 4: Alan nähdä kaavoja\nViikko 8: Ok tää oikeesti toimii\nViikko 12: Miksen aloittanut aiemmin?!\n\nOppimiskäyrä on todellinen mutta niin ovat tuloksetkin.\n\n#{{HASHTAG}} #matka #tulokset"
+      ],
+      es: [
+        "¿Podemos normalizar hablar de {{TOPIC}} más abiertamente?\n\nSiento que todos piensan en ello pero nadie lo dice.\n\nAsí que: estoy all-in con {{TOPIC}} y no me avergüenzo.\n\n¿Quién se apunta? 🙋\n\n#{{HASHTAG}} #conversaciónabierta",
+        "Hablando en serio: he estado profundizando en {{TOPIC}} últimamente.\n\nNo porque sea tendencia. Porque genuinamente me emociona.\n\n¿Y sabes qué? Esa emoción lo es todo.\n\n#{{HASHTAG}} #pasión #carrera",
+        "{{TOPIC}} actualización desde las trincheras:\n\nSemana 1: ¿Qué estoy haciendo?\nSemana 4: Empiezo a ver patrones\nSemana 8: Esto realmente funciona\nSemana 12: ¡¿Por qué no empecé antes?!\n\nLa curva de aprendizaje es real pero los resultados también.\n\n#{{HASHTAG}} #viaje #resultadosreales"
+      ]
+    },
+    funny: {
+      en: [
+        "My LinkedIn connections when I post about {{TOPIC}} for the 47th time:\n\n👁️👄👁️\n\nSorry not sorry. This is my brand now.\n\n#{{HASHTAG}} #sorrynotsorry #brand",
+        "Interviewer: \"Where do you see yourself in 5 years?\"\nMe: \"Fully immersed in {{TOPIC}}\"\nInterviewer: \"That's not a career plan\"\nMe: \"That's where you're wrong\" 😎\n\n#{{HASHTAG}} #interview #careergoals",
+        "POV: You're a recruiter and my top skill listed is \"{{TOPIC}} enthusiast\"\n\n...Still hiring? 🥺\n\n#{{HASHTAG}} #recruiting #skills",
+        "My professional development plan:\n\nQ1: Learn about {{TOPIC}} ✅\nQ2: Talk about {{TOPIC}} ✅\nQ3: Become {{TOPIC}} 🔄\nQ4: Profit ???\n\nSolid plan if you ask me.\n\n#{{HASHTAG}} #professionaldevelopment #plan"
+      ],
+      de: [
+        "Meine LinkedIn-Kontakte wenn ich zum 47. Mal über {{TOPIC}} poste:\n\n👁️👄👁️\n\nSorry not sorry. Das ist jetzt meine Marke.\n\n#{{HASHTAG}} #sorrynotsorry #marke",
+        "Interviewer: \"Wo sehen Sie sich in 5 Jahren?\"\nIch: \"Voll eingetaucht in {{TOPIC}}\"\nInterviewer: \"Das ist kein Karriereplan\"\nIch: \"Da irren Sie sich\" 😎\n\n#{{HASHTAG}} #interview #karriereziele",
+        "Mein Weiterbildungsplan:\n\nQ1: {{TOPIC}} lernen ✅\nQ2: Über {{TOPIC}} reden ✅\nQ3: {{TOPIC}} werden 🔄\nQ4: Profit ???\n\nSolider Plan wenn Sie mich fragen.\n\n#{{HASHTAG}} #weiterbildung #plan"
+      ],
+      fi: [
+        "Mun LinkedIn-kontaktit kun postaan {{TOPIC}} 47. kerran:\n\n👁️👄👁️\n\nSori en sori. Tää on mun brändi nyt.\n\n#{{HASHTAG}} #sorinensori #brändi",
+        "Haastattelija: \"Missä näet itsesi 5 vuoden päästä?\"\nMä: \"Täysin uppoutuneena {{TOPIC}}\"\nHaastattelija: \"Se ei oo urasuunnitelma\"\nMä: \"Siinä olet väärässä\" 😎\n\n#{{HASHTAG}} #haastattelu #uratavoitteet",
+        "Mun ammatillinen kehityssuunnitelma:\n\nQ1: Opiskele {{TOPIC}} ✅\nQ2: Puhu {{TOPIC}} ✅\nQ3: Tule {{TOPIC}} 🔄\nQ4: Tuotto ???\n\nVankka suunnitelma mun mielestä.\n\n#{{HASHTAG}} #ammatillinenkehitys #suunnitelma"
+      ],
+      es: [
+        "Mis contactos de LinkedIn cuando publico sobre {{TOPIC}} por 47a vez:\n\n👁️👄👁️\n\nSorry not sorry. Esta es mi marca ahora.\n\n#{{HASHTAG}} #sorrynotsorry #marca",
+        "Entrevistador: \"¿Dónde te ves en 5 años?\"\nYo: \"Totalmente inmerso en {{TOPIC}}\"\nEntrevistador: \"Eso no es un plan de carrera\"\nYo: \"Ahí es donde te equivocas\" 😎\n\n#{{HASHTAG}} #entrevista #metasprofesionales",
+        "Mi plan de desarrollo profesional:\n\nQ1: Aprender {{TOPIC}} ✅\nQ2: Hablar de {{TOPIC}} ✅\nQ3: Convertirme en {{TOPIC}} 🔄\nQ4: ¿Profit?\n\nPlan sólido en mi opinión.\n\n#{{HASHTAG}} #desarrolloprofesional #plan"
+      ]
+    },
+    inspirational: {
+      en: [
+        "I want to share something personal about my journey with {{TOPIC}}.\n\n6 months ago, I had zero experience. Zero connections. Zero confidence.\n\nToday? I'm seeing results I never imagined possible.\n\nThe difference? I started before I was ready.\n\nIf you're waiting for the \"right time\" to explore {{TOPIC}} — this is your sign.\n\nStart messy. Learn fast. Grow daily.\n\nYour future self will thank you.\n\n#{{HASHTAG}} #journey #growth #inspiration",
+        "{{TOPIC}} reminded me of something I'd forgotten:\n\nSuccess isn't about knowing everything. It's about being willing to learn anything.\n\nThe most successful people I know share one trait: relentless curiosity.\n\nStay curious. Stay humble. Stay hungry.\n\nThe world needs more learners.\n\n#{{HASHTAG}} #curiosity #learning #success",
+        "To everyone struggling with {{TOPIC}} right now:\n\nYou're not behind. You're not too late. You're not unqualified.\n\nYou're learning. And that takes courage.\n\nKeep going. The breakthrough is closer than you think.\n\nI believe in you. Even if you don't believe in yourself yet.\n\n💪 Share this with someone who needs it today.\n\n#{{HASHTAG}} #encouragement #keepgoing",
+        "The most underrated skill in {{TOPIC}}? Patience.\n\nEveryone wants overnight success. But the real magic happens in the quiet, consistent work that nobody sees.\n\nDay after day. Week after week.\n\nThat's where champions are built.\n\nKeep putting in the work. Your time is coming.\n\n#{{HASHTAG}} #patience #consistency #champions"
+      ],
+      de: [
+        "Ich möchte etwas Persönliches über meine Reise mit {{TOPIC}} teilen.\n\nVor 6 Monaten hatte ich null Erfahrung. Null Kontakte. Null Vertrauen.\n\nHeute? Sehe ich Ergebnisse, die ich nie für möglich gehalten hätte.\n\nDer Unterschied? Ich habe angefangen bevor ich bereit war.\n\nWenn Sie auf die \"richtige Zeit\" warten — das ist Ihr Zeichen.\n\nFangen Sie chaotisch an. Lernen Sie schnell. Wachsen Sie täglich.\n\n#{{HASHTAG}} #reise #wachstum #inspiration",
+        "{{TOPIC}} hat mich an etwas erinnert:\n\nErfolg heißt nicht alles zu wissen. Es heißt bereit zu sein alles zu lernen.\n\nBleiben Sie neugierig. Bleiben Sie bescheiden. Bleiben Sie hungrig.\n\n#{{HASHTAG}} #neugier #lernen #erfolg",
+        "An alle die gerade mit {{TOPIC}} kämpfen:\n\nSie sind nicht hinterher. Sie sind nicht zu spät. Sie sind nicht unqualifiziert.\n\nSie lernen. Und das braucht Mut.\n\nMachen Sie weiter. Der Durchbruch ist näher als Sie denken.\n\n#{{HASHTAG}} #ermutigung #weitermachen",
+        "Die unterschätzteste Fähigkeit bei {{TOPIC}}? Geduld.\n\nAlle wollen Erfolg über Nacht. Aber die wahre Magie passiert in der leisen, konstanten Arbeit.\n\nTag für Tag. Woche für Woche.\n\n#{{HASHTAG}} #geduld #konstanz #champions"
+      ],
+      fi: [
+        "Haluan jakaa jotain henkilökohtaista matkastani {{TOPIC}} kanssa.\n\n6 kuukautta sitten minulla oli nolla kokemusta. Nolla kontakteja. Nolla itseluottamusta.\n\nTänään? Näen tuloksia joita en koskaan kuvitellut mahdollisiksi.\n\nEro? Aloitin ennen kuin olin valmis.\n\nJos odotat \"oikeaa aikaa\" — tämä on merkkisi.\n\nAloita sotkuisesti. Opi nopeasti. Kasva päivittäin.\n\n#{{HASHTAG}} #matka #kasvu #inspiraatio",
+        "{{TOPIC}} muistutti minua jostakin:\n\nMenestys ei ole kaiken tietämistä. Se on halukkuutta oppia mitä tahansa.\n\nPysy uteliaana. Pysy nöyränä. Pysy nälkäisenä.\n\n#{{HASHTAG}} #uteliaisuus #oppiminen #menestys",
+        "Kaikille jotka kamppailevat {{TOPIC}} kanssa juuri nyt:\n\nEt ole jäljessä. Et ole myöhässä. Et ole pätevöitymätön.\n\nOpit. Ja se vaatii rohkeutta.\n\nJatka eteenpäin. Läpimurto on lähempänä kuin luulet.\n\n#{{HASHTAG}} #rohkaisu #jatkaeteenpäin",
+        "Aliarvotetuin taito {{TOPIC}}? Kärsivällisyys.\n\nKaikki haluavat menestystä yhdessä yössä. Mutta todellinen taika tapahtuu hiljaisessa, johdonmukaisessa työssä.\n\nPäivä toisensa jälkeen.\n\n#{{HASHTAG}} #kärsivällisyys #johdonmukaisuus"
+      ],
+      es: [
+        "Quiero compartir algo personal sobre mi viaje con {{TOPIC}}.\n\nHace 6 meses, tenía cero experiencia. Cero contactos. Cero confianza.\n\n¿Hoy? Estoy viendo resultados que nunca imaginé posibles.\n\nLa diferencia? Empecé antes de estar listo.\n\nSi estás esperando el \"momento correcto\" — esta es tu señal.\n\nEmpieza desordenado. Aprende rápido. Crece diario.\n\n#{{HASHTAG}} #viaje #crecimiento #inspiración",
+        "{{TOPIC}} me recordó algo:\n\nEl éxito no es saberlo todo. Es estar dispuesto a aprender cualquier cosa.\n\nMantente curioso. Mantente humilde. Mantente hambriento.\n\n#{{HASHTAG}} #curiosidad #aprendizaje #éxito",
+        "A todos los que luchan con {{TOPIC}} ahora mismo:\n\nNo estás atrasado. No es tarde. No estás descalificado.\n\nEstás aprendiendo. Y eso requiere coraje.\n\nSigue adelante. El avance está más cerca de lo que piensas.\n\n#{{HASHTAG}} #ánimo #siguedelante",
+        "La habilidad más infravalorada en {{TOPIC}}? Paciencia.\n\nTodos quieren éxito de la noche a la mañana. Pero la magia real ocurre en el trabajo silencioso y consistente.\n\nDía tras día. Semana tras semana.\n\n#{{HASHTAG}} #paciencia #consistencia"
+      ]
+    }
+  },
+  twitter: {
+    professional: {
+      en: [
+        "{{TOPIC}} is the most underrated opportunity of 2026.\n\nMost people won't see it until it's too late.\n\nHere's what the smart money is doing: 🧵\n\n#{{HASHTAG}}",
+        "Hot take: {{TOPIC}} will create more millionaires in the next 5 years than any other trend.\n\nThe early movers always win. Don't wait for consensus.\n\n#{{HASHTAG}}",
+        "3 reasons to pay attention to {{TOPIC}} right now:\n\n1. Market demand is 10x what it was last year\n2. Barriers to entry are dropping fast\n3. First-mover advantage is massive\n\nThe window is open. Will you walk through it?\n\n#{{HASHTAG}}",
+        "Everyone's talking about {{TOPIC}} but nobody's talking about the REAL opportunity.\n\nIt's not the thing itself.\n\nIt's the infrastructure around it.\n\nThink about that.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} prediction for 2026:\n\n→ 10x growth minimum\n→ Major players entering the space\n→ Regulation incoming (but too late to stop momentum)\n→ Early adopters become the new establishment\n\nRemember this tweet.\n\n#{{HASHTAG}}",
+        "The #1 skill for {{TOPIC}} success?\n\nNot intelligence.\nNot connections.\nNot capital.\n\nPatience.\n\nThe compound effect is unbeatable when you give it time.\n\n#{{HASHTAG}}",
+        "If you're sleeping on {{TOPIC}}, you're leaving money on the table.\n\nNot next year. Right now.\n\nEvery day you wait is opportunity cost you can't recover.\n\n#{{HASHTAG}}",
+        "My framework for {{TOPIC}}:\n\n1. Study (1 week)\n2. Experiment (1 week)\n3. Analyze results (3 days)\n4. Double down on what works\n5. Cut everything else\n\nSimple? Yes.\nEffective? Extremely.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} isn't a trend.\n\nIt's a paradigm shift.\n\nThe sooner you understand the difference, the better positioned you'll be.\n\n#{{HASHTAG}}",
+        "Controversial: 90% of advice about {{TOPIC}} is wrong.\n\nIt comes from people who talk about it, not people who DO it.\n\nFilter your information sources ruthlessly.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} truth bomb:\n\nThe people making real money aren't posting about it.\n\nThey're quietly building while everyone else debates.\n\nBe a builder, not a commenter.\n\n#{{HASHTAG}}",
+        "How to win at {{TOPIC}} in 2026:\n\n→ Start before January\n→ Be consistent (not viral)\n→ Build systems (not habits)\n→ Think in years (not months)\n\nSimple. Not easy.\n\n#{{HASHTAG}}"
+      ],
+      de: [
+        "{{TOPIC}} ist die unterschätzteste Chance 2026.\n\nDie meisten werden es erst sehen wenn es zu spät ist.\n\nHier ist was die Schlauen machen: 🧵\n\n#{{HASHTAG}}",
+        "Heißer Take: {{TOPIC}} wird in den nächsten 5 Jahren mehr Millionäre schaffen als jeder andere Trend.\n\nDie Early Mover gewinnen immer.\n\n#{{HASHTAG}}",
+        "3 Gründe {{TOPIC}} jetzt zu beachten:\n\n1. Nachfrage ist 10x höher als letztes Jahr\n2. Eintrittsbarrieren fallen schnell\n3. First-Mover Vorteil ist massiv\n\nDas Fenster ist offen.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} Prognose für 2026:\n\n→ Minimum 10x Wachstum\n→ Große Player betreten den Markt\n→ Regulierung kommt (aber zu spät)\n→ Early Adopters werden das neue Establishment\n\nMerkt euch diesen Tweet.\n\n#{{HASHTAG}}",
+        "Wenn ihr {{TOPIC}} verschlaft, verschenkt ihr Geld.\n\nNicht nächstes Jahr. Jetzt gerade.\n\nJeder Tag den ihr wartet sind verlorene Opportunitätskosten.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} ist kein Trend.\n\nEs ist ein Paradigmenwechsel.\n\nJe schneller ihr den Unterschied versteht, desto besser positioniert seid ihr.\n\n#{{HASHTAG}}"
+      ],
+      fi: [
+        "{{TOPIC}} on 2026 aliarvotetuin mahdollisuus.\n\nUseimmat näkevät sen vasta kun on liian myöhäistä.\n\nTässä mitä fiksut tekevät: 🧵\n\n#{{HASHTAG}}",
+        "Kuuma mielipide: {{TOPIC}} luo enemmän miljonäärejä seuraavan 5 vuoden aikana kuin mikään muu trendi.\n\nEnsimmäiset liikkujat voittavat aina.\n\n#{{HASHTAG}}",
+        "3 syytä kiinnittää huomiota {{TOPIC}} juuri nyt:\n\n1. Kysyntä on 10x viime vuoteen verrattuna\n2. Aloituskynnys madaltuu nopeasti\n3. Ensimmäisen liikkujan etu on valtava\n\nIkkuna on auki.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} ennuste 2026:\n\n→ Vähintään 10x kasvu\n→ Suuret pelaajat tulevat mukaan\n→ Sääntely tulossa (mutta liian myöhään)\n→ Varhaiset omaksujat = uusi eliitti\n\nMuistakaa tämä twiitti.\n\n#{{HASHTAG}}",
+        "Jos nukut {{TOPIC}} yli, jätät rahaa pöydälle.\n\nEi ensi vuonna. Juuri nyt.\n\nJokainen päivä jonka odotat on menetetty vaihtoehtoiskustannus.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} ei ole trendi.\n\nSe on paradigman muutos.\n\nMitä nopeammin ymmärrät eron, sitä paremmin olet asemoitunut.\n\n#{{HASHTAG}}"
+      ],
+      es: [
+        "{{TOPIC}} es la oportunidad más infravalorada de 2026.\n\nLa mayoría no lo verá hasta que sea tarde.\n\nEsto es lo que hace el dinero inteligente: 🧵\n\n#{{HASHTAG}}",
+        "Hot take: {{TOPIC}} creará más millonarios en los próximos 5 años que cualquier otra tendencia.\n\nLos primeros en moverse siempre ganan.\n\n#{{HASHTAG}}",
+        "3 razones para prestar atención a {{TOPIC}} ahora:\n\n1. La demanda es 10x la del año pasado\n2. Las barreras de entrada caen rápido\n3. La ventaja del primer movimiento es masiva\n\nLa ventana está abierta.\n\n#{{HASHTAG}}",
+        "Predicción de {{TOPIC}} para 2026:\n\n→ Crecimiento mínimo de 10x\n→ Grandes jugadores entran al espacio\n→ Regulación viene (pero tarde)\n→ Los early adopters = nuevo establishment\n\nRecuerda este tweet.\n\n#{{HASHTAG}}",
+        "Si estás durmiendo en {{TOPIC}}, estás dejando dinero en la mesa.\n\nNo el próximo año. Ahora mismo.\n\nCada día que esperas es costo de oportunidad irrecuperable.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} no es una tendencia.\n\nEs un cambio de paradigma.\n\nCuanto antes entiendas la diferencia, mejor posicionado estarás.\n\n#{{HASHTAG}}"
+      ]
+    },
+    casual: {
+      en: [
+        "{{TOPIC}} lives in my head rent free tbh 🫠\n\n#{{HASHTAG}}",
+        "me: I should sleep\nalso me: *deep dives into {{TOPIC}} for 4 hours*\n\nwho else? 😂\n\n#{{HASHTAG}}",
+        "{{TOPIC}} is my Roman Empire ngl\n\n#{{HASHTAG}}",
+        "normalize being weirdly passionate about {{TOPIC}} challenge\n\n#{{HASHTAG}}",
+        "{{TOPIC}} appreciation tweet 🙌\n\nthat's it. that's the tweet.\n\n#{{HASHTAG}}",
+        "the way {{TOPIC}} just makes sense when everything else is chaos 🥹\n\n#{{HASHTAG}}",
+        "brain: focus\nme: but {{TOPIC}} tho\nbrain: …fair point actually\n\n#{{HASHTAG}}",
+        "{{TOPIC}} supremacy and I won't be taking questions at this time 💅\n\n#{{HASHTAG}}",
+        "today's mood: {{TOPIC}} and vibes 🌊\n\n#{{HASHTAG}}",
+        "someone explain to me how I went from \"what's {{TOPIC}}?\" to \"I would die for {{TOPIC}}\" in 48 hours\n\n#{{HASHTAG}}",
+        "{{TOPIC}} >> literally everything else\n\nsorry I don't make the rules 🤷\n\n#{{HASHTAG}}",
+        "just had a 30 min conversation about {{TOPIC}} with a stranger at the coffee shop\n\nfound my people 🥲\n\n#{{HASHTAG}}"
+      ],
+      de: [
+        "{{TOPIC}} lebt mietfrei in meinem Kopf tbh 🫠\n\n#{{HASHTAG}}",
+        "ich: sollte schlafen\nauch ich: *4 Stunden {{TOPIC}} deep dive*\n\nwer noch? 😂\n\n#{{HASHTAG}}",
+        "{{TOPIC}} ist mein Römisches Reich ngl\n\n#{{HASHTAG}}",
+        "normalisiert es komisch leidenschaftlich über {{TOPIC}} zu sein challenge\n\n#{{HASHTAG}}",
+        "{{TOPIC}} Würdigungstweet 🙌\n\ndas wars. das ist der Tweet.\n\n#{{HASHTAG}}",
+        "Gehirn: fokussieren\nich: aber {{TOPIC}} tho\nGehirn: …fairer Punkt eigentlich\n\n#{{HASHTAG}}"
+      ],
+      fi: [
+        "{{TOPIC}} asuu vuokravapaasti mun päässä tbh 🫠\n\n#{{HASHTAG}}",
+        "mä: pitäis nukkua\nmyös mä: *4 tunnin {{TOPIC}} deep dive*\n\nkuka muu? 😂\n\n#{{HASHTAG}}",
+        "{{TOPIC}} on mun Rooman valtakunta ngl\n\n#{{HASHTAG}}",
+        "normalisoidaan oudosti intohimoinen suhtautuminen {{TOPIC}} haaste\n\n#{{HASHTAG}}",
+        "{{TOPIC}} arvostustwiitti 🙌\n\nsiinä se. se on twiitti.\n\n#{{HASHTAG}}",
+        "aivot: keskity\nmä: mutta {{TOPIC}} tho\naivot: …reilu pointti oikeesti\n\n#{{HASHTAG}}"
+      ],
+      es: [
+        "{{TOPIC}} vive rent free en mi cabeza tbh 🫠\n\n#{{HASHTAG}}",
+        "yo: debería dormir\ntambién yo: *4 horas de deep dive en {{TOPIC}}*\n\n¿quién más? 😂\n\n#{{HASHTAG}}",
+        "{{TOPIC}} es mi Imperio Romano ngl\n\n#{{HASHTAG}}",
+        "normalicemos ser raro pero apasionado sobre {{TOPIC}} challenge\n\n#{{HASHTAG}}",
+        "tweet de apreciación a {{TOPIC}} 🙌\n\neso es. ese es el tweet.\n\n#{{HASHTAG}}",
+        "cerebro: enfócate\nyo: pero {{TOPIC}} tho\ncerebro: …buen punto la verdad\n\n#{{HASHTAG}}"
+      ]
+    },
+    funny: {
+      en: [
+        "{{TOPIC}} really said \"you're mine now\" and I said \"yes sir\" 🫡\n\n#{{HASHTAG}}",
+        "my therapist: you can't make {{TOPIC}} your whole personality\nme: watch me 😤\n\n#{{HASHTAG}}",
+        "if {{TOPIC}} was a person I would simply propose 💍\n\nno questions. no hesitation.\n\n#{{HASHTAG}}",
+        "google searches at 3am:\n- {{TOPIC}}\n- {{TOPIC}} explained\n- why am I like this\n- {{TOPIC}} again\n\n#{{HASHTAG}}",
+        "relationship status: in a committed relationship with {{TOPIC}} 💑\n\nit's going well thanks for asking\n\n#{{HASHTAG}}",
+        "HR: what motivates you?\nme: {{TOPIC}}\nHR: we meant professionally\nme: did I stutter\n\n#{{HASHTAG}}",
+        "{{TOPIC}} is carrying my entire personality rn and I'm okay with that 💀\n\n#{{HASHTAG}}",
+        "how it started: \"what's {{TOPIC}}?\"\nhow it's going: *gives TED talk to random strangers*\n\n#{{HASHTAG}}",
+        "my bank account 🤝 {{TOPIC}}\n\nboth things I check every 5 minutes\n\n#{{HASHTAG}}",
+        "age 10: I'll be rich and famous\nage 21: please just let me understand {{TOPIC}} 🥲\n\ncharacter development\n\n#{{HASHTAG}}",
+        "{{TOPIC}} understood the assignment and I wish I could say the same about myself 😂\n\n#{{HASHTAG}}",
+        "adding \"{{TOPIC}} expert\" to my LinkedIn even though I learned about it yesterday 😎\n\nfake it til you make it\n\n#{{HASHTAG}}"
+      ],
+      de: [
+        "{{TOPIC}} hat echt gesagt \"du gehörst jetzt mir\" und ich sagte \"jawohl\" 🫡\n\n#{{HASHTAG}}",
+        "mein Therapeut: du kannst {{TOPIC}} nicht zu deiner ganzen Persönlichkeit machen\nich: schau mir zu 😤\n\n#{{HASHTAG}}",
+        "wenn {{TOPIC}} eine Person wäre würde ich einfach einen Antrag machen 💍\n\nkeine Fragen. kein Zögern.\n\n#{{HASHTAG}}",
+        "Google Suchen um 3 Uhr nachts:\n- {{TOPIC}}\n- {{TOPIC}} erklärt\n- warum bin ich so\n- nochmal {{TOPIC}}\n\n#{{HASHTAG}}",
+        "HR: was motiviert Sie?\nich: {{TOPIC}}\nHR: wir meinten beruflich\nich: hab ich gestottert\n\n#{{HASHTAG}}",
+        "so hat es angefangen: \"was ist {{TOPIC}}?\"\nso läuft es: *gibt TED Talk vor Fremden*\n\n#{{HASHTAG}}"
+      ],
+      fi: [
+        "{{TOPIC}} oikeesti sano \"sä oot mun nyt\" ja mä sanoin \"kyllä herra\" 🫡\n\n#{{HASHTAG}}",
+        "mun terapeutti: et voi tehdä {{TOPIC}}:sta koko persoonallisuuttasi\nmä: katso kun teen 😤\n\n#{{HASHTAG}}",
+        "jos {{TOPIC}} ois ihminen mä vaan kosisin 💍\n\nei kysymyksiä. ei epäröintiä.\n\n#{{HASHTAG}}",
+        "Google haut klo 3 yöllä:\n- {{TOPIC}}\n- {{TOPIC}} selitettynä\n- miksi oon tällainen\n- {{TOPIC}} uudestaan\n\n#{{HASHTAG}}",
+        "HR: mikä motivoi sinua?\nmä: {{TOPIC}}\nHR: tarkoitimme ammatillisesti\nmä: änkytiinkö\n\n#{{HASHTAG}}",
+        "miten alko: \"mikä on {{TOPIC}}?\"\nmiten menee: *pitää TED talkin tuntemattomille*\n\n#{{HASHTAG}}"
+      ],
+      es: [
+        "{{TOPIC}} dijo \"ahora eres mío\" y yo dije \"sí señor\" 🫡\n\n#{{HASHTAG}}",
+        "mi terapeuta: no puedes hacer {{TOPIC}} toda tu personalidad\nyo: mírame 😤\n\n#{{HASHTAG}}",
+        "si {{TOPIC}} fuera persona simplemente le propondría matrimonio 💍\n\nsin preguntas. sin dudas.\n\n#{{HASHTAG}}",
+        "búsquedas de Google a las 3am:\n- {{TOPIC}}\n- {{TOPIC}} explicado\n- por qué soy así\n- {{TOPIC}} de nuevo\n\n#{{HASHTAG}}",
+        "RRHH: ¿qué te motiva?\nyo: {{TOPIC}}\nRRHH: nos referíamos profesionalmente\nyo: ¿tartamudeé?\n\n#{{HASHTAG}}",
+        "cómo empezó: \"¿qué es {{TOPIC}}?\"\ncómo va: *da TED talk a desconocidos*\n\n#{{HASHTAG}}"
+      ]
+    },
+    inspirational: {
+      en: [
+        "{{TOPIC}} taught me the most important lesson:\n\nYou don't need permission to start.\nYou don't need approval to dream.\nYou don't need validation to believe.\n\nJust start. The rest follows.\n\n#{{HASHTAG}}",
+        "365 days ago I knew nothing about {{TOPIC}}.\n\nToday it's changed my perspective on everything.\n\nTime is going to pass anyway. Might as well spend it building something meaningful.\n\n#{{HASHTAG}}",
+        "The people who said {{TOPIC}} was a waste of time?\n\nThey're the same ones asking me how I did it now.\n\nBet on yourself. Always.\n\n#{{HASHTAG}}",
+        "Your {{TOPIC}} journey is unique.\n\nStop comparing chapter 1 to someone else's chapter 20.\n\nFocus on YOUR progress. That's all that matters.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} reminder:\n\nEvery expert started as a beginner.\nEvery master started as a student.\nEvery success story started with doubt.\n\nYou're exactly where you need to be.\n\n#{{HASHTAG}}",
+        "The best investment I ever made was betting on myself with {{TOPIC}}.\n\nNot money. Time. Energy. Focus.\n\nThe returns have been life-changing.\n\nWhat are you betting on?\n\n#{{HASHTAG}}",
+        "{{TOPIC}} truth:\n\nThe gap between where you are and where you want to be is bridged by one thing — action.\n\nNot perfect action. Just action.\n\nStart today.\n\n#{{HASHTAG}}",
+        "If you're reading this and hesitating about {{TOPIC}}:\n\nThis is your sign.\nThis is your moment.\nThis is your chance.\n\nDon't let fear make your decisions.\n\n#{{HASHTAG}}",
+        "Unpopular opinion: {{TOPIC}} isn't hard.\n\nStarting is hard.\nBeing consistent is hard.\nBeing patient is hard.\n\nThe topic itself? Just one step at a time.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} won't change your life overnight.\n\nBut 365 days of daily commitment?\n\nThat changes everything.\n\nStart now. Future you is watching.\n\n#{{HASHTAG}}",
+        "What if {{TOPIC}} is the thing you've been waiting for?\n\nWhat if this is the sign?\n\nWhat if now is the time?\n\nSpoiler: it is.\n\n#{{HASHTAG}}",
+        "You're one decision away from a life you love.\n\nFor me, that decision was {{TOPIC}}.\n\nWhat's yours?\n\n#{{HASHTAG}}"
+      ],
+      de: [
+        "{{TOPIC}} hat mir die wichtigste Lektion beigebracht:\n\nDu brauchst keine Erlaubnis anzufangen.\nDu brauchst keine Genehmigung zu träumen.\nDu brauchst keine Bestätigung zu glauben.\n\nFang einfach an.\n\n#{{HASHTAG}}",
+        "Vor 365 Tagen wusste ich nichts über {{TOPIC}}.\n\nHeute hat es meine Perspektive auf alles verändert.\n\nDie Zeit vergeht sowieso. Man kann sie genauso gut sinnvoll nutzen.\n\n#{{HASHTAG}}",
+        "Die Leute die sagten {{TOPIC}} sei Zeitverschwendung?\n\nSie sind dieselben die mich jetzt fragen wie ich es geschafft habe.\n\nWette auf dich selbst. Immer.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} Erinnerung:\n\nJeder Experte hat als Anfänger begonnen.\nJeder Meister hat als Schüler begonnen.\nJede Erfolgsgeschichte begann mit Zweifel.\n\nDu bist genau da wo du sein musst.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} verändert dein Leben nicht über Nacht.\n\nAber 365 Tage tägliches Commitment?\n\nDas verändert alles.\n\nStarte jetzt.\n\n#{{HASHTAG}}",
+        "Du bist eine Entscheidung entfernt von einem Leben das du liebst.\n\nFür mich war diese Entscheidung {{TOPIC}}.\n\nWas ist deine?\n\n#{{HASHTAG}}"
+      ],
+      fi: [
+        "{{TOPIC}} opetti tärkeimmän oppini:\n\nEt tarvii lupaa aloittaa.\nEt tarvii hyväksyntää unelmoida.\nEt tarvii vahvistusta uskoa.\n\nAloita vaan.\n\n#{{HASHTAG}}",
+        "365 päivää sitten en tiennyt mitään {{TOPIC}}.\n\nTänään se on muuttanut näkökulmani kaikkeen.\n\nAika kuluu joka tapauksessa. Voisi yhtä hyvin käyttää sen rakentamiseen.\n\n#{{HASHTAG}}",
+        "Ne ihmiset jotka sanoivat {{TOPIC}} on ajanhukkaa?\n\nNe on samat jotka nyt kysyvät miten tein sen.\n\nLyö vetoa itsestäsi. Aina.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} muistutus:\n\nJokainen asiantuntija aloitti aloittelijana.\nJokainen mestari aloitti oppilaana.\nJokainen menestystarinaa alkoi epäilyllä.\n\nOlet juuri siellä missä pitää.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} ei muuta elämääsi yhdessä yössä.\n\nMutta 365 päivää päivittäistä sitoutumista?\n\nSe muuttaa kaiken.\n\nAloita nyt.\n\n#{{HASHTAG}}",
+        "Olet yhden päätöksen päässä elämästä jota rakastat.\n\nMinulle se päätös oli {{TOPIC}}.\n\nMikä on sinun?\n\n#{{HASHTAG}}"
+      ],
+      es: [
+        "{{TOPIC}} me enseñó la lección más importante:\n\nNo necesitas permiso para empezar.\nNo necesitas aprobación para soñar.\nNo necesitas validación para creer.\n\nSolo empieza.\n\n#{{HASHTAG}}",
+        "Hace 365 días no sabía nada de {{TOPIC}}.\n\nHoy ha cambiado mi perspectiva de todo.\n\nEl tiempo va a pasar de todas formas. Mejor usarlo construyendo algo significativo.\n\n#{{HASHTAG}}",
+        "La gente que dijo que {{TOPIC}} era pérdida de tiempo?\n\nSon los mismos que ahora me preguntan cómo lo hice.\n\nApuesta por ti mismo. Siempre.\n\n#{{HASHTAG}}",
+        "Recordatorio de {{TOPIC}}:\n\nCada experto empezó como principiante.\nCada maestro empezó como alumno.\nCada historia de éxito empezó con dudas.\n\nEstás exactamente donde necesitas estar.\n\n#{{HASHTAG}}",
+        "{{TOPIC}} no cambiará tu vida de la noche a la mañana.\n\nPero 365 días de compromiso diario?\n\nEso lo cambia todo.\n\nEmpieza ahora.\n\n#{{HASHTAG}}",
+        "Estás a una decisión de una vida que amas.\n\nPara mí, esa decisión fue {{TOPIC}}.\n\n¿Cuál es la tuya?\n\n#{{HASHTAG}}"
+      ]
+    }
+  }
+};
+
+const FREE_LIMIT = 3;
+const STORAGE_KEY = 'elfennir_caption_usage';
+
+function getUsage() {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    const today = new Date().toISOString().split('T')[0];
+    if (data.date !== today) return { count: 0, date: today };
+    return data;
+  } catch { return { count: 0, date: new Date().toISOString().split('T')[0] }; }
+}
+
+function setUsage(count) {
+  const today = new Date().toISOString().split('T')[0];
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ count, date: today }));
+}
+
+function updateUsageUI() {
+  const usage = getUsage();
+  const remaining = Math.max(0, FREE_LIMIT - usage.count);
+  const usageText = document.getElementById('usageText');
+  const dots = [document.getElementById('dot1'), document.getElementById('dot2'), document.getElementById('dot3')];
+
+  usageText.textContent = remaining > 0 ? `${remaining} free generation${remaining !== 1 ? 's' : ''} left` : 'No free generations left';
+
+  dots.forEach((dot, i) => {
+    dot.className = 'usage-dot';
+    if (i < usage.count) dot.classList.add('used');
+    else if (i === usage.count && remaining > 0) dot.classList.add('current');
+  });
+
+  if (remaining <= 0) {
+    document.getElementById('generatorCard').style.display = 'none';
+    document.getElementById('paywall').style.display = 'block';
+    document.getElementById('results').style.display = 'none';
+  }
+}
+
+function makeHashtag(topic) {
+  return topic.replace(/[^a-zA-Z0-9]/g, '').toLowerCase().substring(0, 20);
+}
+
+function generateCaptions() {
+  const usage = getUsage();
+  if (usage.count >= FREE_LIMIT) {
+    updateUsageUI();
+    return;
+  }
+
+  const platform = document.getElementById('platform').value;
+  const tone = document.getElementById('tone').value;
+  const language = document.getElementById('language').value;
+  const topic = document.getElementById('topic').value.trim();
+
+  if (!topic) {
+    document.getElementById('topic').style.borderColor = 'var(--red)';
+    setTimeout(() => document.getElementById('topic').style.borderColor = 'var(--border)', 2000);
+    return;
+  }
+
+  const btn = document.getElementById('generateBtn');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  setTimeout(() => {
+    const templates = TEMPLATES[platform]?.[tone]?.[language] || TEMPLATES[platform]?.[tone]?.['en'] || [];
+    const hashtag = makeHashtag(topic);
+
+    const shuffled = [...templates].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, 3);
+
+    const captions = selected.map(t => t.replace(/\{\{TOPIC\}\}/g, topic).replace(/\{\{HASHTAG\}\}/g, hashtag));
+
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = captions.map((caption, i) => `
+      <div class="caption-card">
+        <div class="caption-header">
+          <span class="caption-num">Caption ${i + 1}</span>
+          <span style="font-size:12px;color:var(--text2)">${platform} · ${tone}</span>
+        </div>
+        <div class="caption-text">${escapeHtml(caption)}</div>
+        <div class="caption-actions">
+          <button class="btn-sm" onclick="copyCaption(this, ${i})">📋 Copy</button>
+          <a class="btn-sm" href="https://wa.me/?text=${encodeURIComponent(caption)}" target="_blank" style="text-decoration:none">📱 WhatsApp</a>
+          <a class="btn-sm" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(caption.substring(0, 280))}" target="_blank" style="text-decoration:none">𝕏 Tweet</a>
+        </div>
+      </div>
+    `).join('');
+
+    resultsDiv.style.display = 'block';
+
+    setUsage(usage.count + 1);
+    updateUsageUI();
+
+    btn.classList.remove('loading');
+    btn.disabled = false;
+
+    resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    window._lastCaptions = captions;
+  }, 1200 + Math.random() * 800);
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function copyCaption(btn, index) {
+  const caption = window._lastCaptions[index];
+  navigator.clipboard.writeText(caption).then(() => {
+    btn.classList.add('copied');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = '📋 Copy';
+    }, 2000);
+  });
+}
+
+updateUsageUI();
+</script>
+</body>
+</html>

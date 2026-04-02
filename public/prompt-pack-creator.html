@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluLife — 150+ Content Creator Prompts for TikTok, YouTube & Instagram | InfluAI</title>
+    <meta name="description" content="150+ AI prompts for content creators. Hooks, scripts, captions, growth strategies & monetization. Stop guessing, start growing.">
+    <meta property="og:title" content="InfluLife — 150+ Content Creator Prompts">
+    <meta property="og:description" content="Turn AI into your content team. 150+ prompts for TikTok, YouTube & Instagram. €29 one-time.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --border: #2a2a2a;
+            --text: #e5e5e5;
+            --text-muted: #888;
+            --accent: #f97316;
+            --accent-hover: #fb923c;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --green: #22c55e;
+            --red: #ef4444;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); padding: 16px 0;
+        }
+        .nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-weight: 800; font-size: 1.1rem; color: var(--accent); text-decoration: none; }
+        .nav-cta {
+            background: var(--accent); color: #000; padding: 8px 20px;
+            border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .nav-cta:hover { background: var(--accent-hover); }
+
+        .hero {
+            padding: 140px 0 80px; text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%);
+        }
+        .badge {
+            display: inline-block; background: var(--accent-glow); color: var(--accent);
+            padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+            margin-bottom: 24px; border: 1px solid rgba(249,115,22,0.3);
+        }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; }
+        .hero-cta {
+            display: inline-block; background: var(--accent); color: #000;
+            padding: 16px 40px; border-radius: 12px; font-weight: 800;
+            font-size: 1.1rem; text-decoration: none; transition: all 0.2s;
+            box-shadow: 0 0 30px rgba(249,115,22,0.3);
+        }
+        .hero-cta:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .hero-sub { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+        .hero-sub s { color: var(--red); }
+
+        .stats {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+            padding: 40px 0; border-bottom: 1px solid var(--border);
+        }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2rem; font-weight: 900; color: var(--accent); }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
+        section { padding: 80px 0; }
+        .section-label {
+            text-transform: uppercase; font-size: 0.75rem; font-weight: 700;
+            color: var(--accent); letter-spacing: 2px; margin-bottom: 12px;
+        }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .section-desc { color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+
+        .categories { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+        .cat-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; transition: border-color 0.2s;
+        }
+        .cat-card:hover { border-color: var(--accent); }
+        .cat-icon { font-size: 1.5rem; margin-bottom: 8px; }
+        .cat-name { font-weight: 700; margin-bottom: 4px; }
+        .cat-count { font-size: 0.85rem; color: var(--text-muted); }
+
+        .example {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin-bottom: 16px;
+        }
+        .example-cat {
+            font-size: 0.7rem; text-transform: uppercase; font-weight: 700;
+            color: var(--accent); letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .example-title { font-weight: 700; margin-bottom: 8px; }
+        .example-prompt {
+            background: #0d0d0d; border: 1px solid var(--border); border-radius: 8px;
+            padding: 16px; font-size: 0.9rem; color: var(--text-muted); font-style: italic;
+        }
+        .example-blur {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; text-align: center;
+            color: var(--text-muted); position: relative; overflow: hidden;
+        }
+        .example-blur::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(transparent, var(--bg-card));
+        }
+        .example-blur span { position: relative; z-index: 1; font-weight: 600; color: var(--accent); }
+
+        .testimonials { display: grid; gap: 16px; }
+        .testimonial {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px;
+        }
+        .testimonial-stars { color: var(--accent); margin-bottom: 12px; font-size: 1.1rem; }
+        .testimonial-text { margin-bottom: 16px; font-size: 0.95rem; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .testimonial-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--accent-glow); display: flex; align-items: center;
+            justify-content: center; font-weight: 700; color: var(--accent); font-size: 0.9rem;
+        }
+        .testimonial-name { font-weight: 600; font-size: 0.9rem; }
+        .testimonial-role { font-size: 0.8rem; color: var(--text-muted); }
+
+        .pricing-card {
+            background: var(--bg-card); border: 2px solid var(--accent);
+            border-radius: 20px; padding: 40px; text-align: center;
+            position: relative; max-width: 500px; margin: 0 auto;
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+        .pricing-badge {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--accent); color: #000; padding: 6px 20px;
+            border-radius: 50px; font-weight: 700; font-size: 0.8rem;
+        }
+        .pricing-old { font-size: 1.2rem; color: var(--text-muted); text-decoration: line-through; }
+        .pricing-price { font-size: 4rem; font-weight: 900; margin: 8px 0; }
+        .pricing-price span { font-size: 1.5rem; vertical-align: super; }
+        .pricing-note { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+        .pricing-features { list-style: none; text-align: left; margin-bottom: 32px; }
+        .pricing-features li {
+            padding: 8px 0; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem; display: flex; align-items: center; gap: 10px;
+        }
+        .pricing-features li::before { content: '\2713'; color: var(--green); font-weight: 700; }
+        .pricing-btn {
+            display: block; width: 100%; background: var(--accent); color: #000;
+            padding: 18px; border-radius: 12px; font-weight: 800; font-size: 1.15rem;
+            text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .pricing-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .pricing-alt { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+        .pricing-alt a { color: var(--accent); text-decoration: none; }
+
+        .guarantee {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; text-align: center; margin-top: 40px;
+        }
+        .guarantee-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .guarantee h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .guarantee p { color: var(--text-muted); font-size: 0.95rem; max-width: 500px; margin: 0 auto; }
+
+        .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .faq-q {
+            font-weight: 700; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--accent); transition: transform 0.2s; }
+        .faq-q.active::after { content: '-'; }
+        .faq-a {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+            color: var(--text-muted); font-size: 0.95rem;
+        }
+        .faq-a.active { max-height: 300px; padding-top: 12px; }
+
+        .final-cta {
+            text-align: center; padding: 80px 0;
+            background: radial-gradient(ellipse at 50% 100%, var(--accent-glow) 0%, transparent 60%);
+        }
+        .final-cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .final-cta p { color: var(--text-muted); margin-bottom: 32px; }
+
+        footer {
+            border-top: 1px solid var(--border); padding: 32px 0;
+            text-align: center; font-size: 0.8rem; color: var(--text-muted);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .stats { grid-template-columns: 1fr; gap: 24px; }
+            .categories { grid-template-columns: 1fr 1fr; }
+            .pricing-price { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container">
+        <a href="/" class="nav-brand">InfluAI</a>
+        <a href="#pricing" class="nav-cta">Get InfluLife — €29</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="badge">150+ Prompts &middot; 8 Categories &middot; For Creators</div>
+        <h1>Turn AI Into Your <span>Content Team</span></h1>
+        <p>150+ battle-tested prompts that generate viral hooks, scripts, captions, and growth strategies for TikTok, YouTube, and Instagram. Stop guessing. Start growing.</p>
+        <a href="#pricing" class="hero-cta">Get Instant Access — €29</a>
+        <p class="hero-sub"><s>€59</s> &nbsp;51% OFF — Limited time</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="stats">
+        <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Creator prompts</div></div>
+        <div class="stat"><div class="stat-num">8</div><div class="stat-label">Content categories</div></div>
+        <div class="stat"><div class="stat-num">3x</div><div class="stat-label">Faster content creation</div></div>
+    </div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+    <div class="container">
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">Content Creation Shouldn't Feel Like a Full-Time Job</h2>
+        <div class="section-desc">You know you need to post consistently. But between coming up with ideas, writing scripts, editing, and posting... who has time?</div>
+        <div style="display:grid; gap:12px;">
+            <div style="display:flex; gap:12px; align-items:start;">
+                <span style="color:var(--red); font-size:1.2rem;">&#10007;</span>
+                <div><strong>Staring at a blank screen</strong> trying to come up with hooks</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:start;">
+                <span style="color:var(--red); font-size:1.2rem;">&#10007;</span>
+                <div><strong>Posting inconsistently</strong> because content takes too long to create</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:start;">
+                <span style="color:var(--red); font-size:1.2rem;">&#10007;</span>
+                <div><strong>No strategy</strong> — just random posts and hoping something sticks</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:start; margin-top:16px;">
+                <span style="color:var(--green); font-size:1.2rem;">&#10003;</span>
+                <div><strong style="color:var(--accent)">InfluLife</strong> = AI handles the creative heavy lifting so you can post 3x more</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section style="background: var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+        <div class="section-label">What's Inside</div>
+        <h2 class="section-title">150+ Prompts in 8 Creator Categories</h2>
+        <div class="section-desc">Every prompt is designed for the platforms that matter: TikTok, YouTube, and Instagram.</div>
+        <div class="categories">
+            <div class="cat-card"><div class="cat-icon">&#127916;</div><div class="cat-name">Viral Hooks</div><div class="cat-count">25+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128221;</div><div class="cat-name">Video Scripts</div><div class="cat-count">25+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128172;</div><div class="cat-name">Captions & Copy</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">#</div><div class="cat-name">Hashtag Strategy</div><div class="cat-count">15+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128200;</div><div class="cat-name">Growth Strategy</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128176;</div><div class="cat-name">Monetization</div><div class="cat-count">15+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#129309;</div><div class="cat-name">Brand Deals</div><div class="cat-count">15+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128202;</div><div class="cat-name">Analytics & Optimization</div><div class="cat-count">15+ prompts</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- EXAMPLES -->
+<section>
+    <div class="container">
+        <div class="section-label">Sneak Peek</div>
+        <h2 class="section-title">5 Sample Prompts</h2>
+        <div class="section-desc">See the quality. Then imagine having 150+ more.</div>
+
+        <div class="example">
+            <div class="example-cat">Viral Hooks</div>
+            <div class="example-title">Scroll-Stopping Hook Generator</div>
+            <div class="example-prompt">"Generate 10 viral hooks for a [NICHE] TikTok account. Each hook must be under 8 words, create curiosity or controversy, and work as both text-on-screen and spoken intro. Format: Hook | Why it works | Best video format (talking head, B-roll, POV). Target audience: [AGE, INTERESTS]."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Video Scripts</div>
+            <div class="example-title">60-Second TikTok Script Engine</div>
+            <div class="example-prompt">"Write a 60-second TikTok script about [TOPIC] for a [NICHE] creator. Structure: Hook (0-3s) that stops the scroll, Setup (3-15s) that builds tension, Value bomb (15-45s) with 3 concrete points, CTA (45-60s) that drives [GOAL: follows/saves/comments]. Include on-screen text suggestions and background music mood."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Growth Strategy</div>
+            <div class="example-title">30-Day Content Calendar Builder</div>
+            <div class="example-prompt">"Create a 30-day content calendar for a [NICHE] creator on [PLATFORM]. Include: 3 posts per day (time slots optimized for [TIMEZONE]), content pillars (40% educational, 30% entertaining, 20% personal, 10% promotional), specific topics for each post, and one 'experiment' post per week to test new formats. Goal: grow from [CURRENT] to [TARGET] followers."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Monetization</div>
+            <div class="example-title">Revenue Stream Architect</div>
+            <div class="example-prompt">"I'm a [NICHE] creator with [FOLLOWERS] followers and [VIEWS] average views. Identify 5 monetization strategies ranked by: (1) revenue potential, (2) time investment, (3) audience fit. For each strategy: specific product/service idea, pricing, expected monthly revenue, and the first 3 steps to launch it this week."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Brand Deals</div>
+            <div class="example-title">Brand Pitch Email Generator</div>
+            <div class="example-prompt">"Write a brand pitch email to [BRAND NAME] for my [NICHE] account with [FOLLOWERS] followers. Include: personalized opening referencing their recent campaign, my audience demographics and engagement rate, 3 creative collaboration ideas specific to their brand, my rate card ([PRICE] per [DELIVERABLE]), and a soft close. Tone: professional but personable. Under 200 words."</div>
+        </div>
+
+        <div class="example-blur">
+            <p>+145 more prompts inside the full pack...</p>
+            <span>Unlock All 150+ Prompts &darr;</span>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background: var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+        <div class="section-label">What Creators Say</div>
+        <h2 class="section-title">From Stuck to Consistent</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="testimonial-text">"I went from posting once a week to 3x a day. The hook prompts are ridiculous — my views doubled in 2 weeks. For €29 this is an absolute steal."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AT</div>
+                    <div><div class="testimonial-name">Alex T.</div><div class="testimonial-role">TikTok Creator, 45K followers</div></div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="testimonial-text">"The brand deal pitch templates helped me land my first paid collaboration. €500 for one post. This pack paid for itself 17x over with a single email."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">LP</div>
+                    <div><div class="testimonial-name">Luna P.</div><div class="testimonial-role">Instagram Creator, 22K followers</div></div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="testimonial-text">"I used to spend 3 hours on one script. Now I generate 10 scripts in 20 minutes and pick the best one. My YouTube Shorts channel grew from 2K to 15K in a month."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">DM</div>
+                    <div><div class="testimonial-name">Daniel M.</div><div class="testimonial-role">YouTube Shorts, 15K subscribers</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+    <div class="container">
+        <div class="section-label" style="text-align:center;">Pricing</div>
+        <h2 class="section-title" style="text-align:center;">Less Than One Coffee Per Prompt.</h2>
+        <div class="pricing-card">
+            <div class="pricing-badge">51% OFF — LIMITED TIME</div>
+            <div class="pricing-old">€59</div>
+            <div class="pricing-price"><span>€</span>29</div>
+            <div class="pricing-note">One-time payment &middot; Instant download &middot; Lifetime updates</div>
+            <ul class="pricing-features">
+                <li>150+ creator-focused AI prompts</li>
+                <li>8 content categories (hooks, scripts, captions...)</li>
+                <li>Works with ChatGPT, Claude, Gemini & more</li>
+                <li>Optimized for TikTok, YouTube & Instagram</li>
+                <li>Copy-paste ready — zero learning curve</li>
+                <li>Free lifetime updates</li>
+                <li>30-day money-back guarantee</li>
+            </ul>
+            <a href="#stripe-link-influlife" class="pricing-btn">Get InfluLife — €29</a>
+            <div class="pricing-alt">
+                Or pay via <a href="https://wa.me/358449178883?text=Hi%20I%20want%20to%20buy%20InfluLife%20prompt%20pack" target="_blank">WhatsApp</a> &middot; Secure payment via Stripe
+            </div>
+        </div>
+
+        <div class="guarantee">
+            <div class="guarantee-icon">&#128170;</div>
+            <h3>30-Day Money-Back Guarantee</h3>
+            <p>If InfluLife doesn't help you create content faster and grow your audience, email us for a full refund. No questions asked.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section style="border-top:1px solid var(--border);">
+    <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">Which platforms are these prompts for?</div>
+            <div class="faq-a">Primarily TikTok, YouTube (Shorts & long-form), and Instagram (Reels, Stories, Posts). Many prompts also work for Twitter/X, LinkedIn, and podcasts.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">I have a small following. Is this for me?</div>
+            <div class="faq-a">Absolutely. The growth strategy and hook prompts are specifically designed to help small creators break through. Most of our users started with under 1K followers.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">What AI tool do I need?</div>
+            <div class="faq-a">Any AI chatbot works — ChatGPT (free or Plus), Claude, Gemini, Copilot. The prompts are designed to work across all major AI tools.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">Is this a subscription?</div>
+            <div class="faq-a">No. One-time payment of €29. Lifetime access. Free updates forever.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">Can I use these for client work?</div>
+            <div class="faq-a">Yes! Many social media managers use InfluLife for their clients. You can use the prompts commercially without any restrictions.</div>
+        </div>
+    </div>
+</section>
+
+<section class="final-cta">
+    <div class="container">
+        <h2>Stop Overthinking Content.<br>Start <span style="color:var(--accent)">Creating & Growing.</span></h2>
+        <p>150+ prompts. 8 categories. Built for creators who want results.</p>
+        <a href="#pricing" class="hero-cta">Get InfluLife — €29</a>
+        <p style="margin-top:16px; font-size:0.85rem; color:var(--text-muted);">Want business prompts too? <a href="/prompt-pack-bundle.html" style="color:var(--accent); text-decoration:none; font-weight:600;">Get the Ultimate Bundle for €67 &rarr;</a></p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 InfluAI by <a href="https://elfennir.com">elfennir.com</a> &middot; <a href="mailto:yassin@elfennir.com">yassin@elfennir.com</a></p>
+        <p style="margin-top:8px;">Also available: <a href="/prompt-pack-business.html">WorkAI Pro (€47)</a> &middot; <a href="/prompt-pack-bundle.html">Ultimate Bundle (€67)</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

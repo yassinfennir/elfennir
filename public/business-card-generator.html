@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Digital Business Card Generator | El Fennir Agency</title>
+<meta name="description" content="Create a stunning digital business card in seconds. 5 beautiful templates. Free, no signup. Share via link or QR code.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💳</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--surface:#141414;--surface2:#1e1e1e;--border:#2a2a2a;--text:#f0f0f0;--text2:#999;--accent:#6C63FF;--accent2:#8B83FF;--green:#22c55e;--orange:#f59e0b;--red:#ef4444}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.container{max-width:720px;margin:0 auto;padding:16px}
+header{text-align:center;padding:32px 0 24px}
+.badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:.5px}
+h1{font-size:28px;font-weight:800;line-height:1.2;margin-bottom:8px;background:linear-gradient(135deg,#fff,#6C63FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--text2);font-size:15px}
+.social-proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font-size:13px;color:var(--text2)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:16px}
+.card-title{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.form-group{margin-bottom:14px}
+label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+input,textarea{width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;outline:none;transition:border .2s}
+input:focus,textarea:focus{border-color:var(--accent)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;transition:transform .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px);opacity:.95}
+.btn:active{transform:translateY(0)}
+.btn-outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+.btn-outline:hover{background:var(--accent);color:#fff}
+.btn-sm{padding:8px 14px;font-size:13px;font-weight:600;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;cursor:pointer;transition:all .15s;width:auto}
+.btn-sm:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Template Selector */
+.template-selector{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
+.template-opt{aspect-ratio:1.6;border-radius:10px;cursor:pointer;border:2px solid var(--border);transition:all .2s;position:relative;overflow:hidden}
+.template-opt:hover{border-color:var(--accent);transform:translateY(-2px)}
+.template-opt.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(108,99,255,.3)}
+.template-opt .tname{position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:9px;font-weight:600;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+.t-modern{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+.t-gradient{background:linear-gradient(135deg,#6C63FF,#e91e63)}
+.t-minimal{background:#fafafa}
+.t-dark{background:linear-gradient(135deg,#0f0f0f,#1a1a1a);border-color:#333}
+.t-nature{background:linear-gradient(135deg,#134e5e,#71b280)}
+
+/* Card Preview */
+.card-preview-wrapper{margin-top:16px;display:none}
+.card-preview-wrapper.show{display:block}
+.card-preview{border-radius:16px;overflow:hidden;max-width:400px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+
+/* Template: Modern */
+.bc-modern{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:32px;text-align:center}
+.bc-modern .bc-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#6C63FF,#e91e63);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 16px;color:#fff;border:3px solid rgba(255,255,255,.2)}
+.bc-modern .bc-name{font-size:22px;font-weight:800;margin-bottom:2px}
+.bc-modern .bc-title{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:4px}
+.bc-modern .bc-company{font-size:14px;font-weight:600;color:#6C63FF;margin-bottom:20px}
+.bc-modern .bc-divider{width:40px;height:2px;background:#6C63FF;margin:0 auto 20px;border-radius:2px}
+.bc-modern .bc-info{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.bc-modern .bc-socials{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.bc-modern .bc-social{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-size:14px;transition:background .2s}
+.bc-modern .bc-social:hover{background:rgba(108,99,255,.5)}
+.bc-modern .bc-footer{margin-top:20px;font-size:10px;color:rgba(255,255,255,.3)}
+
+/* Template: Gradient */
+.bc-gradient{background:linear-gradient(135deg,#6C63FF,#e91e63);color:#fff;padding:32px;text-align:center}
+.bc-gradient .bc-avatar{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 16px;color:#fff;border:3px solid rgba(255,255,255,.3)}
+.bc-gradient .bc-name{font-size:22px;font-weight:800;margin-bottom:2px}
+.bc-gradient .bc-title{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:4px}
+.bc-gradient .bc-company{font-size:14px;font-weight:600;margin-bottom:20px}
+.bc-gradient .bc-divider{width:40px;height:2px;background:rgba(255,255,255,.4);margin:0 auto 20px;border-radius:2px}
+.bc-gradient .bc-info{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.bc-gradient .bc-socials{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.bc-gradient .bc-social{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-size:14px;transition:background .2s}
+.bc-gradient .bc-social:hover{background:rgba(255,255,255,.35)}
+.bc-gradient .bc-footer{margin-top:20px;font-size:10px;color:rgba(255,255,255,.4)}
+
+/* Template: Minimal */
+.bc-minimal{background:#fafafa;color:#1a1a1a;padding:32px;text-align:center}
+.bc-minimal .bc-avatar{width:80px;height:80px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 16px;color:#fff}
+.bc-minimal .bc-name{font-size:22px;font-weight:800;margin-bottom:2px}
+.bc-minimal .bc-title{font-size:13px;color:#888;margin-bottom:4px}
+.bc-minimal .bc-company{font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:20px}
+.bc-minimal .bc-divider{width:40px;height:2px;background:#1a1a1a;margin:0 auto 20px;border-radius:2px}
+.bc-minimal .bc-info{font-size:13px;color:#555;margin-bottom:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.bc-minimal .bc-socials{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.bc-minimal .bc-social{width:36px;height:36px;border-radius:50%;background:#eee;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#333;font-size:14px;transition:background .2s}
+.bc-minimal .bc-social:hover{background:#ddd}
+.bc-minimal .bc-footer{margin-top:20px;font-size:10px;color:#ccc}
+
+/* Template: Dark */
+.bc-dark{background:#0f0f0f;color:#fff;padding:32px;text-align:center;border:1px solid #222}
+.bc-dark .bc-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 16px;color:#fff}
+.bc-dark .bc-name{font-size:22px;font-weight:800;margin-bottom:2px}
+.bc-dark .bc-title{font-size:13px;color:#666;margin-bottom:4px}
+.bc-dark .bc-company{font-size:14px;font-weight:600;color:#f59e0b;margin-bottom:20px}
+.bc-dark .bc-divider{width:40px;height:2px;background:#f59e0b;margin:0 auto 20px;border-radius:2px}
+.bc-dark .bc-info{font-size:13px;color:#888;margin-bottom:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.bc-dark .bc-socials{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.bc-dark .bc-social{width:36px;height:36px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-size:14px;border:1px solid #333;transition:background .2s}
+.bc-dark .bc-social:hover{background:#222}
+.bc-dark .bc-footer{margin-top:20px;font-size:10px;color:#444}
+
+/* Template: Nature */
+.bc-nature{background:linear-gradient(135deg,#134e5e,#71b280);color:#fff;padding:32px;text-align:center}
+.bc-nature .bc-avatar{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 16px;color:#fff;border:3px solid rgba(255,255,255,.3)}
+.bc-nature .bc-name{font-size:22px;font-weight:800;margin-bottom:2px}
+.bc-nature .bc-title{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:4px}
+.bc-nature .bc-company{font-size:14px;font-weight:600;margin-bottom:20px}
+.bc-nature .bc-divider{width:40px;height:2px;background:rgba(255,255,255,.4);margin:0 auto 20px;border-radius:2px}
+.bc-nature .bc-info{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.bc-nature .bc-socials{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.bc-nature .bc-social{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-size:14px;transition:background .2s}
+.bc-nature .bc-social:hover{background:rgba(255,255,255,.3)}
+.bc-nature .bc-footer{margin-top:20px;font-size:10px;color:rgba(255,255,255,.35)}
+
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.premium-banner{background:linear-gradient(135deg,rgba(108,99,255,.15),rgba(108,99,255,.05));border:1px solid rgba(108,99,255,.3);border-radius:16px;padding:28px;text-align:center;margin-top:16px}
+.premium-banner h3{font-size:20px;margin-bottom:6px}
+.premium-banner p{color:var(--text2);font-size:14px;margin-bottom:4px}
+.premium-features{display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:left;max-width:400px;margin:16px auto;font-size:13px}
+.premium-features span{display:flex;align-items:center;gap:6px}
+.premium-features span::before{content:"✓";color:var(--green);font-weight:700}
+.price-tag{font-size:36px;font-weight:800;color:var(--accent);margin:12px 0 4px}
+.price-tag span{font-size:14px;color:var(--text2);font-weight:400}
+.cta-whatsapp{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 24px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;margin-top:12px;transition:transform .15s}
+.cta-whatsapp:hover{transform:translateY(-1px)}
+.cross-sell{background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(34,197,94,.05));border:1px solid rgba(34,197,94,.2);border-radius:16px;padding:24px;text-align:center;margin-top:16px}
+.cross-sell h3{font-size:18px;margin-bottom:6px}
+.cross-sell p{color:var(--text2);font-size:14px;margin-bottom:14px}
+.share-section{text-align:center;padding:20px 0;border-top:1px solid var(--border);margin-top:20px}
+.share-section p{font-size:13px;color:var(--text2);margin-bottom:10px}
+.share-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.share-btn{padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;color:#fff;transition:transform .15s}
+.share-btn:hover{transform:translateY(-1px)}
+.share-btn.wa{background:#25D366}
+.share-btn.tw{background:#1DA1F2}
+.share-btn.li{background:#0077B5}
+footer{text-align:center;padding:24px 0;font-size:12px;color:var(--text2)}
+footer a{color:var(--accent);text-decoration:none}
+.usage-info{font-size:12px;color:var(--text2);text-align:center;margin-bottom:16px}
+.copy-msg{display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;z-index:1000;animation:fadeInOut 2.5s forwards}
+@keyframes fadeInOut{0%{opacity:0;transform:translateX(-50%) translateY(-10px)}10%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0}}
+@media(max-width:500px){h1{font-size:22px}.container{padding:12px}.card{padding:16px}.grid-2{grid-template-columns:1fr}.template-selector{grid-template-columns:repeat(3,1fr)}.actions{flex-direction:column}.actions button,.actions a{width:100%;text-align:center}.premium-features{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="copyMsg" class="copy-msg"></div>
+
+<div class="container">
+  <header>
+    <div class="badge">100% FREE</div>
+    <h1>Digital Business Card Generator</h1>
+    <p class="subtitle">Create a stunning shareable business card in 60 seconds</p>
+    <div class="social-proof">
+      <span>🌟 <strong style="color:#fff">2,800+</strong> cards created this month</span>
+    </div>
+  </header>
+
+  <!-- PERSONAL INFO -->
+  <div class="card">
+    <div class="card-title">👤 Personal Information</div>
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="fullName" placeholder="Yassin El Fennir" oninput="livePreview()">
+      </div>
+      <div class="form-group">
+        <label>Job Title</label>
+        <input type="text" id="jobTitle" placeholder="AI & Web Solutions Specialist" oninput="livePreview()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Company</label>
+      <input type="text" id="company" placeholder="El Fennir Agency" oninput="livePreview()">
+    </div>
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" id="phone" placeholder="+358 44 981 3838" oninput="livePreview()">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="hello@elfennir.com" oninput="livePreview()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Website</label>
+      <input type="url" id="website" placeholder="https://elfennir.com" oninput="livePreview()">
+    </div>
+    <div class="form-group">
+      <label>Location (optional)</label>
+      <input type="text" id="location" placeholder="Espoo, Finland" oninput="livePreview()">
+    </div>
+  </div>
+
+  <!-- SOCIAL LINKS -->
+  <div class="card">
+    <div class="card-title">🔗 Social Links (optional)</div>
+    <div class="grid-2">
+      <div class="form-group">
+        <label>LinkedIn</label>
+        <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourname" oninput="livePreview()">
+      </div>
+      <div class="form-group">
+        <label>Twitter / X</label>
+        <input type="url" id="twitter" placeholder="https://x.com/yourhandle" oninput="livePreview()">
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Instagram</label>
+        <input type="url" id="instagram" placeholder="https://instagram.com/yourname" oninput="livePreview()">
+      </div>
+      <div class="form-group">
+        <label>TikTok</label>
+        <input type="url" id="tiktok" placeholder="https://tiktok.com/@yourname" oninput="livePreview()">
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="form-group">
+        <label>GitHub</label>
+        <input type="url" id="github" placeholder="https://github.com/yourname" oninput="livePreview()">
+      </div>
+      <div class="form-group">
+        <label>YouTube</label>
+        <input type="url" id="youtube" placeholder="https://youtube.com/@yourchannel" oninput="livePreview()">
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE SELECTOR -->
+  <div class="card">
+    <div class="card-title">🎨 Choose Your Design</div>
+    <div class="template-selector">
+      <div class="template-opt t-modern active" onclick="selectTemplate('modern')" data-template="modern">
+        <span class="tname">Modern</span>
+      </div>
+      <div class="template-opt t-gradient" onclick="selectTemplate('gradient')" data-template="gradient">
+        <span class="tname">Gradient</span>
+      </div>
+      <div class="template-opt t-minimal" onclick="selectTemplate('minimal')" data-template="minimal">
+        <span class="tname" style="color:#333">Minimal</span>
+      </div>
+      <div class="template-opt t-dark" onclick="selectTemplate('dark')" data-template="dark">
+        <span class="tname">Dark</span>
+      </div>
+      <div class="template-opt t-nature" onclick="selectTemplate('nature')" data-template="nature">
+        <span class="tname">Nature</span>
+      </div>
+    </div>
+
+    <button class="btn" onclick="generateCard()">Generate Business Card ✨</button>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="card-preview-wrapper" id="previewWrapper">
+    <div style="text-align:center;margin-bottom:12px">
+      <span style="font-size:13px;color:var(--text2)">Your Digital Business Card</span>
+    </div>
+    <div class="card-preview" id="cardPreview"></div>
+
+    <div class="actions" style="justify-content:center;margin-top:20px">
+      <button class="btn-sm" onclick="copyCardHTML()">📋 Copy HTML</button>
+      <button class="btn-sm" onclick="downloadCard()">⬇️ Download</button>
+      <button class="btn-sm" onclick="shareCardWA()">📱 Share WhatsApp</button>
+      <button class="btn-sm" onclick="shareCardTwitter()">𝕏 Share Twitter</button>
+    </div>
+  </div>
+
+  <!-- PREMIUM UPSELL -->
+  <div class="premium-banner">
+    <h3>Upgrade to Business Card Pro</h3>
+    <p>Take your digital presence to the next level</p>
+    <div class="price-tag">€4.90<span>/month</span></div>
+    <div class="premium-features">
+      <span>Custom domain link</span>
+      <span>QR code generation</span>
+      <span>View analytics</span>
+      <span>15+ premium templates</span>
+      <span>Custom colors & fonts</span>
+      <span>Logo upload</span>
+      <span>Contact form</span>
+      <span>vCard download</span>
+    </div>
+    <a href="https://wa.me/358449813838?text=Hi!%20I%20want%20to%20upgrade%20to%20Business%20Card%20Pro%20(€4.90/mo)" class="cta-whatsapp">💬 Subscribe via WhatsApp — €4.90/mo</a>
+    <p style="margin-top:10px;font-size:12px;color:var(--text2)">Or email: yassin@elfennir.com</p>
+  </div>
+
+  <!-- CROSS SELL -->
+  <div class="cross-sell">
+    <h3>Want a matching website?</h3>
+    <p>Professional business websites starting from €270 — delivered in 48 hours</p>
+    <a href="https://elfennir.com" class="btn btn-outline" style="width:auto;display:inline-block;padding:10px 24px;font-size:14px;border-color:var(--green);color:var(--green)">El Fennir Agency →</a>
+  </div>
+
+  <div class="share-section">
+    <p>Share this free tool with your network</p>
+    <div class="share-btns">
+      <a class="share-btn wa" href="https://wa.me/?text=Create%20a%20free%20digital%20business%20card%20in%2060%20seconds!%20https://elfennir.com/business-card-generator" target="_blank">WhatsApp</a>
+      <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Just%20created%20my%20free%20digital%20business%20card%20with%20this%20tool!%20🔥&url=https://elfennir.com/business-card-generator" target="_blank">Twitter</a>
+      <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://elfennir.com/business-card-generator" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Built by <a href="https://elfennir.com">El Fennir Agency</a> — Web Design · AI Chatbots · Automation</p>
+    <p style="margin-top:4px">© 2026 elfennir.com · All rights reserved</p>
+  </footer>
+</div>
+
+<script>
+const STORAGE_KEY = 'elfennir_bcard_data';
+let currentTemplate = 'modern';
+
+const SOCIAL_ICONS = {
+  linkedin: {icon: 'in', label: 'LinkedIn'},
+  twitter: {icon: '𝕏', label: 'Twitter'},
+  instagram: {icon: 'IG', label: 'Instagram'},
+  tiktok: {icon: 'TT', label: 'TikTok'},
+  github: {icon: 'GH', label: 'GitHub'},
+  youtube: {icon: 'YT', label: 'YouTube'}
+};
+
+function selectTemplate(name) {
+  currentTemplate = name;
+  document.querySelectorAll('.template-opt').forEach(el => {
+    el.classList.toggle('active', el.dataset.template === name);
+  });
+  const wrapper = document.getElementById('previewWrapper');
+  if (wrapper.classList.contains('show')) generateCard();
+}
+
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str || '';
+  return d.innerHTML;
+}
+
+function getInitials(name) {
+  if (!name) return '?';
+  return name.split(' ').map(w => w[0]).join('').toUpperCase().substring(0, 2);
+}
+
+function getData() {
+  return {
+    fullName: document.getElementById('fullName').value.trim(),
+    jobTitle: document.getElementById('jobTitle').value.trim(),
+    company: document.getElementById('company').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    website: document.getElementById('website').value.trim(),
+    location: document.getElementById('location').value.trim(),
+    linkedin: document.getElementById('linkedin').value.trim(),
+    twitter: document.getElementById('twitter').value.trim(),
+    instagram: document.getElementById('instagram').value.trim(),
+    tiktok: document.getElementById('tiktok').value.trim(),
+    github: document.getElementById('github').value.trim(),
+    youtube: document.getElementById('youtube').value.trim()
+  };
+}
+
+function buildSocials(data) {
+  const socials = [];
+  ['linkedin','twitter','instagram','tiktok','github','youtube'].forEach(key => {
+    if (data[key]) {
+      socials.push(`<a href="${escapeHtml(data[key])}" target="_blank" class="bc-social" title="${SOCIAL_ICONS[key].label}">${SOCIAL_ICONS[key].icon}</a>`);
+    }
+  });
+  return socials.length > 0 ? `<div class="bc-socials">${socials.join('')}</div>` : '';
+}
+
+function buildInfoLines(data) {
+  const lines = [];
+  if (data.phone) lines.push(`<div class="bc-info">📱 ${escapeHtml(data.phone)}</div>`);
+  if (data.email) lines.push(`<div class="bc-info">✉️ ${escapeHtml(data.email)}</div>`);
+  if (data.website) lines.push(`<div class="bc-info">🌐 ${escapeHtml(data.website.replace(/^https?:\/\//, ''))}</div>`);
+  if (data.location) lines.push(`<div class="bc-info">📍 ${escapeHtml(data.location)}</div>`);
+  return lines.join('');
+}
+
+function generateCardHTML(data, template) {
+  const initials = getInitials(data.fullName);
+  const socialsHTML = buildSocials(data);
+  const infoHTML = buildInfoLines(data);
+
+  return `
+    <div class="bc-${template}">
+      <div class="bc-avatar">${initials}</div>
+      <div class="bc-name">${escapeHtml(data.fullName || 'Your Name')}</div>
+      ${data.jobTitle ? `<div class="bc-title">${escapeHtml(data.jobTitle)}</div>` : ''}
+      ${data.company ? `<div class="bc-company">${escapeHtml(data.company)}</div>` : ''}
+      <div class="bc-divider"></div>
+      ${infoHTML}
+      ${socialsHTML}
+      <div class="bc-footer">elfennir.com/business-card-generator</div>
+    </div>
+  `;
+}
+
+function generateCard() {
+  const data = getData();
+  if (!data.fullName) {
+    document.getElementById('fullName').style.borderColor = 'var(--red)';
+    document.getElementById('fullName').focus();
+    setTimeout(() => document.getElementById('fullName').style.borderColor = 'var(--border)', 2000);
+    return;
+  }
+
+  const preview = document.getElementById('cardPreview');
+  preview.innerHTML = generateCardHTML(data, currentTemplate);
+
+  const wrapper = document.getElementById('previewWrapper');
+  wrapper.classList.add('show');
+  wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  saveData(data);
+  incrementUsage();
+}
+
+function livePreview() {
+  const wrapper = document.getElementById('previewWrapper');
+  if (!wrapper.classList.contains('show')) return;
+  const data = getData();
+  const preview = document.getElementById('cardPreview');
+  preview.innerHTML = generateCardHTML(data, currentTemplate);
+}
+
+function copyCardHTML() {
+  const data = getData();
+  const fullHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escapeHtml(data.fullName)} — Digital Business Card</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:20px}
+.card{border-radius:16px;overflow:hidden;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+${getTemplateCSS(currentTemplate)}
+</style>
+</head>
+<body>
+<div class="card">
+${generateCardHTML(data, currentTemplate)}
+</div>
+</body>
+</html>`;
+
+  navigator.clipboard.writeText(fullHTML).then(() => showMsg('HTML copied to clipboard!'));
+}
+
+function getTemplateCSS(t) {
+  // Return inline styles for the standalone card
+  const styles = document.querySelectorAll('style');
+  let css = '';
+  styles.forEach(s => { css += s.textContent; });
+  // Extract only the relevant bc- class rules
+  const regex = new RegExp(`\\.bc-${t}[^{]*\\{[^}]+\\}`, 'g');
+  const matches = css.match(regex);
+  return matches ? matches.join('\n') : '';
+}
+
+function downloadCard() {
+  const data = getData();
+  const html = document.getElementById('cardPreview').innerHTML;
+  const blob = new Blob([`<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${escapeHtml(data.fullName)} Business Card</title><style>*{margin:0;padding:0;box-sizing:border-box}body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:20px}.card{border-radius:16px;overflow:hidden;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}${getTemplateCSS(currentTemplate)}</style></head><body><div class="card">${html}</div></body></html>`], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${(data.fullName || 'business-card').replace(/\s+/g, '-').toLowerCase()}-card.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showMsg('Card downloaded!');
+}
+
+function shareCardWA() {
+  const data = getData();
+  const text = `Check out my digital business card! ${data.fullName} — ${data.jobTitle || ''} at ${data.company || ''}. Created with elfennir.com/business-card-generator`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+function shareCardTwitter() {
+  const data = getData();
+  const text = `Just created my digital business card with @elfennir's free tool! Check it out 🔥`;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://elfennir.com/business-card-generator')}`, '_blank');
+}
+
+function showMsg(text) {
+  const msg = document.getElementById('copyMsg');
+  msg.textContent = text;
+  msg.style.display = 'block';
+  msg.style.animation = 'none';
+  void msg.offsetWidth;
+  msg.style.animation = 'fadeInOut 2.5s forwards';
+  setTimeout(() => { msg.style.display = 'none'; }, 2500);
+}
+
+function saveData(data) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data || getData()));
+  } catch {}
+}
+
+function loadData() {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (!data) return;
+    Object.keys(data).forEach(key => {
+      const el = document.getElementById(key);
+      if (el && data[key]) el.value = data[key];
+    });
+  } catch {}
+}
+
+function incrementUsage() {
+  try {
+    const count = parseInt(localStorage.getItem('elfennir_bcard_count') || '0') + 1;
+    localStorage.setItem('elfennir_bcard_count', count.toString());
+  } catch {}
+}
+
+loadData();
+</script>
+</body>
+</html>

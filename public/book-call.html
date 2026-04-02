@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Free Strategy Call — elfennir.com</title>
+<meta name="description" content="Book a free 15-minute strategy call with elfennir.com. Get expert advice on websites, AI chatbots, and automation for your business.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://elfennir.com/book-call.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Book a Strategy Call — elfennir.com",
+  "description": "Book a free 15-minute strategy call to discuss your web, AI, or automation project.",
+  "url": "https://elfennir.com/book-call.html",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "elfennir.com",
+    "url": "https://elfennir.com",
+    "email": "yassin@elfennir.com",
+    "telephone": "+358466109064"
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://wa.me/358466109064?text=Hi%20Yassin%2C%20I%27d%20like%20to%20book%20a%20call",
+      "actionPlatform": "https://schema.org/DesktopWebPlatform"
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "Free 15-Minute Strategy Call"
+    }
+  }
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a2e;
+  --green:#14F195;--cyan:#00D1FF;--purple:#9945FF;--orange:#FF6B00;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --border:#1e293b;--radius:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0}
+.nav .inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px;text-decoration:none}
+.nav-logo span{color:var(--orange)}
+.nav-cta{padding:8px 20px;border-radius:8px;background:var(--green);color:#000;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(20,241,149,0.3);text-decoration:none}
+
+/* HERO */
+.hero{padding:110px 0 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(0,209,255,0.06) 0%,transparent 70%);pointer-events:none}
+.badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(0,209,255,0.1);border:1px solid rgba(0,209,255,0.3);color:var(--cyan);font-size:13px;font-weight:600;margin-bottom:16px}
+.hero h1{font-size:clamp(28px,4.5vw,48px);font-weight:800;line-height:1.12;margin-bottom:14px;letter-spacing:-1px}
+.hero h1 .hl{background:linear-gradient(135deg,var(--cyan),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:17px;color:var(--text2);max-width:560px;margin:0 auto 32px}
+
+/* TRUST BADGES */
+.trust-row{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.trust-badge{display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);font-size:14px;font-weight:600}
+.trust-badge .icon{font-size:20px}
+
+/* CALENDAR */
+.calendar-section{margin-bottom:48px}
+.calendar-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.cal-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.cal-header h3{font-size:18px;font-weight:700}
+.cal-nav{display:flex;gap:8px}
+.cal-nav button{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;font-size:16px;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.cal-nav button:hover{border-color:var(--cyan);color:var(--cyan)}
+
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border)}
+.cal-day-header{padding:12px 4px;text-align:center;font-size:12px;font-weight:600;color:var(--text3);background:var(--bg2);text-transform:uppercase}
+.cal-day{padding:12px 4px;text-align:center;font-size:14px;background:var(--bg2);cursor:default;color:var(--text3);min-height:54px;display:flex;align-items:center;justify-content:center}
+.cal-day.empty{background:var(--bg)}
+.cal-day.active{color:var(--text);cursor:pointer;transition:all .15s;position:relative}
+.cal-day.active:hover{background:var(--bg3);color:var(--cyan)}
+.cal-day.active .dot{display:block;width:4px;height:4px;border-radius:50%;background:var(--green);position:absolute;bottom:6px;left:50%;transform:translateX(-50%)}
+.cal-day.today{color:var(--green);font-weight:700}
+.cal-day.past{color:var(--text3);opacity:0.4;cursor:default}
+.cal-day.weekend{color:var(--text3);opacity:0.3}
+
+/* TIME SLOTS */
+.slots-panel{padding:24px}
+.slots-title{font-size:15px;font-weight:600;margin-bottom:16px;color:var(--text2)}
+.slots-title strong{color:var(--text)}
+.slots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+.slot{padding:10px;text-align:center;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;text-decoration:none}
+.slot:hover{border-color:var(--green);color:var(--green);transform:translateY(-1px);text-decoration:none}
+.slot.booked{opacity:0.3;cursor:not-allowed;pointer-events:none}
+
+/* DIRECT CONTACT */
+.direct{margin-bottom:48px}
+.direct h2{font-size:22px;font-weight:700;text-align:center;margin-bottom:24px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.contact-card{display:flex;flex-direction:column;align-items:center;gap:10px;padding:28px 20px;border-radius:14px;background:var(--bg2);border:1px solid var(--border);text-decoration:none;color:var(--text);transition:all .2s}
+.contact-card:hover{border-color:var(--green);transform:translateY(-2px);text-decoration:none}
+.contact-card .ic{font-size:28px}
+.contact-card strong{font-size:15px}
+.contact-card span{font-size:13px;color:var(--text2)}
+
+/* TESTIMONIAL */
+.testimonial-section{margin-bottom:48px}
+.testimonial{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:36px 32px;position:relative}
+.testimonial::before{content:'"';position:absolute;top:16px;left:24px;font-size:60px;color:var(--green);opacity:0.2;line-height:1;font-family:Georgia,serif}
+.testimonial blockquote{font-size:17px;line-height:1.7;color:var(--text);margin-bottom:16px;padding-left:8px}
+.testimonial cite{display:flex;align-items:center;gap:12px;font-style:normal}
+.testimonial .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;color:#000;font-size:18px}
+.testimonial .info strong{display:block;font-size:14px;color:var(--text)}
+.testimonial .info span{font-size:13px;color:var(--text3)}
+.stars{color:#f59e0b;font-size:14px;margin-bottom:12px}
+
+/* FOOTER */
+.footer{padding:32px 0;text-align:center;border-top:1px solid var(--border)}
+.footer p{font-size:13px;color:var(--text3)}
+.footer a{color:var(--cyan)}
+
+@media(max-width:540px){
+  .trust-row{gap:12px}
+  .trust-badge{padding:8px 14px;font-size:13px}
+  .slots-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="inner">
+    <a href="https://elfennir.com" class="nav-logo">el<span>fennir</span></a>
+    <a href="https://elfennir.com/free-consultation.html" class="nav-cta">Free Consultation</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="badge">Free &middot; No Obligations &middot; 15 Minutes</div>
+    <h1>Book a <span class="hl">Strategy Call</span><br>Grow Your Business Online</h1>
+    <p>In 15 minutes, we'll analyze your current online presence and give you 3 actionable steps to get more customers.</p>
+
+    <div class="trust-row">
+      <div class="trust-badge"><span class="icon">&#127466;&#127482;</span> Based in Finland</div>
+      <div class="trust-badge"><span class="icon">&#128187;</span> 50+ Projects</div>
+      <div class="trust-badge"><span class="icon">&#11088;</span> 100% Satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="calendar-section">
+  <div class="container">
+    <div class="calendar-card">
+      <div class="cal-header">
+        <h3 id="calMonth"></h3>
+        <div class="cal-nav">
+          <button onclick="changeMonth(-1)" aria-label="Previous month">&#8249;</button>
+          <button onclick="changeMonth(1)" aria-label="Next month">&#8250;</button>
+        </div>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="slots-panel" id="slotsPanel">
+        <p class="slots-title">Select a day above to see <strong>available times</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECT CONTACT -->
+<section class="direct">
+  <div class="container">
+    <h2>Or Contact Us Directly</h2>
+    <div class="contact-grid">
+      <a href="https://wa.me/358466109064?text=Hi%20Yassin%2C%20I%27d%20like%20to%20book%20a%20strategy%20call." class="contact-card" target="_blank" rel="noopener">
+        <div class="ic">&#128172;</div>
+        <strong>WhatsApp</strong>
+        <span>Instant reply</span>
+      </a>
+      <a href="mailto:yassin@elfennir.com?subject=Strategy%20Call%20Request" class="contact-card">
+        <div class="ic">&#9993;</div>
+        <strong>Email</strong>
+        <span>yassin@elfennir.com</span>
+      </a>
+      <a href="tel:+358466109064" class="contact-card">
+        <div class="ic">&#128222;</div>
+        <strong>Phone</strong>
+        <span>+358 46 610 9064</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="container">
+    <div class="testimonial">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>Yassin delivered our website in just 3 days. The quality was exceptional and our bookings increased by 40% in the first month. Highly recommend his services!</blockquote>
+      <cite>
+        <div class="avatar">K</div>
+        <div class="info">
+          <strong>Kazumi Restaurant</strong>
+          <span>Espoo, Finland</span>
+        </div>
+      </cite>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 <a href="https://elfennir.com">elfennir.com</a> &mdash; Web & AI Solutions</p>
+  </div>
+</footer>
+
+<script>
+/* ═══════ CALENDAR ═══════ */
+var DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var SLOTS = ['10:00','10:30','11:00','11:30','12:00','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30'];
+var BOOKED_PERCENT = 0.25;
+
+var viewYear, viewMonth;
+var today = new Date();
+
+function init() {
+  viewYear = today.getFullYear();
+  viewMonth = today.getMonth();
+  renderCalendar();
+}
+
+function changeMonth(dir) {
+  viewMonth += dir;
+  if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+  if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+  renderCalendar();
+  document.getElementById('slotsPanel').innerHTML = '<p class="slots-title">Select a day above to see <strong>available times</strong></p>';
+}
+
+function renderCalendar() {
+  document.getElementById('calMonth').textContent = MONTHS[viewMonth] + ' ' + viewYear;
+  var grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+
+  DAYS.forEach(function(d) {
+    grid.innerHTML += '<div class="cal-day-header">' + d + '</div>';
+  });
+
+  var firstDay = new Date(viewYear, viewMonth, 1).getDay();
+  firstDay = firstDay === 0 ? 6 : firstDay - 1;
+
+  var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+  for (var i = 0; i < firstDay; i++) {
+    grid.innerHTML += '<div class="cal-day empty"></div>';
+  }
+
+  for (var d = 1; d <= daysInMonth; d++) {
+    var date = new Date(viewYear, viewMonth, d);
+    var dayOfWeek = date.getDay();
+    var isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    var isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    var isToday = d === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear();
+
+    var classes = 'cal-day';
+    if (isWeekend) classes += ' weekend';
+    else if (isPast) classes += ' past';
+    else {
+      classes += ' active';
+      if (isToday) classes += ' today';
+    }
+
+    var dot = (!isWeekend && !isPast) ? '<span class="dot"></span>' : '';
+    var onclick = (!isWeekend && !isPast) ? ' onclick="selectDay(' + d + ')"' : '';
+
+    grid.innerHTML += '<div class="' + classes + '"' + onclick + '>' + d + dot + '</div>';
+  }
+}
+
+function selectDay(day) {
+  var dateStr = viewYear + '-' + String(viewMonth + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+  var dayName = new Date(viewYear, viewMonth, day).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+
+  var panel = document.getElementById('slotsPanel');
+  var html = '<p class="slots-title"><strong>' + dayName + '</strong> — Select a time (CET)</p><div class="slots-grid">';
+
+  var seed = day * 7 + viewMonth * 31 + viewYear;
+  SLOTS.forEach(function(slot) {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    var isBooked = (seed % 100) < (BOOKED_PERCENT * 100);
+    var waMsg = encodeURIComponent('Hi Yassin, I\'d like to book a strategy call on ' + dayName + ' at ' + slot + ' CET.');
+    var link = 'https://wa.me/358466109064?text=' + waMsg;
+
+    if (isBooked) {
+      html += '<div class="slot booked">' + slot + '</div>';
+    } else {
+      html += '<a href="' + link + '" target="_blank" rel="noopener" class="slot">' + slot + '</a>';
+    }
+  });
+
+  html += '</div>';
+  panel.innerHTML = html;
+}
+
+init();
+</script>
+</body>
+</html>

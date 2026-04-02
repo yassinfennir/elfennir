@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkAI Pro — 200+ Business Prompts for ChatGPT & Claude | InfluAI</title>
+    <meta name="description" content="Save 10+ hours per week with 200+ battle-tested AI prompts for business. Email, Marketing, Sales, Finance, HR, Legal, Strategy & more. One-time purchase, lifetime access.">
+    <meta property="og:title" content="WorkAI Pro — 200+ Business Prompts for ChatGPT & Claude">
+    <meta property="og:description" content="Save 10+ hours per week. 200+ prompts across 10 business categories. €47 one-time.">
+    <meta property="og:type" content="product">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --border: #2a2a2a;
+            --text: #e5e5e5;
+            --text-muted: #888;
+            --accent: #f97316;
+            --accent-hover: #fb923c;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --green: #22c55e;
+            --red: #ef4444;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); padding: 16px 0;
+        }
+        .nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-weight: 800; font-size: 1.1rem; color: var(--accent); text-decoration: none; }
+        .nav-cta {
+            background: var(--accent); color: #000; padding: 8px 20px;
+            border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .nav-cta:hover { background: var(--accent-hover); }
+
+        /* HERO */
+        .hero {
+            padding: 140px 0 80px; text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%);
+        }
+        .badge {
+            display: inline-block; background: var(--accent-glow); color: var(--accent);
+            padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+            margin-bottom: 24px; border: 1px solid rgba(249,115,22,0.3);
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900;
+            line-height: 1.1; margin-bottom: 20px;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; }
+        .hero-cta {
+            display: inline-block; background: var(--accent); color: #000;
+            padding: 16px 40px; border-radius: 12px; font-weight: 800;
+            font-size: 1.1rem; text-decoration: none; transition: all 0.2s;
+            box-shadow: 0 0 30px rgba(249,115,22,0.3);
+        }
+        .hero-cta:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 0 40px rgba(249,115,22,0.4); }
+        .hero-sub { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+        .hero-sub s { color: var(--red); }
+
+        /* STATS */
+        .stats {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+            padding: 40px 0; border-bottom: 1px solid var(--border);
+        }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2rem; font-weight: 900; color: var(--accent); }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* SECTIONS */
+        section { padding: 80px 0; }
+        .section-label {
+            text-transform: uppercase; font-size: 0.75rem; font-weight: 700;
+            color: var(--accent); letter-spacing: 2px; margin-bottom: 12px;
+        }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .section-desc { color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+
+        /* CATEGORIES */
+        .categories { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+        .cat-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; transition: border-color 0.2s;
+        }
+        .cat-card:hover { border-color: var(--accent); }
+        .cat-icon { font-size: 1.5rem; margin-bottom: 8px; }
+        .cat-name { font-weight: 700; margin-bottom: 4px; }
+        .cat-count { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* EXAMPLES */
+        .example {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; margin-bottom: 16px;
+        }
+        .example-cat {
+            font-size: 0.7rem; text-transform: uppercase; font-weight: 700;
+            color: var(--accent); letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .example-title { font-weight: 700; margin-bottom: 8px; }
+        .example-prompt {
+            background: #0d0d0d; border: 1px solid var(--border); border-radius: 8px;
+            padding: 16px; font-size: 0.9rem; color: var(--text-muted); font-style: italic;
+        }
+        .example-blur {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px; text-align: center;
+            color: var(--text-muted); position: relative; overflow: hidden;
+        }
+        .example-blur::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(transparent, var(--bg-card));
+        }
+        .example-blur span { position: relative; z-index: 1; font-weight: 600; color: var(--accent); }
+
+        /* TESTIMONIALS */
+        .testimonials { display: grid; gap: 16px; }
+        .testimonial {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 24px;
+        }
+        .testimonial-stars { color: var(--accent); margin-bottom: 12px; font-size: 1.1rem; }
+        .testimonial-text { margin-bottom: 16px; font-size: 0.95rem; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .testimonial-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--accent-glow); display: flex; align-items: center;
+            justify-content: center; font-weight: 700; color: var(--accent); font-size: 0.9rem;
+        }
+        .testimonial-name { font-weight: 600; font-size: 0.9rem; }
+        .testimonial-role { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* PRICING */
+        .pricing-card {
+            background: var(--bg-card); border: 2px solid var(--accent);
+            border-radius: 20px; padding: 40px; text-align: center;
+            position: relative; max-width: 500px; margin: 0 auto;
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+        .pricing-badge {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--accent); color: #000; padding: 6px 20px;
+            border-radius: 50px; font-weight: 700; font-size: 0.8rem;
+        }
+        .pricing-old { font-size: 1.2rem; color: var(--text-muted); text-decoration: line-through; }
+        .pricing-price { font-size: 4rem; font-weight: 900; margin: 8px 0; }
+        .pricing-price span { font-size: 1.5rem; vertical-align: super; }
+        .pricing-note { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+        .pricing-features { list-style: none; text-align: left; margin-bottom: 32px; }
+        .pricing-features li {
+            padding: 8px 0; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem; display: flex; align-items: center; gap: 10px;
+        }
+        .pricing-features li::before { content: '\2713'; color: var(--green); font-weight: 700; }
+        .pricing-btn {
+            display: block; width: 100%; background: var(--accent); color: #000;
+            padding: 18px; border-radius: 12px; font-weight: 800; font-size: 1.15rem;
+            text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .pricing-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .pricing-alt {
+            margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);
+        }
+        .pricing-alt a { color: var(--accent); text-decoration: none; }
+
+        /* GUARANTEE */
+        .guarantee {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; text-align: center; margin-top: 40px;
+        }
+        .guarantee-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .guarantee h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .guarantee p { color: var(--text-muted); font-size: 0.95rem; max-width: 500px; margin: 0 auto; }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border); padding: 20px 0;
+        }
+        .faq-q {
+            font-weight: 700; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--accent); transition: transform 0.2s; }
+        .faq-q.active::after { content: '-'; }
+        .faq-a {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+            color: var(--text-muted); font-size: 0.95rem;
+        }
+        .faq-a.active { max-height: 300px; padding-top: 12px; }
+
+        /* FOOTER CTA */
+        .final-cta {
+            text-align: center; padding: 80px 0;
+            background: radial-gradient(ellipse at 50% 100%, var(--accent-glow) 0%, transparent 60%);
+        }
+        .final-cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .final-cta p { color: var(--text-muted); margin-bottom: 32px; }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border); padding: 32px 0;
+            text-align: center; font-size: 0.8rem; color: var(--text-muted);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .stats { grid-template-columns: 1fr; gap: 24px; }
+            .categories { grid-template-columns: 1fr 1fr; }
+            .pricing-price { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="container">
+        <a href="/" class="nav-brand">InfluAI</a>
+        <a href="#pricing" class="nav-cta">Get WorkAI Pro — €47</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="badge">200+ Prompts &middot; 10 Categories &middot; Instant Access</div>
+        <h1>Save <span>10+ Hours Per Week</span> with AI-Powered Business Prompts</h1>
+        <p>Stop wasting time writing prompts from scratch. Get 200+ copy-paste prompts that turn ChatGPT and Claude into your personal business team.</p>
+        <a href="#pricing" class="hero-cta">Get Instant Access — €47</a>
+        <p class="hero-sub"><s>€97</s> &nbsp;52% OFF — Limited time offer</p>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="container">
+    <div class="stats">
+        <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Ready-to-use prompts</div></div>
+        <div class="stat"><div class="stat-num">10</div><div class="stat-label">Business categories</div></div>
+        <div class="stat"><div class="stat-num">10h+</div><div class="stat-label">Saved per week</div></div>
+    </div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+    <div class="container">
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">You're Using AI Wrong (And It's Costing You Money)</h2>
+        <div class="section-desc">
+            Most professionals type vague prompts and get vague results. They spend more time fixing AI output than they save. The difference between amateur and expert AI use? <strong style="color:#fff">The prompts.</strong>
+        </div>
+        <div style="display:grid; gap:12px;">
+            <div style="display:flex; gap:12px; align-items:start;">
+                <span style="color:var(--red); font-size:1.2rem;">&#10007;</span>
+                <div><strong>Generic prompts</strong> = generic, useless output</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:start;">
+                <span style="color:var(--red); font-size:1.2rem;">&#10007;</span>
+                <div><strong>Hours wasted</strong> re-writing and fixing AI responses</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:start;">
+                <span style="color:var(--red); font-size:1.2rem;">&#10007;</span>
+                <div><strong>Missed opportunities</strong> because your competitors already figured this out</div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:start; margin-top:16px;">
+                <span style="color:var(--green); font-size:1.2rem;">&#10003;</span>
+                <div><strong style="color:var(--accent)">WorkAI Pro</strong> = expert-level prompts that produce results in seconds</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section style="background: var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+        <div class="section-label">What's Inside</div>
+        <h2 class="section-title">200+ Prompts Across 10 Business Categories</h2>
+        <div class="section-desc">Every prompt is battle-tested, structured for maximum output quality, and ready to paste into ChatGPT or Claude.</div>
+        <div class="categories">
+            <div class="cat-card"><div class="cat-icon">&#9993;</div><div class="cat-name">Email & Communication</div><div class="cat-count">25+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128200;</div><div class="cat-name">Marketing & Growth</div><div class="cat-count">25+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128176;</div><div class="cat-name">Sales & Closing</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128202;</div><div class="cat-name">Finance & Accounting</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128101;</div><div class="cat-name">HR & Recruiting</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#9878;</div><div class="cat-name">Legal & Compliance</div><div class="cat-count">15+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#127919;</div><div class="cat-name">Strategy & Planning</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128241;</div><div class="cat-name">Social Media</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#127897;</div><div class="cat-name">Customer Service</div><div class="cat-count">20+ prompts</div></div>
+            <div class="cat-card"><div class="cat-icon">&#128202;</div><div class="cat-name">Data Analysis</div><div class="cat-count">20+ prompts</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- EXAMPLES -->
+<section>
+    <div class="container">
+        <div class="section-label">Sneak Peek</div>
+        <h2 class="section-title">5 Sample Prompts from the Pack</h2>
+        <div class="section-desc">These are just the tip of the iceberg. Imagine having 200+ of these at your fingertips.</div>
+
+        <div class="example">
+            <div class="example-cat">Email & Communication</div>
+            <div class="example-title">Cold Outreach That Gets Replies</div>
+            <div class="example-prompt">"Write a cold email to [JOB TITLE] at [COMPANY TYPE] companies. The email must be under 100 words, open with a specific pain point about [INDUSTRY PROBLEM], include one concrete result I achieved for a similar client, and end with a soft CTA that asks for a 15-minute call. Tone: professional but human, zero corporate jargon."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Marketing & Growth</div>
+            <div class="example-title">Landing Page Copy Generator</div>
+            <div class="example-prompt">"You are a direct-response copywriter. Write landing page copy for [PRODUCT/SERVICE] targeting [AUDIENCE]. Use the PAS framework (Problem-Agitate-Solve). Include: headline (under 10 words), subheadline, 3 bullet benefits, social proof section, pricing justification, and a high-urgency CTA. The page should convert cold traffic from [SOURCE]."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Sales & Closing</div>
+            <div class="example-title">Objection Handler Script</div>
+            <div class="example-prompt">"I sell [SERVICE] at [PRICE]. The most common objection I hear is '[OBJECTION]'. Write 3 different response scripts I can use: (1) a logical reframe that uses ROI math, (2) an emotional response that connects to their deeper goal, (3) a takeaway close that creates urgency. Each response must be under 60 words and sound natural in conversation."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Strategy & Planning</div>
+            <div class="example-title">90-Day Business Sprint Planner</div>
+            <div class="example-prompt">"Act as a business strategist. I run a [BUSINESS TYPE] with [REVENUE] monthly revenue. My goal is to reach [TARGET REVENUE] in 90 days. Create a detailed 90-day sprint plan with: Week-by-week milestones, 3 key metrics to track, biggest risk per phase, and a 'Plan B' for each phase if the primary strategy underperforms."</div>
+        </div>
+
+        <div class="example">
+            <div class="example-cat">Data Analysis</div>
+            <div class="example-title">Revenue Pattern Analyzer</div>
+            <div class="example-prompt">"Analyze this revenue data: [PASTE DATA]. Identify: (1) Top 3 revenue patterns or trends, (2) Seasonality effects, (3) Customer segments driving the most growth, (4) The single biggest risk to revenue in the next quarter, (5) 3 actionable recommendations ranked by expected ROI. Present findings in an executive summary format."</div>
+        </div>
+
+        <div class="example-blur">
+            <p>+195 more prompts inside the full pack...</p>
+            <span>Unlock All 200+ Prompts &darr;</span>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background: var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+        <div class="section-label">What People Say</div>
+        <h2 class="section-title">Real Results from Real Professionals</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="testimonial-text">"I used to spend 2 hours writing proposals. Now I paste one prompt and have a polished proposal in 5 minutes. The sales prompts alone have helped me close 3 extra clients this month. Best €47 I've ever spent."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MK</div>
+                    <div><div class="testimonial-name">Marcus K.</div><div class="testimonial-role">Freelance Consultant, Berlin</div></div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="testimonial-text">"The email prompts are insane. My open rates went from 15% to 38% after I started using the cold outreach templates. And the HR prompts saved our team at least 10 hours last week on job descriptions alone."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SL</div>
+                    <div><div class="testimonial-name">Sarah L.</div><div class="testimonial-role">Operations Manager, Stockholm</div></div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="testimonial-text">"I was skeptical about paying for prompts. But these aren't basic — they're engineered. Every prompt has context, role-setting, and output formatting built in. It's like having a business consultant on speed dial."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JR</div>
+                    <div><div class="testimonial-name">James R.</div><div class="testimonial-role">Startup Founder, London</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+    <div class="container">
+        <div class="section-label" style="text-align:center;">Pricing</div>
+        <h2 class="section-title" style="text-align:center;">One Payment. Lifetime Access. No Subscription.</h2>
+        <div class="pricing-card">
+            <div class="pricing-badge">52% OFF — LIMITED TIME</div>
+            <div class="pricing-old">€97</div>
+            <div class="pricing-price"><span>€</span>47</div>
+            <div class="pricing-note">One-time payment &middot; Instant download &middot; Lifetime updates</div>
+            <ul class="pricing-features">
+                <li>200+ expert-crafted business prompts</li>
+                <li>10 business categories covered</li>
+                <li>Works with ChatGPT, Claude, Gemini & more</li>
+                <li>Copy-paste ready — zero setup needed</li>
+                <li>Pro tips for maximum output quality</li>
+                <li>Free lifetime updates (new prompts added monthly)</li>
+                <li>30-day money-back guarantee</li>
+            </ul>
+            <a href="#stripe-link-workai" class="pricing-btn">Get Instant Access — €47</a>
+            <div class="pricing-alt">
+                Or pay via <a href="https://wa.me/358449178883?text=Hi%20I%20want%20to%20buy%20WorkAI%20Pro%20prompt%20pack" target="_blank">WhatsApp</a> &middot; Secure payment via Stripe
+            </div>
+        </div>
+
+        <!-- GUARANTEE -->
+        <div class="guarantee">
+            <div class="guarantee-icon">&#128170;</div>
+            <h3>30-Day Money-Back Guarantee</h3>
+            <p>Try every single prompt. If WorkAI Pro doesn't save you at least 5 hours in your first week, email us and get a full refund. No questions asked. The risk is 100% on us.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section style="border-top:1px solid var(--border);">
+    <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">
+                What AI tools do these prompts work with?
+            </div>
+            <div class="faq-a">All prompts are optimized for ChatGPT (GPT-4) and Claude, but they work with any AI model including Gemini, Copilot, Perplexity, and more. The principles are universal.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">
+                Is this a subscription?
+            </div>
+            <div class="faq-a">No. It's a one-time payment of €47. You get instant access and free lifetime updates. We add new prompts every month at no extra cost.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">
+                Can't I just write prompts myself?
+            </div>
+            <div class="faq-a">You can — and you'd spend 50+ hours researching prompt engineering to reach this level. These prompts use advanced techniques like role-setting, chain-of-thought, and structured output formatting. You're paying for expertise and time saved.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">
+                What format is the product in?
+            </div>
+            <div class="faq-a">You receive a beautifully formatted document that you can open in any text editor, Notion, or Google Docs. Every prompt is organized by category with clear instructions.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">
+                What if I'm not satisfied?
+            </div>
+            <div class="faq-a">We offer a 30-day money-back guarantee. If the prompts don't deliver value, email yassin@elfennir.com and we'll refund you immediately. No questions, no hassle.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('active')">
+                I already use AI daily — is this still useful?
+            </div>
+            <div class="faq-a">Especially for you. Power users get the most value because they understand the difference between a 6/10 output and a 10/10 output. These prompts close that gap instantly.</div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+    <div class="container">
+        <h2>Stop Writing Bad Prompts.<br>Start Getting <span style="color:var(--accent)">Real Results.</span></h2>
+        <p>200+ prompts. 10 categories. One payment. Lifetime access.</p>
+        <a href="#pricing" class="hero-cta">Get WorkAI Pro — €47</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 InfluAI by <a href="https://elfennir.com">elfennir.com</a> &middot; <a href="mailto:yassin@elfennir.com">yassin@elfennir.com</a></p>
+        <p style="margin-top:8px;">Also available: <a href="/prompt-pack-creator.html">InfluLife Creator Pack (€29)</a> &middot; <a href="/prompt-pack-bundle.html">Ultimate Bundle (€67)</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
