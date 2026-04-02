@@ -1,49 +1,52 @@
 "use client";
 import { motion } from "framer-motion";
-import { CheckCircle2, Zap, Clock, Shield, Star, TrendingUp } from "lucide-react";
+import { CheckCircle2, Zap, Clock, Shield, Star, Quote } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
+import { StaggerContainer, staggerItem } from "@/components/ScrollReveal3D";
 import { Card3D } from "@/components/Card3D";
-
-function AnimatedNumber({ target, suffix = "" }: { target: string; suffix?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [value, setValue] = useState("0");
-  const started = useRef(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting && !started.current) {
-          started.current = true;
-          // Animate to target value
-          const num = parseInt(target.replace(/\D/g, ""));
-          let current = 0;
-          const step = Math.ceil(num / 30);
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= num) {
-              setValue(target);
-              clearInterval(timer);
-            } else {
-              setValue(String(current));
-            }
-          }, 40);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, [target]);
-
-  return <div ref={ref}>{value}{suffix}</div>;
-}
 
 const solanaColors = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"];
 
+const STAR_COUNT = 5;
+
+function StarRating() {
+  return (
+    <div className="flex gap-1">
+      {Array.from({ length: STAR_COUNT }).map((_, i) => (
+        <Star
+          key={i}
+          size={16}
+          className="fill-[#ff8c00] text-[#ff8c00]"
+        />
+      ))}
+    </div>
+  );
+}
+
 export function Testimonials() {
   const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      quote: t.testimonials.review1Quote,
+      company: "Nordic Globe Oy",
+      role: t.testimonials.review1Role,
+      color: solanaColors[0],
+    },
+    {
+      quote: t.testimonials.review2Quote,
+      company: "GymHolvi",
+      role: t.testimonials.review2Role,
+      color: solanaColors[1],
+    },
+    {
+      quote: t.testimonials.review3Quote,
+      company: "Ha-Fix Oy",
+      role: t.testimonials.review3Role,
+      color: solanaColors[2],
+    },
+  ];
 
   const guarantees = [
     {
@@ -73,8 +76,9 @@ export function Testimonials() {
   ];
 
   return (
-    <section className="relative py-28 overflow-hidden">
+    <section id="testimonials" className="relative py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -108,6 +112,59 @@ export function Testimonials() {
           </motion.p>
         </div>
 
+        {/* Testimonial Cards */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {testimonials.map((item, i) => (
+            <motion.div key={i} variants={staggerItem} style={{ transformPerspective: 800 }}>
+              <Card3D className="h-full">
+                <div className="group relative h-full p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#ff8c00]/20 transition-all duration-500 overflow-hidden">
+                  {/* Glow on hover */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+                    style={{
+                      background: `radial-gradient(ellipse at 50% 0%, ${item.color}08 0%, transparent 70%)`,
+                    }}
+                  />
+
+                  <div className="relative flex flex-col h-full">
+                    {/* Quote icon */}
+                    <Quote
+                      size={28}
+                      className="mb-4 opacity-30"
+                      style={{ color: item.color }}
+                    />
+
+                    {/* Stars */}
+                    <div className="mb-4">
+                      <StarRating />
+                    </div>
+
+                    {/* Quote text */}
+                    <p className="text-slate-300 text-sm leading-relaxed flex-1 mb-6">
+                      &ldquo;{item.quote}&rdquo;
+                    </p>
+
+                    {/* Divider */}
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-4" />
+
+                    {/* Company info */}
+                    <div>
+                      <div
+                        className="font-bold text-base font-[var(--font-heading)]"
+                        style={{ color: item.color }}
+                      >
+                        {item.company}
+                      </div>
+                      <div className="text-slate-500 text-xs mt-0.5">{item.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </Card3D>
+            </motion.div>
+          ))}
+        </StaggerContainer>
+
+        {/* Guarantee Badges */}
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
           {guarantees.map((item, i) => (
             <motion.div key={i} variants={staggerItem} style={{ transformPerspective: 800 }}>

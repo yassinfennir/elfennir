@@ -100,6 +100,8 @@ const fi = {
     service9Title: "Kyberturvallisuus",
     service9Desc:
       "Tietoturva-auditoinnit, SSL/HTTPS, DDoS-suojaus, GDPR-vaatimustenmukaisuus, haittaohjelmien poisto ja palomuurien konfigurointi — pidämme yrityksesi turvassa.",
+    serviceCta: "Pyydä ilmainen arvio",
+    priceFrom: "alkaen",
   },
 
   // === TECHSTACK ===
@@ -323,6 +325,12 @@ const fi = {
     titleHighlight: "puolestaan.",
     subtitle:
       "Jokainen asiakas on saanut verkkosivuston ajallaan ja budjetissa.",
+    review1Quote: "Yassin rakensi koko verkkosivustomme yli 60 sivulla, SEO-optimoinnilla ja monikielisellä tuella. Ammattimainen ja nopea toimitus.",
+    review1Role: "Siivousyritys, Helsinki",
+    review2Quote: "Moderni verkkosivusto jäsenjärjestelmällä ja liidien generoinnilla. Ylitti odotuksemme.",
+    review2Role: "Kuntosali",
+    review3Quote: "Täydellinen yrityssivusto kaikilla tarvitsemillamme ominaisuuksilla. Erinomainen viestintä.",
+    review3Role: "Rakennusyritys",
     guarantee1Label: "100%",
     guarantee1Sub: "Tyytyväisyystakuu",
     guarantee2Label: "Ajallaan",
@@ -573,6 +581,8 @@ const en: typeof fi = {
     service9Title: "Cyber Security",
     service9Desc:
       "Security audits, SSL/HTTPS implementation, DDoS protection, GDPR compliance, malware scanning & removal, and firewall configuration \u2014 we keep your business safe.",
+    serviceCta: "Get a Free Quote",
+    priceFrom: "from",
   },
 
   // === TECHSTACK ===
@@ -796,6 +806,12 @@ const en: typeof fi = {
     titleHighlight: "for themselves.",
     subtitle:
       "Every client received their website on time and on budget.",
+    review1Quote: "Yassin built our entire website with 60+ pages, SEO optimization, and multilingual support. Professional and fast delivery.",
+    review1Role: "Cleaning Company, Helsinki",
+    review2Quote: "Modern website with membership system and lead generation. Exceeded our expectations.",
+    review2Role: "Fitness Studio",
+    review3Quote: "Complete business website with all the features we needed. Great communication.",
+    review3Role: "Construction Company",
     guarantee1Label: "100%",
     guarantee1Sub: "Satisfaction Guarantee",
     guarantee2Label: "On Time",

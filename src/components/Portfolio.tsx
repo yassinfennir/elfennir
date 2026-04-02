@@ -252,7 +252,17 @@ function ProjectCard({ project: p, t }: { project: ProjectType; t: ReturnType<ty
           ))}
         </div>
 
-        {/* View project links hidden until all projects are 100% complete */}
+        {p.isLive && p.liveUrl && (
+          <a
+            href={p.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#ff8c00] to-[#ff6b00] text-white text-sm font-semibold rounded-xl hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(255,140,0,0.3)] active:scale-[0.98] transition-all duration-300"
+          >
+            <Eye size={14} />
+            View Preview
+          </a>
+        )}
       </div>
 
       {/* Border */}

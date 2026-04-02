@@ -102,6 +102,8 @@ export const fr: Translations = {
     service9Title: "Cybersécurité",
     service9Desc:
       "Audits de sécurité, implémentation SSL/HTTPS, protection DDoS, conformité RGPD, analyse et suppression de malwares, et configuration de pare-feu \u2014 nous protégeons votre entreprise.",
+    serviceCta: "Demander un devis gratuit",
+    priceFrom: "à partir de",
   },
 
   // === TECHSTACK ===
@@ -325,6 +327,12 @@ export const fr: Translations = {
     titleHighlight: "d'eux-mêmes.",
     subtitle:
       "Chaque client a reçu son site web dans les délais et le budget prévus.",
+    review1Quote: "Yassin a construit l'integralite de notre site web avec plus de 60 pages, l'optimisation SEO et le support multilingue. Livraison professionnelle et rapide.",
+    review1Role: "Entreprise de nettoyage, Helsinki",
+    review2Quote: "Site web moderne avec systeme d'adhesion et generation de leads. A depasse nos attentes.",
+    review2Role: "Studio de fitness",
+    review3Quote: "Site web d'entreprise complet avec toutes les fonctionnalites dont nous avions besoin. Excellente communication.",
+    review3Role: "Entreprise de construction",
     guarantee1Label: "100%",
     guarantee1Sub: "Garantie de satisfaction",
     guarantee2Label: "Dans les délais",
@@ -575,6 +583,8 @@ export const it: Translations = {
     service9Title: "Sicurezza informatica",
     service9Desc:
       "Audit di sicurezza, implementazione SSL/HTTPS, protezione DDoS, conformità GDPR, scansione e rimozione malware e configurazione firewall \u2014 manteniamo la tua azienda al sicuro.",
+    serviceCta: "Richiedi un preventivo gratuito",
+    priceFrom: "da",
   },
 
   // === TECHSTACK ===
@@ -798,6 +808,12 @@ export const it: Translations = {
     titleHighlight: "da soli.",
     subtitle:
       "Ogni cliente ha ricevuto il proprio sito web nei tempi e nel budget previsti.",
+    review1Quote: "Yassin ha costruito l'intero nostro sito web con oltre 60 pagine, ottimizzazione SEO e supporto multilingue. Consegna professionale e rapida.",
+    review1Role: "Impresa di pulizie, Helsinki",
+    review2Quote: "Sito web moderno con sistema di abbonamento e generazione di lead. Ha superato le nostre aspettative.",
+    review2Role: "Studio fitness",
+    review3Quote: "Sito web aziendale completo con tutte le funzionalita di cui avevamo bisogno. Ottima comunicazione.",
+    review3Role: "Impresa edile",
     guarantee1Label: "100%",
     guarantee1Sub: "Garanzia di soddisfazione",
     guarantee2Label: "Puntuale",
@@ -1048,6 +1064,8 @@ export const pt: Translations = {
     service9Title: "Ciberseguran\u00e7a",
     service9Desc:
       "Auditorias de seguran\u00e7a, implementa\u00e7\u00e3o SSL/HTTPS, prote\u00e7\u00e3o DDoS, conformidade RGPD, an\u00e1lise e remo\u00e7\u00e3o de malware e configura\u00e7\u00e3o de firewalls \u2014 mantemos o seu neg\u00f3cio seguro.",
+    serviceCta: "Pedir orcamento gratuito",
+    priceFrom: "a partir de",
   },
 
   // === TECHSTACK ===
@@ -1270,7 +1288,13 @@ export const pt: Translations = {
     title1: "Os resultados falam",
     titleHighlight: "por si.",
     subtitle:
-      "Cada cliente recebeu o seu site no prazo e dentro do or\u00e7amento.",
+      "Cada cliente recebeu o seu site no prazo e dentro do orçamento.",
+    review1Quote: "Yassin construiu todo o nosso site com mais de 60 páginas, otimização SEO e suporte multilingue. Entrega profissional e rápida.",
+    review1Role: "Empresa de limpeza, Helsínquia",
+    review2Quote: "Site moderno com sistema de membros e geração de leads. Superou as nossas expectativas.",
+    review2Role: "Estúdio de fitness",
+    review3Quote: "Site empresarial completo com todas as funcionalidades de que precisávamos. Excelente comunicação.",
+    review3Role: "Empresa de construção",
     guarantee1Label: "100%",
     guarantee1Sub: "Garantia de satisfa\u00e7\u00e3o",
     guarantee2Label: "No prazo",
