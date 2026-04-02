@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yassin El Fennir — CV</title>
+  <meta name="description" content="CV of Yassin El Fennir — Full-Stack Developer & AI Automation Specialist">
+  <style>
+    /* ───────────────────────────────────────────────
+       CSS RESET & BASE
+    ─────────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Light theme (default) */
+      --bg: #fafafa;
+      --bg-card: #ffffff;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a6a;
+      --text-muted: #7a7a9a;
+      --accent: #2d5bce;
+      --accent-light: #e8eefb;
+      --border: #e2e4ea;
+      --border-light: #f0f1f5;
+      --tag-bg: #f0f2f8;
+      --tag-text: #3a4a7a;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+      --radius: 6px;
+      --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f0f1a;
+      --bg-card: #1a1a2e;
+      --text: #e8e8f0;
+      --text-secondary: #b0b0c8;
+      --text-muted: #7a7a9a;
+      --accent: #5b8def;
+      --accent-light: #1e2a4a;
+      --border: #2a2a42;
+      --border-light: #222238;
+      --tag-bg: #1e2a4a;
+      --tag-text: #8ab4ff;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-lg: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    html {
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ───────────────────────────────────────────────
+       LAYOUT
+    ─────────────────────────────────────────────── */
+    .cv-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      background: var(--bg-card);
+      min-height: 100vh;
+    }
+
+    @media screen and (min-width: 860px) {
+      .cv-container {
+        margin: 32px auto;
+        border-radius: 4px;
+        box-shadow: var(--shadow-lg);
+        min-height: auto;
+      }
+    }
+
+    /* ───────────────────────────────────────────────
+       HEADER
+    ─────────────────────────────────────────────── */
+    .cv-header {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .cv-header__name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    .cv-header__title {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--accent);
+      margin-top: 4px;
+      letter-spacing: 0.01em;
+    }
+
+    .cv-header__contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .cv-header__contacts a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cv-header__contacts a:hover {
+      color: var(--accent);
+    }
+
+    .cv-header__contacts span::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      margin-right: 0;
+      vertical-align: middle;
+    }
+
+    .cv-header__contacts span:first-child::before {
+      display: none;
+    }
+
+    /* ───────────────────────────────────────────────
+       SECTIONS
+    ─────────────────────────────────────────────── */
+    .cv-section {
+      margin-bottom: 30px;
+    }
+
+    .cv-section__title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ───────────────────────────────────────────────
+       SUMMARY
+    ─────────────────────────────────────────────── */
+    .cv-summary {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ───────────────────────────────────────────────
+       SKILLS
+    ─────────────────────────────────────────────── */
+    .cv-skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+
+    .cv-skill-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+
+    .cv-skill-row__label {
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      min-width: 100px;
+      flex-shrink: 0;
+    }
+
+    .cv-skill-row__value {
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ───────────────────────────────────────────────
+       EXPERIENCE
+    ─────────────────────────────────────────────── */
+    .cv-entry {
+      margin-bottom: 22px;
+    }
+
+    .cv-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-entry__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+      margin-bottom: 2px;
+    }
+
+    .cv-entry__role {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cv-entry__date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .cv-entry__org {
+      font-size: 0.88rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .cv-entry__list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cv-entry__list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 3px;
+    }
+
+    .cv-entry__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 1px;
+      background: var(--text-muted);
+    }
+
+    .cv-entry__tech {
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ───────────────────────────────────────────────
+       CERTIFICATIONS
+    ─────────────────────────────────────────────── */
+    .cv-cert-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cv-cert-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.88rem;
+    }
+
+    .cv-cert-list li:last-child {
+      border-bottom: none;
+    }
+
+    .cv-cert__name {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .cv-cert__issuer {
+      color: var(--text-secondary);
+    }
+
+    .cv-cert__date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* ───────────────────────────────────────────────
+       LANGUAGES
+    ─────────────────────────────────────────────── */
+    .cv-languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cv-lang-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 5px 12px;
+      border-radius: var(--radius);
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .cv-lang-tag__level {
+      font-weight: 400;
+      opacity: 0.7;
+      font-size: 0.78rem;
+    }
+
+    /* ───────────────────────────────────────────────
+       EDUCATION
+    ─────────────────────────────────────────────── */
+    .cv-education p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ───────────────────────────────────────────────
+       TOOLBAR (screen only)
+    ─────────────────────────────────────────────── */
+    .cv-toolbar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .cv-toolbar__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .cv-toolbar__btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cv-toolbar__btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ───────────────────────────────────────────────
+       RESPONSIVE
+    ─────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .cv-container { padding: 28px 20px; }
+      .cv-header__name { font-size: 1.7rem; }
+      .cv-skills { grid-template-columns: 1fr; }
+      .cv-entry__header { flex-direction: column; }
+      .cv-cert-list li { flex-direction: column; gap: 2px; }
+    }
+
+    /* ───────────────────────────────────────────────
+       PRINT STYLES
+    ─────────────────────────────────────────────── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+
+      html { font-size: 13px; }
+
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      .cv-container {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .cv-toolbar { display: none !important; }
+
+      .cv-header { border-bottom-color: #222; }
+      .cv-header__name { color: #111; }
+      .cv-header__title { color: #333; }
+      .cv-header__contacts { color: #444; }
+      .cv-header__contacts a { color: #444; }
+
+      .cv-section__title {
+        color: #222;
+        border-bottom-color: #ccc;
+      }
+
+      .cv-lang-tag {
+        background: #f0f0f0;
+        color: #333;
+        border: 1px solid #ddd;
+      }
+
+      .cv-entry, .cv-section { page-break-inside: avoid; }
+
+      [data-theme="dark"] {
+        --bg: #fff;
+        --bg-card: #fff;
+        --text: #111;
+        --text-secondary: #333;
+        --text-muted: #666;
+        --accent: #222;
+        --border: #ccc;
+        --border-light: #eee;
+        --tag-bg: #f0f0f0;
+        --tag-text: #333;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-container">
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="cv-header">
+      <h1 class="cv-header__name">Yassin El Fennir</h1>
+      <p class="cv-header__title">Full-Stack Developer &amp; AI Automation Specialist</p>
+      <div class="cv-header__contacts">
+        <span>Usterwest 10, 8610 Uster, Zurich, Switzerland</span>
+        <span><a href="tel:+358466109064">+358 46 610 9064</a></span>
+        <span><a href="mailto:yassin@elfennir.com">yassin@elfennir.com</a></span>
+        <span><a href="https://elfennir.com" target="_blank" rel="noopener">elfennir.com</a></span>
+        <span><a href="https://linkedin.com/in/yassin-fennir-712a19385" target="_blank" rel="noopener">LinkedIn</a></span>
+        <span><a href="https://github.com/yassinfennir" target="_blank" rel="noopener">GitHub</a></span>
+      </div>
+    </header>
+
+    <!-- ═══ SUMMARY ═══ -->
+    <section class="cv-section">
+      <h2 class="cv-section__title">Professional Summary</h2>
+      <p class="cv-summary">
+        Full-Stack Developer and AI Automation Specialist with 70+ client projects delivered across 10+ countries. Expert in React, Next.js, TypeScript, Node.js, and AI automation including Claude AI, n8n, and Make. Built and deployed production websites, AI chatbots, and business automation systems for clients ranging from local SMBs to international companies. Founder of elfennir.com digital agency. Based in Zurich, Switzerland.
+      </p>
+    </section>
+
+    <!-- ═══ SKILLS ═══ -->
+    <section class="cv-section">
+      <h2 class="cv-section__title">Technical Skills</h2>
+      <div class="cv-skills">
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">Frontend</span>
+          <span class="cv-skill-row__value">React, Next.js, TypeScript, Tailwind CSS, Vite</span>
+        </div>
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">Backend</span>
+          <span class="cv-skill-row__value">Node.js, Express, Hono, REST APIs, GraphQL</span>
+        </div>
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">AI / Automation</span>
+          <span class="cv-skill-row__value">Claude AI API, OpenAI, n8n, Make, AI Chatbots, NLP</span>
+        </div>
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">Database</span>
+          <span class="cv-skill-row__value">Supabase (PostgreSQL), Redis, Firebase</span>
+        </div>
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">DevOps</span>
+          <span class="cv-skill-row__value">Vercel, Netlify, Railway, GitHub Actions, Docker</span>
+        </div>
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">Payments</span>
+          <span class="cv-skill-row__value">Stripe (Checkout, Webhooks, Subscriptions)</span>
+        </div>
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">SEO</span>
+          <span class="cv-skill-row__value">Technical SEO, Schema.org, Core Web Vitals, GA4</span>
+        </div>
+        <div class="cv-skill-row">
+          <span class="cv-skill-row__label">Design</span>
+          <span class="cv-skill-row__value">Figma, UI/UX, Responsive Design, Accessibility</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ EXPERIENCE ═══ -->
+    <section class="cv-section">
+      <h2 class="cv-section__title">Professional Experience</h2>
+
+      <div class="cv-entry">
+        <div class="cv-entry__header">
+          <span class="cv-entry__role">Founder &amp; Lead Developer</span>
+          <span class="cv-entry__date">2024 &mdash; Present</span>
+        </div>
+        <div class="cv-entry__org">El Fennir AI Agency &mdash; elfennir.com &nbsp;|&nbsp; Zurich, Switzerland</div>
+        <ul class="cv-entry__list">
+          <li>Built and delivered 70+ production websites for businesses across Finland, Switzerland, Dubai, and Spain</li>
+          <li>Developed AI-powered chatbots and automation systems, reducing client operational workload by up to 60%</li>
+          <li>Implemented comprehensive SEO strategies resulting in first-page Google rankings for multiple clients</li>
+          <li>Designed and deployed n8n and Make automation workflows for client onboarding, CRM, and lead generation</li>
+          <li>Managed full project lifecycle from client acquisition through design, development, deployment, and maintenance</li>
+        </ul>
+        <p class="cv-entry__tech">React, Next.js, TypeScript, Tailwind CSS, Stripe, Supabase, n8n, Claude AI, Vercel, Netlify</p>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry__header">
+          <span class="cv-entry__role">Freelance Web Developer</span>
+          <span class="cv-entry__date">2023 &mdash; 2024</span>
+        </div>
+        <div class="cv-entry__org">Self-employed &nbsp;|&nbsp; Remote</div>
+        <ul class="cv-entry__list">
+          <li>Delivered client web projects with consistent 48-hour turnaround times</li>
+          <li>Built e-commerce platforms, restaurant booking systems, and corporate business websites</li>
+          <li>Handled end-to-end project management: requirements gathering, design, development, deployment, and SEO optimization</li>
+          <li>Achieved a high client retention rate through quality delivery and proactive communication</li>
+        </ul>
+        <p class="cv-entry__tech">HTML, CSS, JavaScript, React, Node.js, Stripe, Netlify</p>
+      </div>
+    </section>
+
+    <!-- ═══ CERTIFICATIONS ═══ -->
+    <section class="cv-section">
+      <h2 class="cv-section__title">Certifications</h2>
+      <ul class="cv-cert-list">
+        <li>
+          <div>
+            <span class="cv-cert__name">Cyber Security &amp; Data Protection</span>
+            <span class="cv-cert__issuer"> &mdash; Swiss Cybersecurity Institute</span>
+          </div>
+          <span class="cv-cert__date">Apr 2025</span>
+        </li>
+        <li>
+          <div>
+            <span class="cv-cert__name">Full-Stack Software Development</span>
+            <span class="cv-cert__issuer"> &mdash; Zurich School of Software Engineering</span>
+          </div>
+          <span class="cv-cert__date">Mar 2025</span>
+        </li>
+        <li>
+          <div>
+            <span class="cv-cert__name">AI &amp; Automation Specialist</span>
+            <span class="cv-cert__issuer"> &mdash; AI Academy University</span>
+          </div>
+          <span class="cv-cert__date">Feb 2025</span>
+        </li>
+        <li>
+          <div>
+            <span class="cv-cert__name">Professional Web Development &amp; Design</span>
+            <span class="cv-cert__issuer"> &mdash; International Institute of Web Technologies</span>
+          </div>
+          <span class="cv-cert__date">Jan 2025</span>
+        </li>
+        <li>
+          <div>
+            <span class="cv-cert__name">Digital Marketing &amp; SEO Strategy</span>
+            <span class="cv-cert__issuer"> &mdash; European Digital Marketing Institute</span>
+          </div>
+          <span class="cv-cert__date">Dec 2024</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ═══ LANGUAGES ═══ -->
+    <section class="cv-section">
+      <h2 class="cv-section__title">Languages</h2>
+      <div class="cv-languages">
+        <span class="cv-lang-tag">Spanish <span class="cv-lang-tag__level">Native</span></span>
+        <span class="cv-lang-tag">Arabic <span class="cv-lang-tag__level">Native</span></span>
+        <span class="cv-lang-tag">English <span class="cv-lang-tag__level">Fluent</span></span>
+        <span class="cv-lang-tag">German <span class="cv-lang-tag__level">Fluent</span></span>
+        <span class="cv-lang-tag">French <span class="cv-lang-tag__level">Conversational</span></span>
+      </div>
+    </section>
+
+    <!-- ═══ EDUCATION ═══ -->
+    <section class="cv-section">
+      <h2 class="cv-section__title">Education</h2>
+      <div class="cv-education">
+        <p>Self-taught developer with professional certifications. Continuous learning through Anthropic, Vercel, and leading industry resources. Strong focus on applied AI, modern web architecture, and business automation.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══ FLOATING TOOLBAR (screen only) ═══ -->
+  <div class="cv-toolbar">
+    <button class="cv-toolbar__btn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      Theme
+    </button>
+    <button class="cv-toolbar__btn" onclick="window.print()" aria-label="Download PDF">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </button>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+
+</body>
+</html>
