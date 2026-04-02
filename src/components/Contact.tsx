@@ -6,7 +6,8 @@ import { ScrollReveal3D } from "@/components/ScrollReveal3D";
 import { Card3D } from "@/components/Card3D";
 
 export function Contact() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isGerman = locale === "de";
 
   return (
     <section id="contact" className="relative py-28 overflow-hidden">
@@ -184,7 +185,14 @@ export function Contact() {
                   <div className="w-8 h-8 rounded-lg bg-[#ff4500]/10 border border-[#ff4500]/20 flex items-center justify-center">
                     <MapPin size={14} className="text-[#ff4500]" />
                   </div>
-                  Zürich, Switzerland
+                  <div>
+                    <span className="font-semibold text-white">Zürich, Switzerland</span>
+                    {isGerman && (
+                      <span className="block text-[10px] text-[#14f195] font-mono mt-0.5">
+                        {t.contact.availableInGerman}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

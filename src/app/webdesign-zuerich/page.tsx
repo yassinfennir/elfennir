@@ -55,24 +55,24 @@ const jsonLd = [
       {
         "@type": "Offer",
         name: "Starter Website",
-        price: "270",
-        priceCurrency: "EUR",
+        price: "490",
+        priceCurrency: "CHF",
         description:
           "Moderne One-Page-Website mit SEO und mobilem Design für Zürcher Unternehmen",
       },
       {
         "@type": "Offer",
         name: "Business Website",
-        price: "540",
-        priceCurrency: "EUR",
+        price: "990",
+        priceCurrency: "CHF",
         description:
           "Mehrseitige Website mit CMS, Blog und erweiterten Funktionen",
       },
       {
         "@type": "Offer",
         name: "Premium Website + KI",
-        price: "830",
-        priceCurrency: "EUR",
+        price: "1490",
+        priceCurrency: "CHF",
         description:
           "Komplette Website mit KI-Chatbot und Automatisierungen für Zürich",
       },
@@ -87,7 +87,7 @@ const jsonLd = [
         name: "Was kostet eine professionelle Website in Zürich?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Bei El Fennir beginnen professionelle Websites ab 270 €. Je nach Umfang und Funktionen liegen die Preise zwischen 270 € und 830 €. Deutlich günstiger als die meisten Zürcher Agenturen, die oft ab CHF 5.000 starten.",
+          text: "Bei El Fennir beginnen professionelle Websites ab CHF 490. Je nach Umfang und Funktionen liegen die Preise zwischen CHF 490 und CHF 1'490. Deutlich günstiger als die meisten Zürcher Agenturen, die oft ab CHF 5'000 starten.",
         },
       },
       {
@@ -126,6 +126,16 @@ const jsonLd = [
   },
 ];
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://elfennir.com" },
+    { "@type": "ListItem", position: 2, name: "Webdesign Schweiz", item: "https://elfennir.com/webdesign-schweiz" },
+    { "@type": "ListItem", position: 3, name: "Webdesign Zürich", item: "https://elfennir.com/webdesign-zuerich" },
+  ],
+};
+
 const features = [
   {
     title: "In Zürich aufgewachsen",
@@ -140,8 +150,8 @@ const features = [
     icon: "code",
   },
   {
-    title: "Faire Preise, Schweizer Qualität",
-    desc: "Ab 270 € statt CHF 5.000+ bei lokalen Agenturen. Kein Kompromiss bei Qualität — nur bei überhöhten Preisen.",
+    title: "Faire Preise in CHF",
+    desc: "Ab CHF 490 statt CHF 5'000+ bei lokalen Zürcher Agenturen. Kein Kompromiss bei Qualität — nur bei überhöhten Preisen.",
     color: "#14f195",
     icon: "price",
   },
@@ -169,19 +179,19 @@ const services = [
   {
     title: "Professionelle Webseiten",
     desc: "Moderne, mobiloptimierte Websites, die Ihr Zürcher Unternehmen perfekt repräsentieren und bei Google auf Seite 1 ranken.",
-    price: "Ab 270 €",
+    price: "Ab CHF 490",
     color: "#00d1ff",
   },
   {
     title: "KI-Chatbots",
     desc: "Intelligente Chatbots, die Kundenanfragen automatisch beantworten, Termine buchen und Leads qualifizieren — rund um die Uhr.",
-    price: "Ab 500 €",
+    price: "Ab CHF 550",
     color: "#9945ff",
   },
   {
     title: "Automatisierung & Workflows",
     desc: "n8n-basierte Automatisierungen: E-Mail-Marketing, CRM-Integration, Social Media und vieles mehr — massgeschneidert für Ihr Unternehmen.",
-    price: "Ab 300 € + 80 €/Mt.",
+    price: "Ab CHF 350 + 90 CHF/Mt.",
     color: "#14f195",
   },
   {
@@ -222,12 +232,12 @@ const processSteps = [
 const pricing = [
   {
     name: "Starter",
-    price: "270 €",
-    subtitle: "Perfekt für Einzelunternehmer",
+    price: "CHF 490",
+    subtitle: "Perfekt für Einzelunternehmer in Zürich",
     features: [
       "One-Page-Website",
       "Responsives Design (Mobil + Desktop)",
-      "SEO-Grundoptimierung",
+      "SEO-Grundoptimierung für Zürich",
       "Kontaktformular",
       "SSL-Zertifikat & Hosting",
       "Lieferung in 7 Tagen",
@@ -236,7 +246,7 @@ const pricing = [
   },
   {
     name: "Business",
-    price: "540 €",
+    price: "CHF 990",
     subtitle: "Für wachsende KMU in Zürich",
     features: [
       "Mehrseitige Website (bis 5 Seiten)",
@@ -250,7 +260,7 @@ const pricing = [
   },
   {
     name: "Premium + KI",
-    price: "830 €",
+    price: "CHF 1'490",
     subtitle: "Komplett-Paket mit Automatisierung",
     features: [
       "Alles aus Business",
@@ -267,7 +277,7 @@ const pricing = [
 const faqs = [
   {
     q: "Was kostet eine professionelle Website in Zürich?",
-    a: "Bei uns beginnen professionelle Websites ab 270 €. Je nach Umfang und Funktionen liegen die Preise zwischen 270 € und 830 €. Das ist deutlich günstiger als die meisten Zürcher Agenturen, die oft ab CHF 5.000 starten — ohne Qualitätsverlust.",
+    a: "Bei uns beginnen professionelle Websites ab CHF 490. Je nach Umfang und Funktionen liegen die Preise zwischen CHF 490 und CHF 1'490. Das ist deutlich günstiger als die meisten Zürcher Agenturen, die oft ab CHF 5'000 starten — ohne Qualitätsverlust.",
   },
   {
     q: "Wie lange dauert es, bis meine Website online ist?",
@@ -312,7 +322,7 @@ export default function WebdesignZuerichPage() {
       </title>
       <meta
         name="description"
-        content="Professionelles Webdesign in Zürich. Moderne Websites, KI-Chatbots und Automatisierung für Zürcher Unternehmen. Ab 270 €. Lieferung in 7 Tagen."
+        content="Professionelles Webdesign in Zürich. Moderne Websites, KI-Chatbots und Automatisierung für Zürcher Unternehmen. Ab CHF 490. Lieferung in 7 Tagen."
       />
       <meta
         name="keywords"
@@ -324,7 +334,7 @@ export default function WebdesignZuerichPage() {
       />
       <meta
         property="og:description"
-        content="Moderne Websites, KI-Chatbots und Automatisierung für Zürcher Unternehmen. Ab 270 €. Lieferung in 7 Tagen."
+        content="Moderne Websites, KI-Chatbots und Automatisierung für Zürcher Unternehmen. Ab CHF 490. Lieferung in 7 Tagen."
       />
       <meta property="og:type" content="website" />
       <meta
@@ -343,11 +353,16 @@ export default function WebdesignZuerichPage() {
       />
       <meta
         name="twitter:description"
-        content="Moderne Websites, KI-Chatbots und Automatisierung für Zürcher Unternehmen. Ab 270 €."
+        content="Moderne Websites, KI-Chatbots und Automatisierung für Zürcher Unternehmen. Ab CHF 490."
       />
       <link
         rel="canonical"
         href="https://elfennir.com/webdesign-zuerich"
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <main className="min-h-screen bg-[#08080f] text-slate-300">
@@ -406,7 +421,7 @@ export default function WebdesignZuerichPage() {
               className="text-base text-slate-500 max-w-xl mx-auto mb-10"
             >
               Ob KMU in Z&uuml;rich-City, Startup in Oerlikon oder Restaurant in
-              Wiedikon &mdash; wir liefern Ihre Website in 7 Tagen. Ab 270 &euro;,
+              Wiedikon &mdash; wir liefern Ihre Website in 7 Tagen. Ab CHF 490,
               inklusive SEO.
             </motion.p>
             <motion.div
@@ -429,7 +444,7 @@ export default function WebdesignZuerichPage() {
                 Kostenloses Angebot via WhatsApp
               </a>
               <Link
-                href="/#pricing"
+                href="/preise-schweiz"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/10 text-white font-semibold text-lg hover:border-[#9945ff]/40 hover:bg-white/[0.03] transition-all"
               >
                 Preise ansehen
@@ -805,6 +820,41 @@ export default function WebdesignZuerichPage() {
                 Webdesign f&uuml;r Z&uuml;rich und den ganzen Kanton
               </motion.p>
             </motion.div>
+          </div>
+        </section>
+        {/* Alle Preise + Kunden */}
+        <section className="py-12">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <p className="text-slate-400 mb-6">
+              &Uuml;ber 50 zufriedene Kunden in der Schweiz und weltweit
+            </p>
+            <Link
+              href="/preise-schweiz"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-[#14f195]/30 text-[#14f195] font-semibold text-lg hover:bg-[#14f195]/[0.05] transition-all"
+            >
+              Alle Preise ansehen &rarr;
+            </Link>
+          </div>
+        </section>
+
+        {/* Weitere Standorte */}
+        <section className="py-12 border-t border-white/[0.06]">
+          <div className="max-w-5xl mx-auto px-6 text-center">
+            <h2 className="font-[var(--font-heading)] text-xl font-bold text-white mb-6">
+              Weitere Standorte
+            </h2>
+            <p className="text-slate-500 text-sm mb-4">
+              <Link href="/webdesign-schweiz" className="text-[#00d1ff] hover:underline">
+                Webdesign Schweiz
+              </Link>
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/webdesign-bern" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Bern</Link>
+              <Link href="/webdesign-basel" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Basel</Link>
+              <Link href="/webdesign-luzern" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Luzern</Link>
+              <Link href="/webdesign-winterthur" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Winterthur</Link>
+              <Link href="/webdesign-st-gallen" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign St. Gallen</Link>
+            </div>
           </div>
         </section>
       </main>

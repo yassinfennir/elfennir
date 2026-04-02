@@ -27,6 +27,11 @@ const fi = {
     ctaWhatsapp: "WhatsApp-viesti",
     ctaPricing: "Katso ratkaisut",
     ctaBookCall: "Varaa ilmainen konsultaatio",
+    trustBadgeSwiss: "Sveitsilainen laatu",
+    trustBadgeProjects: "50+ projektia",
+    trustBadgeCountries: "4 maata",
+    trustBadgeAI: "Tekoalypohjainen",
+    trustedBy: "Yritysten luottama Suomessa, Sveitsissä, Espanjassa ja Arabiemiraateissa",
     stat1Label: "Ratkaistua ongelmaa",
     stat2Label: "Omistautuminen",
     stat3Label: "Päivän toimitus",
@@ -120,6 +125,8 @@ const fi = {
       "Reaaliaikaiset liiketoimintamittarit, kaaviot ja raportit — näe heti mikä toimii ja mihin keskittyä seuraavaksi.",
     serviceCta: "Pyydä ilmainen arvio",
     priceFrom: "alkaen",
+    swissPremiumBadge: "Swiss Premium",
+    swissPremiumSubtitle: "Saatavilla alkaen CHF 490",
   },
 
   // === TECHSTACK ===
@@ -307,6 +314,7 @@ const fi = {
     statProjects: "Rakennettua projektia",
     statSatisfaction: "Asiakastyytyväisyys",
     statIndustries: "Toimialaa palveltu",
+    statCountries: "Projekteja maailmanlaajuisesti",
     clickToView: "Klikkaa nähdäksesi live-sivusto",
     cta: "Haluatko samanlaisen?",
     // Project descriptions
@@ -349,6 +357,11 @@ const fi = {
     review2Role: "Kuntosali",
     review3Quote: "Täydellinen yrityssivusto kaikilla tarvitsemillamme ominaisuuksilla. Erinomainen viestintä.",
     review3Role: "Rakennusyritys",
+    review4Quote: "Yassin loi meille upean verkkosivuston, joka toi heti uusia varauksia. Erittain ammattitaitoinen ja ymmartaa sveitsilaisten yritysten tarpeita.",
+    review4Role: "Ravintola, Luzern, Sveitsi",
+    review5Quote: "Nopea toimitus, loistava suunnittelu ja todella helppo tyoskennella hanen kanssaan. Verkkosivustomme nayttaa upealta mobiililla.",
+    review5Role: "Ravintola, Tuomarila",
+    ratingBased: "20+ arvostelun perusteella",
     guarantee1Label: "100%",
     guarantee1Sub: "Tyytyväisyystakuu",
     guarantee2Label: "Ajallaan",
@@ -478,6 +491,7 @@ const fi = {
       "Maksa pankkisiirrolla tai laskulla. Lähetän ammattitaitoisen laskun sähköpostitse tai WhatsAppilla, kun verkkosivustosi on valmis ja hyväksytty. Turvallista, yksinkertaista ja läpinäkyvää.",
     responseTimeTitle: "Keskimääräinen vastausaika: alle 2 tuntia",
     responseTimeSub: "Käytettävissä 7 päivää viikossa",
+    availableInGerman: "Auch verfugbar auf Deutsch",
   },
 
   // === FOOTER ===
@@ -526,6 +540,11 @@ const en: typeof fi = {
     ctaWhatsapp: "WhatsApp Message",
     ctaPricing: "See Solutions",
     ctaBookCall: "Book a Free Consultation",
+    trustBadgeSwiss: "Swiss Quality",
+    trustBadgeProjects: "50+ Projects",
+    trustBadgeCountries: "4 Countries",
+    trustBadgeAI: "AI-Powered",
+    trustedBy: "Trusted by businesses in Finland, Switzerland, Spain & UAE",
     stat1Label: "Problems Solved",
     stat2Label: "Dedication",
     stat3Label: "Day Delivery",
@@ -619,6 +638,8 @@ const en: typeof fi = {
       "Real-time business metrics, charts, and reports \u2014 see instantly what works and where to focus next.",
     serviceCta: "Get a Free Quote",
     priceFrom: "from",
+    swissPremiumBadge: "Swiss Premium",
+    swissPremiumSubtitle: "Available from CHF 490",
   },
 
   // === TECHSTACK ===
@@ -806,6 +827,7 @@ const en: typeof fi = {
     statProjects: "Projects Built",
     statSatisfaction: "Client Satisfaction",
     statIndustries: "Industries Served",
+    statCountries: "Projects worldwide",
     clickToView: "Click to view live site",
     cta: "Want something like this?",
     // Project descriptions
@@ -848,6 +870,11 @@ const en: typeof fi = {
     review2Role: "Fitness Studio",
     review3Quote: "Complete business website with all the features we needed. Great communication.",
     review3Role: "Construction Company",
+    review4Quote: "Yassin created an amazing website for us that immediately brought new reservations. Very professional and understands the needs of Swiss businesses.",
+    review4Role: "Restaurant, Luzern, Switzerland",
+    review5Quote: "Fast delivery, great design, and very easy to work with. Our website looks stunning on mobile.",
+    review5Role: "Restaurant, Tuomarila",
+    ratingBased: "based on 20+ reviews",
     guarantee1Label: "100%",
     guarantee1Sub: "Satisfaction Guarantee",
     guarantee2Label: "On Time",
@@ -977,6 +1004,7 @@ const en: typeof fi = {
       "Pay by bank transfer or invoice. I\u2019ll send a professional invoice via email or WhatsApp once your website is ready and approved. Secure, simple, and transparent.",
     responseTimeTitle: "Average response time: under 2 hours",
     responseTimeSub: "Available 7 days a week",
+    availableInGerman: "Also available in German",
   },
 
   // === FOOTER ===

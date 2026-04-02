@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Webdesign Schweiz — Professionelle Websites & KI-Automatisierung | El Fennir",
   description:
-    "Professionelles Webdesign in der Schweiz. Moderne Webseiten, KI-Chatbots und Automatisierung für Schweizer Unternehmen. Ab CHF 270. Gegründet in Zürich.",
+    "Professionelles Webdesign in der Schweiz. Moderne Webseiten, KI-Chatbots und Automatisierung für Schweizer Unternehmen. Ab CHF 490. Gegründet in Zürich.",
   keywords: [
     "webdesign schweiz",
     "website erstellen schweiz",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Webdesign Schweiz — Professionelle Websites & KI-Automatisierung",
     description:
-      "Moderne Webseiten, KI-Chatbots und Automatisierung für Schweizer Unternehmen. Ab CHF 270. Lieferung in 7 Tagen.",
+      "Moderne Webseiten, KI-Chatbots und Automatisierung für Schweizer Unternehmen. Ab CHF 490. Lieferung in 7 Tagen.",
     type: "website",
     url: "https://elfennir.com/webdesign-schweiz",
     locale: "de_CH",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Webdesign Schweiz — Professionelle Websites & KI-Automatisierung",
     description:
-      "Moderne Webseiten, KI-Chatbots und Automatisierung für Schweizer Unternehmen. Ab CHF 270.",
+      "Moderne Webseiten, KI-Chatbots und Automatisierung für Schweizer Unternehmen. Ab CHF 490.",
     images: ["/images/logo.png"],
   },
   alternates: { canonical: "https://elfennir.com/webdesign-schweiz" },
@@ -89,27 +89,36 @@ const jsonLd = [
       {
         "@type": "Offer",
         name: "Starter Website",
-        price: "270",
-        priceCurrency: "EUR",
+        price: "490",
+        priceCurrency: "CHF",
         description: "Moderne One-Page-Website mit SEO und mobilem Design",
       },
       {
         "@type": "Offer",
         name: "Business Website",
-        price: "599",
-        priceCurrency: "EUR",
+        price: "990",
+        priceCurrency: "CHF",
         description: "Mehrseitige Website mit CMS, Blog und erweiterten Funktionen",
       },
       {
         "@type": "Offer",
         name: "Premium Website + KI",
-        price: "999",
-        priceCurrency: "EUR",
+        price: "1490",
+        priceCurrency: "CHF",
         description: "Komplette Website mit KI-Chatbot und Automatisierungen",
       },
     ],
   },
 ];
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://elfennir.com" },
+    { "@type": "ListItem", position: 2, name: "Webdesign Schweiz", item: "https://elfennir.com/webdesign-schweiz" },
+  ],
+};
 
 const features = [
   {
@@ -124,7 +133,7 @@ const features = [
   },
   {
     title: "Schweizer Qualität, faire Preise",
-    desc: "Professionelle Webseiten ab CHF 270 — ohne Kompromisse bei Qualität, Design oder Performance. Deutlich günstiger als lokale Agenturen.",
+    desc: "Professionelle Webseiten ab CHF 490 — ohne Kompromisse bei Qualität, Design oder Performance. Deutlich günstiger als lokale Agenturen.",
     color: "#14f195",
   },
   {
@@ -148,7 +157,7 @@ const services = [
   {
     title: "Professionelle Webseiten",
     desc: "Moderne, mobiloptimierte Websites, die Ihre Marke perfekt repräsentieren und bei Google in der Schweiz ranken. SEO und Analytics inklusive.",
-    price: "Ab CHF 270",
+    price: "Ab CHF 490",
     color: "#00d1ff",
   },
   {
@@ -174,8 +183,8 @@ const services = [
 const pricing = [
   {
     name: "Starter",
-    price: "CHF 270",
-    eur: "270 €",
+    price: "CHF 490",
+    eur: "450 €",
     features: [
       "One-Page-Website",
       "Responsives Design",
@@ -188,8 +197,8 @@ const pricing = [
   },
   {
     name: "Business",
-    price: "CHF 599",
-    eur: "599 €",
+    price: "CHF 990",
+    eur: "910 €",
     features: [
       "Mehrseitige Website (bis 5 Seiten)",
       "CMS für einfache Verwaltung",
@@ -202,8 +211,8 @@ const pricing = [
   },
   {
     name: "Premium + KI",
-    price: "CHF 999",
-    eur: "999 €",
+    price: "CHF 1'490",
+    eur: "1'370 €",
     features: [
       "Alles aus Business",
       "KI-Chatbot integriert",
@@ -222,6 +231,11 @@ export default function WebdesignSchweizPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <main className="min-h-screen bg-[#08080f] text-slate-300">
@@ -247,7 +261,7 @@ export default function WebdesignSchweizPage() {
             </p>
             <p className="text-base text-slate-500 max-w-xl mx-auto mb-10">
               Ob KMU in Z&uuml;rich, Startup in Bern oder Gastronomiebetrieb in Basel — wir liefern Ihre
-              Website in 7 Tagen. Ab CHF 270, inklusive SEO.
+              Website in 7 Tagen. Ab CHF 490, inklusive SEO.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -258,7 +272,7 @@ export default function WebdesignSchweizPage() {
                 Kostenloses Angebot via WhatsApp
               </a>
               <Link
-                href="/#pricing"
+                href="/preise-schweiz"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/10 text-white font-semibold text-lg hover:border-[#9945ff]/40 hover:bg-white/[0.03] transition-all"
               >
                 Preise ansehen
@@ -419,7 +433,7 @@ export default function WebdesignSchweizPage() {
                 },
                 {
                   q: "Warum sind Ihre Preise so günstig im Vergleich zu Schweizer Agenturen?",
-                  a: "Wir arbeiten schlank und nutzen modernste KI-Tools, um effizienter zu liefern. Dadurch können wir Schweizer Qualität zu internationalen Preisen anbieten — ab CHF 270 statt CHF 5.000+.",
+                  a: "Wir arbeiten schlank und nutzen modernste KI-Tools, um effizienter zu liefern. Dadurch können wir Schweizer Qualität zu internationalen Preisen anbieten — ab CHF 490 statt CHF 5'000+.",
                 },
                 {
                   q: "In welcher Währung kann ich bezahlen?",
@@ -467,6 +481,57 @@ export default function WebdesignSchweizPage() {
             <p className="text-slate-500 text-sm">
               yassin@elfennir.com &middot; WhatsApp: +358 46 610 9064 &middot; Remote-Service f&uuml;r die ganze Schweiz
             </p>
+          </div>
+        </section>
+        {/* Alle Preise + Kunden */}
+        <section className="py-12">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <p className="text-slate-400 mb-6">
+              &Uuml;ber 50 zufriedene Kunden in der Schweiz und weltweit
+            </p>
+            <Link
+              href="/preise-schweiz"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-[#14f195]/30 text-[#14f195] font-semibold text-lg hover:bg-[#14f195]/[0.05] transition-all"
+            >
+              Alle Preise ansehen &rarr;
+            </Link>
+          </div>
+        </section>
+
+        {/* Unsere Standorte */}
+        <section className="py-20 border-t border-white/[0.06]">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white text-center mb-4">
+              Unsere <span className="text-[#00d1ff]">Standorte</span>
+            </h2>
+            <p className="text-slate-400 text-center max-w-2xl mx-auto mb-14">
+              Professionelles Webdesign f&uuml;r die wichtigsten Schweizer St&auml;dte &mdash; remote und zuverl&auml;ssig.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: "Z\u00fcrich", href: "/webdesign-zuerich", desc: "Wirtschaftszentrum der Schweiz", color: "#9945ff" },
+                { name: "Bern", href: "/webdesign-bern", desc: "Bundesstadt und Verwaltungszentrum", color: "#00d1ff" },
+                { name: "Basel", href: "/webdesign-basel", desc: "Pharma- und Kulturmetropole am Rhein", color: "#14f195" },
+                { name: "Luzern", href: "/webdesign-luzern", desc: "Perle der Zentralschweiz", color: "#f971ff" },
+                { name: "Winterthur", href: "/webdesign-winterthur", desc: "Innovationsstandort im Kanton Z\u00fcrich", color: "#9945ff" },
+                { name: "St. Gallen", href: "/webdesign-st-gallen", desc: "Tor zur Ostschweiz und HSG-Stadt", color: "#00d1ff" },
+              ].map((city, i) => (
+                <Link
+                  key={i}
+                  href={city.href}
+                  className="group p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-white/10 transition-all"
+                >
+                  <div
+                    className="w-3 h-3 rounded-full mb-4"
+                    style={{ backgroundColor: city.color }}
+                  />
+                  <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-2 group-hover:text-[#00d1ff] transition-colors">
+                    Webdesign {city.name}
+                  </h3>
+                  <p className="text-slate-400 text-sm">{city.desc}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </main>

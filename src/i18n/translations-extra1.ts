@@ -30,6 +30,11 @@ export const sv: Translations = {
     ctaWhatsapp: "WhatsApp-meddelande",
     ctaPricing: "Paket fran \u20ac299",
     ctaBookCall: "Boka ett gratis samtal",
+    trustBadgeSwiss: "Schweizisk kvalitet",
+    trustBadgeProjects: "50+ projekt",
+    trustBadgeCountries: "4 lander",
+    trustBadgeAI: "AI-driven",
+    trustedBy: "Betrodd av foretag i Finland, Schweiz, Spanien och Forenade Arabemiraten",
     stat1Label: "Byggda webbplatser",
     stat2Label: "Engagemang",
     stat3Label: "Dagars leverans",
@@ -123,6 +128,8 @@ export const sv: Translations = {
       "Realtidsmatningar, diagram och rapporter \u2014 se direkt vad som fungerar och var du ska fokusera harnast.",
     serviceCta: "Fa en gratis offert",
     priceFrom: "fran",
+    swissPremiumBadge: "Swiss Premium",
+    swissPremiumSubtitle: "Tillganglig fran CHF 490",
   },
 
   // === TECHSTACK ===
@@ -310,6 +317,7 @@ export const sv: Translations = {
     statProjects: "Byggda projekt",
     statSatisfaction: "Kundnojdhet",
     statIndustries: "Branscher betjanade",
+    statCountries: "Projekt varlden over",
     clickToView: "Klicka for att se livesajten",
     cta: "Vill du ha nagot liknande?",
     // Project descriptions
@@ -352,6 +360,11 @@ export const sv: Translations = {
     review2Role: "Fitnessstudio",
     review3Quote: "Komplett foretagswebbplats med alla funktioner vi behovde. Utmarkt kommunikation.",
     review3Role: "Byggforetag",
+    review4Quote: "Yassin skapade en fantastisk webbplats for oss som omedelbart gav oss nya bokningar. Mycket professionell och forstar behoven hos schweiziska foretag.",
+    review4Role: "Restaurang, Luzern, Schweiz",
+    review5Quote: "Snabb leverans, bra design och valdigt latt att samarbeta med. Var webbplats ser fantastisk ut pa mobilen.",
+    review5Role: "Restaurang, Tuomarila",
+    ratingBased: "baserat pa 20+ omdomen",
     guarantee1Label: "100%",
     guarantee1Sub: "Nojdhetsgaranti",
     guarantee2Label: "I tid",
@@ -481,6 +494,7 @@ export const sv: Translations = {
       "Betala via bankoverforing eller faktura. Jag skickar en professionell faktura via e-post eller WhatsApp nar din webbplats ar klar och godkand. Sakert, enkelt och transparent.",
     responseTimeTitle: "Genomsnittlig svarstid: under 2 timmar",
     responseTimeSub: "Tillganglig 7 dagar i veckan",
+    availableInGerman: "Aven tillganglig pa tyska",
   },
 
   // === FOOTER ===
@@ -530,6 +544,11 @@ export const es: Translations = {
     ctaWhatsapp: "Mensaje de WhatsApp",
     ctaPricing: "Paquetes desde \u20ac299",
     ctaBookCall: "Reserva una llamada gratis",
+    trustBadgeSwiss: "Calidad suiza",
+    trustBadgeProjects: "50+ proyectos",
+    trustBadgeCountries: "4 paises",
+    trustBadgeAI: "Potenciado por IA",
+    trustedBy: "Empresas confian en nosotros en Finlandia, Suiza, Espana y Emiratos Arabes",
     stat1Label: "Sitios web creados",
     stat2Label: "Dedicacion",
     stat3Label: "Dias de entrega",
@@ -623,6 +642,8 @@ export const es: Translations = {
       "Metricas de negocio en tiempo real, graficos e informes \u2014 ve al instante que funciona y donde enfocar tu esfuerzo.",
     serviceCta: "Pide presupuesto gratis",
     priceFrom: "desde",
+    swissPremiumBadge: "Swiss Premium",
+    swissPremiumSubtitle: "Disponible desde CHF 490",
   },
 
   // === TECHSTACK ===
@@ -810,6 +831,7 @@ export const es: Translations = {
     statProjects: "Proyectos creados",
     statSatisfaction: "Satisfaccion del cliente",
     statIndustries: "Sectores atendidos",
+    statCountries: "Proyectos en todo el mundo",
     clickToView: "Haz clic para ver el sitio en vivo",
     cta: "Quieres algo asi?",
     // Project descriptions
@@ -852,6 +874,11 @@ export const es: Translations = {
     review2Role: "Estudio de fitness",
     review3Quote: "Sitio web empresarial completo con todas las funciones que necesitabamos. Excelente comunicacion.",
     review3Role: "Empresa de construccion",
+    review4Quote: "Yassin creo un sitio web increible que nos trajo reservas nuevas de inmediato. Muy profesional y entiende las necesidades de las empresas suizas.",
+    review4Role: "Restaurante, Lucerna, Suiza",
+    review5Quote: "Entrega rapida, gran diseno y muy facil de trabajar con el. Nuestro sitio web se ve increible en movil.",
+    review5Role: "Restaurante, Tuomarila",
+    ratingBased: "basado en 20+ resenas",
     guarantee1Label: "100%",
     guarantee1Sub: "Garantia de satisfaccion",
     guarantee2Label: "A tiempo",
@@ -981,6 +1008,7 @@ export const es: Translations = {
       "Paga por transferencia bancaria o factura. Te envio una factura profesional por email o WhatsApp cuando tu sitio web este listo y aprobado. Seguro, sencillo y transparente.",
     responseTimeTitle: "Tiempo medio de respuesta: menos de 2 horas",
     responseTimeSub: "Disponible 7 dias a la semana",
+    availableInGerman: "Tambien disponible en aleman",
   },
 
   // === FOOTER ===
@@ -1030,6 +1058,11 @@ export const de: Translations = {
     ctaWhatsapp: "WhatsApp-Nachricht",
     ctaPricing: "Pakete ab \u20ac299",
     ctaBookCall: "Kostenloses Gesprach buchen",
+    trustBadgeSwiss: "Schweizer Qualitat",
+    trustBadgeProjects: "50+ Projekte",
+    trustBadgeCountries: "4 Lander",
+    trustBadgeAI: "KI-gestutzt",
+    trustedBy: "Vertraut von Unternehmen in Finnland, der Schweiz, Spanien und den VAE",
     stat1Label: "Erstellte Websites",
     stat2Label: "Engagement",
     stat3Label: "Tage Lieferzeit",
@@ -1123,6 +1156,8 @@ export const de: Translations = {
       "Echtzeit-Geschaftskennzahlen, Diagramme und Berichte \u2014 sehen Sie sofort, was funktioniert und worauf Sie sich als Nachstes konzentrieren sollten.",
     serviceCta: "Kostenloses Angebot anfordern",
     priceFrom: "ab",
+    swissPremiumBadge: "Swiss Premium",
+    swissPremiumSubtitle: "Ab CHF 490",
   },
 
   // === TECHSTACK ===
@@ -1310,6 +1345,7 @@ export const de: Translations = {
     statProjects: "Erstellte Projekte",
     statSatisfaction: "Kundenzufriedenheit",
     statIndustries: "Bediente Branchen",
+    statCountries: "Projekte weltweit",
     clickToView: "Klicken zum Anzeigen der Live-Seite",
     cta: "Mochten Sie etwas Ahnliches?",
     // Project descriptions
@@ -1352,6 +1388,11 @@ export const de: Translations = {
     review2Role: "Fitnessstudio",
     review3Quote: "Komplette Unternehmenswebsite mit allen Funktionen, die wir brauchten. Hervorragende Kommunikation.",
     review3Role: "Bauunternehmen",
+    review4Quote: "Yassin hat fur uns eine grossartige Website erstellt, die sofort neue Reservierungen gebracht hat. Sehr professionell und versteht die Bedurfnisse von Schweizer Unternehmen.",
+    review4Role: "Restaurant, Luzern, Schweiz",
+    review5Quote: "Schnelle Lieferung, tolles Design und sehr angenehme Zusammenarbeit. Unsere Website sieht auf dem Handy fantastisch aus.",
+    review5Role: "Restaurant, Tuomarila",
+    ratingBased: "basierend auf 20+ Bewertungen",
     guarantee1Label: "100%",
     guarantee1Sub: "Zufriedenheitsgarantie",
     guarantee2Label: "Punktlich",
@@ -1481,6 +1522,7 @@ export const de: Translations = {
       "Bezahlen Sie per Bankuberweisung oder Rechnung. Ich sende Ihnen eine professionelle Rechnung per E-Mail oder WhatsApp, sobald Ihre Website fertig und genehmigt ist. Sicher, einfach und transparent.",
     responseTimeTitle: "Durchschnittliche Antwortzeit: unter 2 Stunden",
     responseTimeSub: "7 Tage die Woche erreichbar",
+    availableInGerman: "Auch verfugbar auf Deutsch",
   },
 
   // === FOOTER ===

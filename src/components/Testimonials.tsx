@@ -46,6 +46,18 @@ export function Testimonials() {
       role: t.testimonials.review3Role,
       color: solanaColors[2],
     },
+    {
+      quote: t.testimonials.review4Quote,
+      company: "Restaurant Goldbach",
+      role: t.testimonials.review4Role,
+      color: solanaColors[3],
+    },
+    {
+      quote: t.testimonials.review5Quote,
+      company: "Fudis House",
+      role: t.testimonials.review5Role,
+      color: solanaColors[0],
+    },
   ];
 
   const guarantees = [
@@ -110,10 +122,29 @@ export function Testimonials() {
           >
             {t.testimonials.subtitle}
           </motion.p>
+
+          {/* Rating average */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center justify-center gap-3 mt-6"
+          >
+            <div className="flex items-center gap-1.5 px-4 py-2 bg-white/[0.03] border border-white/[0.06] rounded-full">
+              <span className="text-sm font-bold text-[#ff8c00]">4.9/5</span>
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={12} className="fill-[#ff8c00] text-[#ff8c00]" />
+                ))}
+              </div>
+              <span className="text-xs text-slate-500 font-mono ml-1">{t.testimonials.ratingBased}</span>
+            </div>
+          </motion.div>
         </div>
 
         {/* Testimonial Cards */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {testimonials.map((item, i) => (
             <motion.div key={i} variants={staggerItem} style={{ transformPerspective: 800 }}>
               <Card3D className="h-full">

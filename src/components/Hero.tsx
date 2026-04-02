@@ -1,6 +1,6 @@
 "use client";
 import { motion, useMotionValue, useTransform, useScroll } from "framer-motion";
-import { ArrowRight, CheckCircle, Phone, Sparkles, Terminal } from "lucide-react";
+import { ArrowRight, CheckCircle, Phone, Sparkles, Terminal, MapPin } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Scene3D } from "@/components/Scene3D";
@@ -183,7 +183,7 @@ export function Hero() {
   const trust = [t.hero.trust1, t.hero.trust2, t.hero.trust3];
 
   const stats = [
-    { num: 23, suffix: "+", label: t.hero.stat1Label },
+    { num: 50, suffix: "+", label: t.hero.stat1Label },
     { num: 100, suffix: "%", label: t.hero.stat2Label },
     { num: 3, suffix: "-5", label: t.hero.stat3Label },
     { num: 24, suffix: "/7", label: t.hero.stat4Label },
@@ -224,11 +224,25 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left — Text Content */}
           <div>
+            {/* Location Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, rotateX: 15 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformPerspective: 800 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.04] border border-white/[0.08] rounded-full mb-4 backdrop-blur-xl"
+            >
+              <MapPin size={12} className="text-[#ff6b00]" />
+              <span className="text-xs text-slate-400 font-mono font-medium">
+                {t.nav.location}
+              </span>
+            </motion.div>
+
             {/* Terminal Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20, rotateX: 15 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
               style={{ transformPerspective: 800 }}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#9945ff]/[0.08] border border-[#9945ff]/20 rounded-full mb-8 backdrop-blur-xl shadow-[0_0_30px_rgba(153,69,255,0.1)]"
             >
@@ -336,6 +350,38 @@ export function Hero() {
                 <ArrowRight size={16} className="relative z-[2] group-hover:translate-x-0.5 transition-transform" />
               </MagneticButton>
             </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex flex-wrap items-center gap-3 mt-8"
+            >
+              {[
+                t.hero.trustBadgeSwiss,
+                t.hero.trustBadgeProjects,
+                t.hero.trustBadgeCountries,
+                t.hero.trustBadgeAI,
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="px-3 py-1 text-[10px] font-semibold text-slate-400 bg-white/[0.03] border border-white/[0.06] rounded-full font-mono"
+                >
+                  {item}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* Trusted by line */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="text-[11px] text-slate-500 font-mono mt-4"
+            >
+              {t.hero.trustedBy}
+            </motion.p>
           </div>
 
           {/* Right — Yassin Photo + Tech Connection Visual */}

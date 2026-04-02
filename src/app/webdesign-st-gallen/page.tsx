@@ -126,6 +126,16 @@ const jsonLd = [
   },
 ];
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://elfennir.com" },
+    { "@type": "ListItem", position: 2, name: "Webdesign Schweiz", item: "https://elfennir.com/webdesign-schweiz" },
+    { "@type": "ListItem", position: 3, name: "Webdesign St. Gallen", item: "https://elfennir.com/webdesign-st-gallen" },
+  ],
+};
+
 const features = [
   {
     title: "Expertise für den St. Galler Markt",
@@ -349,6 +359,11 @@ export default function WebdesignStGallenPage() {
         href="https://elfennir.com/webdesign-st-gallen"
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+
       <main className="min-h-screen bg-[#08080f] text-slate-300">
         {/* Back Navigation */}
         <div className="fixed top-6 left-6 z-50">
@@ -428,7 +443,7 @@ export default function WebdesignStGallenPage() {
                 Kostenloses Angebot via WhatsApp
               </a>
               <Link
-                href="/#pricing"
+                href="/preise-schweiz"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/10 text-white font-semibold text-lg hover:border-[#9945ff]/40 hover:bg-white/[0.03] transition-all"
               >
                 Preise ansehen
@@ -804,6 +819,41 @@ export default function WebdesignStGallenPage() {
                 Webdesign f&uuml;r St. Gallen und die ganze Ostschweiz
               </motion.p>
             </motion.div>
+          </div>
+        </section>
+        {/* Alle Preise + Kunden */}
+        <section className="py-12">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <p className="text-slate-400 mb-6">
+              &Uuml;ber 50 zufriedene Kunden in der Schweiz und weltweit
+            </p>
+            <Link
+              href="/preise-schweiz"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-[#14f195]/30 text-[#14f195] font-semibold text-lg hover:bg-[#14f195]/[0.05] transition-all"
+            >
+              Alle Preise ansehen &rarr;
+            </Link>
+          </div>
+        </section>
+
+        {/* Weitere Standorte */}
+        <section className="py-12 border-t border-white/[0.06]">
+          <div className="max-w-5xl mx-auto px-6 text-center">
+            <h2 className="font-[var(--font-heading)] text-xl font-bold text-white mb-6">
+              Weitere Standorte
+            </h2>
+            <p className="text-slate-500 text-sm mb-4">
+              <Link href="/webdesign-schweiz" className="text-[#00d1ff] hover:underline">
+                Webdesign Schweiz
+              </Link>
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/webdesign-zuerich" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Z&uuml;rich</Link>
+              <Link href="/webdesign-bern" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Bern</Link>
+              <Link href="/webdesign-basel" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Basel</Link>
+              <Link href="/webdesign-luzern" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Luzern</Link>
+              <Link href="/webdesign-winterthur" className="px-4 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-[#9945ff]/40 transition-all text-sm">Webdesign Winterthur</Link>
+            </div>
           </div>
         </section>
       </main>

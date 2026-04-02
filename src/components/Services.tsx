@@ -42,8 +42,18 @@ const SERVICE_PRICES = [
   "490",  // Data Analytics & Dashboards
 ] as const;
 
+const SWISS_PREMIUM_INDICES = [9, 10, 13] as const; // SaaS 1490, AI Integration 690, CRM 590
+
+const EUR_TO_CHF_RATE = 0.94;
+
+function eurToChf(eurPrice: string): string {
+  const chf = Math.round(parseInt(eurPrice, 10) * EUR_TO_CHF_RATE / 10) * 10;
+  return chf.toString();
+}
+
 export function Services() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isGerman = locale === "de";
 
   const services = [
     { icon: Globe, title: t.services.service1Title, desc: t.services.service1Desc, color: SERVICE_COLORS[0], price: SERVICE_PRICES[0] },
@@ -85,14 +95,31 @@ export function Services() {
           </p>
         </ScrollReveal3D>
 
+        {/* Swiss Premium subtitle for German */}
+        {isGerman && (
+          <p className="text-center text-sm text-[#14f195] font-mono mb-8 -mt-8">
+            {t.services.swissPremiumSubtitle}
+          </p>
+        )}
+
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {services.map((s) => (
+          {services.map((s, idx) => {
+            const isSwissPremium = (SWISS_PREMIUM_INDICES as readonly number[]).includes(idx);
+            return (
             <motion.div key={s.title} variants={staggerItem} style={{ transformPerspective: 800 }}>
               <Card3D
                 className="h-full"
                 glowColor={extractRgb(s.color)}
               >
                 <div className="sol-card group relative p-6 rounded-3xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 hover:bg-white/[0.04] overflow-hidden h-full flex flex-col">
+                  {/* Swiss Premium Badge */}
+                  {isSwissPremium && (
+                    <div className="absolute top-3 right-3 z-10 px-2 py-0.5 bg-[#14f195]/10 border border-[#14f195]/20 rounded-full">
+                      <span className="text-[9px] font-bold text-[#14f195] uppercase tracking-wider font-mono">
+                        {t.services.swissPremiumBadge}
+                      </span>
+                    </div>
+                  )}
                   <div className="relative flex-1">
                     <div className="flex items-start justify-between mb-5">
                       <div
@@ -101,16 +128,23 @@ export function Services() {
                       >
                         <s.icon size={20} className="group-hover:scale-110 transition-transform duration-300" />
                       </div>
-                      <span
-                        className="text-xs font-medium px-2.5 py-1 rounded-full border transition-colors duration-300"
-                        style={{
-                          color: s.color,
-                          borderColor: `${s.color}33`,
-                          backgroundColor: `${s.color}0a`,
-                        }}
-                      >
-                        {t.services.priceFrom} {s.price}&euro;
-                      </span>
+                      <div className="flex flex-col items-end gap-1">
+                        <span
+                          className="text-xs font-medium px-2.5 py-1 rounded-full border transition-colors duration-300"
+                          style={{
+                            color: s.color,
+                            borderColor: `${s.color}33`,
+                            backgroundColor: `${s.color}0a`,
+                          }}
+                        >
+                          {t.services.priceFrom} {s.price}&euro;
+                        </span>
+                        {isSwissPremium && (
+                          <span className="text-[10px] text-slate-500 font-mono">
+                            ~CHF {eurToChf(s.price)}
+                          </span>
+                        )}
+                      </div>
                     </div>
                     <h3 className="font-[var(--font-heading)] text-white font-semibold mb-2 text-[15px]">
                       {s.title}
@@ -131,7 +165,8 @@ export function Services() {
                 </div>
               </Card3D>
             </motion.div>
-          ))}
+            );
+          })}
         </StaggerContainer>
       </div>
     </section>

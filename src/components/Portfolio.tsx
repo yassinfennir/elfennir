@@ -143,7 +143,7 @@ export function Portfolio() {
             className="flex flex-wrap items-center justify-center gap-6 mt-8"
           >
             {[
-              { num: `${projects.length}+`, label: t.portfolio.statProjects },
+              { num: "50+", label: t.portfolio.statProjects },
               { num: "100%", label: t.portfolio.statSatisfaction },
               { num: "5+", label: t.portfolio.statIndustries },
             ].map((s) => (
@@ -152,6 +152,23 @@ export function Portfolio() {
                 <span className="text-xs text-slate-500">{s.label}</span>
               </div>
             ))}
+          </motion.div>
+
+          {/* Country flags */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center justify-center gap-3 mt-4"
+          >
+            <span className="text-xs text-slate-500 font-mono">{t.portfolio.statCountries}</span>
+            <div className="flex items-center gap-1.5 text-base">
+              <span>&#127467;&#127470;</span>
+              <span>&#127464;&#127469;</span>
+              <span>&#127466;&#127480;</span>
+              <span>&#127462;&#127466;</span>
+            </div>
           </motion.div>
         </div>
 
