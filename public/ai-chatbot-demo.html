@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chatbot for Your Business | elfennir.com</title>
+<meta name="description" content="Get a custom AI chatbot for your business. Answers customer questions 24/7, books appointments, and captures leads. Setup from 490EUR.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://elfennir.com/ai-chatbot-demo.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "elfennir AI Chatbot",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "490",
+    "priceCurrency": "EUR"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "elfennir.com",
+    "url": "https://elfennir.com"
+  },
+  "description": "Custom AI chatbot for businesses. 24/7 customer support, appointment booking, lead capture."
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a2e;
+  --green:#14F195;--cyan:#00D1FF;--purple:#9945FF;--orange:#FF6B00;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --border:#1e293b;--radius:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0}
+.nav .container{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.nav-logo span{color:var(--orange)}
+.lang-toggle{display:flex;gap:4px;background:var(--bg2);border-radius:8px;padding:3px}
+.lang-btn{padding:6px 14px;border-radius:6px;border:none;background:transparent;color:var(--text2);cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
+.lang-btn.active{background:var(--green);color:#000}
+
+/* HERO */
+.hero{padding:120px 0 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(20,241,149,0.08) 0%,transparent 70%);pointer-events:none}
+.badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(20,241,149,0.1);border:1px solid rgba(20,241,149,0.3);color:var(--green);font-size:13px;font-weight:600;margin-bottom:20px}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-1px}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:18px;color:var(--text2);max-width:600px;margin:0 auto 32px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--green);color:#000;font-weight:700;font-size:16px;border-radius:10px;transition:all .2s;border:none;cursor:pointer}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(20,241,149,0.3);text-decoration:none;color:#000}
+
+/* LIVE DEMO */
+.demo-section{padding:60px 0}
+.demo-section h2{text-align:center;font-size:28px;font-weight:700;margin-bottom:8px}
+.demo-section .sub{text-align:center;color:var(--text2);margin-bottom:40px;font-size:15px}
+.chat-wrapper{max-width:480px;margin:0 auto;background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.chat-header{padding:16px 20px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.chat-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#000}
+.chat-header-info h3{font-size:15px;font-weight:600;color:#fff}
+.chat-header-info span{font-size:12px;color:var(--green);display:flex;align-items:center;gap:4px}
+.chat-header-info span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+.chat-messages{height:380px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}
+.chat-messages::-webkit-scrollbar{width:4px}
+.chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.5;animation:msgIn .3s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.bot{align-self:flex-start;background:var(--bg3);color:var(--text);border-bottom-left-radius:4px}
+.msg.user{align-self:flex-end;background:var(--green);color:#000;font-weight:500;border-bottom-right-radius:4px}
+.msg.typing{align-self:flex-start;background:var(--bg3);color:var(--text3);font-style:italic;display:flex;gap:4px;padding:12px 18px}
+.typing-dot{width:6px;height:6px;border-radius:50%;background:var(--text3);animation:typeDot 1.2s infinite}
+.typing-dot:nth-child(2){animation-delay:.2s}
+.typing-dot:nth-child(3){animation-delay:.4s}
+@keyframes typeDot{0%,80%,100%{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+.chat-input-area{padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:8px}
+.chat-input{flex:1;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;outline:none;font-family:var(--font)}
+.chat-input:focus{border-color:var(--green)}
+.chat-input::placeholder{color:var(--text3)}
+.chat-send{width:40px;height:40px;border-radius:10px;border:none;background:var(--green);color:#000;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.chat-send:hover{background:#0fd882}
+.quick-replies{display:flex;flex-wrap:wrap;gap:6px;padding:0 20px 12px}
+.quick-reply{padding:6px 12px;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:12px;cursor:pointer;transition:all .2s;font-family:var(--font)}
+.quick-reply:hover{border-color:var(--green);color:var(--green)}
+
+/* FEATURES */
+.features{padding:80px 0}
+.features h2{text-align:center;font-size:28px;font-weight:700;margin-bottom:40px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .3s}
+.feature-card:hover{border-color:var(--green);transform:translateY(-2px)}
+.feature-icon{font-size:28px;margin-bottom:12px}
+.feature-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:#fff}
+.feature-card p{font-size:14px;color:var(--text2);line-height:1.6}
+
+/* PRICING */
+.pricing{padding:80px 0;background:var(--bg2)}
+.pricing h2{text-align:center;font-size:28px;font-weight:700;margin-bottom:8px}
+.pricing .sub{text-align:center;color:var(--text2);margin-bottom:40px}
+.price-card{max-width:500px;margin:0 auto;background:var(--bg);border:2px solid var(--green);border-radius:16px;padding:40px;text-align:center;position:relative}
+.price-popular{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:6px 20px;border-radius:20px;background:var(--green);color:#000;font-size:13px;font-weight:700;white-space:nowrap}
+.price-amount{font-size:56px;font-weight:800;color:#fff;margin:20px 0 4px;letter-spacing:-2px}
+.price-amount span{font-size:20px;color:var(--text2);font-weight:400}
+.price-desc{color:var(--text2);margin-bottom:24px;font-size:15px}
+.price-features{text-align:left;margin-bottom:28px}
+.price-features li{padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text);display:flex;align-items:center;gap:10px;list-style:none}
+.price-features li::before{content:'\\2713';color:var(--green);font-weight:700;font-size:16px}
+.price-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--green);color:#000;font-weight:700;font-size:16px;border-radius:10px;transition:all .2s;width:100%;justify-content:center}
+.price-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(20,241,149,0.3);text-decoration:none;color:#000}
+
+/* TESTIMONIAL */
+.testimonial{padding:80px 0}
+.testimonial h2{text-align:center;font-size:28px;font-weight:700;margin-bottom:40px}
+.testi-card{max-width:600px;margin:0 auto;background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px}
+.testi-stars{color:#facc15;font-size:18px;margin-bottom:12px}
+.testi-text{font-size:16px;color:var(--text);line-height:1.7;margin-bottom:16px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px}
+.testi-name{font-weight:600;font-size:14px;color:#fff}
+.testi-role{font-size:13px;color:var(--text3)}
+
+/* FAQ */
+.faq{padding:80px 0;background:var(--bg2)}
+.faq h2{text-align:center;font-size:28px;font-weight:700;margin-bottom:40px}
+.faq-list{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.faq-q{padding:16px 20px;cursor:pointer;font-weight:600;font-size:15px;color:#fff;display:flex;justify-content:space-between;align-items:center;transition:all .2s}
+.faq-q:hover{color:var(--green)}
+.faq-q::after{content:'+';font-size:20px;color:var(--text3);transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--green)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 20px}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
+.faq-a p{font-size:14px;color:var(--text2);line-height:1.7}
+
+/* CTA FINAL */
+.final-cta{padding:80px 0;text-align:center}
+.final-cta h2{font-size:32px;font-weight:800;margin-bottom:12px}
+.final-cta p{color:var(--text2);margin-bottom:28px;font-size:16px}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#25D366;color:#fff;font-weight:700;font-size:15px;border-radius:10px;transition:all .2s}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3);text-decoration:none;color:#fff}
+.btn-email{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:transparent;border:1px solid var(--border);color:var(--text);font-weight:600;font-size:15px;border-radius:10px;transition:all .2s}
+.btn-email:hover{border-color:var(--cyan);color:var(--cyan);text-decoration:none}
+
+/* FOOTER */
+.footer{padding:24px 0;border-top:1px solid var(--border);text-align:center;font-size:13px;color:var(--text3)}
+.footer a{color:var(--text2)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:all .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:640px){
+  .hero h1{font-size:28px}
+  .price-amount{font-size:44px}
+  .chat-messages{height:300px}
+  .features-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <a href="https://elfennir.com" class="nav-logo">el<span>fennir</span></a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="badge" data-de="KI-Chatbot Demo" data-en="AI Chatbot Demo">KI-Chatbot Demo</div>
+    <h1>
+      <span data-de="KI-Chatbot" data-en="AI Chatbot" class="highlight">KI-Chatbot</span><br>
+      <span data-de="f&uuml;r Ihr Unternehmen" data-en="for Your Business">f&uuml;r Ihr Unternehmen</span>
+    </h1>
+    <p data-de="Ihr digitaler Mitarbeiter, der nie schl&auml;ft. Beantwortet Kundenanfragen, bucht Termine und sammelt Leads &mdash; rund um die Uhr, 365 Tage im Jahr." data-en="Your digital employee that never sleeps. Answers customer questions, books appointments and captures leads &mdash; 24/7, 365 days a year.">Ihr digitaler Mitarbeiter, der nie schl&auml;ft. Beantwortet Kundenanfragen, bucht Termine und sammelt Leads &mdash; rund um die Uhr, 365 Tage im Jahr.</p>
+    <a href="#demo" class="hero-cta" data-de="&#9660; Live Demo testen" data-en="&#9660; Try Live Demo">&#9660; Live Demo testen</a>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo-section" id="demo">
+  <div class="container">
+    <h2 data-de="Probieren Sie es selbst aus" data-en="Try It Yourself">Probieren Sie es selbst aus</h2>
+    <p class="sub" data-de="Tippen Sie eine Nachricht oder klicken Sie auf einen Vorschlag" data-en="Type a message or click a suggestion below">Tippen Sie eine Nachricht oder klicken Sie auf einen Vorschlag</p>
+    <div class="chat-wrapper">
+      <div class="chat-header">
+        <div class="chat-avatar">K</div>
+        <div class="chat-header-info">
+          <h3>Kazumi Sushi</h3>
+          <span data-de="Online" data-en="Online">Online</span>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot" data-de="Hallo! Willkommen bei Kazumi Sushi. Wie kann ich Ihnen helfen?" data-en="Hello! Welcome to Kazumi Sushi. How can I help you?">Hallo! Willkommen bei Kazumi Sushi. Wie kann ich Ihnen helfen?</div>
+      </div>
+      <div class="quick-replies" id="quickReplies">
+        <button class="quick-reply" data-key="hours" data-de="&Ouml;ffnungszeiten" data-en="Opening hours">&Ouml;ffnungszeiten</button>
+        <button class="quick-reply" data-key="menu" data-de="Speisekarte" data-en="Menu">Speisekarte</button>
+        <button class="quick-reply" data-key="booking" data-de="Tisch reservieren" data-en="Book a table">Tisch reservieren</button>
+        <button class="quick-reply" data-key="location" data-de="Standort" data-en="Location">Standort</button>
+        <button class="quick-reply" data-key="prices" data-de="Preise" data-en="Prices">Preise</button>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Nachricht eingeben..." data-de-ph="Nachricht eingeben..." data-en-ph="Type a message...">
+        <button class="chat-send" id="chatSend" aria-label="Send">&#10148;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <h2 data-de="Was Ihr Chatbot kann" data-en="What Your Chatbot Can Do">Was Ihr Chatbot kann</h2>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#128172;</div>
+        <h3 data-de="Sofortige Antworten" data-en="Instant Answers">Sofortige Antworten</h3>
+        <p data-de="Beantwortet h&auml;ufig gestellte Fragen in Sekunden &mdash; &Ouml;ffnungszeiten, Preise, Dienstleistungen und mehr." data-en="Answers frequently asked questions in seconds &mdash; opening hours, prices, services and more.">Beantwortet h&auml;ufig gestellte Fragen in Sekunden &mdash; &Ouml;ffnungszeiten, Preise, Dienstleistungen und mehr.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#128197;</div>
+        <h3 data-de="Terminbuchung" data-en="Appointment Booking">Terminbuchung</h3>
+        <p data-de="Kunden k&ouml;nnen direkt im Chat Termine buchen &mdash; ohne Telefonanrufe oder E-Mails." data-en="Customers can book appointments directly in chat &mdash; no phone calls or emails needed.">Kunden k&ouml;nnen direkt im Chat Termine buchen &mdash; ohne Telefonanrufe oder E-Mails.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#127919;</div>
+        <h3 data-de="Lead-Erfassung" data-en="Lead Capture">Lead-Erfassung</h3>
+        <p data-de="Sammelt automatisch Name, E-Mail und Anfrage Ihrer Besucher &mdash; kein Lead geht verloren." data-en="Automatically collects name, email and inquiry from your visitors &mdash; no lead gets lost.">Sammelt automatisch Name, E-Mail und Anfrage Ihrer Besucher &mdash; kein Lead geht verloren.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#127760;</div>
+        <h3 data-de="Mehrsprachig" data-en="Multilingual">Mehrsprachig</h3>
+        <p data-de="Ihr Chatbot spricht Deutsch, Englisch, Finnisch und mehr &mdash; perfekt f&uuml;r internationale Kunden." data-en="Your chatbot speaks German, English, Finnish and more &mdash; perfect for international customers.">Ihr Chatbot spricht Deutsch, Englisch, Finnisch und mehr &mdash; perfekt f&uuml;r internationale Kunden.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#128200;</div>
+        <h3 data-de="Analyse & Einblicke" data-en="Analytics & Insights">Analyse & Einblicke</h3>
+        <p data-de="Erfahren Sie, was Ihre Kunden am h&auml;ufigsten fragen, und optimieren Sie Ihren Service." data-en="Learn what your customers ask most frequently and optimize your service.">Erfahren Sie, was Ihre Kunden am h&auml;ufigsten fragen, und optimieren Sie Ihren Service.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">&#9889;</div>
+        <h3 data-de="Einfache Integration" data-en="Easy Integration">Einfache Integration</h3>
+        <p data-de="Ein Zeile Code auf Ihrer Website &mdash; wir k&uuml;mmern uns um den Rest. Fertig in 48 Stunden." data-en="One line of code on your website &mdash; we handle the rest. Ready in 48 hours.">Ein Zeile Code auf Ihrer Website &mdash; wir k&uuml;mmern uns um den Rest. Fertig in 48 Stunden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <h2 data-de="Transparente Preise" data-en="Transparent Pricing">Transparente Preise</h2>
+    <p class="sub" data-de="Einmalige Geb&uuml;hr. Keine versteckten Kosten." data-en="One-time fee. No hidden costs.">Einmalige Geb&uuml;hr. Keine versteckten Kosten.</p>
+    <div class="price-card">
+      <div class="price-popular" data-de="Beliebteste Option" data-en="Most Popular">Beliebteste Option</div>
+      <div class="price-amount">490&euro; <span data-de="einmalig" data-en="one-time">einmalig</span></div>
+      <p class="price-desc" data-de="Alles was Sie brauchen, um Kundenanfragen zu automatisieren" data-en="Everything you need to automate customer inquiries">Alles was Sie brauchen, um Kundenanfragen zu automatisieren</p>
+      <ul class="price-features">
+        <li data-de="Individuell trainierter KI-Chatbot" data-en="Custom-trained AI chatbot">Individuell trainierter KI-Chatbot</li>
+        <li data-de="Angepasst an Ihr Unternehmen & Branding" data-en="Customized to your business & branding">Angepasst an Ihr Unternehmen & Branding</li>
+        <li data-de="Deutsch, Englisch + weitere Sprachen" data-en="German, English + more languages">Deutsch, Englisch + weitere Sprachen</li>
+        <li data-de="Terminbuchung & Lead-Erfassung" data-en="Appointment booking & lead capture">Terminbuchung & Lead-Erfassung</li>
+        <li data-de="Integration in Ihre bestehende Website" data-en="Integration into your existing website">Integration in Ihre bestehende Website</li>
+        <li data-de="1 Jahr technischer Support inklusive" data-en="1 year technical support included">1 Jahr technischer Support inklusive</li>
+        <li data-de="Fertig in 48 Stunden" data-en="Ready in 48 hours">Fertig in 48 Stunden</li>
+      </ul>
+      <a href="https://wa.me/358466109064?text=Hi%20Yassin,%20I%27m%20interested%20in%20the%20AI%20Chatbot%20for%20my%20business" class="price-cta" data-de="&#128172; Jetzt per WhatsApp bestellen" data-en="&#128172; Order now via WhatsApp">&#128172; Jetzt per WhatsApp bestellen</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="container">
+    <h2 data-de="Was unsere Kunden sagen" data-en="What Our Clients Say">Was unsere Kunden sagen</h2>
+    <div class="testi-card fade-up">
+      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text" data-de="&laquo;Seit wir den Chatbot von elfennir haben, beantworten wir 80% der Kundenanfragen automatisch. Wir sparen locker 15 Stunden pro Woche. Die Investition hat sich in weniger als einem Monat amortisiert.&raquo;" data-en="&laquo;Since we got the chatbot from elfennir, we answer 80% of customer inquiries automatically. We easily save 15 hours per week. The investment paid for itself in less than a month.&raquo;">&laquo;Seit wir den Chatbot von elfennir haben, beantworten wir 80% der Kundenanfragen automatisch. Wir sparen locker 15 Stunden pro Woche. Die Investition hat sich in weniger als einem Monat amortisiert.&raquo;</p>
+      <div class="testi-author">
+        <div class="testi-avatar">N</div>
+        <div>
+          <div class="testi-name">Nordic Globe</div>
+          <div class="testi-role" data-de="Reinigungsunternehmen, Helsinki" data-en="Cleaning Company, Helsinki">Reinigungsunternehmen, Helsinki</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 data-de="H&auml;ufig gestellte Fragen" data-en="Frequently Asked Questions">H&auml;ufig gestellte Fragen</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" data-de="Wie schnell ist der Chatbot einsatzbereit?" data-en="How quickly is the chatbot ready?">Wie schnell ist der Chatbot einsatzbereit?</div>
+        <div class="faq-a"><p data-de="In der Regel innerhalb von 48 Stunden nach Auftragserteilung. Wir konfigurieren und trainieren den Chatbot mit Ihren Unternehmensdaten." data-en="Usually within 48 hours of ordering. We configure and train the chatbot with your business data.">In der Regel innerhalb von 48 Stunden nach Auftragserteilung. Wir konfigurieren und trainieren den Chatbot mit Ihren Unternehmensdaten.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-de="Brauche ich technische Kenntnisse?" data-en="Do I need technical knowledge?">Brauche ich technische Kenntnisse?</div>
+        <div class="faq-a"><p data-de="Nein! Wir &uuml;bernehmen die komplette Installation. Sie m&uuml;ssen nur eine Zeile Code einf&uuml;gen &mdash; oder wir machen das f&uuml;r Sie." data-en="No! We handle the complete installation. You just need to paste one line of code &mdash; or we do it for you.">Nein! Wir &uuml;bernehmen die komplette Installation. Sie m&uuml;ssen nur eine Zeile Code einf&uuml;gen &mdash; oder wir machen das f&uuml;r Sie.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-de="Kann der Chatbot mehrere Sprachen?" data-en="Can the chatbot speak multiple languages?">Kann der Chatbot mehrere Sprachen?</div>
+        <div class="faq-a"><p data-de="Ja! Der Chatbot erkennt automatisch die Sprache des Kunden und antwortet entsprechend. Deutsch, Englisch, Finnisch und viele mehr." data-en="Yes! The chatbot automatically detects the customer's language and responds accordingly. German, English, Finnish and many more.">Ja! Der Chatbot erkennt automatisch die Sprache des Kunden und antwortet entsprechend. Deutsch, Englisch, Finnisch und viele mehr.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-de="Was passiert nach dem ersten Jahr Support?" data-en="What happens after the first year of support?">Was passiert nach dem ersten Jahr Support?</div>
+        <div class="faq-a"><p data-de="Nach dem ersten Jahr k&ouml;nnen Sie optionalen Support f&uuml;r 50&euro;/Monat buchen. Der Chatbot l&auml;uft aber auch ohne Support weiter." data-en="After the first year, you can book optional support for 50EUR/month. The chatbot continues to run without support too.">Nach dem ersten Jahr k&ouml;nnen Sie optionalen Support f&uuml;r 50&euro;/Monat buchen. Der Chatbot l&auml;uft aber auch ohne Support weiter.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-de="Funktioniert das mit meiner Website?" data-en="Does it work with my website?">Funktioniert das mit meiner Website?</div>
+        <div class="faq-a"><p data-de="Ja, der Chatbot funktioniert mit jeder Website &mdash; WordPress, Wix, Squarespace, Shopify oder individuell gebaut. Keine Einschr&auml;nkungen." data-en="Yes, the chatbot works with any website &mdash; WordPress, Wix, Squarespace, Shopify or custom-built. No restrictions.">Ja, der Chatbot funktioniert mit jeder Website &mdash; WordPress, Wix, Squarespace, Shopify oder individuell gebaut. Keine Einschr&auml;nkungen.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 data-de="Bereit, Ihr Business zu automatisieren?" data-en="Ready to Automate Your Business?">Bereit, Ihr Business zu automatisieren?</h2>
+    <p data-de="Kontaktieren Sie uns jetzt &mdash; Ihr Chatbot kann in 48 Stunden live sein." data-en="Contact us now &mdash; your chatbot can be live in 48 hours.">Kontaktieren Sie uns jetzt &mdash; Ihr Chatbot kann in 48 Stunden live sein.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/358466109064?text=Hi%20Yassin,%20I%20want%20an%20AI%20Chatbot%20for%20my%20business" class="btn-wa" data-de="&#128172; WhatsApp" data-en="&#128172; WhatsApp">&#128172; WhatsApp</a>
+      <a href="mailto:yassin@elfennir.com?subject=AI Chatbot Inquiry" class="btn-email" data-de="&#9993; E-Mail senden" data-en="&#9993; Send Email">&#9993; E-Mail senden</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 <a href="https://elfennir.com">elfennir.com</a> &mdash; Yassin El Fennir &middot; Espoo, Finland</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* LANGUAGE SYSTEM */
+  let lang = 'de';
+
+  function setLangGlobal(l) {
+    lang = l;
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.textContent.trim().toLowerCase() === l);
+    });
+    document.querySelectorAll('[data-' + l + ']').forEach(function(el) {
+      el.innerHTML = el.getAttribute('data-' + l);
+    });
+    var input = document.getElementById('chatInput');
+    if (input) input.placeholder = input.getAttribute('data-' + l + '-ph') || input.placeholder;
+    document.querySelectorAll('.quick-reply').forEach(function(btn) {
+      var val = btn.getAttribute('data-' + l);
+      if (val) btn.textContent = val;
+    });
+  }
+  window.setLang = setLangGlobal;
+
+  /* CHATBOT RESPONSES */
+  var responses = {
+    de: {
+      greeting: ['hallo','hi','hey','guten tag','moin','servus'],
+      hours: {
+        keywords: ['oeffnungszeiten','öffnungszeiten','offen','geöffnet','wann','stunden','zeiten','uhrzeit'],
+        reply: 'Unsere Öffnungszeiten sind:\n🕐 Mo-Fr: 11:00 - 21:00\n🕐 Sa: 12:00 - 22:00\n🕐 So: 12:00 - 20:00'
+      },
+      menu: {
+        keywords: ['speisekarte','menü','menu','essen','gericht','sushi','maki','nigiri'],
+        reply: 'Unsere Highlights:\n🍣 Sushi Set (12 Stk.) — 18,90€\n🍱 Bento Box Deluxe — 22,90€\n🥢 Maki Platter (24 Stk.) — 28,90€\n🍜 Ramen Special — 14,90€\n\nDie vollständige Speisekarte finden Sie auf unserer Website!'
+      },
+      booking: {
+        keywords: ['reserv','tisch','buchen','buchung','termin','platz'],
+        reply: 'Gerne helfe ich Ihnen bei der Reservierung! 📋\n\nBitte nennen Sie mir:\n• Gewünschtes Datum\n• Uhrzeit\n• Anzahl Personen\n• Ihren Namen\n\nOder rufen Sie uns direkt an: +358 46 6109064'
+      },
+      location: {
+        keywords: ['wo','standort','adresse','finden','anfahrt','weg','karte','maps'],
+        reply: 'Sie finden uns hier:\n📍 Leppävaarankatu 15, 02600 Espoo\n🚇 Direkt neben Leppävaara Station\n🅿️ Kostenlose Parkplätze vorhanden\n\nWir freuen uns auf Ihren Besuch!'
+      },
+      prices: {
+        keywords: ['preis','kosten','teuer','günstig','euro','€','was kostet'],
+        reply: 'Unsere Preise:\n• Sushi ab 8,90€\n• Hauptgerichte ab 12,90€\n• Lunch-Menü (Mo-Fr) ab 10,90€\n• Abend-Set-Menü ab 29,90€/Person\n\n💰 Wir bieten auch Catering ab 15€/Person an!'
+      },
+      fallback: 'Vielen Dank für Ihre Nachricht! Ein Mitarbeiter wird sich in Kürze bei Ihnen melden. Sie können uns auch direkt erreichen unter +358 46 6109064 📞'
+    },
+    en: {
+      greeting: ['hello','hi','hey','good morning','good afternoon'],
+      hours: {
+        keywords: ['hours','open','opening','when','time','schedule','close'],
+        reply: 'Our opening hours:\n🕐 Mon-Fri: 11:00 - 21:00\n🕐 Sat: 12:00 - 22:00\n🕐 Sun: 12:00 - 20:00'
+      },
+      menu: {
+        keywords: ['menu','food','dish','sushi','maki','nigiri','eat','lunch','dinner'],
+        reply: 'Our highlights:\n🍣 Sushi Set (12 pcs) — €18.90\n🍱 Bento Box Deluxe — €22.90\n🥢 Maki Platter (24 pcs) — €28.90\n🍜 Ramen Special — €14.90\n\nFull menu available on our website!'
+      },
+      booking: {
+        keywords: ['book','reserv','table','appointment','seat'],
+        reply: 'I\'d love to help you with a reservation! 📋\n\nPlease share:\n• Preferred date\n• Time\n• Number of guests\n• Your name\n\nOr call us directly: +358 46 6109064'
+      },
+      location: {
+        keywords: ['where','location','address','find','directions','map','parking'],
+        reply: 'Find us here:\n📍 Leppävaarankatu 15, 02600 Espoo\n🚇 Right next to Leppävaara Station\n🅿️ Free parking available\n\nWe look forward to your visit!'
+      },
+      prices: {
+        keywords: ['price','cost','expensive','cheap','euro','€','how much'],
+        reply: 'Our prices:\n• Sushi from €8.90\n• Main courses from €12.90\n• Lunch menu (Mon-Fri) from €10.90\n• Evening set menu from €29.90/person\n\n💰 We also offer catering from €15/person!'
+      },
+      fallback: 'Thank you for your message! A team member will get back to you shortly. You can also reach us directly at +358 46 6109064 📞'
+    }
+  };
+
+  var greetingReplies = {
+    de: 'Hallo! Willkommen bei Kazumi Sushi 🍣 Wie kann ich Ihnen helfen?\n\nFragen Sie mich nach:\n• Öffnungszeiten\n• Speisekarte & Preise\n• Tischreservierung\n• Standort & Anfahrt',
+    en: 'Hello! Welcome to Kazumi Sushi 🍣 How can I help you?\n\nAsk me about:\n• Opening hours\n• Menu & prices\n• Table reservation\n• Location & directions'
+  };
+
+  var messagesEl = document.getElementById('chatMessages');
+  var inputEl = document.getElementById('chatInput');
+  var sendBtn = document.getElementById('chatSend');
+
+  function addMessage(text, type) {
+    var div = document.createElement('div');
+    div.className = 'msg ' + type;
+    div.textContent = text;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function showTyping() {
+    var div = document.createElement('div');
+    div.className = 'msg typing';
+    div.id = 'typingIndicator';
+    div.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function removeTyping() {
+    var el = document.getElementById('typingIndicator');
+    if (el) el.remove();
+  }
+
+  function getReply(text) {
+    var lower = text.toLowerCase().replace(/[^a-zäöüß\s]/g, '');
+    var r = responses[lang];
+
+    if (r.greeting.some(function(g) { return lower.includes(g); })) {
+      return greetingReplies[lang];
+    }
+
+    var categories = ['hours','menu','booking','location','prices'];
+    for (var i = 0; i < categories.length; i++) {
+      var cat = r[categories[i]];
+      if (cat.keywords.some(function(kw) { return lower.includes(kw); })) {
+        return cat.reply;
+      }
+    }
+    return r.fallback;
+  }
+
+  function sendMessage(text) {
+    if (!text.trim()) return;
+    addMessage(text, 'user');
+    inputEl.value = '';
+    showTyping();
+    var delay = 600 + Math.random() * 800;
+    setTimeout(function() {
+      removeTyping();
+      addMessage(getReply(text), 'bot');
+    }, delay);
+  }
+
+  sendBtn.addEventListener('click', function() { sendMessage(inputEl.value); });
+  inputEl.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') sendMessage(inputEl.value);
+  });
+
+  document.querySelectorAll('.quick-reply').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.getAttribute('data-key');
+      var text = btn.getAttribute('data-' + lang);
+      sendMessage(text || btn.textContent);
+    });
+  });
+
+  /* FAQ ACCORDION */
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* SCROLL ANIMATIONS */
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>
