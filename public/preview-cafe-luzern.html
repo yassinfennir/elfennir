@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Goldbach – Luzern | Kaffee & Feingebäck</title>
+<meta name="description" content="Café Goldbach in Luzern – handwerklicher Kaffee, frisches Gebäck und hausgemachte Kuchen. Besuchen Sie uns im Herzen von Luzern.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',sans-serif;color:#44403c;background:#faf8f5;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#faf8f5}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#8b6f47,#6b5335);border-radius:10px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.accent{color:#8b6f47}
+.preview-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;background:linear-gradient(90deg,#8b6f47,#c4a574,#8b6f47);background-size:200% 100%;animation:grad 4s ease infinite;padding:10px 20px;text-align:center;font-size:13px;color:#fff;letter-spacing:.3px;box-shadow:0 2px 20px rgba(139,111,71,.3)}
+.preview-banner a{color:#fff;text-decoration:none;font-weight:600}
+.preview-banner a:hover{text-decoration:underline}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.navbar{position:fixed;top:38px;left:0;width:100%;z-index:999;padding:16px 0;transition:all .4s}
+.navbar.scrolled{background:rgba(250,248,245,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,111,71,.1);padding:10px 0;box-shadow:0 2px 20px rgba(0,0,0,.04)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 24px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;text-decoration:none;transition:color .3s}
+.navbar.scrolled .nav-logo{color:#3c2415}
+.nav-logo span{font-style:italic;font-weight:500}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s}
+.navbar.scrolled .nav-links a{color:#78716c}
+.nav-links a:hover{color:#8b6f47}
+.nav-cta{background:linear-gradient(135deg,#8b6f47,#6b5335);color:#fff!important;padding:10px 24px;border-radius:50px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 16px rgba(139,111,71,.3);transition:all .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(139,111,71,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:4px}
+.hamburger span{display:block;width:26px;height:2.5px;background:#fff;border-radius:3px;transition:all .3s}
+.navbar.scrolled .hamburger span{background:#3c2415}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:160px 0 100px;background:linear-gradient(135deg,rgba(60,36,21,.8),rgba(139,111,71,.65)),url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1400') center/cover no-repeat}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,64px);font-weight:800;color:#fff;line-height:1.08;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:#c4a574}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,165,116,.15);border:1px solid rgba(196,165,116,.3);color:#c4a574;padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:24px;letter-spacing:.5px}
+.hero p{font-size:18px;color:rgba(255,255,255,.78);max-width:520px;margin-bottom:36px;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8b6f47,#6b5335);color:#fff;padding:15px 36px;border-radius:50px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s;box-shadow:0 4px 24px rgba(139,111,71,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(139,111,71,.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.3);color:#fff;padding:13px 36px;border-radius:50px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+
+.section-padding{padding:100px 0}
+.section-label{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;color:#8b6f47;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.section-label .line{width:30px;height:2px;background:#8b6f47}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:#3c2415;margin-bottom:16px}
+.section-desc{font-size:16px;color:#78716c;max-width:600px;line-height:1.7;margin-bottom:48px}
+.text-center{text-align:center}
+.text-center .section-desc{margin-left:auto;margin-right:auto}
+.text-center .section-label{justify-content:center}
+
+/* Menu Highlights */
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.menu-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(139,111,71,.1);transition:all .4s;display:flex}
+.menu-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(139,111,71,.1)}
+.menu-img{width:180px;min-height:180px;flex-shrink:0;overflow:hidden}
+.menu-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.menu-card:hover .menu-img img{transform:scale(1.08)}
+.menu-body{padding:24px;display:flex;flex-direction:column;justify-content:center}
+.menu-body h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#3c2415;margin-bottom:6px}
+.menu-body p{font-size:13px;color:#78716c;line-height:1.6;margin-bottom:12px}
+.menu-price{font-size:16px;font-weight:700;color:#8b6f47}
+
+/* Specialties */
+.specialties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.specialty-card{background:#fff;border:1px solid rgba(139,111,71,.08);border-radius:20px;padding:32px;text-align:center;transition:all .4s}
+.specialty-card:hover{border-color:#8b6f47;transform:translateY(-4px);box-shadow:0 12px 40px rgba(139,111,71,.08)}
+.specialty-icon{font-size:40px;margin-bottom:16px}
+.specialty-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#3c2415;margin-bottom:8px}
+.specialty-card p{font-size:14px;color:#78716c;line-height:1.7}
+
+/* Daily Specials */
+.specials-section{background:linear-gradient(135deg,#3c2415,#5c3d26);padding:80px 0}
+.specials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.special-card{background:rgba(255,255,255,.06);border:1px solid rgba(196,165,116,.15);border-radius:20px;padding:28px;text-align:center;transition:all .3s}
+.special-card:hover{background:rgba(255,255,255,.1);border-color:rgba(196,165,116,.3)}
+.special-day{font-size:12px;font-weight:700;color:#c4a574;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.special-card h3{font-family:'Playfair Display',serif;font-size:18px;color:#fff;font-weight:700;margin-bottom:6px}
+.special-card p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+
+/* Instagram Mock */
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;border-radius:16px;overflow:hidden}
+.insta-item{aspect-ratio:1;overflow:hidden;position:relative;cursor:pointer}
+.insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.insta-item:hover img{transform:scale(1.1)}
+.insta-item::after{content:'\f16d';font-family:'Font Awesome 6 Brands';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:24px;opacity:0;transition:opacity .3s}
+.insta-item:hover::after{opacity:1}
+.insta-item::before{content:'';position:absolute;inset:0;background:rgba(60,36,21,.4);opacity:0;transition:opacity .3s;z-index:0}
+.insta-item:hover::before{opacity:1}
+
+/* Location & Hours */
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.location-info{display:flex;flex-direction:column;gap:24px}
+.location-item{display:flex;gap:16px;align-items:flex-start}
+.location-icon{width:48px;height:48px;background:rgba(139,111,71,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#8b6f47}
+.location-item h4{font-size:15px;font-weight:600;color:#3c2415;margin-bottom:4px}
+.location-item p{font-size:14px;color:#78716c;line-height:1.6}
+.map-wrapper{border-radius:20px;overflow:hidden;border:1px solid rgba(139,111,71,.1);height:100%;min-height:320px}
+.map-wrapper iframe{width:100%;height:100%;border:0}
+
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;z-index:998;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse-wa 2s infinite}
+.whatsapp-btn:hover{transform:scale(1.1)}
+@keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 12px rgba(37,211,102,.08)}}
+
+.footer{background:#2a1810;padding:48px 0 32px;color:rgba(255,255,255,.5)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#fff}
+.footer-logo span{font-style:italic;color:#c4a574}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:14px;transition:color .3s}
+.footer-links a:hover{color:#c4a574}
+.footer-bottom{text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:13px}
+.footer-bottom a{color:#c4a574;text-decoration:none}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(42,24,16,.98);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#fff;text-decoration:none;font-size:20px;font-weight:600}
+
+@media(max-width:968px){
+  .menu-grid{grid-template-columns:1fr}
+  .specialties-grid,.specials-grid{grid-template-columns:1fr 1fr}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .menu-card{flex-direction:column}
+  .menu-img{width:100%;min-height:200px}
+  .specialties-grid,.specials-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+  .insta-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CafeOrCoffeeShop",
+  "name":"Café Goldbach",
+  "image":"https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800",
+  "address":{"@type":"PostalAddress","streetAddress":"Hertensteinstrasse 15","addressLocality":"Luzern","postalCode":"6004","addressCountry":"CH"},
+  "telephone":"+41 41 210 77 33",
+  "url":"https://cafe-goldbach.ch",
+  "servesCuisine":"Café, Bäckerei, Brunch",
+  "priceRange":"CHF 5–25",
+  "openingHours":["Mo-Fr 07:00-19:00","Sa 08:00-18:00","Su 09:00-17:00"]
+}
+</script>
+</head>
+<body>
+
+<div class="preview-banner">
+  Dies ist eine <strong>kostenlose Vorschau</strong> Ihrer neuen Website — erstellt von <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Café <span>Goldbach</span></a>
+    <ul class="nav-links">
+      <li><a href="#karte">Karte</a></li>
+      <li><a href="#spezialitaeten">Spezialitäten</a></li>
+      <li><a href="#tagesangebote">Tagesangebote</a></li>
+      <li><a href="#standort">Standort</a></li>
+      <li><a href="#standort" class="nav-cta">Besuchen Sie uns</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#karte" onclick="closeMobile()">Karte</a>
+  <a href="#spezialitaeten" onclick="closeMobile()">Spezialitäten</a>
+  <a href="#tagesangebote" onclick="closeMobile()">Tagesangebote</a>
+  <a href="#standort" onclick="closeMobile()">Standort</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge"><i class="fas fa-mug-hot"></i> Seit 2012 in Luzern</div>
+    <h1>Wo Kaffee zur <em>Kunst</em> wird</h1>
+    <p>Handgerösteter Kaffee, ofenfrisches Gebäck und hausgemachte Kuchen — jeden Tag mit Liebe zubereitet im Herzen von Luzern.</p>
+    <div class="hero-btns">
+      <a href="#karte" class="btn-primary"><i class="fas fa-utensils"></i> Unsere Karte</a>
+      <a href="#standort" class="btn-outline"><i class="fas fa-map-marker-alt"></i> So finden Sie uns</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="karte">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Unsere Karte<span class="line"></span></div>
+      <h2 class="section-title reveal">Highlights aus der <span class="accent">Goldbach-Küche</span></h2>
+      <p class="section-desc reveal">Von Specialty Coffee bis zum hausgemachten Birchermüesli — bei uns schmeckt jeder Moment besonders.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Flat White" loading="lazy"></div>
+        <div class="menu-body">
+          <h3>Goldbach Flat White</h3>
+          <p>Doppelter Espresso mit samtiger Milch — unser Signature Drink. Single Origin aus Äthiopien.</p>
+          <div class="menu-price">CHF 5.80</div>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400" alt="Cappuccino" loading="lazy"></div>
+        <div class="menu-body">
+          <h3>Matcha Latte</h3>
+          <p>Premium japanischer Matcha mit Hafer- oder Kuhmilch. Sanft, cremig und voller Energie.</p>
+          <div class="menu-price">CHF 6.50</div>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400" alt="Frühstück" loading="lazy"></div>
+        <div class="menu-body">
+          <h3>Goldbach Frühstück</h3>
+          <p>Croissant, Birchermüesli, frisches Obst, Konfitüre und ein Heissgetränk nach Wahl.</p>
+          <div class="menu-price">CHF 18.50</div>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Torte" loading="lazy"></div>
+        <div class="menu-body">
+          <h3>Schoggitorte Goldbach</h3>
+          <p>Dreischichtige Schokoladentorte mit Schweizer Couverture — unser beliebtestes Dessert.</p>
+          <div class="menu-price">CHF 8.90</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="spezialitaeten" style="background:#fff">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Was uns besonders macht<span class="line"></span></div>
+      <h2 class="section-title reveal">Unsere <span class="accent">Spezialitäten</span></h2>
+      <p class="section-desc reveal">Jedes Produkt erzählt eine Geschichte — von der Bohne bis zur Tasse, vom Korn bis zum Gebäck.</p>
+    </div>
+    <div class="specialties-grid">
+      <div class="specialty-card reveal">
+        <div class="specialty-icon">&#9749;</div>
+        <h3>Specialty Coffee</h3>
+        <p>Eigene Röstung aus handverlesenen Bohnen. Direct Trade mit Farmen in Äthiopien, Kolumbien und Guatemala.</p>
+      </div>
+      <div class="specialty-card reveal">
+        <div class="specialty-icon">&#127838;</div>
+        <h3>Sauerteigbrot</h3>
+        <p>Täglich frisch gebacken mit 72h Teigführung. Bio-Mehl aus der Zentralschweizer Mühle Sursee.</p>
+      </div>
+      <div class="specialty-card reveal">
+        <div class="specialty-icon">&#127856;</div>
+        <h3>Pâtisserie</h3>
+        <p>Französisch inspiriert, schweizerisch perfekt. Tartes, Éclairs und saisonale Kreationen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="specials-section" id="tagesangebote">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px">
+      <div class="section-label reveal" style="color:#c4a574"><span class="line" style="background:#c4a574"></span>Wochenangebote<span class="line" style="background:#c4a574"></span></div>
+      <h2 class="section-title reveal" style="color:#fff">Tägliche <span style="color:#c4a574">Spezialangebote</span></h2>
+    </div>
+    <div class="specials-grid">
+      <div class="special-card reveal">
+        <div class="special-day">Montag</div>
+        <h3>Happy Monday</h3>
+        <p>Jeder Kaffee + Gipfeli für nur CHF 6.90. Der perfekte Wochenstart.</p>
+      </div>
+      <div class="special-card reveal">
+        <div class="special-day">Mittwoch</div>
+        <h3>Soup & Bread</h3>
+        <p>Hausgemachte Tagessuppe mit frischem Sauerteigbrot. CHF 12.50.</p>
+      </div>
+      <div class="special-card reveal">
+        <div class="special-day">Samstag</div>
+        <h3>Brunch Goldbach</h3>
+        <p>Grosses Brunch-Buffet von 09 – 14 Uhr. Reservation empfohlen. CHF 34.00.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:32px">
+      <div class="section-label reveal"><span class="line"></span>@cafegoldbach<span class="line"></span></div>
+      <h2 class="section-title reveal">Folgen Sie uns auf <span class="accent">Instagram</span></h2>
+    </div>
+    <div class="insta-grid reveal">
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300" alt="Café" loading="lazy"></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1486427944544-d2c246c4df7d?w=300" alt="Kaffee" loading="lazy"></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=300" alt="Gebäck" loading="lazy"></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?w=300" alt="Kuchen" loading="lazy"></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=300" alt="Interieur" loading="lazy"></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=300" alt="Latte Art" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="standort" style="background:#fff">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Besuchen Sie uns</div>
+    <h2 class="section-title reveal">Standort & <span class="accent">Öffnungszeiten</span></h2>
+    <p class="section-desc reveal">Mitten in der Luzerner Altstadt — nur 3 Minuten vom Löwendenkmal entfernt.</p>
+    <div class="location-grid">
+      <div class="location-info reveal">
+        <div class="location-item">
+          <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Adresse</h4><p>Hertensteinstrasse 15<br>6004 Luzern</p></div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Telefon</h4><p>+41 41 210 77 33</p></div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon"><i class="fas fa-clock"></i></div>
+          <div><h4>Öffnungszeiten</h4><p>Mo – Fr: 07:00 – 19:00<br>Sa: 08:00 – 18:00<br>So: 09:00 – 17:00</p></div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>E-Mail</h4><p>hallo@cafe-goldbach.ch</p></div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon"><i class="fab fa-instagram"></i></div>
+          <div><h4>Instagram</h4><p>@cafegoldbach</p></div>
+        </div>
+      </div>
+      <div class="map-wrapper reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2713.5!2d8.3093!3d47.0502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDAzJzAwLjciTiA4wrAxOCczMy41IkU!5e0!3m2!1sde!2sch!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/358466109064" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Café <span>Goldbach</span></div>
+      <div class="footer-links">
+        <a href="#karte">Karte</a>
+        <a href="#spezialitaeten">Spezialitäten</a>
+        <a href="#tagesangebote">Tagesangebote</a>
+        <a href="#standort">Standort</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Café Goldbach — Luzern | Powered by <a href="https://elfennir.com" target="_blank">El Fennir Agency</a> | <a href="https://elfennir.com" target="_blank">elfennir.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger?.addEventListener('click',function(){
+  this.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile(){
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+}
+</script>
+<script src="/preview-bubble.js"></script>
+</body>
+</html>

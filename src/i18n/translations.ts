@@ -100,6 +100,24 @@ const fi = {
     service9Title: "Kyberturvallisuus",
     service9Desc:
       "Tietoturva-auditoinnit, SSL/HTTPS, DDoS-suojaus, GDPR-vaatimustenmukaisuus, haittaohjelmien poisto ja palomuurien konfigurointi — pidämme yrityksesi turvassa.",
+    service10Title: "SaaS & web-sovellukset",
+    service10Desc:
+      "Räätälöidyt dashboardit, hallintapaneelit ja full-stack-sovellukset, jotka automatisoivat liiketoimintasi ja kasvattavat tuloja.",
+    service11Title: "Tekoälyintegraatio & API-kehitys",
+    service11Desc:
+      "Yhdistämme tekoälyn liiketoimintaprosesseihisi räätälöityjen API-rajapintojen avulla — automaatiota, joka toimii puolestasi.",
+    service12Title: "Some-automaatio",
+    service12Desc:
+      "Automaattinen julkaisu, sisällön ajastus ja analytiikka kaikille kanavillesi — vähemmän työtä, enemmän näkyvyyttä.",
+    service13Title: "Sähköpostimarkkinoinnin automaatio",
+    service13Desc:
+      "Drip-kampanjat, liidien nurturointisekvenssit ja automaattiset sähköpostit, jotka myyvät puolestasi 24/7.",
+    service14Title: "CRM & liiketoimintajärjestelmät",
+    service14Desc:
+      "Notion-, Airtable- tai räätälöity CRM-järjestelmä asiakashallintaan — kaikki tiedot yhdessä paikassa, aina ajan tasalla.",
+    service15Title: "Data-analytiikka & dashboardit",
+    service15Desc:
+      "Reaaliaikaiset liiketoimintamittarit, kaaviot ja raportit — näe heti mikä toimii ja mihin keskittyä seuraavaksi.",
     serviceCta: "Pyydä ilmainen arvio",
     priceFrom: "alkaen",
   },
@@ -581,6 +599,24 @@ const en: typeof fi = {
     service9Title: "Cyber Security",
     service9Desc:
       "Security audits, SSL/HTTPS implementation, DDoS protection, GDPR compliance, malware scanning & removal, and firewall configuration \u2014 we keep your business safe.",
+    service10Title: "SaaS & Web App Development",
+    service10Desc:
+      "Custom dashboards, admin panels, and full-stack applications that automate your business and drive revenue growth.",
+    service11Title: "AI Integration & API Development",
+    service11Desc:
+      "We connect AI to your business workflows through custom APIs \u2014 automation that works for you around the clock.",
+    service12Title: "Social Media Automation",
+    service12Desc:
+      "Automated posting, content scheduling, and analytics across all your channels \u2014 less work, more visibility.",
+    service13Title: "Email Marketing Automation",
+    service13Desc:
+      "Drip campaigns, lead nurturing sequences, and automated emails that sell for you 24/7.",
+    service14Title: "CRM & Business Systems",
+    service14Desc:
+      "Notion, Airtable, or custom CRM setup for client management \u2014 all your data in one place, always up to date.",
+    service15Title: "Data Analytics & Dashboards",
+    service15Desc:
+      "Real-time business metrics, charts, and reports \u2014 see instantly what works and where to focus next.",
     serviceCta: "Get a Free Quote",
     priceFrom: "from",
   },

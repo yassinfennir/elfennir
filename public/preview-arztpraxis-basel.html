@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praxis Dr. Schneider – Basel | Hausarztpraxis & Allgemeinmedizin</title>
+<meta name="description" content="Praxis Dr. Schneider in Basel – Ihre Hausarztpraxis für die ganze Familie. Moderne Medizin mit persönlicher Betreuung. Jetzt Termin buchen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',sans-serif;color:#334155;background:#fff;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#f8fafc}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#0d9488,#065f56);border-radius:10px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+.accent{color:#0d9488}
+.preview-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;background:linear-gradient(90deg,#0d9488,#14b8a6,#0d9488);background-size:200% 100%;animation:grad 4s ease infinite;padding:10px 20px;text-align:center;font-size:13px;color:#fff;letter-spacing:.3px;box-shadow:0 2px 20px rgba(13,148,136,.3)}
+.preview-banner a{color:#fff;text-decoration:none;font-weight:600}
+.preview-banner a:hover{text-decoration:underline}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.navbar{position:fixed;top:38px;left:0;width:100%;z-index:999;padding:16px 0;transition:all .4s}
+.navbar.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(13,148,136,.08);padding:10px 0;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:0 24px}
+.nav-logo{font-family:'DM Sans',sans-serif;font-size:22px;font-weight:800;color:#fff;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:8px}
+.navbar.scrolled .nav-logo{color:#0f172a}
+.nav-logo i{color:#0d9488;font-size:24px}
+.nav-logo span{color:#0d9488}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s}
+.navbar.scrolled .nav-links a{color:#475569}
+.nav-links a:hover{color:#0d9488}
+.nav-cta{background:linear-gradient(135deg,#0d9488,#065f56);color:#fff!important;padding:10px 24px;border-radius:50px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 16px rgba(13,148,136,.3);transition:all .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(13,148,136,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:4px}
+.hamburger span{display:block;width:26px;height:2.5px;background:#fff;border-radius:3px;transition:all .3s}
+.navbar.scrolled .hamburger span{background:#0f172a}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:160px 0 100px;background:linear-gradient(135deg,rgba(13,148,136,.9),rgba(6,95,86,.85)),url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1400') center/cover no-repeat}
+.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero h1{font-family:'DM Sans',sans-serif;font-size:clamp(32px,4.5vw,52px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:24px;letter-spacing:.5px}
+.hero p{font-size:17px;color:rgba(255,255,255,.8);max-width:500px;margin-bottom:32px;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0d9488;padding:15px 36px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;transition:all .3s;box-shadow:0 4px 24px rgba(0,0,0,.1)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.4);color:#fff;padding:13px 36px;border-radius:50px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s}
+.btn-outline:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+.hero-img{border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.hero-img img{width:100%;height:400px;object-fit:cover;display:block}
+
+/* Emergency Banner */
+.emergency-bar{background:linear-gradient(90deg,#dc2626,#b91c1c);padding:16px 0}
+.emergency-inner{display:flex;align-items:center;justify-content:center;gap:16px;color:#fff;font-size:15px;font-weight:600;flex-wrap:wrap}
+.emergency-inner i{font-size:20px;animation:pulse-e 1.5s infinite}
+@keyframes pulse-e{0%,100%{opacity:1}50%{opacity:.5}}
+.emergency-inner a{color:#fff;text-decoration:underline}
+
+.section-padding{padding:100px 0}
+.section-label{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;color:#0d9488;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.section-label .line{width:30px;height:2px;background:#0d9488}
+.section-title{font-family:'DM Sans',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;color:#0f172a;margin-bottom:16px}
+.section-desc{font-size:16px;color:#64748b;max-width:600px;line-height:1.7;margin-bottom:48px}
+.text-center{text-align:center}
+.text-center .section-desc{margin-left:auto;margin-right:auto}
+.text-center .section-label{justify-content:center}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:32px;text-align:center;transition:all .4s}
+.service-card:hover{border-color:#0d9488;transform:translateY(-4px);box-shadow:0 12px 40px rgba(13,148,136,.08)}
+.service-icon{width:64px;height:64px;background:linear-gradient(135deg,rgba(13,148,136,.08),rgba(13,148,136,.04));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px;color:#0d9488}
+.service-card h3{font-size:18px;font-weight:700;color:#0f172a;margin-bottom:10px}
+.service-card p{font-size:14px;color:#64748b;line-height:1.7}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.team-card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;overflow:hidden;text-align:center;transition:all .4s}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(13,148,136,.1)}
+.team-photo{height:260px;overflow:hidden}
+.team-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.team-card:hover .team-photo img{transform:scale(1.05)}
+.team-body{padding:24px}
+.team-body h3{font-size:18px;font-weight:700;color:#0f172a;margin-bottom:4px}
+.team-body .role{font-size:13px;color:#0d9488;font-weight:600;margin-bottom:8px}
+.team-body p{font-size:13px;color:#64748b;line-height:1.6}
+
+/* Hours & Insurance */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.info-card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:36px}
+.info-card h3{font-size:20px;font-weight:700;color:#0f172a;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.info-card h3 i{color:#0d9488}
+.hours-table{width:100%}
+.hours-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:14px}
+.hours-row:last-child{border-bottom:none}
+.hours-row .day{font-weight:600;color:#0f172a}
+.hours-row .time{color:#64748b}
+.hours-row.closed .time{color:#dc2626}
+.insurance-list{display:flex;flex-wrap:wrap;gap:10px}
+.insurance-tag{background:linear-gradient(135deg,rgba(13,148,136,.06),rgba(13,148,136,.02));border:1px solid rgba(13,148,136,.15);padding:8px 18px;border-radius:50px;font-size:13px;font-weight:500;color:#0f172a}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-icon{width:48px;height:48px;background:linear-gradient(135deg,rgba(13,148,136,.08),rgba(13,148,136,.04));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#0d9488}
+.contact-item h4{font-size:15px;font-weight:600;color:#0f172a;margin-bottom:4px}
+.contact-item p{font-size:14px;color:#64748b}
+.map-wrapper{border-radius:20px;overflow:hidden;border:1px solid #e2e8f0;height:100%;min-height:320px}
+.map-wrapper iframe{width:100%;height:100%;border:0}
+
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;z-index:998;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse-wa 2s infinite}
+.whatsapp-btn:hover{transform:scale(1.1)}
+@keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 12px rgba(37,211,102,.08)}}
+
+.footer{background:#0f172a;padding:48px 0 32px;color:rgba(255,255,255,.5)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}
+.footer-logo i{color:#0d9488}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:14px;transition:color .3s}
+.footer-links a:hover{color:#0d9488}
+.footer-bottom{text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:13px}
+.footer-bottom a{color:#0d9488;text-decoration:none}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(15,23,42,.98);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#fff;text-decoration:none;font-size:20px;font-weight:600}
+
+@media(max-width:968px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-img{display:none}
+  .services-grid,.team-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .services-grid,.team-grid{grid-template-columns:1fr}
+  .info-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+  .emergency-inner{text-align:center}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MedicalBusiness",
+  "name":"Praxis Dr. Schneider",
+  "image":"https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800",
+  "address":{"@type":"PostalAddress","streetAddress":"Steinenvorstadt 28","addressLocality":"Basel","postalCode":"4051","addressCountry":"CH"},
+  "telephone":"+41 61 271 88 90",
+  "url":"https://praxis-schneider-basel.ch",
+  "openingHours":["Mo-Fr 07:30-18:00","Sa 08:00-12:00"],
+  "medicalSpecialty":"GeneralPractice"
+}
+</script>
+</head>
+<body>
+
+<div class="preview-banner">
+  Dies ist eine <strong>kostenlose Vorschau</strong> Ihrer neuen Website — erstellt von <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><i class="fas fa-heartbeat"></i> Dr. <span>Schneider</span></a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#zeiten">Öffnungszeiten</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#kontakt" class="nav-cta"><i class="fas fa-calendar-check"></i> Termin buchen</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#leistungen" onclick="closeMobile()">Leistungen</a>
+  <a href="#team" onclick="closeMobile()">Team</a>
+  <a href="#zeiten" onclick="closeMobile()">Öffnungszeiten</a>
+  <a href="#kontakt" onclick="closeMobile()">Kontakt</a>
+  <a href="#kontakt" class="nav-cta" onclick="closeMobile()">Termin buchen</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div>
+        <div class="hero-badge"><i class="fas fa-stethoscope"></i> Hausarztpraxis Basel</div>
+        <h1>Ihre <span class="accent">Gesundheit</span> in besten Händen</h1>
+        <p>Moderne Allgemeinmedizin mit persönlicher Betreuung für die ganze Familie. Von der Vorsorge bis zur Behandlung — bei uns sind Sie richtig aufgehoben.</p>
+        <div class="hero-btns">
+          <a href="#kontakt" class="btn-primary"><i class="fas fa-calendar-check"></i> Termin vereinbaren</a>
+          <a href="tel:+41612718890" class="btn-outline"><i class="fas fa-phone"></i> +41 61 271 88 90</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600" alt="Praxis Dr. Schneider Basel" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="emergency-bar">
+  <div class="container">
+    <div class="emergency-inner">
+      <i class="fas fa-triangle-exclamation"></i>
+      <span>Notfall? Rufen Sie uns an: <a href="tel:+41612718890">+41 61 271 88 90</a> oder wählen Sie <a href="tel:144">144</a></span>
+    </div>
+  </div>
+</div>
+
+<section class="section-padding" id="leistungen">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Unsere Leistungen<span class="line"></span></div>
+      <h2 class="section-title reveal">Medizin mit <span class="accent">Herz und Verstand</span></h2>
+      <p class="section-desc reveal">Ganzheitliche medizinische Versorgung unter einem Dach — für Ihre Gesundheit und Ihr Wohlbefinden.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+        <h3>Allgemeinmedizin</h3>
+        <p>Hausärztliche Grundversorgung, Diagnostik und Behandlung von akuten und chronischen Erkrankungen.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-shield-heart"></i></div>
+        <h3>Vorsorge & Check-up</h3>
+        <p>Regelmässige Gesundheits-Check-ups, Krebsvorsorge, Impfungen und Risikoanalysen.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-heart-pulse"></i></div>
+        <h3>Kardiologie</h3>
+        <p>EKG, Langzeit-Blutdruckmessung, Belastungs-EKG und kardiovaskuläre Risikoberatung.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-lungs"></i></div>
+        <h3>Lungenfunktion</h3>
+        <p>Spirometrie, Asthma-Diagnostik und Beratung bei Atemwegserkrankungen und Allergien.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-syringe"></i></div>
+        <h3>Labordiagnostik</h3>
+        <p>Umfassende Blutanalysen, Schnelltests und Zusammenarbeit mit spezialisierten Labors.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+        <h3>Reisemedizin</h3>
+        <p>Reisemedizinische Beratung, Tropenmedizin, Impfungen und Malariaprophylaxe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="team" style="background:#f0fdfa">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Unser Team<span class="line"></span></div>
+      <h2 class="section-title reveal">Kompetenz trifft <span class="accent">Menschlichkeit</span></h2>
+      <p class="section-desc reveal">Unser erfahrenes Team kümmert sich persönlich und professionell um Ihr Anliegen.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400" alt="Dr. med. Felix Schneider" loading="lazy"></div>
+        <div class="team-body">
+          <h3>Dr. med. Felix Schneider</h3>
+          <div class="role">Facharzt Allgemeinmedizin FMH</div>
+          <p>Praxisinhaber seit 2008. Schwerpunkte: Innere Medizin, Kardiologie, Reisemedizin.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400" alt="Dr. med. Lena Müller" loading="lazy"></div>
+        <div class="team-body">
+          <h3>Dr. med. Lena Müller</h3>
+          <div class="role">Fachärztin Allgemeinmedizin FMH</div>
+          <p>Spezialisiert auf Frauengesundheit, Pädiatrie und psychosomatische Medizin.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=400" alt="Sarah Baumgartner" loading="lazy"></div>
+        <div class="team-body">
+          <h3>Sarah Baumgartner</h3>
+          <div class="role">MPA & Praxismanagerin</div>
+          <p>Ihr erster Kontakt in der Praxis. Terminplanung, Empfang und Laborassistenz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="zeiten">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Praktische Infos<span class="line"></span></div>
+      <h2 class="section-title reveal">Öffnungszeiten & <span class="accent">Versicherungen</span></h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <h3><i class="fas fa-clock"></i> Öffnungszeiten</h3>
+        <div class="hours-table">
+          <div class="hours-row"><span class="day">Montag</span><span class="time">07:30 – 18:00</span></div>
+          <div class="hours-row"><span class="day">Dienstag</span><span class="time">07:30 – 18:00</span></div>
+          <div class="hours-row"><span class="day">Mittwoch</span><span class="time">07:30 – 14:00</span></div>
+          <div class="hours-row"><span class="day">Donnerstag</span><span class="time">07:30 – 18:00</span></div>
+          <div class="hours-row"><span class="day">Freitag</span><span class="time">07:30 – 17:00</span></div>
+          <div class="hours-row"><span class="day">Samstag</span><span class="time">08:00 – 12:00</span></div>
+          <div class="hours-row closed"><span class="day">Sonntag</span><span class="time">Geschlossen</span></div>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <h3><i class="fas fa-file-medical"></i> Akzeptierte Versicherungen</h3>
+        <p style="color:#64748b;font-size:14px;margin-bottom:16px;line-height:1.6">Wir arbeiten mit allen Schweizer Grundversicherungen zusammen. Bitte bringen Sie Ihre Versicherungskarte zum Termin mit.</p>
+        <div class="insurance-list">
+          <span class="insurance-tag">CSS</span>
+          <span class="insurance-tag">Helsana</span>
+          <span class="insurance-tag">Swica</span>
+          <span class="insurance-tag">Visana</span>
+          <span class="insurance-tag">Concordia</span>
+          <span class="insurance-tag">Sanitas</span>
+          <span class="insurance-tag">KPT</span>
+          <span class="insurance-tag">Groupe Mutuel</span>
+          <span class="insurance-tag">Assura</span>
+          <span class="insurance-tag">Atupri</span>
+          <span class="insurance-tag">+ weitere</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="kontakt" style="background:#f0fdfa">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Kontakt</div>
+    <h2 class="section-title reveal">Wir sind <span class="accent">für Sie da</span></h2>
+    <p class="section-desc reveal">Vereinbaren Sie einen Termin telefonisch, online oder kommen Sie einfach vorbei.</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Adresse</h4><p>Steinenvorstadt 28<br>4051 Basel</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Telefon</h4><p>+41 61 271 88 90</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>E-Mail</h4><p>praxis@schneider-basel.ch</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-wheelchair"></i></div>
+          <div><h4>Barrierefreiheit</h4><p>Rollstuhlgerecht, Lift vorhanden, Parkplätze direkt vor der Praxis.</p></div>
+        </div>
+      </div>
+      <div class="map-wrapper reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.2!2d7.5886!3d47.5536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDMzJzEzLjAiTiA3wrAzNScxOS4wIkU!5e0!3m2!1sde!2sch!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/358466109064" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo"><i class="fas fa-heartbeat"></i> Dr. Schneider</div>
+      <div class="footer-links">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#team">Team</a>
+        <a href="#zeiten">Zeiten</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Praxis Dr. Schneider — Basel | Powered by <a href="https://elfennir.com" target="_blank">El Fennir Agency</a> | <a href="https://elfennir.com" target="_blank">elfennir.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger?.addEventListener('click',function(){
+  this.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile(){
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+}
+</script>
+<script src="/preview-bubble.js"></script>
+</body>
+</html>

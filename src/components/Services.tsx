@@ -11,6 +11,12 @@ import {
   Headphones,
   ShieldCheck,
   ArrowRight,
+  Layers,
+  Cpu,
+  Share2,
+  Mail,
+  Users,
+  BarChart3,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Card3D } from "@/components/Card3D";
@@ -19,15 +25,21 @@ import { ScrollReveal3D, StaggerContainer, staggerItem } from "@/components/Scro
 const SERVICE_COLORS = ["#ff6b00", "#ff8c00", "#ffaa00", "#ff4500"] as const;
 
 const SERVICE_PRICES = [
-  "270", // Professional Online Presence
-  "270", // Digital Transformation
-  "500", // 24/7 AI Assistant
-  "300", // Client Acquisition
-  "300", // Business Automation
-  "270", // Google Visibility / SEO
-  "540", // Custom Systems
-  "149", // Personal IT Team (monthly)
-  "270", // Cyber Security
+  "270",  // Professional Online Presence
+  "270",  // Digital Transformation
+  "500",  // 24/7 AI Assistant
+  "300",  // Client Acquisition
+  "300",  // Business Automation
+  "270",  // Google Visibility / SEO
+  "540",  // Custom Systems
+  "149",  // Personal IT Team (monthly)
+  "270",  // Cyber Security
+  "1490", // SaaS & Web App Development
+  "690",  // AI Integration & API Development
+  "390",  // Social Media Automation
+  "290",  // Email Marketing Automation
+  "590",  // CRM & Business Systems
+  "490",  // Data Analytics & Dashboards
 ] as const;
 
 export function Services() {
@@ -43,6 +55,12 @@ export function Services() {
     { icon: AppWindow, title: t.services.service7Title, desc: t.services.service7Desc, color: SERVICE_COLORS[2], price: SERVICE_PRICES[6] },
     { icon: Headphones, title: t.services.service8Title, desc: t.services.service8Desc, color: SERVICE_COLORS[3], price: SERVICE_PRICES[7] },
     { icon: ShieldCheck, title: t.services.service9Title, desc: t.services.service9Desc, color: SERVICE_COLORS[0], price: SERVICE_PRICES[8] },
+    { icon: Layers, title: t.services.service10Title, desc: t.services.service10Desc, color: SERVICE_COLORS[1], price: SERVICE_PRICES[9] },
+    { icon: Cpu, title: t.services.service11Title, desc: t.services.service11Desc, color: SERVICE_COLORS[2], price: SERVICE_PRICES[10] },
+    { icon: Share2, title: t.services.service12Title, desc: t.services.service12Desc, color: SERVICE_COLORS[3], price: SERVICE_PRICES[11] },
+    { icon: Mail, title: t.services.service13Title, desc: t.services.service13Desc, color: SERVICE_COLORS[0], price: SERVICE_PRICES[12] },
+    { icon: Users, title: t.services.service14Title, desc: t.services.service14Desc, color: SERVICE_COLORS[1], price: SERVICE_PRICES[13] },
+    { icon: BarChart3, title: t.services.service15Title, desc: t.services.service15Desc, color: SERVICE_COLORS[2], price: SERVICE_PRICES[14] },
   ];
 
   const extractRgb = (hex: string): string =>
@@ -67,7 +85,7 @@ export function Services() {
           </p>
         </ScrollReveal3D>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {services.map((s) => (
             <motion.div key={s.title} variants={staggerItem} style={{ transformPerspective: 800 }}>
               <Card3D

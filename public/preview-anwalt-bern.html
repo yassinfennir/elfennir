@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanzlei Hartmann & Partner – Bern | Anwälte & Rechtsberatung</title>
+<meta name="description" content="Kanzlei Hartmann & Partner in Bern – kompetente Rechtsberatung in allen Bereichen. Erstberatung vereinbaren.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',sans-serif;color:#334155;background:#fff;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#f8fafc}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#1a1f3d,#0d1025);border-radius:10px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+.accent{color:#8b2942}
+.preview-banner{position:fixed;top:0;left:0;width:100%;z-index:9999;background:linear-gradient(90deg,#1a1f3d,#8b2942,#1a1f3d);background-size:200% 100%;animation:grad 4s ease infinite;padding:10px 20px;text-align:center;font-size:13px;color:#fff;letter-spacing:.3px;box-shadow:0 2px 20px rgba(26,31,61,.3)}
+.preview-banner a{color:#fff;text-decoration:none;font-weight:600}
+.preview-banner a:hover{text-decoration:underline}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.navbar{position:fixed;top:38px;left:0;width:100%;z-index:999;padding:16px 0;transition:all .4s}
+.navbar.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,31,61,.06);padding:10px 0;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:0 24px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#fff;text-decoration:none;transition:color .3s}
+.navbar.scrolled .nav-logo{color:#1a1f3d}
+.nav-logo span{color:#8b2942}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s}
+.navbar.scrolled .nav-links a{color:#475569}
+.nav-links a:hover{color:#8b2942}
+.nav-cta{background:linear-gradient(135deg,#8b2942,#6b1d32);color:#fff!important;padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;font-size:14px;box-shadow:0 4px 16px rgba(139,41,66,.3);transition:all .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(139,41,66,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:4px}
+.hamburger span{display:block;width:26px;height:2.5px;background:#fff;border-radius:3px;transition:all .3s}
+.navbar.scrolled .hamburger span{background:#1a1f3d}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:160px 0 100px;background:linear-gradient(135deg,rgba(26,31,61,.92),rgba(13,16,37,.88)),url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400') center/cover no-repeat}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,58px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,41,66,.15);border:1px solid rgba(139,41,66,.3);color:#d4728a;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase}
+.hero p{font-size:18px;color:rgba(255,255,255,.72);max-width:580px;margin-bottom:36px;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8b2942,#6b1d32);color:#fff;padding:15px 36px;border-radius:8px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s;box-shadow:0 4px 24px rgba(139,41,66,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(139,41,66,.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.3);color:#fff;padding:13px 36px;border-radius:8px;font-weight:600;text-decoration:none;font-size:15px;transition:all .3s}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+.hero-trust{display:flex;gap:32px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1)}
+.hero-trust-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.6);font-size:14px}
+.hero-trust-item i{color:#8b2942;font-size:18px}
+
+.section-padding{padding:100px 0}
+.section-label{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;color:#8b2942;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.section-label .line{width:30px;height:2px;background:#8b2942}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:#1a1f3d;margin-bottom:16px}
+.section-desc{font-size:16px;color:#64748b;max-width:600px;line-height:1.7;margin-bottom:48px}
+.text-center{text-align:center}
+.text-center .section-desc{margin-left:auto;margin-right:auto}
+.text-center .section-label{justify-content:center}
+
+/* Practice Areas */
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.area-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:36px;transition:all .4s;position:relative;overflow:hidden}
+.area-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,#8b2942,#1a1f3d);opacity:0;transition:opacity .3s}
+.area-card:hover{border-color:#8b2942;transform:translateY(-4px);box-shadow:0 12px 40px rgba(139,41,66,.08)}
+.area-card:hover::before{opacity:1}
+.area-icon{width:56px;height:56px;background:linear-gradient(135deg,rgba(26,31,61,.06),rgba(139,41,66,.06));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;color:#1a1f3d}
+.area-card h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#1a1f3d;margin-bottom:10px}
+.area-card p{font-size:14px;color:#64748b;line-height:1.7}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.team-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;transition:all .4s}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,31,61,.1)}
+.team-photo{height:280px;overflow:hidden}
+.team-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.team-card:hover .team-photo img{transform:scale(1.05)}
+.team-info{padding:24px;text-align:center}
+.team-info h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#1a1f3d;margin-bottom:4px}
+.team-info .role{font-size:13px;color:#8b2942;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.team-info p{font-size:13px;color:#64748b;line-height:1.6}
+
+/* Testimonials */
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.testimonial-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:32px;position:relative}
+.testimonial-card::before{content:'\201C';font-family:'Playfair Display',serif;font-size:72px;color:rgba(139,41,66,.12);position:absolute;top:12px;left:24px;line-height:1}
+.testimonial-card p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:20px;position:relative;z-index:1;padding-top:24px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a1f3d,#8b2942);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px}
+.testimonial-name{font-weight:600;color:#1a1f3d;font-size:14px}
+.testimonial-role{font-size:12px;color:#64748b}
+.stars{color:#c9a84c;font-size:13px;margin-bottom:4px}
+
+/* FAQ */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid #e2e8f0;padding:24px 0}
+.faq-question{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:16px;font-weight:600;color:#1a1f3d;gap:16px}
+.faq-question i{color:#8b2942;font-size:14px;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-question i{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:14px;color:#64748b;line-height:1.7}
+.faq-item.open .faq-answer{max-height:200px;padding-top:16px}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-icon{width:48px;height:48px;background:linear-gradient(135deg,rgba(26,31,61,.06),rgba(139,41,66,.06));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#1a1f3d}
+.contact-item h4{font-size:15px;font-weight:600;color:#1a1f3d;margin-bottom:4px}
+.contact-item p{font-size:14px;color:#64748b}
+.map-wrapper{border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;height:100%;min-height:320px}
+.map-wrapper iframe{width:100%;height:100%;border:0}
+
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;z-index:998;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse-wa 2s infinite}
+.whatsapp-btn:hover{transform:scale(1.1)}
+@keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 12px rgba(37,211,102,.08)}}
+
+.footer{background:#0d1025;padding:48px 0 32px;color:rgba(255,255,255,.5)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:#fff}
+.footer-logo span{color:#8b2942}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:14px;transition:color .3s}
+.footer-links a:hover{color:#8b2942}
+.footer-bottom{text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:13px}
+.footer-bottom a{color:#8b2942;text-decoration:none}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(13,16,37,.98);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#fff;text-decoration:none;font-size:20px;font-weight:600}
+
+@media(max-width:968px){
+  .areas-grid,.team-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .areas-grid,.team-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .hero-trust{flex-direction:column;gap:16px}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LegalService",
+  "name":"Kanzlei Hartmann & Partner",
+  "image":"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800",
+  "address":{"@type":"PostalAddress","streetAddress":"Bundesgasse 18","addressLocality":"Bern","postalCode":"3011","addressCountry":"CH"},
+  "telephone":"+41 31 312 45 67",
+  "url":"https://hartmann-partner.ch",
+  "openingHours":"Mo-Fr 08:00-18:00"
+}
+</script>
+</head>
+<body>
+
+<div class="preview-banner">
+  Dies ist eine <strong>kostenlose Vorschau</strong> Ihrer neuen Website — erstellt von <a href="https://elfennir.com" target="_blank">elfennir.com</a>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Hartmann <span>& Partner</span></a>
+    <ul class="nav-links">
+      <li><a href="#rechtsgebiete">Rechtsgebiete</a></li>
+      <li><a href="#team">Anwälte</a></li>
+      <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#kontakt" class="nav-cta">Erstberatung buchen</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#rechtsgebiete" onclick="closeMobile()">Rechtsgebiete</a>
+  <a href="#team" onclick="closeMobile()">Anwälte</a>
+  <a href="#referenzen" onclick="closeMobile()">Referenzen</a>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="#kontakt" class="nav-cta" onclick="closeMobile()">Erstberatung buchen</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge"><i class="fas fa-shield-halved"></i> Seit 1998 in Bern</div>
+    <h1>Kompetente <span class="accent">Rechtsberatung</span> auf höchstem Niveau</h1>
+    <p>Kanzlei Hartmann & Partner steht für juristische Exzellenz, persönliche Betreuung und engagierte Interessenvertretung in allen Rechtsbereichen.</p>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn-primary"><i class="fas fa-calendar-check"></i> Erstberatung vereinbaren</a>
+      <a href="#rechtsgebiete" class="btn-outline"><i class="fas fa-gavel"></i> Rechtsgebiete</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><i class="fas fa-check-circle"></i> 25+ Jahre Erfahrung</div>
+      <div class="hero-trust-item"><i class="fas fa-check-circle"></i> 2'500+ Fälle gewonnen</div>
+      <div class="hero-trust-item"><i class="fas fa-check-circle"></i> Kostenlose Erstberatung</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="rechtsgebiete">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Rechtsgebiete<span class="line"></span></div>
+      <h2 class="section-title reveal">Unsere <span class="accent">Fachgebiete</span></h2>
+      <p class="section-desc reveal">Spezialisierte Rechtsberatung in sechs Kernbereichen — von erfahrenen Fachanwälten.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Wirtschaftsrecht</h3>
+        <p>Unternehmensrecht, Vertragsgestaltung, M&A, Gesellschaftsgründung und Handelsrecht für KMU und Grossunternehmen.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-home"></i></div>
+        <h3>Immobilienrecht</h3>
+        <p>Kauf- und Mietverträge, Baurecht, Stockwerkeigentum, Nachbarrecht und Grundstücksstreitigkeiten.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-users"></i></div>
+        <h3>Familienrecht</h3>
+        <p>Scheidung, Sorgerecht, Unterhalt, Eheverträge, Kindesschutz und Erbstreitigkeiten — sensibel und diskret.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Arbeitsrecht</h3>
+        <p>Kündigungsschutz, Arbeitsverträge, Abfindungen, Mobbing, Diskriminierung und kollektives Arbeitsrecht.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-scale-balanced"></i></div>
+        <h3>Strafrecht</h3>
+        <p>Verteidigung in allen Instanzen, Wirtschaftsstrafrecht, Verkehrsdelikte, Jugendstrafrecht und Opferhilfe.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-passport"></i></div>
+        <h3>Migrationsrecht</h3>
+        <p>Aufenthaltsbewilligungen, Einbürgerung, Familiennachzug, Asylrecht und Rekurse gegen Behördenentscheide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="team" style="background:#f8fafc">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Unsere Anwälte<span class="line"></span></div>
+      <h2 class="section-title reveal">Erfahrung, die <span class="accent">den Unterschied</span> macht</h2>
+      <p class="section-desc reveal">Unser Team aus spezialisierten Fachanwälten kämpft engagiert für Ihre Rechte.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" alt="Dr. Peter Hartmann" loading="lazy"></div>
+        <div class="team-info">
+          <h3>Dr. Peter Hartmann</h3>
+          <div class="role">Gründer & Senior Partner</div>
+          <p>Spezialist für Wirtschaftsrecht und M&A. 30+ Jahre Erfahrung vor Bundesgericht.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="RA Claudia Weber" loading="lazy"></div>
+        <div class="team-info">
+          <h3>RA Claudia Weber</h3>
+          <div class="role">Partnerin — Familienrecht</div>
+          <p>Fachanwältin SAV Familienrecht. Mediatorin und erfahrene Scheidungsanwältin.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="RA David Keller" loading="lazy"></div>
+        <div class="team-info">
+          <h3>RA David Keller</h3>
+          <div class="role">Partner — Strafrecht</div>
+          <p>Strafverteidiger mit Erfahrung in über 500 Verfahren. Ehem. Staatsanwalt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="referenzen">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Referenzen<span class="line"></span></div>
+      <h2 class="section-title reveal">Was unsere <span class="accent">Mandanten</span> sagen</h2>
+      <p class="section-desc reveal">Vertrauen, Kompetenz und Ergebnisse — das Feedback unserer Mandanten spricht für sich.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <p>Herr Dr. Hartmann hat meinen komplexen Wirtschaftsstreit brillant gelöst. Seine strategische Herangehensweise und sein Verhandlungsgeschick waren beeindruckend.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MK</div>
+          <div>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <div class="testimonial-name">Michael K.</div>
+            <div class="testimonial-role">Unternehmer, Bern</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <p>In einer schwierigen Scheidung hat Frau Weber mich mit enormer Empathie und juristischer Schärfe begleitet. Ich konnte mich jederzeit auf sie verlassen.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SF</div>
+          <div>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <div class="testimonial-name">Sandra F.</div>
+            <div class="testimonial-role">Privatperson, Thun</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <p>Herr Keller hat mich in einem Strafverfahren verteidigt und vollständigen Freispruch erreicht. Professionell, diskret und immer erreichbar.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RL</div>
+          <div>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <div class="testimonial-name">Robert L.</div>
+            <div class="testimonial-role">Manager, Biel</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <p>Für unser Start-up hat die Kanzlei alle Verträge und die Gesellschaftsgründung perfekt abgewickelt. Kompetent und fair im Preis.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AW</div>
+          <div>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <div class="testimonial-name">Anna W.</div>
+            <div class="testimonial-role">CEO, Bern</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="faq" style="background:#f8fafc">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal"><span class="line"></span>Häufige Fragen<span class="line"></span></div>
+      <h2 class="section-title reveal">FAQ — <span class="accent">Wir antworten</span></h2>
+      <p class="section-desc reveal">Antworten auf die häufigsten Fragen unserer Mandanten.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">Was kostet eine Erstberatung? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Die telefonische Erstberatung ist kostenlos und unverbindlich. Wir nehmen uns 15–20 Minuten Zeit, um Ihren Fall einzuschätzen und das weitere Vorgehen zu besprechen.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">Wie schnell erhalte ich einen Termin? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">In dringenden Fällen können wir oft noch am selben Tag einen Termin anbieten. Reguläre Beratungstermine sind in der Regel innerhalb von 2–3 Werktagen möglich.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">Übernimmt die Rechtsschutzversicherung die Kosten? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">In vielen Fällen ja. Wir klären gerne vorab mit Ihrer Rechtsschutzversicherung, ob die Kosten übernommen werden und übernehmen die Korrespondenz für Sie.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">Arbeiten Sie auch auf Erfolgsbasis? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Je nach Fall und Rechtsgebiet bieten wir verschiedene Honorarmodelle an, einschliesslich Pauschalen und erfolgsabhängiger Vergütung. Sprechen Sie uns darauf an.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">In welchen Sprachen beraten Sie? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Wir beraten auf Deutsch, Französisch, Englisch und Italienisch. Damit decken wir die Bedürfnisse unserer internationalen Mandantschaft optimal ab.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="kontakt">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span>Kontakt</div>
+    <h2 class="section-title reveal">Nehmen Sie <span class="accent">Kontakt</span> auf</h2>
+    <p class="section-desc reveal">Ihr erster Schritt zu einer Lösung — rufen Sie uns an oder schreiben Sie uns.</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Adresse</h4><p>Bundesgasse 18<br>3011 Bern</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Telefon</h4><p>+41 31 312 45 67</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>E-Mail</h4><p>info@hartmann-partner.ch</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div><h4>Bürozeiten</h4><p>Mo – Fr: 08:00 – 18:00<br>Sa – So: Nach Vereinbarung</p></div>
+        </div>
+      </div>
+      <div class="map-wrapper reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2723.6!2d7.4474!3d46.9480!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDU2JzUyLjgiTiA3wrAyNic1MC42IkU!5e0!3m2!1sde!2sch!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/358466109064" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Hartmann <span>& Partner</span></div>
+      <div class="footer-links">
+        <a href="#rechtsgebiete">Rechtsgebiete</a>
+        <a href="#team">Anwälte</a>
+        <a href="#referenzen">Referenzen</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kanzlei Hartmann & Partner — Bern | Powered by <a href="https://elfennir.com" target="_blank">El Fennir Agency</a> | <a href="https://elfennir.com" target="_blank">elfennir.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger?.addEventListener('click',function(){
+  this.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile(){
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+}
+function toggleFaq(el){
+  el.parentElement.classList.toggle('open');
+}
+</script>
+<script src="/preview-bubble.js"></script>
+</body>
+</html>

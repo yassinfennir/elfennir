@@ -103,6 +103,24 @@ export const sv: Translations = {
     service9Title: "Cybersakerhet",
     service9Desc:
       "Sakerhetsrevisioner, SSL/HTTPS-implementering, DDoS-skydd, GDPR-efterlevnad, skanning och borttagning av skadlig programvara samt brandvaggskonfiguration \u2014 vi haller ditt foretag sakert.",
+    service10Title: "SaaS & webbapplikationer",
+    service10Desc:
+      "Skraddarsydda dashboards, adminpaneler och fullstack-applikationer som automatiserar din verksamhet och okar intakterna.",
+    service11Title: "AI-integration & API-utveckling",
+    service11Desc:
+      "Vi kopplar AI till dina affarsprocesser genom skraddarsydda API:er \u2014 automation som arbetar for dig dygnet runt.",
+    service12Title: "Sociala medier-automation",
+    service12Desc:
+      "Automatisk publicering, innehallsplanering och analys over alla kanaler \u2014 mindre arbete, mer synlighet.",
+    service13Title: "E-postmarknadsforingsautomation",
+    service13Desc:
+      "Drip-kampanjer, lead nurturing-sekvenser och automatiserade e-postmeddelanden som saljer at dig 24/7.",
+    service14Title: "CRM & affarssystem",
+    service14Desc:
+      "Notion, Airtable eller skraddarsytt CRM for kundhantering \u2014 all data pa ett stalle, alltid uppdaterad.",
+    service15Title: "Dataanalys & dashboards",
+    service15Desc:
+      "Realtidsmatningar, diagram och rapporter \u2014 se direkt vad som fungerar och var du ska fokusera harnast.",
     serviceCta: "Fa en gratis offert",
     priceFrom: "fran",
   },
@@ -585,6 +603,24 @@ export const es: Translations = {
     service9Title: "Ciberseguridad",
     service9Desc:
       "Auditorias de seguridad, implementacion SSL/HTTPS, proteccion DDoS, cumplimiento GDPR, escaneo y eliminacion de malware, y configuracion de firewalls \u2014 mantenemos tu negocio seguro.",
+    service10Title: "Desarrollo SaaS y web apps",
+    service10Desc:
+      "Dashboards personalizados, paneles de administracion y aplicaciones full-stack que automatizan tu negocio y aumentan los ingresos.",
+    service11Title: "Integracion IA y desarrollo API",
+    service11Desc:
+      "Conectamos la IA a tus procesos de negocio mediante APIs personalizadas \u2014 automatizacion que trabaja para ti las 24 horas.",
+    service12Title: "Automatizacion de redes sociales",
+    service12Desc:
+      "Publicacion automatica, programacion de contenido y analitica en todos tus canales \u2014 menos trabajo, mas visibilidad.",
+    service13Title: "Automatizacion de email marketing",
+    service13Desc:
+      "Campanas drip, secuencias de nurturing de leads y emails automaticos que venden por ti 24/7.",
+    service14Title: "CRM y sistemas de negocio",
+    service14Desc:
+      "Configuracion de Notion, Airtable o CRM personalizado para gestion de clientes \u2014 todos tus datos en un solo lugar, siempre actualizados.",
+    service15Title: "Analitica de datos y dashboards",
+    service15Desc:
+      "Metricas de negocio en tiempo real, graficos e informes \u2014 ve al instante que funciona y donde enfocar tu esfuerzo.",
     serviceCta: "Pide presupuesto gratis",
     priceFrom: "desde",
   },
@@ -1067,6 +1103,24 @@ export const de: Translations = {
     service9Title: "Cybersicherheit",
     service9Desc:
       "Sicherheitsaudits, SSL/HTTPS-Implementierung, DDoS-Schutz, DSGVO-Konformitat, Malware-Scanning und -Entfernung sowie Firewall-Konfiguration \u2014 wir halten Ihr Unternehmen sicher.",
+    service10Title: "SaaS- & Web-App-Entwicklung",
+    service10Desc:
+      "Massgeschneiderte Dashboards, Admin-Panels und Full-Stack-Anwendungen, die Ihr Geschaft automatisieren und den Umsatz steigern.",
+    service11Title: "KI-Integration & API-Entwicklung",
+    service11Desc:
+      "Wir verbinden KI mit Ihren Geschaftsprozessen uber massgeschneiderte APIs \u2014 Automatisierung, die rund um die Uhr fur Sie arbeitet.",
+    service12Title: "Social-Media-Automatisierung",
+    service12Desc:
+      "Automatisches Posten, Content-Planung und Analysen uber alle Kanale \u2014 weniger Arbeit, mehr Sichtbarkeit.",
+    service13Title: "E-Mail-Marketing-Automatisierung",
+    service13Desc:
+      "Drip-Kampagnen, Lead-Nurturing-Sequenzen und automatisierte E-Mails, die 24/7 fur Sie verkaufen.",
+    service14Title: "CRM & Geschaftssysteme",
+    service14Desc:
+      "Notion-, Airtable- oder massgeschneidertes CRM-Setup fur Kundenverwaltung \u2014 alle Daten an einem Ort, immer aktuell.",
+    service15Title: "Datenanalyse & Dashboards",
+    service15Desc:
+      "Echtzeit-Geschaftskennzahlen, Diagramme und Berichte \u2014 sehen Sie sofort, was funktioniert und worauf Sie sich als Nachstes konzentrieren sollten.",
     serviceCta: "Kostenloses Angebot anfordern",
     priceFrom: "ab",
   },
