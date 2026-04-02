@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // International SEO — Switzerland
     { url: `${baseUrl}/webdesign-schweiz`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/webdesign-zuerich`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/web-design-switzerland`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
 
     // International SEO — Dubai/UAE
