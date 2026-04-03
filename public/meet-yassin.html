@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Yassin El Fennir — Web Developer & AI Specialist, Zurich</title>
+  <meta name="description" content="Meet Yassin El Fennir — a real person behind elfennir.com. Web Developer & AI Specialist based in Zurich, Switzerland. Book a free video call today.">
+  <meta name="keywords" content="Yassin El Fennir, web developer Zurich, AI specialist Switzerland, elfennir, freelance developer">
+  <link rel="canonical" href="https://elfennir.com/meet-yassin">
+  <meta property="og:title" content="Meet Yassin El Fennir — Web Developer & AI Specialist">
+  <meta property="og:description" content="Get to know the person behind elfennir.com. Book a free video call, send a WhatsApp, or meet for coffee in Zurich.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://elfennir.com/meet-yassin">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org Person + ContactPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Meet Yassin El Fennir",
+    "url": "https://elfennir.com/meet-yassin",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Yassin El Fennir",
+      "jobTitle": "Web Developer & AI Specialist",
+      "url": "https://elfennir.com",
+      "email": "yassin@elfennir.com",
+      "telephone": "+358466109064",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zurich",
+        "addressCountry": "CH"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/yassin-fennir-712a19385",
+        "https://github.com/yassinfennir"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "El Fennir Agency",
+        "url": "https://elfennir.com"
+      },
+      "knowsLanguage": ["es", "en", "de", "ar"]
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #F97316;
+      --orange-light: #FFF7ED;
+      --orange-dark: #EA580C;
+      --bg: #FFFBF5;
+      --bg-white: #FFFFFF;
+      --bg-warm: #FEF3E2;
+      --text: #1C1917;
+      --text-secondary: #57534E;
+      --text-muted: #A8A29E;
+      --border: #E7E5E4;
+      --border-warm: #FED7AA;
+      --green: #16A34A;
+      --green-bg: #F0FDF4;
+      --green-border: #BBF7D0;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.07);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a { color: var(--orange); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--orange-dark); }
+
+    /* Language Toggle */
+    .lang-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 251, 245, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+    }
+
+    .lang-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .lang-bar-logo {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-bar-logo img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+
+    .lang-buttons {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      padding: 5px 12px;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      font-family: var(--font);
+    }
+
+    .lang-btn:hover { background: var(--orange-light); color: var(--orange); }
+    .lang-btn.active { background: var(--orange); color: #fff; }
+
+    /* Scroll Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 56px;
+      text-align: center;
+    }
+
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 28px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-serif);
+      box-shadow: 0 8px 32px rgba(249, 115, 22, 0.25);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .hero-greeting {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .hero-title {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .hero-location {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .hero-languages {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .hero-response {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green);
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: var(--font);
+      border: 1px solid var(--border);
+      background: var(--bg-white);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border-color: var(--orange);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      border-color: var(--orange-dark);
+      color: #fff;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      border-color: #25D366;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1DA851;
+      border-color: #1DA851;
+      color: #fff;
+    }
+
+    /* Sections */
+    section {
+      padding: 56px 0;
+    }
+
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    /* My Story */
+    .story-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .story-quote {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--orange);
+      border-left: 3px solid var(--orange);
+      padding-left: 20px;
+      margin: 32px 0;
+      line-height: 1.6;
+    }
+
+    .timeline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding: 20px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .timeline-arrow {
+      color: var(--orange);
+      font-size: 16px;
+    }
+
+    /* Contact Methods */
+    .contact-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 16px;
+      padding: 24px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--border-warm);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--orange-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .contact-info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-info p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .contact-info a.contact-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--orange);
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      padding: 28px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: "\201C";
+      font-family: var(--font-serif);
+      font-size: 48px;
+      color: var(--orange);
+      opacity: 0.3;
+      position: absolute;
+      top: 12px;
+      left: 20px;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 16px;
+      padding-top: 8px;
+    }
+
+    .testimonial-author {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .testimonial-company {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Proof Section */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .proof-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 20px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .proof-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .proof-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .proof-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .proof-value a {
+      color: var(--orange);
+      font-weight: 500;
+    }
+
+    /* Form Section */
+    .form-section {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-input,
+    .form-textarea {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-note {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 20px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .footer-links a:hover { color: var(--orange); }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .hero { padding: 48px 0 40px; }
+      .hero-greeting { font-size: 28px; }
+      .hero-photo { width: 160px; height: 160px; font-size: 44px; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; justify-content: center; }
+      section { padding: 40px 0; }
+      .section-title { font-size: 24px; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-section { padding: 24px; }
+      .lang-btn { padding: 5px 8px; font-size: 12px; }
+      .contact-card { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Bar -->
+  <nav class="lang-bar">
+    <div class="container">
+      <a href="https://elfennir.com" class="lang-bar-logo">
+        <img src="/logo.png" alt="elfennir" width="28" height="28">
+        elfennir
+      </a>
+      <div class="lang-buttons">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang="en">EN</button>
+        <button class="lang-btn" onclick="setLang('de')" data-lang="de">DE</button>
+        <button class="lang-btn" onclick="setLang('fi')" data-lang="fi">FI</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang="es">ES</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-photo" aria-label="Yassin El Fennir">
+        <span>YE</span>
+        <!-- Replace with: <img src="/images/yassin.webp" alt="Yassin El Fennir" width="200" height="200"> -->
+      </div>
+
+      <h1 class="hero-greeting" data-i18n="heroGreeting">Hei! I'm Yassin</h1>
+      <p class="hero-title" data-i18n="heroTitle">Web Developer & AI Specialist</p>
+      <p class="hero-location" data-i18n="heroLocation">Based in Zurich, Switzerland</p>
+      <p class="hero-languages" data-i18n="heroLanguages">I speak: Espanol, English, Deutsch, Arabic</p>
+      <div class="hero-response" data-i18n="heroResponse">I respond within 2 hours</div>
+      <div class="hero-ctas">
+        <a href="https://wa.me/358466109064?text=Hi%20Yassin!%20I%20found%20you%20on%20elfennir.com" class="btn btn-whatsapp">
+          <span>&#128241;</span> <span data-i18n="ctaWhatsapp">WhatsApp Video Call</span>
+        </a>
+        <a href="mailto:yassin@elfennir.com" class="btn btn-primary">
+          <span>&#128231;</span> <span data-i18n="ctaEmail">Email Me</span>
+        </a>
+        <a href="https://calendly.com/elfennir" class="btn">
+          <span>&#128197;</span> <span data-i18n="ctaBook">Book a Meeting</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <hr class="section-divider">
+
+  <!-- My Story -->
+  <section class="reveal">
+    <div class="container">
+      <h2 class="section-title" data-i18n="storyTitle">My Story</h2>
+      <p class="story-text" data-i18n="storyText">I grew up between Spain and Switzerland, living 9 years in the Swiss-German region. At 21, I decided to combine my passion for technology with helping businesses grow online. I've built 50+ websites and AI solutions for businesses across Finland, Switzerland, Spain, and the UAE. Every project starts with a real conversation &mdash; I want to understand YOUR business before I write a single line of code. That's why I offer a free first call: no sales pitch, just listening.</p>
+
+      <div class="story-quote" data-i18n="storyQuote">"I believe every business deserves a premium online presence, regardless of size."</div>
+
+      <div class="timeline">
+        <div class="timeline-item">&#127466;&#127480; <span data-i18n="timeSpain">Spain</span></div>
+        <span class="timeline-arrow">&rarr;</span>
+        <div class="timeline-item">&#127464;&#127469; <span data-i18n="timeSwitzerland">Switzerland (9 years)</span></div>
+        <span class="timeline-arrow">&rarr;</span>
+        <div class="timeline-item">&#127467;&#127470; <span data-i18n="timeFinland">Finland</span></div>
+        <span class="timeline-arrow">&rarr;</span>
+        <div class="timeline-item">&#127464;&#127469; <span data-i18n="timeBack">Back to Switzerland</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- How We Can Meet -->
+  <section class="reveal">
+    <div class="container">
+      <h2 class="section-title" data-i18n="meetTitle">How We Can Meet</h2>
+      <p class="section-subtitle" data-i18n="meetSubtitle">Choose whatever feels most comfortable for you. No pressure.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">&#127909;</div>
+          <div class="contact-info">
+            <h3 data-i18n="meetVideoTitle">Video Call</h3>
+            <p data-i18n="meetVideoDesc">Book a free 15-minute video call. See my face, ask your questions, no commitment.</p>
+            <a href="https://wa.me/358466109064?text=Hi%20Yassin!%20I'd%20like%20to%20schedule%20a%20video%20call." class="contact-link" data-i18n="meetVideoLink">Schedule via WhatsApp &rarr;</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">&#128222;</div>
+          <div class="contact-info">
+            <h3 data-i18n="meetPhoneTitle">Phone Call</h3>
+            <p data-i18n="meetPhoneDesc">+358 46 610 9064 &mdash; Call me anytime Mon&ndash;Sat, 9:00&ndash;20:00 CET</p>
+            <a href="tel:+358466109064" class="contact-link" data-i18n="meetPhoneLink">Call now &rarr;</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">&#128172;</div>
+          <div class="contact-info">
+            <h3>WhatsApp</h3>
+            <p data-i18n="meetWhatsappDesc">The fastest way to reach me. I respond within minutes.</p>
+            <a href="https://wa.me/358466109064" class="contact-link" data-i18n="meetWhatsappLink">Open WhatsApp &rarr;</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">&#128231;</div>
+          <div class="contact-info">
+            <h3>Email</h3>
+            <p data-i18n="meetEmailDesc">yassin@elfennir.com &mdash; For detailed proposals and documents.</p>
+            <a href="mailto:yassin@elfennir.com" class="contact-link" data-i18n="meetEmailLink">Send email &rarr;</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">&#128205;</div>
+          <div class="contact-info">
+            <h3 data-i18n="meetPersonTitle">In Person</h3>
+            <p data-i18n="meetPersonDesc">Currently based in the Zurich area. Happy to meet for coffee if you're local!</p>
+            <a href="https://wa.me/358466109064?text=Hi%20Yassin!%20I'd%20like%20to%20meet%20for%20coffee%20in%20Zurich." class="contact-link" data-i18n="meetPersonLink">Arrange a coffee &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- Testimonials -->
+  <section class="reveal">
+    <div class="container">
+      <h2 class="section-title" data-i18n="testimonialsTitle">What Clients Say About Working With Me</h2>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonial1Text">"Yassin is incredibly responsive. We had a video call and he understood our needs immediately. The website was delivered even faster than promised."</p>
+          <p class="testimonial-author">Nordic Globe</p>
+          <p class="testimonial-company">Helsinki, Finland</p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonial2Text">"Professional, friendly, and always available. It felt like working with a friend, not a contractor. He genuinely cared about our restaurant's success."</p>
+          <p class="testimonial-author">Kazumi</p>
+          <p class="testimonial-company">Espoo, Finland</p>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonial3Text">"He showed us the website progress in real-time over video call. Very transparent. We could see exactly what we were getting before paying."</p>
+          <p class="testimonial-author">Ha-Fix</p>
+          <p class="testimonial-company">Helsinki, Finland</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- Proof I'm Real -->
+  <section class="reveal">
+    <div class="container">
+      <h2 class="section-title" data-i18n="proofTitle">Proof I'm Real</h2>
+
+      <div class="proof-grid">
+        <div class="proof-item">
+          <span class="proof-icon">&#127891;</span>
+          <div>
+            <p class="proof-label" data-i18n="proofCertsLabel">Certifications</p>
+            <p class="proof-value" data-i18n="proofCertsValue">AI Automation, Full-Stack Development, Digital Marketing, Web Development</p>
+          </div>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-icon">&#128279;</span>
+          <div>
+            <p class="proof-label">LinkedIn</p>
+            <p class="proof-value"><a href="https://linkedin.com/in/yassin-fennir-712a19385" target="_blank" rel="noopener">Yassin El Fennir</a></p>
+          </div>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-icon">&#128187;</span>
+          <div>
+            <p class="proof-label">GitHub</p>
+            <p class="proof-value"><a href="https://github.com/yassinfennir" target="_blank" rel="noopener">yassinfennir</a></p>
+          </div>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-icon">&#128241;</span>
+          <div>
+            <p class="proof-label">WhatsApp</p>
+            <p class="proof-value"><a href="https://wa.me/358466109064" data-i18n="proofWhatsappValue">Real-time chat</a></p>
+          </div>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-icon">&#127760;</span>
+          <div>
+            <p class="proof-label" data-i18n="proofPortfolioLabel">Portfolio</p>
+            <p class="proof-value"><a href="https://elfennir.com" data-i18n="proofPortfolioValue">50+ live projects you can visit</a></p>
+          </div>
+        </div>
+
+        <div class="proof-item">
+          <span class="proof-icon">&#9989;</span>
+          <div>
+            <p class="proof-label" data-i18n="proofBusinessLabel">Verified Business</p>
+            <p class="proof-value" data-i18n="proofBusinessValue">El Fennir Agency, registered in Finland</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- Contact Form -->
+  <section class="reveal">
+    <div class="container">
+      <h2 class="section-title" data-i18n="formTitle">Let's Start a Conversation</h2>
+      <p class="section-subtitle" data-i18n="formSubtitle">No pressure, no commitment. Just a friendly conversation about your business.</p>
+
+      <div class="form-section">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="name" data-i18n="formName">Your name</label>
+              <input class="form-input" type="text" id="name" name="name" required placeholder="e.g. Max Mustermann">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact" data-i18n="formContact">Email or phone</label>
+              <input class="form-input" type="text" id="contact" name="contact" required placeholder="e.g. max@example.com">
+            </div>
+            <div class="form-group full">
+              <label class="form-label" for="message" data-i18n="formMessage">What do you need?</label>
+              <textarea class="form-textarea" id="message" name="message" required placeholder="Tell me briefly about your business and what you're looking for..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" class="btn btn-whatsapp" style="flex:1; justify-content:center;">
+              <span>&#128172;</span> <span data-i18n="formSendWhatsapp">Send via WhatsApp</span>
+            </button>
+            <a href="mailto:yassin@elfennir.com" class="btn btn-primary" style="flex:1; justify-content:center;" id="emailBtn">
+              <span>&#128231;</span> <span data-i18n="formSendEmail">Send via Email</span>
+            </a>
+          </div>
+        </form>
+
+        <p class="form-note" data-i18n="formNote">Your information stays private. I'll reply personally within 2 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://wa.me/358466109064">WhatsApp</a>
+        <a href="mailto:yassin@elfennir.com">yassin@elfennir.com</a>
+        <a href="tel:+358466109064">+358 46 610 9064</a>
+        <a href="https://linkedin.com/in/yassin-fennir-712a19385" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/yassinfennir" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://elfennir.com">elfennir.com</a>
+      </div>
+      <p class="footer-copy" data-i18n="footerCopy">&copy; 2026 Yassin El Fennir &mdash; El Fennir Agency, Zurich</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Internationalization ── */
+    var TRANSLATIONS = {
+      en: {
+        heroGreeting: "Hei! I'm Yassin \uD83D\uDC4B",
+        heroTitle: "Web Developer & AI Specialist",
+        heroLocation: "Based in Z\u00FCrich, Switzerland \uD83C\uDDE8\uD83C\uDDED",
+        heroLanguages: "I speak: Espa\u00F1ol \uD83C\uDDEA\uD83C\uDDF8 English \uD83C\uDDEC\uD83C\uDDE7 Deutsch \uD83C\uDDE9\uD83C\uDDEA \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \uD83C\uDDF2\uD83C\uDDE6",
+        heroResponse: "\u2705 I respond within 2 hours",
+        ctaWhatsapp: "WhatsApp Video Call",
+        ctaEmail: "Email Me",
+        ctaBook: "Book a Meeting",
+        storyTitle: "My Story",
+        storyText: "I grew up between Spain and Switzerland, living 9 years in the Swiss-German region. At 21, I decided to combine my passion for technology with helping businesses grow online. I\u2019ve built 50+ websites and AI solutions for businesses across Finland, Switzerland, Spain, and the UAE. Every project starts with a real conversation \u2014 I want to understand YOUR business before I write a single line of code. That\u2019s why I offer a free first call: no sales pitch, just listening.",
+        storyQuote: "\u201CI believe every business deserves a premium online presence, regardless of size.\u201D",
+        timeSpain: "Spain",
+        timeSwitzerland: "Switzerland (9 years)",
+        timeFinland: "Finland",
+        timeBack: "Back to Switzerland",
+        meetTitle: "How We Can Meet",
+        meetSubtitle: "Choose whatever feels most comfortable for you. No pressure.",
+        meetVideoTitle: "Video Call",
+        meetVideoDesc: "Book a free 15-minute video call. See my face, ask your questions, no commitment.",
+        meetVideoLink: "Schedule via WhatsApp \u2192",
+        meetPhoneTitle: "Phone Call",
+        meetPhoneDesc: "+358 46 610 9064 \u2014 Call me anytime Mon\u2013Sat, 9:00\u201320:00 CET",
+        meetPhoneLink: "Call now \u2192",
+        meetWhatsappDesc: "The fastest way to reach me. I respond within minutes.",
+        meetWhatsappLink: "Open WhatsApp \u2192",
+        meetEmailDesc: "yassin@elfennir.com \u2014 For detailed proposals and documents.",
+        meetEmailLink: "Send email \u2192",
+        meetPersonTitle: "In Person",
+        meetPersonDesc: "Currently based in the Z\u00FCrich area. Happy to meet for coffee if you\u2019re local! \u2615",
+        meetPersonLink: "Arrange a coffee \u2192",
+        testimonialsTitle: "What Clients Say About Working With Me",
+        testimonial1Text: "\u201CYassin is incredibly responsive. We had a video call and he understood our needs immediately. The website was delivered even faster than promised.\u201D",
+        testimonial2Text: "\u201CProfessional, friendly, and always available. It felt like working with a friend, not a contractor. He genuinely cared about our restaurant\u2019s success.\u201D",
+        testimonial3Text: "\u201CHe showed us the website progress in real-time over video call. Very transparent. We could see exactly what we were getting before paying.\u201D",
+        proofTitle: "Proof I'm Real",
+        proofCertsLabel: "Certifications",
+        proofCertsValue: "AI Automation, Full-Stack Dev, Digital Marketing, Web Development",
+        proofWhatsappValue: "Real-time chat",
+        proofPortfolioLabel: "Portfolio",
+        proofPortfolioValue: "50+ live projects you can visit",
+        proofBusinessLabel: "Verified Business",
+        proofBusinessValue: "El Fennir Agency, registered in Finland",
+        formTitle: "Let\u2019s Start a Conversation",
+        formSubtitle: "No pressure, no commitment. Just a friendly conversation about your business.",
+        formName: "Your name",
+        formContact: "Email or phone",
+        formMessage: "What do you need?",
+        formSendWhatsapp: "Send via WhatsApp",
+        formSendEmail: "Send via Email",
+        formNote: "Your information stays private. I\u2019ll reply personally within 2 hours.",
+        footerCopy: "\u00A9 2026 Yassin El Fennir \u2014 El Fennir Agency, Z\u00FCrich"
+      },
+      de: {
+        heroGreeting: "Hoi! Ich bin Yassin \uD83D\uDC4B",
+        heroTitle: "Webentwickler & KI-Spezialist",
+        heroLocation: "Z\u00FCrich, Schweiz \uD83C\uDDE8\uD83C\uDDED",
+        heroLanguages: "Ich spreche: Espa\u00F1ol \uD83C\uDDEA\uD83C\uDDF8 English \uD83C\uDDEC\uD83C\uDDE7 Deutsch \uD83C\uDDE9\uD83C\uDDEA \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \uD83C\uDDF2\uD83C\uDDE6",
+        heroResponse: "\u2705 Ich antworte innerhalb von 2 Stunden",
+        ctaWhatsapp: "WhatsApp Videoanruf",
+        ctaEmail: "E-Mail senden",
+        ctaBook: "Termin buchen",
+        storyTitle: "Meine Geschichte",
+        storyText: "Ich bin zwischen Spanien und der Schweiz aufgewachsen und habe 9 Jahre in der Deutschschweiz gelebt. Mit 21 habe ich beschlossen, meine Leidenschaft f\u00FCr Technologie mit der Unterst\u00FCtzung von Unternehmen im digitalen Bereich zu verbinden. Ich habe \u00FCber 50 Websites und KI-L\u00F6sungen f\u00FCr Unternehmen in Finnland, der Schweiz, Spanien und den VAE erstellt. Jedes Projekt beginnt mit einem echten Gespr\u00E4ch \u2014 ich m\u00F6chte IHR Gesch\u00E4ft verstehen, bevor ich eine einzige Zeile Code schreibe. Deshalb biete ich ein kostenloses Erstgespr\u00E4ch an: kein Verkaufsgespr\u00E4ch, nur Zuh\u00F6ren.",
+        storyQuote: "\u201EIch glaube, dass jedes Unternehmen eine erstklassige Online-Pr\u00E4senz verdient \u2014 unabh\u00E4ngig von der Gr\u00F6sse.\u201C",
+        timeSpain: "Spanien",
+        timeSwitzerland: "Schweiz (9 Jahre)",
+        timeFinland: "Finnland",
+        timeBack: "Zur\u00FCck in der Schweiz",
+        meetTitle: "Wie wir uns treffen k\u00F6nnen",
+        meetSubtitle: "W\u00E4hlen Sie, was f\u00FCr Sie am bequemsten ist. Kein Druck.",
+        meetVideoTitle: "Videoanruf",
+        meetVideoDesc: "Buchen Sie ein kostenloses 15-Min\u00FCtiges Videogespr\u00E4ch. Sehen Sie mein Gesicht, stellen Sie Fragen, keine Verpflichtung.",
+        meetVideoLink: "Via WhatsApp planen \u2192",
+        meetPhoneTitle: "Telefonanruf",
+        meetPhoneDesc: "+358 46 610 9064 \u2014 Rufen Sie mich an: Mo\u2013Sa, 9:00\u201320:00 MEZ",
+        meetPhoneLink: "Jetzt anrufen \u2192",
+        meetWhatsappDesc: "Der schnellste Weg, mich zu erreichen. Ich antworte innerhalb von Minuten.",
+        meetWhatsappLink: "WhatsApp \u00F6ffnen \u2192",
+        meetEmailDesc: "yassin@elfennir.com \u2014 F\u00FCr detaillierte Angebote und Dokumente.",
+        meetEmailLink: "E-Mail senden \u2192",
+        meetPersonTitle: "Pers\u00F6nlich",
+        meetPersonDesc: "Ich bin derzeit im Raum Z\u00FCrich. Gerne treffe ich Sie auf einen Kaffee! \u2615",
+        meetPersonLink: "Kaffee vereinbaren \u2192",
+        testimonialsTitle: "Was Kunden \u00FCber die Zusammenarbeit sagen",
+        testimonial1Text: "\u201EYassin ist unglaublich reaktionsschnell. Wir hatten einen Videoanruf und er hat unsere Bed\u00FCrfnisse sofort verstanden. Die Website wurde sogar schneller als versprochen geliefert.\u201C",
+        testimonial2Text: "\u201EProfessionell, freundlich und immer erreichbar. Es f\u00FChlte sich an, als w\u00FCrde man mit einem Freund arbeiten, nicht mit einem Auftragnehmer.\u201C",
+        testimonial3Text: "\u201EEr hat uns den Fortschritt der Website in Echtzeit per Videoanruf gezeigt. Sehr transparent. Wir konnten genau sehen, was wir bekommen, bevor wir bezahlt haben.\u201C",
+        proofTitle: "Beweis, dass ich echt bin",
+        proofCertsLabel: "Zertifizierungen",
+        proofCertsValue: "KI-Automatisierung, Full-Stack-Entwicklung, Digitales Marketing, Webentwicklung",
+        proofWhatsappValue: "Echtzeit-Chat",
+        proofPortfolioLabel: "Portfolio",
+        proofPortfolioValue: "\u00DCber 50 Live-Projekte zum Besuchen",
+        proofBusinessLabel: "Verifiziertes Unternehmen",
+        proofBusinessValue: "El Fennir Agency, registriert in Finnland",
+        formTitle: "Lassen Sie uns reden",
+        formSubtitle: "Kein Druck, keine Verpflichtung. Einfach ein freundliches Gespr\u00E4ch \u00FCber Ihr Gesch\u00E4ft.",
+        formName: "Ihr Name",
+        formContact: "E-Mail oder Telefon",
+        formMessage: "Was brauchen Sie?",
+        formSendWhatsapp: "\u00DCber WhatsApp senden",
+        formSendEmail: "Per E-Mail senden",
+        formNote: "Ihre Daten bleiben privat. Ich antworte pers\u00F6nlich innerhalb von 2 Stunden.",
+        footerCopy: "\u00A9 2026 Yassin El Fennir \u2014 El Fennir Agency, Z\u00FCrich"
+      },
+      fi: {
+        heroGreeting: "Hei! Olen Yassin \uD83D\uDC4B",
+        heroTitle: "Web-kehitt\u00E4j\u00E4 & teko\u00E4lyasiantuntija",
+        heroLocation: "Z\u00FCrich, Sveitsi \uD83C\uDDE8\uD83C\uDDED",
+        heroLanguages: "Puhun: Espa\u00F1ol \uD83C\uDDEA\uD83C\uDDF8 English \uD83C\uDDEC\uD83C\uDDE7 Deutsch \uD83C\uDDE9\uD83C\uDDEA \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \uD83C\uDDF2\uD83C\uDDE6",
+        heroResponse: "\u2705 Vastaan 2 tunnin sis\u00E4ll\u00E4",
+        ctaWhatsapp: "WhatsApp-videopuhelu",
+        ctaEmail: "L\u00E4het\u00E4 s\u00E4hk\u00F6posti",
+        ctaBook: "Varaa tapaaminen",
+        storyTitle: "Minun tarinani",
+        storyText: "Kasvoin Espanjassa ja Sveitsissä, asuin 9 vuotta saksankielisessä Sveitsissä. 21-vuotiaana päätin yhdistää intohimoni teknologiaan yritysten kasvattamiseen verkossa. Olen rakentanut yli 50 verkkosivustoa ja tekoälyratkaisua yrityksille Suomessa, Sveitsissä, Espanjassa ja Arabiemiraateissa. Jokainen projekti alkaa aidolla keskustelulla \u2014 haluan ymmärtää SINUN liiketoimintasi ennen kuin kirjoitan yhtään koodiriviä. Siksi tarjoan ilmaisen ensimmäisen puhelun: ei myyntipuhetta, vain kuuntelua.",
+        storyQuote: "\u201CUskon, ett\u00E4 jokainen yritys ansaitsee laadukkaan verkkon\u00E4kyvyyden koosta riippumatta.\u201D",
+        timeSpain: "Espanja",
+        timeSwitzerland: "Sveitsi (9 vuotta)",
+        timeFinland: "Suomi",
+        timeBack: "Takaisin Sveitsiin",
+        meetTitle: "Miten voimme tavata",
+        meetSubtitle: "Valitse mik\u00E4 tuntuu mukavimmalta. Ei painetta.",
+        meetVideoTitle: "Videopuhelu",
+        meetVideoDesc: "Varaa ilmainen 15 minuutin videopuhelu. N\u00E4e kasvoni, kysy kysymyksesi, ei sitoumusta.",
+        meetVideoLink: "Sovi WhatsAppissa \u2192",
+        meetPhoneTitle: "Puhelu",
+        meetPhoneDesc: "+358 46 610 9064 \u2014 Soita milloin vain ma\u2013la, 9:00\u201320:00 CET",
+        meetPhoneLink: "Soita nyt \u2192",
+        meetWhatsappDesc: "Nopein tapa tavoittaa minut. Vastaan minuuteissa.",
+        meetWhatsappLink: "Avaa WhatsApp \u2192",
+        meetEmailDesc: "yassin@elfennir.com \u2014 Yksityiskohtaisiin tarjouksiin ja dokumentteihin.",
+        meetEmailLink: "L\u00E4het\u00E4 s\u00E4hk\u00F6posti \u2192",
+        meetPersonTitle: "Kasvotusten",
+        meetPersonDesc: "Olen t\u00E4ll\u00E4 hetkell\u00E4 Z\u00FCrichin alueella. Tavataan kahvilla! \u2615",
+        meetPersonLink: "Sovi kahvitapaaminen \u2192",
+        testimonialsTitle: "Mit\u00E4 asiakkaat sanovat yhteisty\u00F6st\u00E4",
+        testimonial1Text: "\u201CYassin on uskomattoman nopea vastaamaan. Meill\u00E4 oli videopuhelu ja h\u00E4n ymm\u00E4rsi tarpeemme heti. Sivusto toimitettiin jopa nopeammin kuin luvattiin.\u201D",
+        testimonial2Text: "\u201CAmmattimainen, yst\u00E4v\u00E4llinen ja aina tavoitettavissa. Tuntui kuin ty\u00F6skentelisi yst\u00E4v\u00E4n, ei urakoitsijan kanssa.\u201D",
+        testimonial3Text: "\u201CH\u00E4n n\u00E4ytti meille verkkosivuston edistymisen reaaliajassa videopuhelun kautta. Eritt\u00E4in l\u00E4pin\u00E4kyv\u00E4\u00E4.\u201D",
+        proofTitle: "Todiste siit\u00E4, ett\u00E4 olen todellinen",
+        proofCertsLabel: "Sertifikaatit",
+        proofCertsValue: "Teko\u00E4lyautomaatio, Full-Stack-kehitys, Digitaalinen markkinointi, Web-kehitys",
+        proofWhatsappValue: "Reaaliaikainen chat",
+        proofPortfolioLabel: "Portfolio",
+        proofPortfolioValue: "Yli 50 live-projektia joihin voit tutustua",
+        proofBusinessLabel: "Vahvistettu yritys",
+        proofBusinessValue: "El Fennir Agency, rekister\u00F6ity Suomessa",
+        formTitle: "Aloitetaan keskustelu",
+        formSubtitle: "Ei painetta, ei sitoumusta. Vain yst\u00E4v\u00E4llinen keskustelu liiketoiminnastasi.",
+        formName: "Nimesi",
+        formContact: "S\u00E4hk\u00F6posti tai puhelin",
+        formMessage: "Mit\u00E4 tarvitset?",
+        formSendWhatsapp: "L\u00E4het\u00E4 WhatsAppilla",
+        formSendEmail: "L\u00E4het\u00E4 s\u00E4hk\u00F6postilla",
+        formNote: "Tietosi pysyv\u00E4t yksityisin\u00E4. Vastaan henkil\u00F6kohtaisesti 2 tunnin sis\u00E4ll\u00E4.",
+        footerCopy: "\u00A9 2026 Yassin El Fennir \u2014 El Fennir Agency, Z\u00FCrich"
+      },
+      es: {
+        heroGreeting: "\u00A1Hola! Soy Yassin \uD83D\uDC4B",
+        heroTitle: "Desarrollador Web & Especialista en IA",
+        heroLocation: "Z\u00FArich, Suiza \uD83C\uDDE8\uD83C\uDDED",
+        heroLanguages: "Hablo: Espa\u00F1ol \uD83C\uDDEA\uD83C\uDDF8 English \uD83C\uDDEC\uD83C\uDDE7 Deutsch \uD83C\uDDE9\uD83C\uDDEA \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \uD83C\uDDF2\uD83C\uDDE6",
+        heroResponse: "\u2705 Respondo en menos de 2 horas",
+        ctaWhatsapp: "Videollamada WhatsApp",
+        ctaEmail: "Env\u00EDame un email",
+        ctaBook: "Reserva una reuni\u00F3n",
+        storyTitle: "Mi historia",
+        storyText: "Crec\u00ED entre Espa\u00F1a y Suiza, viviendo 9 a\u00F1os en la regi\u00F3n germanoparlante suiza. A los 21 a\u00F1os, decid\u00ED combinar mi pasi\u00F3n por la tecnolog\u00EDa con ayudar a empresas a crecer online. He creado m\u00E1s de 50 webs y soluciones de IA para negocios en Finlandia, Suiza, Espa\u00F1a y los Emiratos \u00C1rabes. Cada proyecto empieza con una conversaci\u00F3n real \u2014 quiero entender TU negocio antes de escribir una sola l\u00EDnea de c\u00F3digo. Por eso ofrezco una primera llamada gratis: sin discurso de ventas, solo escuchar.",
+        storyQuote: "\u201CCreo que cada negocio merece una presencia online premium, sin importar su tama\u00F1o.\u201D",
+        timeSpain: "Espa\u00F1a",
+        timeSwitzerland: "Suiza (9 a\u00F1os)",
+        timeFinland: "Finlandia",
+        timeBack: "De vuelta en Suiza",
+        meetTitle: "C\u00F3mo podemos reunirnos",
+        meetSubtitle: "Elige lo que te resulte m\u00E1s c\u00F3modo. Sin presi\u00F3n.",
+        meetVideoTitle: "Videollamada",
+        meetVideoDesc: "Reserva una videollamada gratuita de 15 minutos. Ve mi cara, haz tus preguntas, sin compromiso.",
+        meetVideoLink: "Agendar por WhatsApp \u2192",
+        meetPhoneTitle: "Llamada telef\u00F3nica",
+        meetPhoneDesc: "+358 46 610 9064 \u2014 Ll\u00E1mame de lunes a s\u00E1bado, 9:00\u201320:00 CET",
+        meetPhoneLink: "Llamar ahora \u2192",
+        meetWhatsappDesc: "La forma m\u00E1s r\u00E1pida de contactarme. Respondo en minutos.",
+        meetWhatsappLink: "Abrir WhatsApp \u2192",
+        meetEmailDesc: "yassin@elfennir.com \u2014 Para propuestas detalladas y documentos.",
+        meetEmailLink: "Enviar email \u2192",
+        meetPersonTitle: "En persona",
+        meetPersonDesc: "Actualmente en la zona de Z\u00FArich. \u00A1Encantado de quedar para un caf\u00E9! \u2615",
+        meetPersonLink: "Quedar para un caf\u00E9 \u2192",
+        testimonialsTitle: "Lo que dicen los clientes sobre trabajar conmigo",
+        testimonial1Text: "\u201CYassin es incre\u00EDblemente r\u00E1pido respondiendo. Tuvimos una videollamada y entendi\u00F3 nuestras necesidades al instante. La web se entreg\u00F3 incluso antes de lo prometido.\u201D",
+        testimonial2Text: "\u201CProfesional, amable y siempre disponible. Se sinti\u00F3 como trabajar con un amigo, no con un freelancer.\u201D",
+        testimonial3Text: "\u201CNos mostr\u00F3 el progreso de la web en tiempo real por videollamada. Muy transparente. Pod\u00EDamos ver exactamente lo que obten\u00EDamos antes de pagar.\u201D",
+        proofTitle: "Prueba de que soy real",
+        proofCertsLabel: "Certificaciones",
+        proofCertsValue: "Automatizaci\u00F3n IA, Desarrollo Full-Stack, Marketing Digital, Desarrollo Web",
+        proofWhatsappValue: "Chat en tiempo real",
+        proofPortfolioLabel: "Portfolio",
+        proofPortfolioValue: "M\u00E1s de 50 proyectos en vivo que puedes visitar",
+        proofBusinessLabel: "Empresa verificada",
+        proofBusinessValue: "El Fennir Agency, registrada en Finlandia",
+        formTitle: "Empecemos una conversaci\u00F3n",
+        formSubtitle: "Sin presi\u00F3n, sin compromiso. Solo una conversaci\u00F3n amigable sobre tu negocio.",
+        formName: "Tu nombre",
+        formContact: "Email o tel\u00E9fono",
+        formMessage: "\u00BFQu\u00E9 necesitas?",
+        formSendWhatsapp: "Enviar por WhatsApp",
+        formSendEmail: "Enviar por email",
+        formNote: "Tu informaci\u00F3n es privada. Respondo personalmente en menos de 2 horas.",
+        footerCopy: "\u00A9 2026 Yassin El Fennir \u2014 El Fennir Agency, Z\u00FArich"
+      }
+    };
+
+    var currentLang = "en";
+
+    function setLang(lang) {
+      currentLang = lang;
+      var t = TRANSLATIONS[lang];
+      if (!t) return;
+
+      document.querySelectorAll("[data-i18n]").forEach(function(el) {
+        var key = el.getAttribute("data-i18n");
+        if (t[key]) {
+          el.innerHTML = t[key];
+        }
+      });
+
+      document.querySelectorAll(".lang-btn").forEach(function(btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+
+      document.documentElement.lang = lang === "es" ? "es" : lang === "de" ? "de" : lang === "fi" ? "fi" : "en";
+
+      try { localStorage.setItem("meetYassinLang", lang); } catch(e) {}
+    }
+
+    /* ── Form → WhatsApp ── */
+    function handleSubmit(e) {
+      e.preventDefault();
+      var name = document.getElementById("name").value.trim();
+      var contact = document.getElementById("contact").value.trim();
+      var message = document.getElementById("message").value.trim();
+
+      if (!name || !contact || !message) return;
+
+      var text = "Hi Yassin! I'm " + name + " (" + contact + ").\n\n" + message;
+      var encoded = encodeURIComponent(text);
+      window.open("https://wa.me/358466109064?text=" + encoded, "_blank");
+    }
+
+    /* ── Scroll Reveal ── */
+    function initReveal() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+      document.querySelectorAll(".reveal").forEach(function(el) {
+        observer.observe(el);
+      });
+    }
+
+    /* ── Init ── */
+    document.addEventListener("DOMContentLoaded", function() {
+      initReveal();
+
+      try {
+        var saved = localStorage.getItem("meetYassinLang");
+        if (saved && TRANSLATIONS[saved]) {
+          setLang(saved);
+        }
+      } catch(e) {}
+    });
+  </script>
+
+</body>
+</html>

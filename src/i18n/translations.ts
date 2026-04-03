@@ -36,6 +36,8 @@ const fi = {
     stat2Label: "Omistautuminen",
     stat3Label: "Päivän toimitus",
     stat4Label: "Jatkuva tuki",
+    hiImYassin: "Hei, olen Yassin — rakennetaan jotain hienoa yhdessä",
+    meetMeLink: "Tapaa minut",
   },
 
   // === PROBLEM ===
@@ -492,6 +494,11 @@ const fi = {
     responseTimeTitle: "Keskimääräinen vastausaika: alle 2 tuntia",
     responseTimeSub: "Käytettävissä 7 päivää viikossa",
     availableInGerman: "Auch verfugbar auf Deutsch",
+    meetMe: "Tapaa minut",
+    personallyHandle: "Hoidan jokaisen projektin henkilökohtaisesti",
+    videoCall: "Videopuhelu",
+    iSpeak: "Puhun:",
+    responseTime: "Vastausaika: alle 2 tuntia",
   },
 
   // === FOOTER ===
@@ -503,6 +510,10 @@ const fi = {
     contactTitle: "Yhteystiedot",
     copyright: "Kaikki oikeudet pidätetään.",
     tagline: "Ongelmien ratkaisu \u00b7 Tekoälyautomaatio \u00b7 Liiketoiminnan kasvu",
+    foundedBy: "Perustanut ja ylläpitää Yassin El Fennir",
+    meetYassin: "Tapaa Yassin",
+    myWork: "Työni",
+    testimonials: "Suositukset",
   },
 
   // === LANGUAGE TOGGLE ===
@@ -549,6 +560,8 @@ const en: typeof fi = {
     stat2Label: "Dedication",
     stat3Label: "Day Delivery",
     stat4Label: "Ongoing Support",
+    hiImYassin: "Hi, I'm Yassin \u2014 let's build something great together",
+    meetMeLink: "Meet me",
   },
 
   // === PROBLEM ===
@@ -1005,6 +1018,11 @@ const en: typeof fi = {
     responseTimeTitle: "Average response time: under 2 hours",
     responseTimeSub: "Available 7 days a week",
     availableInGerman: "Also available in German",
+    meetMe: "Meet Me",
+    personallyHandle: "I personally handle every project",
+    videoCall: "Video Call",
+    iSpeak: "I speak:",
+    responseTime: "Response time: < 2 hours",
   },
 
   // === FOOTER ===
@@ -1016,6 +1034,10 @@ const en: typeof fi = {
     contactTitle: "Contact",
     copyright: "All rights reserved.",
     tagline: "Problem Solving \u00b7 AI Automation \u00b7 Business Growth",
+    foundedBy: "Founded & operated by Yassin El Fennir",
+    meetYassin: "Meet Yassin",
+    myWork: "My Work",
+    testimonials: "Testimonials",
   },
 
   // === LANGUAGE TOGGLE ===
