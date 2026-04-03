@@ -38,6 +38,8 @@ export const fr: Translations = {
     stat2Label: "Dévouement",
     stat3Label: "Jours de livraison",
     stat4Label: "Support",
+    hiImYassin: "Salut, je suis Yassin — construisons quelque chose de génial ensemble",
+    meetMeLink: "Me rencontrer",
   },
 
   // === PROBLEM ===
@@ -494,6 +496,11 @@ export const fr: Translations = {
     responseTimeTitle: "Temps de réponse moyen : moins de 2 heures",
     responseTimeSub: "Disponible 7 jours sur 7",
     availableInGerman: "Egalement disponible en allemand",
+    meetMe: "Me rencontrer",
+    personallyHandle: "Je gère personnellement chaque projet",
+    videoCall: "Appel vidéo",
+    iSpeak: "Je parle :",
+    responseTime: "Temps de réponse : < 2 heures",
   },
 
   // === FOOTER ===
@@ -505,6 +512,10 @@ export const fr: Translations = {
     contactTitle: "Contact",
     copyright: "Tous droits réservés.",
     tagline: "Sites web \u00b7 Automatisation IA \u00b7 Croissance digitale",
+    foundedBy: "Fondé et géré par Yassin El Fennir",
+    meetYassin: "Rencontrer Yassin",
+    myWork: "Mon travail",
+    testimonials: "Témoignages",
   },
 
   // === LANGUAGE TOGGLE ===
@@ -551,6 +562,8 @@ export const it: Translations = {
     stat2Label: "Dedizione",
     stat3Label: "Giorni di consegna",
     stat4Label: "Supporto",
+    hiImYassin: "Ciao, sono Yassin — costruiamo qualcosa di fantastico insieme",
+    meetMeLink: "Incontrami",
   },
 
   // === PROBLEM ===
@@ -1007,6 +1020,11 @@ export const it: Translations = {
     responseTimeTitle: "Tempo di risposta medio: meno di 2 ore",
     responseTimeSub: "Disponibile 7 giorni su 7",
     availableInGerman: "Disponibile anche in tedesco",
+    meetMe: "Incontrami",
+    personallyHandle: "Gestisco personalmente ogni progetto",
+    videoCall: "Videochiamata",
+    iSpeak: "Parlo:",
+    responseTime: "Tempo di risposta: < 2 ore",
   },
 
   // === FOOTER ===
@@ -1018,6 +1036,10 @@ export const it: Translations = {
     contactTitle: "Contatti",
     copyright: "Tutti i diritti riservati.",
     tagline: "Siti web \u00b7 Automazione IA \u00b7 Crescita digitale",
+    foundedBy: "Fondato e gestito da Yassin El Fennir",
+    meetYassin: "Incontra Yassin",
+    myWork: "Il mio lavoro",
+    testimonials: "Testimonianze",
   },
 
   // === LANGUAGE TOGGLE ===
@@ -1064,6 +1086,8 @@ export const pt: Translations = {
     stat2Label: "Dedica\u00e7\u00e3o",
     stat3Label: "Dias de entrega",
     stat4Label: "Suporte",
+    hiImYassin: "Olá, sou o Yassin — vamos construir algo incrível juntos",
+    meetMeLink: "Conhecer-me",
   },
 
   // === PROBLEM ===
@@ -1520,6 +1544,11 @@ export const pt: Translations = {
     responseTimeTitle: "Tempo m\u00e9dio de resposta: menos de 2 horas",
     responseTimeSub: "Dispon\u00edvel 7 dias por semana",
     availableInGerman: "Tambem disponivel em alemao",
+    meetMe: "Conhecer-me",
+    personallyHandle: "Eu pessoalmente cuido de cada projeto",
+    videoCall: "Videochamada",
+    iSpeak: "Eu falo:",
+    responseTime: "Tempo de resposta: < 2 horas",
   },
 
   // === FOOTER ===
@@ -1531,6 +1560,10 @@ export const pt: Translations = {
     contactTitle: "Contacto",
     copyright: "Todos os direitos reservados.",
     tagline: "Sites \u00b7 Automa\u00e7\u00e3o IA \u00b7 Crescimento digital",
+    foundedBy: "Fundado e operado por Yassin El Fennir",
+    meetYassin: "Conhecer Yassin",
+    myWork: "O meu trabalho",
+    testimonials: "Testemunhos",
   },
 
   // === LANGUAGE TOGGLE ===
